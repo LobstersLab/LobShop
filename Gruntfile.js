@@ -2,10 +2,10 @@
 
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-retire');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
             },
             production: {
                 NODE_ENV: 'production',
-                PORT: 3000,
+                PORT: 3000
             },
             testing: {
                 NODE_ENV: 'testing',
@@ -47,11 +47,18 @@ module.exports = function (grunt) {
             // build: {
             //     command: ''
             // }
+        },
+        retire: {
+            js: ['public/*'], /** Which js-files to scan. **/
+            node: ['./'], /** Which node directories to scan (containing package.json). **/
+            options: {
+
+            }
         }
     });
 
     grunt.registerTask('default', ['env:development', 'nodemon']);
     grunt.registerTask('production', ['env:production', 'nodemon']);
     grunt.registerTask('test', ['env:testing', 'mochaTest']);
-    // grunt.registerTask('build', ['shell']);
+    grunt.registerTask('retire-modules', ['retire']);
 };
