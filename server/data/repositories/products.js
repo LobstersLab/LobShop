@@ -65,6 +65,11 @@ function create (params) {
     //    }
     //}
 
+    //Data Validation
+    if(!params.name || !params.price || !params.description){
+        deferred.reject(new Error('Invalid Data!'));
+    }
+
     item = new Product({
         name: params.name,
         lname: params.name.toLowerCase(),
@@ -72,7 +77,7 @@ function create (params) {
         description: params.description,
         brand: mongoose.Types.ObjectId(params.brandId),
         assets:{
-            images:params.assets
+            images: params.assets
         },
         attributes: params.attributes
     });
@@ -81,25 +86,24 @@ function create (params) {
 
     item.save(function (error, savedItem) {
         if (error) {
+            console.log('err');
             deferred.reject(error);
+            return deferred.promise;
         }
-        var price = new Price({
-            //If a store is added concatenate it to the item id
-            _id: savedItem._id,
-            price : params.price
-        });
 
-        price.save(function (error){
-            if (error) {
+        savePrice(savedItem, params)
+
+        .then(function (){
+            return saveSummary(savedItem);
+        }, function (error){
                 deferred.reject(error);
-            }
+        })
+
+        .then(function (){
+            deferred.resolve(savedItem);
+        }, function (error){
+            deferred.reject(error);
         });
-
-        var summary = new Summary({
-
-
-        });
-        deferred.resolve(savedItem);
 
     });
 
@@ -140,6 +144,54 @@ function removeAll () {
     //var deferred = Q.defer();
 
     //return deferred.promise;
+}
+
+function savePrice (savedItem, params){
+
+    var deferred = Q.defer();
+
+    var price = new Price({
+        //If a store is added concatenate it to the item id
+        _id: savedItem._id,
+        price : params.price
+    });
+
+    price.save(function (error){
+        if (error) {
+            deferred.reject(error);
+        }
+
+        deferred.resolve(price);
+    });
+
+    return deferred.promise;
+}
+
+function saveSummary (savedItem){
+
+    var deferred = Q.defer();
+
+    var summary = new Summary({
+        name: savedItem.name,
+        lname: savedItem.lname,
+        category: savedItem.categoryId,
+        description: savedItem.description,
+        brand: mongoose.Types.ObjectId(savedItem.brandId),
+        assets:{
+            images:savedItem.assets
+        },
+        attributes: savedItem.attributes
+    });
+
+    summary.save(function (error){
+        if (error) {
+            deferred.reject(error);
+        }
+
+        deferred.resolve(summary);
+    });
+
+    return deferred.promise;
 }
 
 module.exports = {
