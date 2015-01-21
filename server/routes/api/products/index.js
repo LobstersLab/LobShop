@@ -10,7 +10,7 @@ module.exports = function (data) {
     
     router.route('/:id')
         .get(ProductsController.getById)
-        .put(ProductsController.update)
+        .put(ProductsController.updateProductById)
         .delete(ProductsController.remove);
     
     return router;

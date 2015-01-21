@@ -45,7 +45,19 @@
                     });
                 });
         },
-        update: function (req, res) {
+        updateProductById: function (req, res) {
+            data.products.updateProductById(req.body)
+                .then(function (updatedProduct) {
+                    res.json({
+                        message: 'Product updated successfully!',
+                        product: updatedProduct
+                    });
+                },function (error) {
+                    res.render('error', {
+                        message: 'Cannot update product!',
+                        error: error
+                    });
+                });
             
         },
         remove: function (req, res) { 

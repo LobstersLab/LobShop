@@ -110,28 +110,43 @@ function create (params) {
     return deferred.promise;
 }
 
-function updateById (id, updatesObject) {
-    //var deferred = Q.defer();
+function updateProductById (params) {
 
-    //CharterParty.findById(id, function (error, cpForm){
-    //    if(error){
-    //        deferred.reject(error);
-    //    }
-    //    cpForm.terms = [];
-    //    updatesObject.terms.forEach(function(item,index){
-    //        cpForm.terms.set(index,item);
-    //    });
+    var deferred = Q.defer();
+    var id = params.id;
+    var updatesObject = params.updatesObject;
 
-    //    cpForm = cpForm.toObject();
-    //    CharterParty.findByIdAndUpdate(id, { $set: cpForm },function (error, updatedCPForm){
-    //        if (error) {
-    //            deferred.reject(error);
-    //        }
-    //        deferred.resolve(updatedCPForm);
-    //    });
-    //});
+    //Data Validation and adjustments
+    if(updatesObject.name){
+        updatesObject.lname = updatesObject.name.toLowerCase();
+    }
 
-    //return deferred.promise;
+    Product.findById(id, function (error, product){
+        if(error){
+            deferred.reject(error);
+        }
+
+        Object.keys(updatesObject).forEach(function (key) {
+            product.set(key, updatesObject[key]);
+        });
+
+        product = product.toObject();
+
+        Product.findByIdAndUpdate(id, { $set: product }, function (error, updatedProduct){
+            if (error) {
+                deferred.reject(error);
+            }
+
+            updateSummaryById(updatedProduct)
+                .then(function (updatedSummary){
+
+                });
+
+            deferred.resolve(updatedProduct);
+        });
+    });
+
+    return deferred.promise;
 }
 
 function removeById (id) {
@@ -194,13 +209,38 @@ function saveSummary (savedItem){
     return deferred.promise;
 }
 
+function updateSummaryById (product){
+
+    var deferred = Q.defer();
+
+    Summary.findById(product.id, function (error, summary){
+        if(error){
+            deferred.reject(error);
+        }
+
+        Object.keys(product).forEach(function (key) {
+            summary.set(key, product[key]);
+        });
+
+        summary = summary.toObject();
+
+        Summary.findByIdAndUpdate(id, { $set: summary }, function (error, updatedSummary){
+            if (error) {
+                deferred.reject(error);
+            }
+
+            deferred.resolve(updatedSummary);
+        });
+    });
+}
+
 module.exports = {
     name: 'products',
     data: {
         getAll: getAll,
         getById: getById,
         create: create,
-        updateById: updateById,
+        updateById: updateProductById,
         removeById: removeById,
         removeAll: removeAll
     }
