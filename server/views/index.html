@@ -1,6 +1,9 @@
-<html>
-<head></head>
-<body>
-<div>Welcome to Lob Shop</div>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block title %} <%= title %> {% endblock %}
+
+{% block content %}
+    <div ng-app="core" ng-controller="CoreController">
+        Message: {{ message }}
+    </div>
+{% endblock %}

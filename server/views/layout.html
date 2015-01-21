@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title> {% block title %}{% endblock %} </title>
+
+    <!--Application CSS Files-->
+    {% for cssFile in cssFiles %}
+    <link rel="stylesheet" href="<%= cssFile %>">
+    {% endfor %}
+
+</head>
+
+<body>
+
+{% block content %}{% endblock %}
+
+<!--Application JavaScript Files-->
+{% for jsFile in jsFiles %}
+<script type="text/javascript" src="<%= jsFile %>"></script>
+{% endfor %}
+
+</body>
+
+</html>
