@@ -1,0 +1,32 @@
+{
+  "name": "LobShop",
+  "version": "0.0.1",
+  "homepage": "https://github.com/LobstersLab/LobShop",
+  "authors": [
+    "Lobsters Lab"
+  ],
+  "description": "Open Source shopping cart written in NodeJS",
+  "main": "app.js",
+  "keywords": [
+    "shopping",
+    "cart",
+    "ecommerce"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.10",
+    "angular-bootstrap": "~0.12.0",
+    "angular-route": "~1.3.10",
+    "angular-resource": "~1.3.10",
+    "angular-cookies": "~1.3.10",
+    "angular-animate": "~1.3.10"
+  }
+}
