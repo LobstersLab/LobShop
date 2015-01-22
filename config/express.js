@@ -10,6 +10,7 @@ var lusca = require('lusca');
 module.exports = function (app, config, passport) {
     //
     app.locals.cssFiles = [
+        '/assets/css/bootstrap.css',
         '/assets/css/style.css'
     ];
     app.locals.jsFiles = [
@@ -32,7 +33,7 @@ module.exports = function (app, config, passport) {
         '/app/modules/core/configs/config.js',
         '/app/modules/core/configs/routes.js',
         '/app/modules/core/controllers/coreController.js',
-
+        '/app/shared/header/controllers/headerController.js'
     ];
 
     app.set('port', config.session);
