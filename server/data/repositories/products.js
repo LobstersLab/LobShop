@@ -67,7 +67,7 @@ function create (params) {
 
     //Data Validation
     if(!params.name || !params.price || !params.description){
-        deferred.reject(new Error('Invalid Data!'));
+        deferred.reject(new Error('Invalid input data! Name, price or description are missing!'));
     }
 
     item = new Product({
@@ -86,7 +86,6 @@ function create (params) {
 
     item.save(function (error, savedItem) {
         if (error) {
-            console.log('err');
             deferred.reject(error);
             return deferred.promise;
         }
@@ -96,7 +95,7 @@ function create (params) {
         .then(function (){
             return saveSummary(savedItem);
         }, function (error){
-                deferred.reject(error);
+            deferred.reject(error);
         })
 
         .then(function (){
