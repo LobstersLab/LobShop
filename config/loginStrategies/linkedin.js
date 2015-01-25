@@ -1,15 +1,20 @@
 'use strict';
 
-var passport = require('passport'),
-    LinkedInStrategy = require('passport-linkedin').Strategy,
-    UsersController = require('./../../server/controllers/Users/UsersController');
+var passport = require('passport');
+var UsersController = require('./../../server/controllers/Users/UsersController');
+var LinkedInStrategy = require('passport-linkedin').Strategy;
+var linkedInConfig = {
+    clientID: process.env.LINKEDIN_ID || 'APP_ID',
+    clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
+    callbackURL: '/auth/linkedin/callback'
+};
 
 module.exports = function() {
     // Use linkedin strategy
     passport.use(new LinkedInStrategy({
-            consumerKey: config.linkedin.clientID,
-            consumerSecret: config.linkedin.clientSecret,
-            callbackURL: config.linkedin.callbackURL,
+            consumerKey: linkedInConfig.clientID,
+            consumerSecret: linkedInConfig.clientSecret,
+            callbackURL: linkedInConfig.callbackURL,
             passReqToCallback: true,
             profileFields: ['id', 'first-name', 'last-name', 'email-address']
         },

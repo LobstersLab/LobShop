@@ -48,6 +48,12 @@ var UserSchema = new Schema({
 		}],
 		default: ['user']
 	},
+	provider: {
+		type: String,
+		required: 'Provider is required'
+	},
+	providerData: {},
+	additionalProvidersData: {},
 	updated: {
 		type: Date
 	},
