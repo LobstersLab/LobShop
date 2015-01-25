@@ -3,9 +3,7 @@
         getAll: function (req, res) {
             data.products.getAll()
                 .then(function (products) {
-                    res.json({
-                        products: products
-                    });
+                    res.send(products);
                 }, function (error) {
                     res.render('error', {
                         error: error,
@@ -18,9 +16,7 @@
 
             data.products.getById(id)
                 .then(function (product) {
-                    res.json({
-                        product: product
-                    });
+                    res.send(product);
                 }, function (error) {
                     res.render('error', {
                         error: error,
