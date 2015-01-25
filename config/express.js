@@ -20,8 +20,10 @@ module.exports = function (app, config, passport) {
         '/assets/bower_components/angular-resource/angular-resource.js',
         '/assets/bower_components/angular-cookies/angular-cookies.js',
         '/assets/bower_components/angular-animate/angular-animate.js',
+
         '/config.js',
         '/application.js',
+
         '/app/modules/core/module.js',
         '/app/modules/catalog/module.js',
         '/app/modules/shoppingCart/module.js',
@@ -30,11 +32,15 @@ module.exports = function (app, config, passport) {
         '/app/shared/menu/module.js',
         '/app/shared/product/module.js',
         '/app/shared/search/module.js',
+
         '/app/modules/core/configs/config.js',
         '/app/modules/core/configs/routes.js',
         '/app/modules/core/controllers/coreController.js',
+
         '/app/shared/header/controllers/headerController.js',
-        '/app/shared/header/directives/headerNavigation.js'
+        '/app/shared/header/directives/headerNavigation.js',
+
+        '/app/shared/product/services/productsResource.js'
     ];
 
     app.set('port', config.session);

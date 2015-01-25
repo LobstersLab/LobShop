@@ -6,5 +6,9 @@
     <header-navigation></header-navigation>
     <div ng-app="core" ng-controller="CoreController">
         Message: {{ message }}
+
+        <div ng-repeat="product in products">
+            {{ product.name }}
+        </div>
     </div>
 {% endblock %}
