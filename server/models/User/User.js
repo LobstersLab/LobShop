@@ -11,17 +11,58 @@ var bcrypt   = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-	username: String,
-	password: String,
-	fullname: String
+	firstName: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	lastName: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	displayName: {
+		type: String,
+		trim: true
+	},
+	email: {
+		type: String,
+		trim: true,
+		default: '',
+		match: [/.+\@.+\..+/, 'Please fill a valid email address']
+	},
+	username: {
+		type: String,
+		unique: 'Username already exists',
+		required: 'Please fill in a username',
+		trim: true
+	},
+	password: {
+		type: String,
+		default: ''
+	},
+	roles: {
+		type: [{
+			type: String,
+			enum: ['user', 'admin']
+		}],
+		default: ['user']
+	},
+	updated: {
+		type: Date
+	},
+	created: {
+		type: Date,
+		default: Date.now
+	}
 });
 
 UserSchema.methods.generateHash = function (password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-}
+};
 
 UserSchema.methods.validPassword = function (password) {
 	return bcrypt.compareSync(password, this.password);
-}
+};
 
 module.exports = mongoose.model('User', UserSchema);
