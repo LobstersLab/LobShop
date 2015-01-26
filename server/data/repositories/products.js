@@ -13,7 +13,7 @@ function getAll () {
         .populate('brand')
         .exec(function (error, products) {
             if (error) {
-                deferred.reject(error);
+                return deferred.reject(error);
             }
 
             deferred.resolve(products);
@@ -30,7 +30,7 @@ function getById (id) {
         .populate('brand')
         .exec(function (error, product) {
             if (error) {
-                deferred.reject(error);
+               return deferred.reject(error);
             }
 
             deferred.resolve(product);
@@ -67,7 +67,7 @@ function create (params) {
 
     //Data Validation
     if(!params.name || !params.price || !params.description){
-        deferred.reject(new Error('Invalid input data! Name, price or description are missing!'));
+       return deferred.reject(new Error('Invalid input data! Name, price or description are missing!'));
     }
 
     item = new Product({
@@ -86,8 +86,7 @@ function create (params) {
 
     item.save(function (error, savedItem) {
         if (error) {
-            deferred.reject(error);
-            return deferred.promise;
+            return deferred.reject(error);
         }
 
         savePrice(savedItem, params)
@@ -95,13 +94,13 @@ function create (params) {
         .then(function (){
             return saveSummary(savedItem);
         }, function (error){
-            deferred.reject(error);
+            return deferred.reject(error);
         })
 
         .then(function (){
             deferred.resolve(savedItem);
         }, function (error){
-            deferred.reject(error);
+            return  deferred.reject(error);
         });
 
     });
@@ -122,7 +121,7 @@ function updateProductById (params) {
 
     Product.findById(id, function (error, product){
         if(error){
-            deferred.reject(error);
+            return deferred.reject(error);
         }
 
         Object.keys(updatesObject).forEach(function (key) {
@@ -133,7 +132,7 @@ function updateProductById (params) {
 
         Product.findByIdAndUpdate(id, { $set: product }, function (error, updatedProduct){
             if (error) {
-                deferred.reject(error);
+               return deferred.reject(error);
             }
 
             updateSummaryById(updatedProduct)
@@ -172,7 +171,7 @@ function savePrice (savedItem, params){
 
     price.save(function (error){
         if (error) {
-            deferred.reject(error);
+           return deferred.reject(error);
         }
 
         deferred.resolve(price);
@@ -199,7 +198,7 @@ function saveSummary (savedItem){
 
     summary.save(function (error){
         if (error) {
-            deferred.reject(error);
+           return deferred.reject(error);
         }
 
         deferred.resolve(summary);
@@ -214,7 +213,7 @@ function updateSummaryById (product){
 
     Summary.findById(product.id, function (error, summary){
         if(error){
-            deferred.reject(error);
+           return deferred.reject(error);
         }
 
         Object.keys(product).forEach(function (key) {
@@ -225,12 +224,13 @@ function updateSummaryById (product){
 
         Summary.findByIdAndUpdate(id, { $set: summary }, function (error, updatedSummary){
             if (error) {
-                deferred.reject(error);
+               return deferred.reject(error);
             }
 
             deferred.resolve(updatedSummary);
         });
     });
+    return deferred.promise;
 }
 
 module.exports = {

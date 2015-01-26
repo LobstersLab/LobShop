@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var ProductBrandSchema = new Schema({
     name: { type: String },
+    lname: { type: String },
     image: {
         src: { type: String },
         width: { type: Number },
