@@ -8,42 +8,47 @@ var session = require('express-session');
 var swig = require('swig');
 var lusca = require('lusca');
 var morgan = require('morgan');
+var _ = require('lodash');
+var glob = require('glob');
+
+// TODO: Extract as config
+var ASSETS = {
+    lib: {
+        css: [
+            'public/assets/css/bootstrap.css',
+            'public/assets/css/style.css'
+        ],
+        js: [
+            'public/assets/bower_components/angular/angular.js',
+            'public/assets/bower_components/angular-bootstrap/ui-bootstrap.js',
+            'public/assets/bower_components/angular-route/angular-route.js',
+            'public/assets/bower_components/angular-resource/angular-resource.js',
+            'public/assets/bower_components/angular-cookies/angular-cookies.js',
+            'public/assets/bower_components/angular-animate/angular-animate.js'
+        ]
+    },
+    css: [
+        'public/app/modules/**/css/*.css'
+    ],
+    js: [
+        'public/config.js',
+        'public/application.js',
+        'public/app/modules/*/*.js',
+        'public/app/modules/*/*[!tests]*/*.js',
+        'public/app/shared/*/*.js',
+        'public/app/shared/*/*[!tests]*/*.js'
+    ],
+    tests: [
+        //'/assets/bower_components/angular-mocks/angular-mocks.js',
+        'public/app/modules/*/tests/*.js',
+        'public/app/shared/*/tests/*.js'
+    ]
+}
 
 module.exports = function (app, config, passport) {
 
-    app.locals.cssFiles = [
-        '/assets/css/bootstrap.css',
-        '/assets/css/style.css'
-    ];
-    app.locals.jsFiles = [
-        '/assets/bower_components/angular/angular.js',
-        '/assets/bower_components/angular-bootstrap/ui-bootstrap.js',
-        '/assets/bower_components/angular-route/angular-route.js',
-        '/assets/bower_components/angular-resource/angular-resource.js',
-        '/assets/bower_components/angular-cookies/angular-cookies.js',
-        '/assets/bower_components/angular-animate/angular-animate.js',
-
-        '/config.js',
-        '/application.js',
-
-        '/app/modules/core/module.js',
-        '/app/modules/catalog/module.js',
-        '/app/modules/shoppingCart/module.js',
-        '/app/modules/users/module.js',
-        '/app/shared/header/module.js',
-        '/app/shared/menu/module.js',
-        '/app/shared/product/module.js',
-        '/app/shared/search/module.js',
-
-        '/app/modules/core/configs/config.js',
-        '/app/modules/core/configs/routes.js',
-        '/app/modules/core/controllers/coreController.js',
-
-        '/app/shared/header/controllers/headerController.js',
-        '/app/shared/header/directives/headerNavigation.js',
-
-        '/app/shared/product/services/productsResource.js'
-    ];
+    app.locals.cssFiles = getCSSAssets();
+    app.locals.jsFiles = getJavaScriptAssets();
 
     app.set('port', config.session);
 
@@ -103,3 +108,55 @@ module.exports = function (app, config, passport) {
         app.use(lusca.xssProtection(true));
     }
 };
+
+// TODO: Extract in separate config file
+
+function getGlobbedFiles  (globPatterns, removeRoot) {
+    // URL paths regex
+    var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');
+
+    // The output array
+    var output = [];
+
+    // If glob pattern is array so we use each pattern in a recursive way, otherwise we use glob
+    if (_.isArray(globPatterns)) {
+        globPatterns.forEach(function(globPattern) {
+            output = _.union(output, getGlobbedFiles(globPattern, removeRoot));
+        });
+    } else if (_.isString(globPatterns)) {
+        if (urlRegex.test(globPatterns)) {
+            output.push(globPatterns);
+        } else {
+            glob(globPatterns, {
+                sync: true
+            }, function(err, files) {
+                if (removeRoot) {
+                    files = files.map(function(file) {
+                        return file.replace(removeRoot, '');
+                    });
+                }
+
+                output = _.union(output, files);
+            });
+        }
+    }
+
+    return output;
+}
+
+function getJavaScriptAssets (includeTests) {
+    console.log(ASSETS.lib.js.concat(ASSETS.js));
+    var output = getGlobbedFiles(ASSETS.lib.js.concat(ASSETS.js), 'public/');
+
+    // To include tests
+    if (includeTests) {
+        output = _.union(output, getGlobbedFiles(ASSETS.tests));
+    }
+
+    return output;
+}
+
+function getCSSAssets () {
+    var output = getGlobbedFiles(ASSETS.lib.css.concat(ASSETS.css), 'public/');
+    return output;
+}
