@@ -4,7 +4,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductHierarchySchema = new Schema({
-    name: { type: String },
+    name: {
+        type: String,
+        default: '',
+        trim: true
+    },
     count: { type: Number },
     parents: [{ type: Schema.Types.ObjectId }],
     facets: [{ type: String }]

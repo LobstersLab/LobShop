@@ -60,7 +60,11 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
-	}
+	},
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
 });
 
 UserSchema.methods.generateHash = function (password) {

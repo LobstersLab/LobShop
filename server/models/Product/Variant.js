@@ -4,8 +4,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductVariantSchema = new Schema({
-    name: { type: String },
-    lname: { type: String },
+    name: {
+        type: String ,
+        trim: true,
+        default: ''
+    },
+    lname: {
+        type: String,
+        default: ''
+    },
     itemId: { type: Schema.Types.ObjectId },
     altIds: {
         upc: { type: String }
@@ -14,7 +21,11 @@ var ProductVariantSchema = new Schema({
         images: [{
             height: { type: Number },
             width: { type: Number },
-            src: { type: String }
+            src: {
+                type: String,
+                default: '',
+                trim: true
+            }
         }]
     },
     attributes: [{

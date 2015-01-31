@@ -5,19 +5,43 @@ var Schema = mongoose.Schema;
 var Brand = require('./Brand');
 
 var ProductItemSchema = new Schema({
-    name: { type: String },
-    lname: { type: String },
-    category: { type: String },
+    name: {
+        type: String ,
+        trim: true,
+        default: '',
+        required: 'Please fill in a product name'
+    },
+    lname: {
+        type: String,
+        default: ''
+    },
+    category: {
+        type: String,
+        default: '',
+        trim: true
+    },
     description: [{
-        language: { type: String },
-        value: { type: String }
+        language: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        value: {
+            type: String,
+            default: '',
+            trim: true
+        }
     }],
     brand: { type: Schema.Types.ObjectId, ref: 'ProductBrand' },
     assets: {
         images: [{
             height: { type: Number },
             width: { type: Number },
-            src: { type: String }  
+            src: {
+                type: String,
+                default: '',
+                trim: true
+            }
         }]
     },
     shipping: {
@@ -41,10 +65,20 @@ var ProductItemSchema = new Schema({
         cnt: { type: Number },
         attributes: [{
             displayType: { type: String },
-            name: { type: String }    
+            name: { type: String }
         }]
+    },
+    updated: {
+        type: Date
+    },
+    created: {
+        type: Date,
+        default: Date.now
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
-    //lastUpdated: { type: Timestamp }
 });
 
 module.exports = mongoose.model('ProductItem', ProductItemSchema);

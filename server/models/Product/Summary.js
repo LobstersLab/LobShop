@@ -4,19 +4,46 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductSummarySchema = new Schema({
-    name: { type: String },
-    lname: { type: String },
-    category: { type: String },
+    name: {
+        type: String ,
+        trim: true,
+        default: ''
+    },
+    lname: {
+        type: String,
+        default: ''
+    },
+    category: {
+        type: String,
+        default: '',
+        trim: true
+    },
     department: { type: Schema.Types.ObjectId },
     desc: [{
-        language: { type: String },
-        value: { type: String }
+        language: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        value: {
+            type: String,
+            default: '',
+            trim: true
+        }
     }],
     img: [{
         height: { type: Number },
         width: { type: Number },
-        title: { type: String },
-        src: { type: String }
+        title: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        src: {
+            type: String,
+            default: '',
+            trim: true
+        }
     }],
     attributes: [{
         name: { type: String },
@@ -38,7 +65,6 @@ var ProductSummarySchema = new Schema({
         }],
         attributes: [{ type: String }]
     }]
-    //lastUpdated: { type: Timestamp }
 });
 
 module.exports = mongoose.model('ProductSummary', ProductSummarySchema);

@@ -145,7 +145,6 @@ function getGlobbedFiles  (globPatterns, removeRoot) {
 }
 
 function getJavaScriptAssets (includeTests) {
-    console.log(ASSETS.lib.js.concat(ASSETS.js));
     var output = getGlobbedFiles(ASSETS.lib.js.concat(ASSETS.js), 'public/');
 
     // To include tests
