@@ -4,11 +4,15 @@
 
 {% block content %}
     <header-navigation></header-navigation>
-    <div ng-app="core" ng-controller="CoreController">
-        Message: {{ message }}
+    <div ng-app="core" ng-controller="CoreController as core">
+        Message: {{ core.message }}
 
-        <div ng-repeat="product in products">
-            {{ product.name }}
+        {{core.products.length}}
+
+        <div>
+            <ul>
+                <li ng-repeat="product in core.products">{{product.title}}</li>
+            </ul>
         </div>
     </div>
 {% endblock %}
