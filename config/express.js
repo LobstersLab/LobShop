@@ -28,7 +28,8 @@ var ASSETS = {
         ]
     },
     css: [
-        'public/app/modules/**/css/*.css'
+        'public/app/modules/*/css/*.css',
+        'public/app/shared/*/css/*.css'
     ],
     js: [
         'public/config.js',
