@@ -1,6 +1,7 @@
 ﻿module.exports = function (data) {
     return {
         getAll: function (req, res) {
+            console.log('Getting all...', req);
             data.products.getAll()
                 .then(function (products) {
                     res.send(products);

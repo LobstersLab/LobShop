@@ -2,7 +2,7 @@
 var router = express.Router();
 
 module.exports = function (data) {
-    var BrandsController = require('./../../../controllers/Brands/BrandsController')();
+    var BrandsController = require('./../../../controllers/Brands/BrandsController')(data);
     
     router.route('/')
         .get(BrandsController.getAll)

@@ -13,7 +13,8 @@ function getAll () {
         .populate('brand')
         .exec(function (error, products) {
             if (error) {
-                return deferred.reject(error);
+                deferred.reject(error);
+                return deferred.promise;
             }
 
             deferred.resolve(products);
@@ -30,7 +31,8 @@ function getById (id) {
         .populate('brand')
         .exec(function (error, product) {
             if (error) {
-               return deferred.reject(error);
+                deferred.reject(error);
+                return deferred.promise;
             }
 
             deferred.resolve(product);
@@ -67,7 +69,8 @@ function create (params) {
 
     //Data Validation
     if(!params.name || !params.price || !params.description){
-       return deferred.reject(new Error('Invalid input data! Name, price or description are missing!'));
+        deferred.reject(new Error('Invalid input data! Name, price or description are missing!'));
+        return deferred.promise;
     }
 
     item = new Product({
@@ -86,21 +89,23 @@ function create (params) {
 
     item.save(function (error, savedItem) {
         if (error) {
-            return deferred.reject(error);
+            deferred.reject(error);
+            return deferred.promise;
         }
 
         savePrice(savedItem, params)
-
         .then(function (){
             return saveSummary(savedItem);
         }, function (error){
-            return deferred.reject(error);
+            deferred.reject(error);
+            return deferred.promise;
         })
 
         .then(function (){
             deferred.resolve(savedItem);
         }, function (error){
-            return  deferred.reject(error);
+            deferred.reject(error);
+            return deferred.promise;
         });
 
     });
@@ -109,7 +114,6 @@ function create (params) {
 }
 
 function updateProductById (params) {
-
     var deferred = Q.defer();
     var id = params.id;
     var updatesObject = params.updatesObject;
@@ -121,7 +125,8 @@ function updateProductById (params) {
 
     Product.findById(id, function (error, product){
         if(error){
-            return deferred.reject(error);
+            deferred.reject(error);
+            return deferred.promise;
         }
 
         Object.keys(updatesObject).forEach(function (key) {
@@ -132,7 +137,8 @@ function updateProductById (params) {
 
         Product.findByIdAndUpdate(id, { $set: product }, function (error, updatedProduct){
             if (error) {
-               return deferred.reject(error);
+                deferred.reject(error);
+                return deferred.promise;
             }
 
             updateSummaryById(updatedProduct)
@@ -160,7 +166,6 @@ function removeAll () {
 }
 
 function savePrice (savedItem, params){
-
     var deferred = Q.defer();
 
     var price = new Price({
@@ -171,7 +176,8 @@ function savePrice (savedItem, params){
 
     price.save(function (error){
         if (error) {
-           return deferred.reject(error);
+            deferred.reject(error);
+            return deferred.promise;
         }
 
         deferred.resolve(price);
@@ -198,7 +204,8 @@ function saveSummary (savedItem){
 
     summary.save(function (error){
         if (error) {
-           return deferred.reject(error);
+            deferred.reject(error);
+            return deferred.promise;
         }
 
         deferred.resolve(summary);
@@ -213,7 +220,8 @@ function updateSummaryById (product){
 
     Summary.findById(product.id, function (error, summary){
         if(error){
-           return deferred.reject(error);
+            deferred.reject(error);
+            return deferred.promise;
         }
 
         Object.keys(product).forEach(function (key) {
@@ -224,12 +232,14 @@ function updateSummaryById (product){
 
         Summary.findByIdAndUpdate(id, { $set: summary }, function (error, updatedSummary){
             if (error) {
-               return deferred.reject(error);
+                deferred.reject(error);
+                return deferred.promise;
             }
 
             deferred.resolve(updatedSummary);
         });
     });
+
     return deferred.promise;
 }
 

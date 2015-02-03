@@ -1,6 +1,3 @@
-/**
- * Created by twistedSynapse on 1/26/2015.
- */
 var Q = require('q');
 var mongoose = require('mongoose');
 
