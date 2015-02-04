@@ -2,12 +2,19 @@
  * Created by twistedSynapse on 2/1/2015.
  */
 
-var initPayment = function(){
+var payPal = function(){
+
+    function createPayment (params){
 
 
-};
+        return false;
+    }
 
-var payPal = {
+    return {
+        createPayment: createPayment
+
+    };
+
 
 };
 

@@ -3,12 +3,12 @@ var Orders = function(data){
 
     function create (req, res){
 
-        var data = validateData(req.body);
+        var validatedData = validateData(req);
         if(!data){
             return false;
         }
 
-        data.orders.create(params)
+        data.orders.create(validatedData)
             .then(function (createdOrder){
                 res.json({
                     success: true,
@@ -22,9 +22,51 @@ var Orders = function(data){
             })
     }
 
-    function validateData (){
+    function validateData (req){
+        var data = req.body,
+            user = req.user,
+            validatedData = {};
 
-        return false;
+        console.log(user);
+        //Validate User
+        if (user.ID) {
+            validatedData.userId = user.ID;
+        } else {
+            return false;
+        }
+
+        //Validated order items
+        if (data.items) {
+            validatedData.items = data.items;
+        } else {
+            return false;
+        }
+
+        //Validate payment method
+        if (data.paymentMethod) {
+            validatedData.paymentMethod = data.paymentMethod;
+        } else {
+            return false;
+        }
+
+        //Validate delivery address
+        if (data.deliveryAddress) {
+            validatedData.deliveryAddress = data.deliveryAddress;
+        } else {
+            return false;
+        }
+
+        //Validate billing address
+        if (data.billingAddress) {
+            validatedData.billingAddress = data.billingAddress;
+        } else {
+            return false;
+        }
+
+        //Add comment if available
+        if (data.comment) {
+            validatedData.comment = data.comment;
+        }
     }
 
     return {

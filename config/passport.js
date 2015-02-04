@@ -30,8 +30,8 @@ module.exports = function (passport) {
 
 					newUser.username = username;
 					newUser.password = newUser.generateHash(password);
-					newUser.company_name = req.body.companyName,
-					newUser.company_id = req.body.companyId
+					newUser.company_name = req.body.companyName;
+					newUser.company_id = req.body.companyId;
 
 					newUser.save(function (error) {
 						if (error) {

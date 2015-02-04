@@ -1,7 +1,3 @@
-/**
- * Created by twistedSynapse on 2/2/2015.
- */
-
 'use strict';
 
 var mongoose = require('mongoose');
@@ -18,7 +14,7 @@ var OrderSchema = new Schema({
         default: '',
         trim: true
     },
-    value: {
+    comment: {
         type: String,
         default: '',
         trim: true
@@ -36,7 +32,19 @@ var OrderSchema = new Schema({
         city: { type: Number },
         street: { type: Number },
         zip: { type: Number }
-    }]
+    }],
+    status: {
+        type: String,
+        default: '',
+        trim: true,
+        enum: [
+            'initiated',
+            'processing',
+            'awaiting_payment',
+            'paid',
+            'delivered'
+        ]
+    }
 });
 
 module.exports = mongoose.model('Order', OrderSchema);
