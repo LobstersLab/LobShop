@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var config = require('./config');
 
-module.exports = function (config) {
+module.exports = (function () {
     mongoose.connect(config.db);
     mongoose.connection
         .on('error', function () {
@@ -9,4 +10,4 @@ module.exports = function (config) {
         .once('open', function () {
             console.log('DB connection opened!');
         });
-}
+})();
