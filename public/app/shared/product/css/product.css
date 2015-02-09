@@ -1,33 +1,18 @@
 .card-border {
-    box-shadow: 0px 0px 5px rgba(97, 94, 132, .75);
-    padding: 36px;
-    margin-bottom: 20px;
-}
+  box-shadow: 0px 0px 5px rgba(97, 94, 132, 0.75);
+  padding: 36px;
+  margin-bottom: 20px; }
 
 .card-border header {
-    margin-bottom: 40px;
-}
+  margin-bottom: 40px; }
 
 .card-border figure {
-    margin-bottom: 40px;
-}
+  margin-bottom: 40px; }
 
 .card-label {
-    font: 21px/26px "Palatino Linotype", serif;
-}
+  font: 21px/26px "Palatino Linotype", serif; }
 
 .label-purple {
-    color: #800080;
-}
+  color: #800080; }
 
-.label-blue {
-
-}
-
-.label-green {
-
-}
-
-.label-green {
-
-}
+/*# sourceMappingURL=product.css.map */

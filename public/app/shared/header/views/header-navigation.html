@@ -5,7 +5,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">{{ brand }}</a>
+        <a class="navbar-brand" href="#">{{ headerCtrl.brand }}</a>
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
@@ -13,24 +13,8 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Shopping cart</a></li>
-            <li>
-                <div class="btn-group" dropdown is-open="status.isopen">
-                    <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                        Hello, User <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Sign out</a></li>
-                    </ul>
-                </div>
-            </li>
+            <li><a href="#" ng-click="'{{headerCtrl.menuToggle = !headerCtrl.menuToggle}}'">Menu</a></li>
+            <menu ng-show="'{{ headerCtrl.menuToggle }}'" alignment="right"></menu>
         </ul>
-
-        <form class="navbar-form navbar-right">
-            <input type="text" class="form-control col-lg-8" placeholder="Search">
-        </form>
     </div>
 </div>
