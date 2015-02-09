@@ -1,18 +1,15 @@
-/**
- * This module includes the route configs for the authentication module.
- * 
- */
+'use strict';
 
 var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
 
 module.exports = function (passport) {
-    var auth = require('./../../libs/auth')(passport);
-    	
-    router.post('/login', auth.login);
-	router.post('/signup', auth.signup);
-	router.get('/logout', auth.logout);
+    var AuthenticationController = require('./../../controllers/Authentication/AuthenticationController')(passport);
+
+    router.post('/login', AuthenticationController.login);
+	router.post('/signup', AuthenticationController.signup);
+	router.get('/logout', AuthenticationController.logout);
 
 	return router;
 };

@@ -7,57 +7,20 @@
  * 
  */
 
+'use strict';
+
 module.exports = function (passport) {
-    function login (req, res, next) {
-        passport.authenticate('local-login', function (error, user, info) {
-            if (error) {
-                return next(error);
-            }
+    // TODO: Authorization and authentication middlewares here (isInRole, isAdmin...)
 
-            req.logIn(user, function (err) {
-                if (err) {
-                    return next(err);
-                }
-
-                res.json({
-                    user: user,
-                    info: info
-                });
-            });
-
-        })(req, res, next);
-    }
-    
-    function signup (req, res, next) {
-        passport.authenticate('local-signup', function (error, user, info) {
-            if (error) {
-                return next(error);
-            }
-
-            res.json({
-                user: user,
-                info: info,
-            });
-        })(req, res, next);
-    }
-    
-    function logout (req, res) {
-        req.logout();
-        res.redirect('/Authentication');
-    }
-
-    // Route middleware to make sure a user is logged in
     function isLoggedIn (req, res, next) {
         if (req.isAuthenticated()) {
             return next();
         } else {
-            res.redirect('/Authentication');
+            res.redirect('/');
         }
     }
 
-    /**
-     * OAuth callback
-     */
+    // OAuth callback
     function oauthCallback (strategy) {
         return function(req, res, next) {
             passport.authenticate(strategy, function(err, user, redirectURL) {
@@ -75,12 +38,7 @@ module.exports = function (passport) {
         };
     }
 
-    // TODO: Authorization middleware
-
     return {
-        login: login,
-        signup: signup,
-        logout: logout,
         isAuthenticated: isLoggedIn,
         oauthCallback: oauthCallback
     };

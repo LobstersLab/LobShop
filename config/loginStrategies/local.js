@@ -23,8 +23,7 @@ module.exports = function () {
 
                     newUser.username = username;
                     newUser.password = newUser.generateHash(password);
-                    newUser.company_name = req.body.companyName;
-                    newUser.company_id = req.body.companyId;
+                    newUser.provider = 'local';
 
                     newUser.save(function (error) {
                         if (error) {
@@ -40,7 +39,7 @@ module.exports = function () {
 
     passport.use('local-login', new LocalStrategy({
         usernameField: 'username',
-        password: 'password',
+        passwordField: 'password',
         passReqToCallback: true
     }, function (req, username, password, done) {
         User.findOne({'username': username}, function (error, user) {
