@@ -13,6 +13,7 @@ module.exports = function (data) {
                     });
                 });
         },
+
         getById: function (req, res) {
             var id = req.params.id;
 
@@ -28,6 +29,7 @@ module.exports = function (data) {
                     });
                 });
         },
+
         create: function (req, res) {
             data.users.create(req.body)
                 .then(function (createdUser) {
@@ -42,10 +44,20 @@ module.exports = function (data) {
                     });
                 });
         },
+
         update: function (req, res) {
 
         },
+
         remove: function (req, res) {
+
+        },
+
+        saveOAuthUserProfile: function (req, res) {
+
+        },
+
+        removeOAuthProvider: function (req, res) {
 
         }
     }

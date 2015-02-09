@@ -1,20 +1,16 @@
 'use strict';
 
 var passport = require('passport');
+var config = require('./../config');
 var UsersController = require('./../../server/controllers/Users/UsersController');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var googleConfig = {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
-    callbackURL: '/auth/google/callback'
-};
 
 module.exports = function() {
     // Use google strategy
     passport.use(new GoogleStrategy({
-            clientID: googleConfig.clientID,
-            clientSecret: googleConfig.clientSecret,
-            callbackURL: googleConfig.callbackURL,
+            clientID: config.google.clientID,
+            clientSecret: config.google.clientSecret,
+            callbackURL: config.google.callbackURL,
             passReqToCallback: true
         },
         function(req, accessToken, refreshToken, profile, done) {
@@ -36,7 +32,7 @@ module.exports = function() {
             };
 
             // Save the user OAuth profile
-            // UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
+            UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
         }
     ));
 };

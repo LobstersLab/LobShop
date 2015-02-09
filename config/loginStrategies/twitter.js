@@ -1,20 +1,16 @@
 'use strict';
 
 var passport = require('passport');
+var config = require('./../config');
 var UsersController = require('./../../server/controllers/Users/UsersController');
 var TwitterStrategy = require('passport-twitter').Strategy;
-var twitterConfig = {
-    clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-    clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
-    callbackURL: '/auth/twitter/callback'
-};
 
 module.exports = function() {
     // Use twitter strategy
     passport.use(new TwitterStrategy({
-            consumerKey: twitterConfig.clientID,
-            consumerSecret: twitterConfig.clientSecret,
-            callbackURL: twitterConfig.callbackURL,
+            consumerKey: config.twitter.clientID,
+            consumerSecret: config.twitter.clientSecret,
+            callbackURL: config.twitter.callbackURL,
             passReqToCallback: true
         },
         function(req, token, tokenSecret, profile, done) {
@@ -33,7 +29,7 @@ module.exports = function() {
             };
 
             // Save the user OAuth profile
-            // UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
+            UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
         }
     ));
 };

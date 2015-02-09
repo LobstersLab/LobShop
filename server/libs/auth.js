@@ -8,7 +8,7 @@
  */
 
 module.exports = function (passport) {
-    var login = function login (req, res, next) {
+    function login (req, res, next) {
         passport.authenticate('local-login', function (error, user, info) {
             if (error) {
                 return next(error);
@@ -26,10 +26,9 @@ module.exports = function (passport) {
             });
 
         })(req, res, next);
-    };
-
+    }
     
-    var signup = function signup (req, res, next) {
+    function signup (req, res, next) {
         passport.authenticate('local-signup', function (error, user, info) {
             if (error) {
                 return next(error);
@@ -40,20 +39,40 @@ module.exports = function (passport) {
                 info: info,
             });
         })(req, res, next);
-    };
+    }
     
-    var logout = function logout (req, res) {
+    function logout (req, res) {
         req.logout();
         res.redirect('/Authentication');
-    };
+    }
 
     // Route middleware to make sure a user is logged in
-    var isLoggedIn = function isLoggedIn (req, res, next) {
+    function isLoggedIn (req, res, next) {
         if (req.isAuthenticated()) {
             return next();
         } else {
             res.redirect('/Authentication');
         }
+    }
+
+    /**
+     * OAuth callback
+     */
+    function oauthCallback (strategy) {
+        return function(req, res, next) {
+            passport.authenticate(strategy, function(err, user, redirectURL) {
+                if (err || !user) {
+                    return res.redirect('/#!/signin');
+                }
+                req.login(user, function(err) {
+                    if (err) {
+                        return res.redirect('/#!/signin');
+                    }
+
+                    return res.redirect(redirectURL || '/');
+                });
+            })(req, res, next);
+        };
     }
 
     // TODO: Authorization middleware
@@ -62,6 +81,7 @@ module.exports = function (passport) {
         login: login,
         signup: signup,
         logout: logout,
-        isAuthenticated: isLoggedIn
+        isAuthenticated: isLoggedIn,
+        oauthCallback: oauthCallback
     };
 };

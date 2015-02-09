@@ -75,4 +75,10 @@ UserSchema.methods.validPassword = function (password) {
 	return bcrypt.compareSync(password, this.password);
 };
 
+UserSchema.pre('save', function (next) {
+    // Set the is updated property of the user here
+
+    next();
+});
+
 module.exports = mongoose.model('User', UserSchema);

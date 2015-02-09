@@ -1,20 +1,16 @@
 'use strict';
 
 var passport = require('passport');
+var config = require('./../config');
 var UsersController = require('./../../server/controllers/Users/UsersController');
 var FacebookStrategy = require('passport-facebook').Strategy;
-var facebookConfig = {
-    clientID: process.env.FACEBOOK_ID || 'APP_ID',
-    clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
-    callbackURL: '/auth/facebook/callback'
-}
 
 module.exports = function() {
     // Use facebook strategy
     passport.use(new FacebookStrategy({
-            clientID: facebookConfig.clientID,
-            clientSecret: facebookConfig.clientSecret,
-            callbackURL: facebookConfig.callbackURL,
+            clientID: config.facebook.clientID,
+            clientSecret: config.facebook.clientSecret,
+            callbackURL: config.facebook.callbackURL,
             passReqToCallback: true
         },
         function(req, accessToken, refreshToken, profile, done) {
@@ -36,7 +32,7 @@ module.exports = function() {
             };
 
             // Save the user OAuth profile
-            // UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
+            UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
         }
     ));
 };

@@ -1,20 +1,16 @@
 'use strict';
 
 var passport = require('passport');
+var config = require('./../config');
 var UsersController = require('./../../server/controllers/Users/UsersController');
 var LinkedInStrategy = require('passport-linkedin').Strategy;
-var linkedInConfig = {
-    clientID: process.env.LINKEDIN_ID || 'APP_ID',
-    clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
-    callbackURL: '/auth/linkedin/callback'
-};
 
 module.exports = function() {
     // Use linkedin strategy
     passport.use(new LinkedInStrategy({
-            consumerKey: linkedInConfig.clientID,
-            consumerSecret: linkedInConfig.clientSecret,
-            callbackURL: linkedInConfig.callbackURL,
+            consumerKey: config.linkedin.clientID,
+            consumerSecret: config.linkedin.clientSecret,
+            callbackURL: config.linkedin.callbackURL,
             passReqToCallback: true,
             profileFields: ['id', 'first-name', 'last-name', 'email-address']
         },
@@ -37,7 +33,7 @@ module.exports = function() {
             };
 
             // Save the user OAuth profile
-            // UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
+            UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
         }
     ));
 };
