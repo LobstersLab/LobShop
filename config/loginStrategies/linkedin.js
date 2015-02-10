@@ -2,7 +2,7 @@
 
 var passport = require('passport');
 var config = require('./../config');
-var UsersController = require('./../../server/controllers/Users/UsersController');
+var AuthenticationController = require('./../../server/controllers/Authentication/AuthenticationController');
 var LinkedInStrategy = require('passport-linkedin').Strategy;
 
 module.exports = function() {
@@ -33,7 +33,7 @@ module.exports = function() {
             };
 
             // Save the user OAuth profile
-            UsersController.saveOAuthUserProfile(req, providerUserProfile, done);
+            AuthenticationController.saveOAuthUserProfile(req, providerUserProfile, done);
         }
     ));
 };

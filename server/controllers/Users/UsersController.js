@@ -51,14 +51,6 @@ module.exports = function (data) {
 
         remove: function (req, res) {
 
-        },
-
-        saveOAuthUserProfile: function (req, res) {
-
-        },
-
-        removeOAuthProvider: function (req, res) {
-
         }
     }
 };
