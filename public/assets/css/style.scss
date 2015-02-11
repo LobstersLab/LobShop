@@ -1,3 +1,9 @@
+.ng-leave {
+  animation:0.5s lightSpeedOut ease;
+}
+.ng-enter {
+  animation:0.5s lightSpeedOut ease;
+}
 .menu-side-bar {
   float: right;
   width: 200px;

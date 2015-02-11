@@ -4,49 +4,5 @@
 
 {% block content %}
     <header-navigation></header-navigation>
-    <div class="container" ng-controller="CoreController as core">
-        <div class="row">
-            <div class="row-same-height">
-                <div class="col-md-4" ng-repeat="product in core.products">
-                    <section class="card-border">
-                        <header>
-                            <span></span>
-                        <span class="card-label label-purple">
-                            Lot:
-                        </span>
-                        <span>
-                            {{ product.lot }}
-                        </span>
-                        <span class="pull-right">
-                            <span class="card-label label-purple">
-                                Price:
-                            </span>
-                            <span>
-                                {{ product.price }}
-                            </span>
-                        </span>
-                        </header>
-                        <figure>
-                            <img src="/assets/images/CoinBack.jpg" alt=""/>
-                        </figure>
-                        <div>
-                            <p>
-                                <span class="card-label label-purple">Title:</span>
-                                <strong>{{ product.title }}</strong>
-                            </p>
-                            <p>
-                                {{ product.description | limitTo : 40}}...
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                <span class="card-label label-purple">Years:</span>
-                                {{ product.year }}
-                            </p>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
+   <ng-view></ng-view>
 {% endblock %}

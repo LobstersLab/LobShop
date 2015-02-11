@@ -1,3 +1,9 @@
+.ng-leave {
+    animation: fadeOut .3s;
+}
+.ng-enter {
+    animation: fadeIn .5s;
+}
 .menu-side-bar {
   float: right;
   width: 200px;

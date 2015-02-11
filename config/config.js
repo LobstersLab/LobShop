@@ -8,6 +8,7 @@ var ASSETS = {
     lib: {
         css: [
             'public/assets/css/bootstrap.css',
+            'public/assets/css/animate.min.css',
             'public/assets/css/style.css'
         ],
         js: [
