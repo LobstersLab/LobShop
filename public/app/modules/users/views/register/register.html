@@ -1,0 +1,29 @@
+<div class="container text-center">
+    <!--<form ng-submit="registerCtrl.register()" name="registerForm">-->
+        <!--<label for="username">Username</label>-->
+        <!--<input type="text" id="username" ng-model="registerCtrl.user.username"/><br/>-->
+
+        <!--<label for="password">Password</label>-->
+        <!--<input type="password" id="password" ng-model="registerCtrl.user.password"/><br/>-->
+
+        <!--<label for="email">Email</label>-->
+        <!--<input type="email" id="email" ng-model="registerCtrl.user.email"/><br/>-->
+
+        <!--<input type="submit" value="Register"/>-->
+    <!--</form>-->
+    <div id="form-container">
+
+        <div class="page-header text-center">
+            <div id="status-buttons" class="text-center">
+                <a ui-sref-active="active" ui-sref=".personal"><span>1</span> Personal</a>
+                <a ui-sref-active="active" ui-sref=".details"><span>2</span> Details</a>
+                <a ui-sref-active="active" ui-sref=".account"><span>3</span> Account</a>
+            </div>
+        </div>
+
+        <form id="register-form" ng-submit="registerCtrl.register()">
+            <div id="form-views" ui-view></div>
+        </form>
+
+    </div>
+</div>
