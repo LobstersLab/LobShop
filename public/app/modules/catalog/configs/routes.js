@@ -1,4 +1,6 @@
+'use strict';
+
 angular.module('catalog')
-    .config(['$routeProvider','$locationProvider', function ($routeProvider) {
-        //$routeProvider.when
+    .config([function () {
+
     }]);

@@ -1,0 +1,11 @@
+<div class="container text-center">
+    <form ng-submit="loginCtrl.login()" name="registerForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" ng-model="loginCtrl.user.username"/><br/>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" ng-model="loginCtrl.user.password"/><br/>
+
+        <input type="submit" value="Login"/>
+    </form>
+</div>
