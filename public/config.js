@@ -6,9 +6,9 @@ var ApplicationConfiguration = (function() {
     var applicationModuleName = 'mean';
     var applicationModuleVendorDependencies = [
         'ngResource',
-        'ngRoute',
         'ngCookies',
         'ngAnimate',
+        'ui.router',
         'ui.bootstrap'
     ];
 
