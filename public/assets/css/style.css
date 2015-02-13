@@ -1,13 +1,23 @@
 .ng-leave {
-    animation: fadeOut .3s;
-}
+  animation: 0.5s lightSpeedOut ease; }
+
 .ng-enter {
-    animation: fadeIn .5s;
-}
+  animation: 0.5s lightSpeedOut ease; }
+
 .menu-side-bar {
   float: right;
   width: 200px;
   background-color: #0066bb;
   border: 1px solid black; }
+
+.overlay {
+  opacity: 0.4;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  z-index: 500; }
 
 /*# sourceMappingURL=style.css.map */

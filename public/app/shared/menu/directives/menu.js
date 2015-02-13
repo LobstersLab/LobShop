@@ -1,12 +1,16 @@
+'use strict';
+
 angular.module('menu')
-    .controller('menu', [function () {
+    .directive('menu', [function () {
         return {
             restrict: 'E',
-            template: "<div ng-class='{ left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>",
-            transclude: true,
-            scope: {
-                //visible: "=",
-                alignment: "@"
-            }
+            templateUrl: 'app/shared/menu/views/menu.html',
+            controller: 'MenuController',
+            controllerAs: 'menuCtrl'
+            //transclude: true,
+            //scope: {
+            //    //visible: "=",
+            //    alignment: "@"
+            //}
         };
     }]);

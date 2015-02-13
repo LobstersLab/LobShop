@@ -7,6 +7,7 @@ var config = _.extend(require('./environments/' + environment));
 var ASSETS = {
     lib: {
         css: [
+            'public/assets/css/reset.css',
             'public/assets/css/bootstrap.css',
             'public/assets/css/animate.min.css',
             'public/assets/css/style.css'

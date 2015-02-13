@@ -3,6 +3,9 @@
 {% block title %} <%= title %> {% endblock %}
 
 {% block content %}
-    <header-navigation></header-navigation>
-    <ui-view></ui-view>
+    <div ng-class="{overlay: menuCtrl.menuToggle}">
+        <header-navigation></header-navigation>
+        <ui-view></ui-view>
+    </div>
+    <menu class="bounce" ng-show="menuCtrl.menuToggle"></menu>
 {% endblock %}
