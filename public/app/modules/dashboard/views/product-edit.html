@@ -1,0 +1,22 @@
+<div class="panel">
+    <div class="center-block">
+        <label>Search Products</label><input type="text" name="productSearch"/><button>Edit</button><button>New Product</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th data-field="id">Name</th>
+                <th data-field="name">Description</th>
+            </tr>
+            </thead>
+            <tr class="productsList table table-striped" ng-repeat="product in productCtrl.products"
+                ng-class="{active: tableRowHover}"
+                ng-mouseenter="tableRowHover = true"
+                ng-mouseleave="tableRowHover = false">
+                <td>{{product.name}}</td>
+                <td>{{product.description[0].value}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

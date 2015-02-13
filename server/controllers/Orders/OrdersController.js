@@ -27,7 +27,6 @@ var Orders = function(data){
             user = req.user,
             validatedData = {};
 
-        console.log(user);
         //Validate User
         if (user.ID) {
             validatedData.userId = user.ID;

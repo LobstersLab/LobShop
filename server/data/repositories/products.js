@@ -7,7 +7,6 @@ var Summary = require('./../../models/Product/Summary');
 
 function getAll () {
     var deferred = Q.defer();
-
     Product
         .find({})
         .populate('brand')
@@ -16,7 +15,6 @@ function getAll () {
                 deferred.reject(error);
                 return deferred.promise;
             }
-
             deferred.resolve(products);
         });
 
