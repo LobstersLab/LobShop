@@ -1,5 +1,6 @@
 <div>
     <header class="menu-header">
+        <figure class="close-cross" ng-click="menuCtrl.menuToggle = false">&#10005</figure>
         <div>
             <div>
                 <figure>
@@ -13,8 +14,13 @@
 
             </div>
         </div>
-
-        <figure class="close-cross" ng-click="menuCtrl.menuToggle = false">&#10005</figure>
     </header>
-
+    <div>
+        <ul class="menu-navigation">
+            <li><a class="btn" ui-sref="home" ng-click="menuCtrl.menuToggle = false"> Catalog </a></li>
+            <li><a class="btn" ui-sref="highlights" ng-click="menuCtrl.menuToggle = false"> Highlights </a></li>
+            <li><a class="btn" ui-sref="terms" ng-click="menuCtrl.menuToggle = false"> Terms & Conditions </a></li>
+            <li><a class="btn" ui-sref="contacts" ng-click="menuCtrl.menuToggle = false"> Contacts </a></li>
+        </ul>
+    </div>
 </div>

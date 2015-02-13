@@ -5,11 +5,29 @@ angular.module('core')
 
         $urlRouterProvider.otherwise('/');
 
-        //$stateProvider.
-        //    state('home', {
-        //        url: '/',
-        //        templateUrl: 'template/url',
-        //        controller: 'Controller',
-        //        controllerAs: 'Ctrl'
-        //    });
+        $stateProvider
+            .state('home', {
+                url: '/',
+                templateUrl: 'app/modules/catalog/views/catalog.html',
+                controller: 'CatalogController',
+                controllerAs: 'catalogCtrl'
+            })
+            .state('highlights', {
+                url: '/highlights',
+                templateUrl: 'app/modules/catalog/views/catalog.html',
+                controller: 'CatalogController',
+                controllerAs: 'catalogCtrl'
+            })
+            .state('terms', {
+                url: '/terms',
+                templateUrl: 'app/modules/core/views/terms.html',
+                controller: 'TermsController',
+                controllerAs: 'termsCtrl'
+            })
+            .state('contacts', {
+                url: '/contacts',
+                templateUrl: 'app/modules/core/views/contacts.html',
+                controller: 'ContactsController',
+                controllerAs: 'contactsCtrl'
+            });
     }]);

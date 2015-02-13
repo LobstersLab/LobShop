@@ -4,14 +4,8 @@
 .ng-enter {
   animation: 0.5s lightSpeedOut ease; }
 
-.menu-side-bar {
-  float: right;
-  width: 200px;
-  background-color: #0066bb;
-  border: 1px solid black; }
-
 .overlay {
-  opacity: 0.4;
+  opacity: 0.5;
   position: fixed;
   top: 0;
   right: 0;

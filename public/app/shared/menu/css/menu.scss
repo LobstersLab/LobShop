@@ -1,18 +1,56 @@
 menu {
   width: 300px;
-  border: 1px solid black;
   position: absolute;
   right: 0;
   top: 0;
   margin: 0;
   padding: 0;
   bottom: 0;
-  background-color: #ffffff;
+  background-color: #fbf8e8;
   z-index: 1000;
+  -webkit-box-shadow: 0px 0px 50px rgb(32, 35, 41);
+  -moz-box-shadow: 0px 0px 50px rgb(32, 35, 41);
+  box-shadow: 0px 0px 50px rgb(32, 35, 41);
 }
 
 .menu-header {
-  background-color: #000011;
+  background-color: #373a3d;
+  height: 50px;
+}
+
+.menu-header:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.menu-navigation {
+  text-align: center;
+  margin: 50px 10px;
+}
+
+.menu-navigation li {
+  display: block;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.menu-navigation li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #373a3d;
+}
+
+.menu-navigation li .btn:hover {
+  color: #fbf8e8;
+  border-radius: 0px;
+  background-color: #373a3d;
+}
+
+.menu-navigation li .active {
+  color: #fbf8e8;
+  border-radius: 0px;
+  background-color: #373a3d;
 }
 
 .close-cross {
@@ -20,5 +58,6 @@ menu {
   margin: 10px;
   font-weight: 800;
   cursor: pointer;
+  color: #fbf8e8;
 }
 

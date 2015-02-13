@@ -9,6 +9,7 @@ var ASSETS = {
         css: [
             'public/assets/css/reset.css',
             'public/assets/css/bootstrap.css',
+            'public/assets/css/bootstrap-theme.css',
             'public/assets/css/animate.min.css',
             'public/assets/css/style.css'
         ],
