@@ -1,95 +1,83 @@
-.group {
-  position: relative;
-  margin-bottom: 45px;
-  width: 50%;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto; }
-
-input {
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #757575; }
-
-input:focus {
-  outline: none; }
-
-/* LABEL ======================================= */
-label {
-  color: #999;
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all; }
-
-/* active state */
-input:focus ~ label,
-.not-empty ~ label {
-  top: -20px;
-  font-size: 14px; }
-
-.ng-valid ~ label {
-  color: green; }
-
-.ng-invalid ~ label {
-  color: red; }
-
-.ng-pristine ~ label {
-  color: #202329; }
-
-/* BOTTOM BARS ================================= */
-.bar {
-  position: relative;
-  display: block;
-  width: 100%; }
-
-.bar:before,
-.bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: #202329;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all; }
-
-.bar:before {
-  left: 50%; }
-
-.bar:after {
-  right: 50%; }
-
-/* active state */
-input:focus ~ .bar:before, input:focus ~ .bar:after {
-  width: 50%; }
-
-/* HIGHLIGHTER ================================== */
-.highlight {
-  position: absolute;
-  height: 60%;
-  width: 100px;
-  top: 25%;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.5; }
-
-/* active state */
-input:focus ~ .highlight {
-  -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
-  animation: inputHighlighter 0.3s ease; }
-
-/* ANIMATIONS ================ */
+.registerForm, .loginForm {
+  /* LABEL ======================================= */
+  /* active state */
+  /* BOTTOM BARS ================================= */
+  /* active state */
+  /* HIGHLIGHTER ================================== */
+  /* active state */
+  /* ANIMATIONS ================ */ }
+  .registerForm .group, .loginForm .group {
+    position: relative;
+    margin-bottom: 45px;
+    width: 50%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto; }
+  .registerForm input, .loginForm input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #757575; }
+  .registerForm input:focus, .loginForm input:focus {
+    outline: none; }
+  .registerForm label, .loginForm label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all; }
+  .registerForm input:focus ~ label,
+  .registerForm .not-empty ~ label, .loginForm input:focus ~ label,
+  .loginForm .not-empty ~ label {
+    top: -20px;
+    font-size: 14px; }
+  .registerForm .ng-valid ~ label, .loginForm .ng-valid ~ label {
+    color: green; }
+  .registerForm .ng-invalid ~ label, .loginForm .ng-invalid ~ label {
+    color: red; }
+  .registerForm .ng-pristine ~ label, .loginForm .ng-pristine ~ label {
+    color: #202329; }
+  .registerForm .bar, .loginForm .bar {
+    position: relative;
+    display: block;
+    width: 100%; }
+  .registerForm .bar:before,
+  .registerForm .bar:after, .loginForm .bar:before,
+  .loginForm .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #202329;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all; }
+  .registerForm .bar:before, .loginForm .bar:before {
+    left: 50%; }
+  .registerForm .bar:after, .loginForm .bar:after {
+    right: 50%; }
+  .registerForm input:focus ~ .bar:before, .registerForm input:focus ~ .bar:after, .loginForm input:focus ~ .bar:before, .loginForm input:focus ~ .bar:after {
+    width: 50%; }
+  .registerForm .highlight, .loginForm .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5; }
+  .registerForm input:focus ~ .highlight, .loginForm input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease; }
 @-webkit-keyframes inputHighlighter {
   from {
     background: #202329; }
