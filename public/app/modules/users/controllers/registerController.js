@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('users')
-    .controller('RegisterController', ['$scope', 'identity', 'auth',
-        function RegisterController ($scope, identity, auth) {
+    .controller('RegisterController', ['$scope', '$state', 'identity', 'auth',
+        function RegisterController ($scope, $state, identity, auth) {
             var self = this;
 
             self.identity = identity;
@@ -12,6 +12,8 @@ angular.module('users')
                 auth.signup(self.user)
                     .then(function () {
                         console.log('User successfully registered!', arguments);
+
+                        $state.go('home');
                     });
             };
 

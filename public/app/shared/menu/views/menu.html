@@ -1,18 +1,21 @@
 <div>
     <header class="menu-header">
         <figure class="close-cross" ng-click="menuCtrl.menuToggle = false">&#10005</figure>
-        <div>
+        <div ng-if="menuCtrl.currentUser">
             <div>
-                <figure>
-                    <img src="" alt=""/>
+                <figure class="profile-image">
+                    <img src="assets/images/default-user-icon-profile.png" alt=""/>
                 </figure>
                 <address>
-
+                    {{menuCtrl.currentUser.displayName}}
                 </address>
             </div>
             <div>
 
             </div>
+        </div>
+        <div ng-if="!menuCtrl.currentUser">
+            <a class="btn" ui-sref="login" ng-click="menuCtrl.menuToggle = false">LOG IN</a>
         </div>
     </header>
     <div>

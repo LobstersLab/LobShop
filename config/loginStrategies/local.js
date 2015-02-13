@@ -10,6 +10,9 @@ module.exports = function () {
         passwordField: 'password',
         passReqToCallback: true
     }, function (req, username, password, done) {
+        var userData = req.body;
+        console.log('Registering user: ', userData);
+
         process.nextTick(function () {
             User.findOne({'username': username}, function (error, user) {
                 if (error) {
@@ -19,11 +22,25 @@ module.exports = function () {
                 if (user) {
                     return done(null, false, { message: 'Username already exist!' });
                 } else {
-                    var newUser = new User();
 
-                    newUser.username = username;
+                    var newUser = new User({
+                        username: username,
+                        provider: 'local',
+                        email: userData.email,
+                        firstName: userData.firstname,
+                        lastName: userData.lastname,
+                        displayName: userData.firstname + ' ' + userData.lastname,
+                        city: userData.city,
+                        country: userData.country,
+                        postalCode: userData.postalCode,
+                        address: userData.address
+                    });
+
                     newUser.password = newUser.generateHash(password);
-                    newUser.provider = 'local';
+
+                    if (userData.roles) {
+                        newUser.roles = userData.roles;
+                    }
 
                     newUser.save(function (error) {
                         if (error) {

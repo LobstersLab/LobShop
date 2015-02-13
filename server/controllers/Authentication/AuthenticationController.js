@@ -16,7 +16,12 @@ var AuthenticationController = function (passport) {
                 }
 
                 res.json({
-                    user: user,
+                    user: {
+                        username: user.username,
+                        email: user.email,
+                        displayName: user.displayName,
+                        roles: user.roles
+                    },
                     info: info
                 });
             });
@@ -31,7 +36,12 @@ var AuthenticationController = function (passport) {
             }
 
             res.json({
-                user: user,
+                user: {
+                    username: user.username,
+                    email: user.email,
+                    displayName: user.displayName,
+                    roles: user.roles
+                },
                 info: info
             });
         })(req, res, next);

@@ -14,12 +14,20 @@ menu {
 
 .menu-header {
   background-color: #373a3d;
-  height: 50px; }
+  height: 75px;
+  padding: 10px 15px;
+  color: #fbf8e8; }
 
 .menu-header:after {
   content: '';
   display: block;
   clear: both; }
+
+.menu-header .btn {
+  color: #fbf8e8; }
+
+.menu-header .btn:hover {
+  color: #9ba08d; }
 
 .menu-navigation {
   text-align: center;
@@ -47,9 +55,11 @@ menu {
 
 .close-cross {
   float: right;
-  margin: 10px;
   font-weight: 800;
-  cursor: pointer;
-  color: #fbf8e8; }
+  cursor: pointer; }
+
+.profile-image img {
+  border-radius: 25px;
+  width: 35px; }
 
 /*# sourceMappingURL=menu.css.map */

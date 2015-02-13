@@ -23,7 +23,8 @@ var UserSchema = new Schema({
 	},
 	displayName: {
 		type: String,
-		trim: true
+		trim: true,
+        default: ''
 	},
 	email: {
 		type: String,
@@ -31,6 +32,24 @@ var UserSchema = new Schema({
 		default: '',
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
+    city: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    country: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    postalCode: {
+        type: Number
+    },
+    address: {
+        type: String,
+        trim: true,
+        default: ''
+    },
 	username: {
 		type: String,
 		unique: 'Username already exists',
