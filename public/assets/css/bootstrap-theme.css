@@ -1,6 +1,8 @@
 .navbar {
   min-height: 70px;
-  border: none; }
+  border: none;
+  border-radius: 0px;
+  margin: 0px; }
 
 .navbar-default {
   background-color: #fbf8e8; }
