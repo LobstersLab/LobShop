@@ -15,5 +15,25 @@ angular.module('users')
                         $state.go('home');
                     });
             };
+
+            self.isEmpty = function (fieldName) {
+                var field;
+
+                if (!fieldName) {
+                    return false;
+                }
+                else if (self.user[fieldName]) {
+                    field = self.user[fieldName];
+                }
+                else {
+                    field = $scope.loginForm[fieldName].$viewValue;
+                }
+
+                if (!field || field.length === 0) {
+                    return true;
+                }
+
+                return false;
+            };
         }
     ]);

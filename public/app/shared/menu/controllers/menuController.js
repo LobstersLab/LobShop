@@ -1,9 +1,19 @@
 angular.module('menu')
-    .controller('MenuController', ['identity',
-        function MenuController (identity) {
+    .controller('MenuController', ['$state', 'identity', 'auth',
+        function MenuController ($state, identity, auth) {
             var self = this;
 
-            self.currentUser = identity.getCurrentUser();
+            self.identity = identity;
             self.menuToggle = false;
+
+            self.logout = function () {
+                auth.logout()
+                    .then(function () {
+                        self.menuToggle = false;
+                        self.currentUser = undefined;
+
+                        $state.go('home');
+                    });
+            };
         }
     ]);

@@ -8,14 +8,18 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="group">
-                        <input type="text" id="username" ng-model="loginCtrl.user.username"/>
+                        <input type="text" id="username" name="username"
+                               ng-model="loginCtrl.user.username"
+                               ng-class="{ 'not-empty': !loginCtrl.isEmpty('username')}"/>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>Username</label>
                     </div>
 
                     <div class="group">
-                        <input type="password" id="password" ng-model="loginCtrl.user.password"/>
+                        <input type="password" id="password" name="password"
+                               ng-model="loginCtrl.user.password"
+                               ng-class="{ 'not-empty': !loginCtrl.isEmpty('password')}"/>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>Password</label>
@@ -25,7 +29,10 @@
                     <h4>Social logins here...</h4>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Log in</button>
+            <button type="submit" class="btn btn-success"
+                    ng-disabled="loginForm.$invalid">
+                Log in
+            </button>
             <a ui-sref="register.personal" class="btn btn-info">Register</a>
         </form>
     </div>

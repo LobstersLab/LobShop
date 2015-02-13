@@ -16,12 +16,7 @@ var AuthenticationController = function (passport) {
                 }
 
                 res.json({
-                    user: {
-                        username: user.username,
-                        email: user.email,
-                        displayName: user.displayName,
-                        roles: user.roles
-                    },
+                    user: getPublicUser(user),
                     info: info
                 });
             });
@@ -36,12 +31,7 @@ var AuthenticationController = function (passport) {
             }
 
             res.json({
-                user: {
-                    username: user.username,
-                    email: user.email,
-                    displayName: user.displayName,
-                    roles: user.roles
-                },
+                user: getPublicUser(user),
                 info: info
             });
         })(req, res, next);
@@ -170,6 +160,19 @@ var AuthenticationController = function (passport) {
                 }
             });
         }
+    }
+
+    function getPublicUser (user) {
+        return {
+            username: user.username,
+            email: user.email,
+            displayName: user.displayName,
+            roles: user.roles,
+            country: user.country,
+            city: user.city,
+            postalCode: user.postalCode,
+            address: user.address
+        };
     }
 
     return {

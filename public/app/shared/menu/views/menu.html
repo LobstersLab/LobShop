@@ -1,25 +1,28 @@
 <div>
     <header class="menu-header">
         <figure class="close-cross" ng-click="menuCtrl.menuToggle = false">&#10005</figure>
-        <div ng-if="menuCtrl.currentUser">
+        <div ng-if="menuCtrl.identity.isAuthenticated()">
             <div>
                 <figure class="profile-image">
                     <img src="assets/images/default-user-icon-profile.png" alt=""/>
                 </figure>
                 <address>
-                    {{menuCtrl.currentUser.displayName}}
+                    {{menuCtrl.identity.getCurrentUser().displayName}}
                 </address>
             </div>
             <div>
 
             </div>
         </div>
-        <div ng-if="!menuCtrl.currentUser">
+        <div ng-if="!menuCtrl.identity.isAuthenticated()">
             <a class="btn" ui-sref="login" ng-click="menuCtrl.menuToggle = false">LOG IN</a>
         </div>
     </header>
     <div>
         <ul class="menu-navigation">
+            <li ng-if="menuCtrl.identity.isAuthenticated()">
+                <a class="btn" href ng-click="menuCtrl.logout()"> Logout </a>
+            </li>
             <li><a class="btn" ui-sref="home" ng-click="menuCtrl.menuToggle = false"> Catalog </a></li>
             <li><a class="btn" ui-sref="highlights" ng-click="menuCtrl.menuToggle = false"> Highlights </a></li>
             <li><a class="btn" ui-sref="terms" ng-click="menuCtrl.menuToggle = false"> Terms & Conditions </a></li>
