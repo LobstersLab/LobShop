@@ -1,16 +1,38 @@
-<div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" name="username" ng-model="registerCtrl.user.username">
+<div class="group">
+    <input type="text" name="username"
+           ng-model="registerCtrl.user.username"
+           ng-class="{ 'not-empty': !registerCtrl.isEmpty('username')}"
+           ng-minlength="6"
+           required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Username</label>
 </div>
 
-<div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" ng-model="registerCtrl.user.password">
+<div class="group">
+    <input type="password" name="password"
+           ng-model="registerCtrl.user.password"
+           ng-class="{ 'not-empty': !registerCtrl.isEmpty('password')}"
+           ng-minlength="6"
+           required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Password</label>
 </div>
 
-<div class="form-group">
-    <label for="repeat-password">Repeat password</label>
-    <input type="password" class="form-control" name="repeat-password" ng-model="registerCtrl.user.repeatPassword">
+<div class="group">
+    <input type="password" name="repeat-password"
+           ng-model="registerCtrl.user.repeatPassword"
+           ng-class="{ 'not-empty': !registerCtrl.isEmpty('repeat-password')}"
+           ng-minlength="6"
+           required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Repeat password</label>
 </div>
 
-<button type="submit" class="btn btn-danger">Register</button>
+<button type="submit"
+        class="btn btn-success"
+        ng-disabled="registrationForm.$invalid">
+    Register
+</button>

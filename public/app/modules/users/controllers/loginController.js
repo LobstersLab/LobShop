@@ -1,10 +1,18 @@
 'use strict';
 
 angular.module('users')
-    .controller('LoginController', [function LoginController () {
-        var self = this;
+    .controller('LoginController', ['$scope', 'auth', 'identity',
+        function LoginController ($scope, auth, identity) {
+            var self = this;
 
-        self.login = function () {
-            console.log('Logging into account: ', self.user);
-        };
-    }]);
+            self.identity = identity;
+            self.user = {};
+
+            self.login = function () {
+                auth.login(self.user)
+                    .then(function () {
+                        console.log('User successfully logged in! ', arguments);
+                    });
+            };
+        }
+    ]);

@@ -1,100 +1,112 @@
-/* form styling */
-#form-container {
-  margin-bottom: 20px;
-  border-radius: 5px; }
-
-#form-container .page-header {
-  margin: 0;
-  padding: 30px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px; }
-
-/* numbered buttons */
-#status-buttons a {
-  display: inline-block;
-  font-size: 12px;
-  margin-right: 10px;
-  text-align: center;
-  text-transform: uppercase; }
-
-#status-buttons a:hover {
-  text-decoration: none; }
-
-/* we will style the span as the circled number */
-#status-buttons span {
-  background: #080808;
-  display: block;
-  height: 30px;
-  margin: 0 auto 10px;
-  padding-top: 5px;
-  width: 30px;
-  border-radius: 50%; }
-
-/* active buttons turn light green-blue*/
-#status-buttons a.active span {
-  background: #00BC8C; }
-
-/* ANIMATION STYLINGS
-============================================================================= */
-#signup-form {
+.group {
   position: relative;
-  min-height: 300px;
-  overflow: hidden;
-  padding: 30px; }
+  margin-bottom: 45px;
+  width: 50%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto; }
 
-#form-views {
-  width: auto; }
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #757575; }
 
-/* basic styling for entering and leaving */
-/* left and right added to ensure full width */
-#form-views.ng-enter,
-#form-views.ng-leave {
+input:focus {
+  outline: none; }
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
   position: absolute;
-  left: 30px;
-  right: 30px;
-  transition: 0.5s all ease;
-  -moz-transition: 0.5s all ease;
-  -webkit-transition: 0.5s all ease; }
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all; }
 
-/* enter animation */
-#form-views.ng-enter {
-  -webkit-animation: slideInRight 0.5s both ease;
-  -moz-animation: slideInRight 0.5s both ease;
-  animation: slideInRight 0.5s both ease; }
+/* active state */
+input:focus ~ label,
+.not-empty ~ label {
+  top: -20px;
+  font-size: 14px; }
 
-/* leave animation */
-#form-views.ng-leave {
-  -webkit-animation: slideOutLeft 0.5s both ease;
-  -moz-animation: slideOutLeft 0.5s both ease;
-  animation: slideOutLeft 0.5s both ease; }
+.ng-valid ~ label {
+  color: green; }
 
-/* ANIMATIONS
-============================================================================= */
-/* slide out to the left */
-@keyframes slideOutLeft {
-  to {
-    transform: translateX(-200%); } }
-@-moz-keyframes slideOutLeft {
-  to {
-    -moz-transform: translateX(-200%); } }
-@-webkit-keyframes slideOutLeft {
-  to {
-    -webkit-transform: translateX(-200%); } }
-/* slide in from the right */
-@keyframes slideInRight {
+.ng-invalid ~ label {
+  color: red; }
+
+.ng-pristine ~ label {
+  color: #202329; }
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 100%; }
+
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #202329;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all; }
+
+.bar:before {
+  left: 50%; }
+
+.bar:after {
+  right: 50%; }
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width: 50%; }
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5; }
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease; }
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
   from {
-    transform: translateX(200%); }
+    background: #202329; }
   to {
-    transform: translateX(0); } }
-@-moz-keyframes slideInRight {
+    width: 0;
+    background: transparent; } }
+@-moz-keyframes inputHighlighter {
   from {
-    -moz-transform: translateX(200%); }
+    background: #202329; }
   to {
-    -moz-transform: translateX(0); } }
-@-webkit-keyframes slideInRight {
+    width: 0;
+    background: transparent; } }
+@keyframes inputHighlighter {
   from {
-    -webkit-transform: translateX(200%); }
+    background: #202329; }
   to {
-    -webkit-transform: translateX(0); } }
+    width: 0;
+    background: transparent; } }
 
 /*# sourceMappingURL=users.css.map */

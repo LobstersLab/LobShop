@@ -1,27 +1,41 @@
-<div class="form-group">
-    <label for="country">Country</label>
-    <input type="text" class="form-control" name="country" ng-model="registerCtrl.user.country">
+<div class="group">
+    <input type="text" name="country"
+           ng-model="registerCtrl.user.country"
+           ng-class="{ 'not-empty': !registerCtrl.isEmpty('country')}">
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Country</label>
 </div>
 
-<div class="form-group">
-    <label for="city">City</label>
-    <input type="text" class="form-control" name="city" ng-model="registerCtrl.user.city">
+<div class="group">
+    <input type="text" name="city"
+           ng-model="registerCtrl.user.city"
+           ng-class="{ 'not-empty': !registerCtrl.isEmpty('city')}">
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>City</label>
 </div>
 
-<div class="form-group">
-    <label for="postal-code">Postal code</label>
-    <input type="text" class="form-control" name="postal-code" ng-model="registerCtrl.user.postalCode">
+<div class="group">
+    <input type="text" name="postalCode"
+           ng-model="registerCtrl.user.postalCode"
+           ng-class="{ 'not-empty': !registerCtrl.isEmpty('postalCode')}">
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Postal code</label>
 </div>
 
-<div class="form-group">
-    <label for="address">Address</label>
-    <input type="text" class="form-control" name="address" ng-model="registerCtrl.user.address">
+<div class="group">
+    <input type="text" name="address"
+           ng-model="registerCtrl.user.address"
+           ng-class="{ 'not-empty': !registerCtrl.isEmpty('address')}">
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Address</label>
 </div>
 
 <div class="form-group row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <a ui-sref="register.account" class="btn btn-block btn-info">
-            Next
-        </a>
-    </div>
+    <a ui-sref="register.account" class="btn btn-info">
+        Next
+    </a>
 </div>

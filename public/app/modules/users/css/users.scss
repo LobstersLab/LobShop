@@ -1,95 +1,118 @@
-/* form styling */
-#form-container {
-  margin-bottom:20px;
-  border-radius:5px;
+//Scotch.io material desgin form
+.group {
+  position:relative;
+  margin-bottom:45px;
+  width: 50%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#form-container .page-header {
-  margin:0; padding:30px;
-  border-top-left-radius:5px;
-  border-top-right-radius:5px;
-}
-
-/* numbered buttons */
-#status-buttons {  }
-#status-buttons a {
-  display:inline-block;
-  font-size:12px;
-  margin-right:10px;
-  text-align:center;
-  text-transform:uppercase;
-}
-
-#status-buttons a:hover {
-  text-decoration:none;
-}
-
-/* we will style the span as the circled number */
-#status-buttons span {
-  background:#080808;
+input {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
   display:block;
-  height:30px;
-  margin:0
-  auto 10px;
-  padding-top:5px;
-  width:30px;
-  border-radius:50%;
+  width: 100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus {
+  outline:none;
 }
 
-/* active buttons turn light green-blue*/
-#status-buttons a.active span {
-  background:#00BC8C;
+/* LABEL ======================================= */
+label {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
 }
 
-/* ANIMATION STYLINGS
-============================================================================= */
-#signup-form            { position:relative; min-height:300px; overflow:hidden; padding:30px; }
-#form-views             { width:auto; }
-
-/* basic styling for entering and leaving */
-/* left and right added to ensure full width */
-#form-views.ng-enter,
-#form-views.ng-leave      { position:absolute; left:30px; right:30px;
-  transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease;
+/* active state */
+input:focus ~ label,
+.not-empty ~ label {
+  top: -20px;
+  font-size: 14px;
 }
 
-/* enter animation */
-#form-views.ng-enter            {
-  -webkit-animation:slideInRight 0.5s both ease;
-  -moz-animation:slideInRight 0.5s both ease;
-  animation:slideInRight 0.5s both ease;
+.ng-valid ~ label {
+  color: green;
 }
 
-/* leave animation */
-#form-views.ng-leave            {
-  -webkit-animation:slideOutLeft 0.5s both ease;
-  -moz-animation:slideOutLeft 0.5s both ease;
-  animation:slideOutLeft 0.5s both ease;
+.ng-invalid ~ label {
+  color: red;
 }
 
-/* ANIMATIONS
-============================================================================= */
-/* slide out to the left */
-@keyframes slideOutLeft {
-  to      { transform: translateX(-200%); }
-}
-@-moz-keyframes slideOutLeft {
-  to      { -moz-transform: translateX(-200%); }
-}
-@-webkit-keyframes slideOutLeft {
-  to      { -webkit-transform: translateX(-200%); }
+.ng-pristine ~ label {
+  color: #202329;
 }
 
-/* slide in from the right */
-@keyframes slideInRight {
-  from    { transform:translateX(200%); }
-  to      { transform: translateX(0); }
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
 }
-@-moz-keyframes slideInRight {
-  from    { -moz-transform:translateX(200%); }
-  to      { -moz-transform: translateX(0); }
+
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width:0;
+  bottom: 1px;
+  position: absolute;
+  background: #202329;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
 }
-@-webkit-keyframes slideInRight {
-  from    { -webkit-transform:translateX(200%); }
-  to      { -webkit-transform: translateX(0); }
+
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#202329; }
+  to    { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#202329; }
+  to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#202329; }
+  to    { width:0; background:transparent; }
 }
