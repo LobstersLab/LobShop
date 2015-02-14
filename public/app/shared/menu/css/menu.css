@@ -1,5 +1,6 @@
 menu {
-  width: 300px;
+  width: 30%;
+  max-width: 300px;
   position: absolute;
   right: 0;
   top: 0;
@@ -11,6 +12,31 @@ menu {
   -webkit-box-shadow: 0px 0px 50px #202329;
   -moz-box-shadow: 0px 0px 50px #202329;
   box-shadow: 0px 0px 50px #202329; }
+  menu.ng-show, menu.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s; }
+  menu.ng-hide {
+    opacity: 0;
+    width: 0; }
+  menu.ng-show {
+    opacity: 1; }
+
+.overlay {
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  z-index: 500; }
+  .overlay.ng-show, .overlay.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s; }
+  .overlay.ng-hide {
+    opacity: 0; }
+  .overlay.ng-show {
+    opacity: 0.5; }
 
 .menu-header {
   background-color: #373a3d;
@@ -60,6 +86,6 @@ menu {
 
 .profile-image img {
   border-radius: 25px;
-  width: 35px; }
+  width: 15%; }
 
 /*# sourceMappingURL=menu.css.map */

@@ -4,9 +4,9 @@
 
 {% block content %}
 
-    <div ng-class="{overlay: menuCtrl.menuToggle}" ng-click="menuCtrl.menuToggle = false"></div>
-    <header-navigation></header-navigation>
-    <ui-view></ui-view>
-    <menu class="bounce" ng-show="menuCtrl.menuToggle" ng-cloak></menu>
+    <div ng-cloak ng-animate="'animate'" class="overlay"  ng-class="{'ng-show':menuCtrl.menuToggle}" ng-show="menuCtrl.menuToggle" ng-click="menuCtrl.menuToggle = false"></div>
+    <header-navigation ng-cloak></header-navigation>
+    <ui-view ng-cloak></ui-view>
+    <menu ng-class="{'ng-show':menuCtrl.menuToggle}" ng-show="menuCtrl.menuToggle" ng-cloak></menu>
 
 {% endblock %}

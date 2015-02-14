@@ -4,14 +4,4 @@
 .ng-enter {
   animation: 0.5s lightSpeedOut ease; }
 
-.overlay {
-  opacity: 0.5;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: black;
-  z-index: 500; }
-
 /*# sourceMappingURL=style.css.map */
