@@ -9,7 +9,8 @@ var ApplicationConfiguration = (function() {
         'ngCookies',
         'ngAnimate',
         'ui.router',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngDialog'
     ];
 
     // Add a new vertical module

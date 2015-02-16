@@ -20,7 +20,8 @@ var ASSETS = {
             'public/assets/bower_components/angular-resource/angular-resource.js',
             'public/assets/bower_components/angular-cookies/angular-cookies.js',
             'public/assets/bower_components/angular-animate/angular-animate.js',
-            'public/assets/bower_components/angular-ui-router/release/angular-ui-router.js'
+            'public/assets/bower_components/angular-ui-router/release/angular-ui-router.js',
+            'public/assets/bower_components/ngDialog/js/ngDialog.js'
         ]
     },
     css: [
