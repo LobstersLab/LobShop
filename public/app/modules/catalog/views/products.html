@@ -1,8 +1,13 @@
 <div class="products container animated">
     <div class="row">
         <div class="row-same-height">
-            <div class="col-md-4" ng-repeat="product in catalogCtrl.getProducts()">
-                <section class="card-border">
+            <div class="col-md-4" ng-repeat="product in catalogCtrl.products">
+
+                <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)" ng-mouseleave="catalogCtrl.unhoverProduct(product)">
+                    <div class="product-overlay text-center" ng-show="product.hover">
+                        <button class="btn btn-info">Buy</button>
+                        <button class="btn btn-success" ng-click="catalogCtrl.openProductDetails(product)">Details</button>
+                    </div>
                     <header>
                         <span></span>
                         <span class="card-label label-purple">

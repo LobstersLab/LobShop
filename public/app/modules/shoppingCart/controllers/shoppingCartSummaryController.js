@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('catalog')
+angular.module('shoppingCart')
     .controller('ShoppingCartSummaryController', [function () {
 
     }]);

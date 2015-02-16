@@ -1,111 +1,28 @@
 'use strict';
 
 angular.module('catalog')
-    .controller('CatalogController', ['ProductsResource',
-        function CatalogController (ProductsResource) {
-            //this.message = 'Hello AngularJS, we are Lobsters Lab!';
+    .controller('CatalogController', ['$state', 'ProductsResource',
+        function CatalogController ($state, ProductsResource) {
+            var self = this;
 
-            //this.products = ProductsResource.getAll();
-            var sampleProducts = [{
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 210,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 211,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 212,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 213,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }, {
-                title: 'IONIA, Magnesia ad Maeandrum',
-                description: 'Archepolis.  IONIA, Erythrai. Hekte (Electrum, 2.15 g). Head of Herakles to left, wearing lionskin',
-                lot: 214,
-                price: 240000,
-                year: 1800
-            }];
+            self.products = ProductsResource.getAllProducts();
 
-            this.getProducts = function (){
-                return sampleProducts;
+            self.openProductDetails = function (product) {
+                $state.go('product', {
+                    productId: product.id
+                });
+
+                product.hover = false;
             };
+
+            self.hoverProduct = function (product) {
+                product.hover = true;
+            };
+
+            self.unhoverProduct = function (product) {
+                product.hover = false;
+            };
+
+            self.lastPageYOffset = 0;
         }
     ]);
