@@ -1,0 +1,26 @@
+<search-header></search-header>
+<div class="row">
+    <div class="col-md-9">
+        <div>Category</div>
+        <div class="row text-center">
+            <div class="col-md-6"> Lot: {{productCtrl.product.lot}}</div>
+            <div class="col-md-6"> Price: {{productCtrl.product.price}}</div>
+        </div>
+        <div class="text-center">
+            <img src="assets/images/CoinBack.jpg" alt=""/>
+        </div>
+        <h3>Title: {{productCtrl.product.title}}</h3>
+        <p>{{productCtrl.product.description}}</p>
+        <h3>Years: {{productCtrl.product.year}}</h3>
+        <button class="btn btn-success pull-right">Buy</button>
+    </div>
+    <div class="col-md-3">
+        <div class="related-products">
+            <h3>RELATED:</h3>
+            <div ng-repeat="relatedProduct in productCtrl.relatedProducts">
+                {{ relatedProduct.title }}
+            </div>
+        </div>
+    </div>
+</div>
+<shopping-cart-summary></shopping-cart-summary>
