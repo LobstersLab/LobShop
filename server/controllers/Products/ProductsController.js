@@ -1,4 +1,10 @@
-﻿module.exports = function (data) {
+﻿var Busboy = require('busboy'),
+    path = require('path'),
+    fs = require('fs'),
+    uuid = require('node-uuid'),
+    inspect = require('util').inspect;;
+
+module.exports = function (data) {
     return {
         getAll: function (req, res) {
             data.products.getAll()
@@ -28,26 +34,50 @@
             //Data validation
             //Price is mandatory
 
-            var files = req.files;
+            var busboy = new Busboy({ headers: req.headers }),
+                productData = {
+                    assets : []
+                };
+            busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+                //console.log('File [' + fieldname + ']: filename: ' + filename);
 
-            files.forEach(function (file) {
-                console.log(file.name);
+                var uuidFilename = uuid() + filename;
+                var saveToPath = path.join(path.normalize(__dirname  + '/../../../public/storage/products/images/'), path.basename(uuidFilename));
+
+                var productImageData = {
+                    fileName: filename,
+                    pathToFile: 'storage/products/images/' + uuidFilename
+                };
+                productData.assets.push(productImageData);
+
+                file.pipe(fs.createWriteStream(saveToPath));
             });
 
-            return;
+            busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+                if(fieldname == 'description'){
+                    var value = JSON.parse(val);
+                }else{
+                    var value = val;
+                }
 
-            data.products.create(req.body)
-                .then(function (createdProduct) {
-                    res.json({
-                        message: 'New product saved successfully!',
-                        product: createdProduct
+                productData[fieldname] = value;
+            });
+
+            busboy.on('finish', function() {
+                data.products.create(productData)
+                    .then(function (createdProduct) {
+                        res.json({
+                            message: 'New product saved successfully!',
+                            product: createdProduct
+                        });
+                    }, function (error) {
+                        res.render('error', {
+                            message: 'Cannot create product!',
+                            error: error
+                        });
                     });
-                }, function (error) {
-                    res.render('error', {
-                        message: 'Cannot create product!',
-                        error: error
-                    });
-                });
+            });
+            req.pipe(busboy);
         },
         updateProductById: function (req, res) {
             data.products.updateProductById(req.body)

@@ -43,6 +43,7 @@ function create (params) {
     //Make the promise
     var deferred = Q.defer();
     var item;
+    console.log(params);
     // categoryHierarchy = '',
     // assets = [],
     // attributes = [],
@@ -66,7 +67,7 @@ function create (params) {
     //}
 
     //Data Validation
-    if(!params.name || !params.price || !params.description){
+    if(!params.name || !params.price){
         deferred.reject(new Error('Invalid input data! Name, price or description are missing!'));
         return deferred.promise;
     }
@@ -195,7 +196,7 @@ function saveSummary (savedItem){
         description: savedItem.description,
         brand: mongoose.Types.ObjectId(savedItem.brandId),
         assets:{
-            images:savedItem.assets
+            images:savedItem.assets.images
         },
         attributes: savedItem.attributes
     });

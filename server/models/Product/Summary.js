@@ -19,7 +19,7 @@ var ProductSummarySchema = new Schema({
         trim: true
     },
     department: { type: Schema.Types.ObjectId },
-    desc: [{
+    description: [{
         language: {
             type: String,
             default: '',
