@@ -9,6 +9,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.0.2",
+    "busboy": "^0.2.9",
     "cookie-parser": "^1.0.1",
     "debug": "^0.7.4",
     "express": "^4.2.0",
@@ -19,7 +20,7 @@
     "lusca": "^1.0.2",
     "mongoose": "^3.8.21",
     "morgan": "^1.5.1",
-    "multiparty": "^4.1.1",
+    "node-uuid": "^1.4.2",
     "passport": "~0.2.0",
     "passport-facebook": "^1.0.3",
     "passport-google-oauth": "^0.1.5",
