@@ -96,5 +96,7 @@
   to {
     width: 0;
     background: transparent; } }
+.initial {
+  border: 1px solid black; }
 
 /*# sourceMappingURL=users.css.map */
