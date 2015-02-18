@@ -28,6 +28,14 @@
             //Data validation
             //Price is mandatory
 
+            var files = req.files;
+
+            files.forEach(function (file) {
+                console.log(file.name);
+            });
+
+            return;
+
             data.products.create(req.body)
                 .then(function (createdProduct) {
                     res.json({

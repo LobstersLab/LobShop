@@ -1,4 +1,6 @@
-﻿var express = require('express');
+﻿var multiparty = require('connect-multiparty');
+var multipartyMiddleware = multiparty();
+var express = require('express');
 var router = express.Router();
 
 module.exports = function (data) {
@@ -6,11 +8,11 @@ module.exports = function (data) {
 
     router.route('/')
         .get(ProductsController.getAll)
-        .post(ProductsController.create);
+        .post(multipartyMiddleware, ProductsController.create);
     
     router.route('/:id')
         .get(ProductsController.getById)
-        .put(ProductsController.updateProductById)
+        .put(multipartyMiddleware, ProductsController.updateProductById)
         .delete(ProductsController.remove);
     
     return router;
