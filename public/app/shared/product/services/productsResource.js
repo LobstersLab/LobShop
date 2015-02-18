@@ -3,28 +3,7 @@
 angular.module('product')
     .factory('ProductsResource', ['$resource',
         function ProductsResource ($resource) {
-            //var Product = $resource('/api/products/:productId',
-            //    { productId: '@id' },
-            //    {
-            //        getAll: {
-            //            method: 'GET',
-            //            isArray: true,
-            //            cache: true
-            //        },
-            //        getById: {
-            //            method: 'GET'
-            //        },
-            //        create: {
-            //            method: 'POST'
-            //        },
-            //        update: {
-            //            method: 'PUT'
-            //        },
-            //        remove: {
-            //            method: 'DELETE'
-            //        }
-            //    });
-            //
+            var Product = $resource('/api/products/:productId', { productId: '@productId' });
 
             var products = [{
                 id: 1,
@@ -140,17 +119,20 @@ angular.module('product')
                 year: 1800
             }];
 
-            return {
-                getAllProducts : function () {
-                    //return Product.getAll();
+            //return {
+            //    getAllProducts : function () {
+            //        //return Product.getAll();
+            //
+            //        return products;
+            //    },
+            //    getProductById: function (id){
+            //        //return Product.getById({id: id});
+            //
+            //        return products[id - 1];
+            //    }
+            //};
 
-                    return products;
-                },
-                getProductById: function (id){
-                    //return Product.getById({id: id});
+            return Product;
 
-                    return products[id - 1];
-                }
-            };
         }
     ]);

@@ -1,22 +1,47 @@
-<div class="panel">
-    <div class="center-block">
-        <label>Search Products</label><input type="text" name="productSearch"/><button>Edit</button><button>New Product</button>
-    </div>
-    <div class="table-responsive">
-        <table class="table table-hover table-striped">
-            <thead>
-            <tr>
-                <th data-field="id">Name</th>
-                <th data-field="name">Description</th>
-            </tr>
-            </thead>
-            <tr class="productsList table table-striped" ng-repeat="product in productCtrl.products"
-                ng-class="{active: tableRowHover}"
-                ng-mouseenter="tableRowHover = true"
-                ng-mouseleave="tableRowHover = false">
-                <td>{{product.name}}</td>
-                <td>{{product.description[0].value}}</td>
-            </tr>
-        </table>
-    </div>
+<div class="panel center-block productEditFormContainer">
+
+    <form novalidate name="productEditForm" ng-submit="productDashboardCtrl.productEditFormSubmit()">
+
+        <div class="row panel center-block">
+            <label for="productName" class="col-md-3 text-right">Product Name</label>
+            <input class="col-md-6" id="productName" name="productName" type="text" ng-model="productDashboardCtrl.selectedProduct.name" required/>
+        </div>
+
+        <div class="row panel center-block">
+            <label for="productDescription" class="col-md-3 text-right">Description</label>
+            <textarea class="col-md-6" id="productDescription" name="productDescription" ng-model="productDashboardCtrl.selectedProduct.description[0].value" required></textarea>
+        </div>
+
+        <div class="row panel center-block">
+            <label for="productLot" class="col-md-3 text-right">Lot</label>
+            <input class="col-md-6" id="productLot" name="productLot" type="text" ng-model="productDashboardCtrl.selectedProduct.attributes[0].value" required/>
+        </div>
+
+        <div class="row panel center-block">
+            <label for="productYear" class="col-md-3 text-right">Years</label>
+            <input class="col-md-6" id="productYear" name="productYear" type="text" ng-model="productDashboardCtrl.selectedProduct.attributes[1].value" required/>
+        </div>
+
+        <div class="row panel center-block">
+            <label for="productPrice" class="col-md-3 text-right">Price</label>
+            <input class="col-md-6" id="productPrice" name="productPrice" type="text" ng-model="productDashboardCtrl.selectedProduct.price" required/>
+        </div>
+
+        <div class="row panel center-block">
+            <label for="frontImageSource" class="col-md-3 text-right">Front Image</label>
+            <div id="frontImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.frontImage">{{productDashboardCtrl.selectedProduct.frontImage[0].name || "Select"}}</div>
+        </div>
+
+        <div class="row panel center-block">
+            <label for="backImageSource" class="col-md-3 text-right">Back Image</label>
+            <div id="backImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.backImage">{{productDashboardCtrl.selectedProduct.backImage[0].name || "Select"}}</div>
+        </div>
+
+        <div class="row panel center-block">
+            <input type="submit" id="submit" value="Submit"  class="btn btn-default center-block"/>
+        </div>
+
+
+
+    </form>
 </div>
