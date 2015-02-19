@@ -1,20 +1,24 @@
 <div class="products container animated">
     <div class="row">
         <div class="row-same-height">
-            <div class="col-md-4" ng-repeat="product in catalogCtrl.products">
+            <div class="container text-center" ng-show="catalogCtrl.products.length == 0">
+                <h1>No products found</h1>
+            </div>
+            <div ng-if="catalogCtrl.products.length > 0">
+                <div class="col-md-4" ng-repeat="product in catalogCtrl.products">
 
-                <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)" ng-mouseleave="catalogCtrl.unhoverProduct(product)">
-                    <div class="product-overlay text-center" ng-show="product.hover">
-                        <button class="btn btn-info" ng-click="catalogCtrl.addProductToShoppingCart(product)">Buy</button>
-                        <button class="btn btn-success" ng-click="catalogCtrl.openProductDetails(product)">Details</button>
-                    </div>
-                    <header>
-                        <span></span>
+                    <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)" ng-mouseleave="catalogCtrl.unhoverProduct(product)">
+                        <div class="product-overlay text-center" ng-show="product.hover">
+                            <button class="btn btn-info" ng-click="catalogCtrl.addProductToShoppingCart(product)">Buy</button>
+                            <button class="btn btn-success" ng-click="catalogCtrl.openProductDetails(product)">Details</button>
+                        </div>
+                        <header>
+                            <span></span>
                         <span class="card-label label-purple">
                             Lot:
                         </span>
                         <span>
-                            {{ product.lot }}
+                            {{ product.attributes[0].value }}
                         </span>
                         <span class="pull-right">
                             <span class="card-label label-purple">
@@ -24,26 +28,27 @@
                                 {{ product.price }}
                             </span>
                         </span>
-                    </header>
-                    <figure>
-                        <img class="img-responsive" src="/assets/images/CoinBack.jpg" alt=""/>
-                    </figure>
-                    <div>
-                        <p>
-                            <span class="card-label label-purple">Title:</span>
-                            <strong>{{ product.title }}</strong>
-                        </p>
-                        <p>
-                            {{ product.description | limitTo : 40}}...
-                        </p>
-                    </div>
-                    <div>
-                        <p>
-                            <span class="card-label label-purple">Years:</span>
-                            {{ product.year }}
-                        </p>
-                    </div>
-                </section>
+                        </header>
+                        <figure>
+                            <img class="img-responsive" src="/assets/images/CoinBack.jpg" alt=""/>
+                        </figure>
+                        <div>
+                            <p>
+                                <span class="card-label label-purple">Title:</span>
+                                <strong>{{ product.name }}</strong>
+                            </p>
+                            <p>
+                                {{ product.description[0].value | limitTo : 40}}...
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <span class="card-label label-purple">Years:</span>
+                                {{ product.attributes[1].value }}
+                            </p>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </div>

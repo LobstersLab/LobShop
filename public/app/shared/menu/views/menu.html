@@ -21,7 +21,10 @@
     <div>
         <ul class="menu-navigation">
             <li ng-if="menuCtrl.identity.isAuthenticated()">
-                <a class="btn" href ng-click="menuCtrl.logout()"> Logout </a>
+                <a class="btn" ng-click="menuCtrl.logout()"> Logout </a>
+            </li>
+            <li ng-if="menuCtrl.identity.isAdmin()">
+                <a class="btn" ui-sref="dashboard.products" ng-click="menuCtrl.menuToggle = false"> Dashboard </a>
             </li>
             <li><a class="btn" ui-sref="home" ng-click="menuCtrl.menuToggle = false"> Catalog </a></li>
             <li><a class="btn" ui-sref="highlights" ng-click="menuCtrl.menuToggle = false"> Highlights </a></li>

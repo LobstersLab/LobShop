@@ -61,17 +61,18 @@ module.exports = function () {
     }, function (req, username, password, done) {
         User.findOne({'username': username}, function (error, user) {
             if (error) {
-                return done(error);
+                return done({message: error.message });
             }
 
             if (!user) {
-                return done(null, false, { message: 'No user found!' });
+                return done({ message: 'No user found!' });
             }
 
             if (!user.validPassword(password)) {
-                return done(null, false, { message: 'Wrong password!' });
+                return done({ message: 'Wrong password!' });
             }
-            return done(null, user, { message: 'Login succeeded!' });
+
+            return done(false, user, { message: 'Login succeeded!' });
         });
     }));
 };

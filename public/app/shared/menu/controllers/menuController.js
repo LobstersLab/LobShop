@@ -1,16 +1,15 @@
 angular.module('menu')
-    .controller('MenuController', ['$state', 'identity', 'auth',
-        function MenuController ($state, identity, auth) {
+    .controller('MenuController', ['$state', 'Identity', 'Authentication',
+        function MenuController ($state, Identity, Authentication) {
             var self = this;
 
-            self.identity = identity;
+            self.identity = Identity;
             self.menuToggle = false;
 
             self.logout = function () {
-                auth.logout()
+                Authentication.logout()
                     .then(function () {
                         self.menuToggle = false;
-                        self.currentUser = undefined;
 
                         $state.go('home');
                     });

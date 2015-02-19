@@ -1,20 +1,21 @@
 'use strict';
 
 angular.module('users')
-    .factory('identity', ['$cookieStore', function($cookieStore) {
-        var cookieStorageUserKey = 'currentApplicationUser';
+    .factory('Identity', ['$cookieStore',
+        function($cookieStore) {
+            var cookieStorageUserKey = 'currentApplicationUser';
+            var currentUser;
 
-        var currentUser;
-        return {
-            getCurrentUser: function() {
+            function getCurrentUser () {
                 var savedUser = $cookieStore.get(cookieStorageUserKey);
                 if (savedUser) {
                     return savedUser;
                 }
 
                 return currentUser;
-            },
-            setCurrentUser: function(user) {
+            }
+
+            function setCurrentUser (user) {
                 if (user) {
                     $cookieStore.put(cookieStorageUserKey, user);
                 }
@@ -23,18 +24,43 @@ angular.module('users')
                 }
 
                 currentUser = user;
-            },
-            isAuthenticated: function() {
-                var result;
+            }
 
-                try {
-                    result = !!this.getCurrentUser();
-                }
-                catch (err) {
-                    result = false;
+            function isAuthenticated () {
+                return !!this.getCurrentUser();
+            }
+
+            function isAdmin () {
+                return this.isInRole('admin');
+            }
+
+            function isInRole (role) {
+                var user = this.getCurrentUser();
+                var inRole = false;
+
+                if (user) {
+                    var i = 0;
+                    while (user.roles.length > i) {
+                        var userRole = user.roles[i];
+
+                        if (userRole === role) {
+                            inRole = true;
+                            break;
+                        }
+
+                        i++;
+                    }
                 }
 
-                return result;
+                return inRole;
+            }
+
+            return {
+                getCurrentUser: getCurrentUser,
+                setCurrentUser: setCurrentUser,
+                isAuthenticated: isAuthenticated,
+                isAdmin: isAdmin,
+                isInRole: isInRole
             }
         }
-    }]);
+    ]);

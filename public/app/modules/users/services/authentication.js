@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('users')
-    .factory('auth', ['$http', '$q', 'identity', function($http, $q, identity) {
-        var baseApiUrl = 'http://localhost:3310';
+    .factory('Authentication', ['$http', '$q', 'Identity',
+        function($http, $q, Identity) {
+            var baseApiUrl = 'http://localhost:3310';
 
-        return {
-            signup: function(user) {
+            function signup (user) {
                 var deferred = $q.defer();
 
                 var req = {
@@ -30,19 +30,21 @@ angular.module('users')
                     .success(function (data, status, headers, config) {
                         console.log('Success: ', data);
 
-                        identity.setCurrentUser(data.user);
+                        Identity.setCurrentUser(data.user);
 
                         deferred.resolve(true);
                     })
                     .error(function (data, status, headers, config) {
-                        console.log('Error: ', data);
+                        // Handle error correctly
+                        console.error('Error: ', data.message);
 
                         deferred.reject();
                     });
 
                 return deferred.promise;
-            },
-            login: function(user){
+            }
+
+            function login (user){
                 var deferred = $q.defer();
 
                 var req = {
@@ -64,44 +66,36 @@ angular.module('users')
                     .success(function (data, status, headers, config) {
                         console.log('Success: ', data);
 
-                        identity.setCurrentUser(data.user);
+                        Identity.setCurrentUser(data.user);
 
                         deferred.resolve(true);
                     })
                     .error(function (data, status, headers, config) {
-                        console.log('Error: ', data);
+                        // Handle error correctly
+                        console.error('Error: ', data.message);
 
                         deferred.reject();
                     });
 
                 return deferred.promise;
-            },
-            logout: function() {
+            }
+
+            function logout () {
                 var deferred = $q.defer();
 
                 $http.get(baseApiUrl + '/auth/logout')
                     .success(function() {
-                        identity.setCurrentUser(undefined);
+                        Identity.setCurrentUser(undefined);
                         deferred.resolve();
                     });
 
                 return deferred.promise;
-            },
-            isAuthenticated: function() {
-                if (identity.isAuthenticated()) {
-                    return true;
-                }
-                else {
-                    return $q.reject('not authorized');
-                }
-            },
-            isAdmin: function(role) {
-                if (identity.isAdmin()) {
-                    return true;
-                }
-                else {
-                    return $q.reject('not authorized');
-                }
             }
-        };
-    }]);
+
+            return {
+                signup: signup,
+                login: login,
+                logout: logout
+            };
+        }
+    ]);

@@ -7,12 +7,14 @@ var AuthenticationController = function (passport) {
     function login (req, res, next) {
         passport.authenticate('local-login', function (error, user, info) {
             if (error) {
-                return next(error);
+                res.status(403).send(error);
+                return;
             }
 
             req.logIn(user, function (error) {
                 if (error) {
-                    return next(error);
+                    res.status(403).send(error);
+                    return;
                 }
 
                 res.json({
@@ -27,7 +29,8 @@ var AuthenticationController = function (passport) {
     function signup (req, res, next) {
         passport.authenticate('local-signup', function (error, user, info) {
             if (error) {
-                return next(error);
+                res.status(403).send(error);
+                return;
             }
 
             res.json({
