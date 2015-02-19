@@ -5,7 +5,7 @@
 
                 <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)" ng-mouseleave="catalogCtrl.unhoverProduct(product)">
                     <div class="product-overlay text-center" ng-show="product.hover">
-                        <button class="btn btn-info">Buy</button>
+                        <button class="btn btn-info" ng-click="catalogCtrl.addProductToShoppingCart(product)">Buy</button>
                         <button class="btn btn-success" ng-click="catalogCtrl.openProductDetails(product)">Details</button>
                     </div>
                     <header>
@@ -26,7 +26,7 @@
                         </span>
                     </header>
                     <figure>
-                        <img src="/assets/images/CoinBack.jpg" alt=""/>
+                        <img class="img-responsive" src="/assets/images/CoinBack.jpg" alt=""/>
                     </figure>
                     <div>
                         <p>

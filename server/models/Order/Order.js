@@ -6,13 +6,14 @@ var Schema = mongoose.Schema;
 var OrderSchema = new Schema({
 
     userId: { type: Schema.Types.ObjectId, ref: 'User' },
-    items: [{
-        itemId: { type: Schema.Types.ObjectId, ref: 'Items'}
-    }],
-    paymentMethod: {
-        type: String,
-        default: '',
-        trim: true
+    items: [{ type: Schema.Types.ObjectId, ref: 'ProductItem'}],
+    payment: {
+        method: {
+            type: String,
+            default: '',
+            trim: true
+        }
+        // TODO: Save paypal order info if payment method is with Credit Card
     },
     comment: {
         type: String,
@@ -22,15 +23,39 @@ var OrderSchema = new Schema({
     subTotal: { type: Number },
     tax: { type: Number },
     deliveryAddress: [{
-        country: { type: Number },
-        city: { type: Number },
-        street: { type: Number },
+        country: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        city: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        street: {
+            type: String,
+            default: '',
+            trim: true
+        },
         zip: { type: Number }
     }],
     billingAddress: [{
-        country: { type: Number },
-        city: { type: Number },
-        street: { type: Number },
+        country: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        city: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        street: {
+            type: String,
+            default: '',
+            trim: true
+        },
         zip: { type: Number }
     }],
     status: {

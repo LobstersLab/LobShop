@@ -1,16 +1,15 @@
 .catalog-header {
   height: 50px;
   background-color: #373a3d; }
-
-.catalog-header ul {
-  padding-top: 8px; }
-.catalog-header ul:first-child {
-  margin-left: 0%; }
-.catalog-header li {
-  display: inline-block;
-  margin-left: 20%; }
-.catalog-header .btn {
-  color: #d6cd9b; }
+  .catalog-header ul {
+    padding-top: 8px; }
+  .catalog-header ul:first-child {
+    margin-left: 0%; }
+  .catalog-header li {
+    display: inline-block;
+    margin-left: 20%; }
+  .catalog-header .btn {
+    color: #d6cd9b; }
 
 .products {
   margin-top: 40px; }
