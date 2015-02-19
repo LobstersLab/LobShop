@@ -2,33 +2,36 @@
     <div class="col-md-12">
         <div class="group">
             <input type="text" name="firstname"
+                   class="material-input"
                    ng-model="registerCtrl.user.firstname"
                    ng-class="{ 'not-empty': !registerCtrl.isEmpty('firstname')}"
                    ng-minlength="4"
                    required>
             <span class="highlight"></span>
             <span class="bar"></span>
-            <label>First name</label>
+            <label class="material-label">First name</label>
         </div>
         <div class="group">
             <input type="text" name="lastname"
+                   class="material-input"
                    ng-model="registerCtrl.user.lastname"
                    ng-class="{ 'not-empty': !registerCtrl.isEmpty('lastname')}"
                    ng-minlength="4"
                    required>
             <span class="highlight"></span>
             <span class="bar"></span>
-            <label>Last name</label>
+            <label class="material-label">Last name</label>
         </div>
 
         <div class="group">
             <input type="email" name="email"
+                   class="material-input"
                    ng-model="registerCtrl.user.email"
                    ng-class="{ 'not-empty': !registerCtrl.isEmpty('email')}"
                    required>
             <span class="highlight"></span>
             <span class="bar"></span>
-            <label>Email</label>
+            <label class="material-label">Email</label>
         </div>
     </div>
 </div>

@@ -1,40 +1,47 @@
 <div class="group">
     <input type="text" name="country"
+           class="material-input"
            ng-model="registerCtrl.user.country"
            ng-class="{ 'not-empty': !registerCtrl.isEmpty('country')}">
     <span class="highlight"></span>
     <span class="bar"></span>
-    <label>Country</label>
+    <label class="material-label">Country</label>
 </div>
 
 <div class="group">
     <input type="text" name="city"
+           class="material-input"
            ng-model="registerCtrl.user.city"
            ng-class="{ 'not-empty': !registerCtrl.isEmpty('city')}">
     <span class="highlight"></span>
     <span class="bar"></span>
-    <label>City</label>
+    <label class="material-label">City</label>
 </div>
 
 <div class="group">
     <input type="text" name="postalCode"
+           class="material-input"
            ng-model="registerCtrl.user.postalCode"
            ng-class="{ 'not-empty': !registerCtrl.isEmpty('postalCode')}">
     <span class="highlight"></span>
     <span class="bar"></span>
-    <label>Postal code</label>
+    <label class="material-label">Postal code</label>
 </div>
 
 <div class="group">
     <input type="text" name="address"
+           class="material-input"
            ng-model="registerCtrl.user.address"
            ng-class="{ 'not-empty': !registerCtrl.isEmpty('address')}">
     <span class="highlight"></span>
     <span class="bar"></span>
-    <label>Address</label>
+    <label class="material-label">Address</label>
 </div>
 
 <div class="form-group row">
+    <a ui-sref="register.personal" class="btn btn-default">
+        Back
+    </a>
     <a ui-sref="register.account" class="btn btn-info" ng-disabled="registrationForm.$invalid">
         Next
     </a>
