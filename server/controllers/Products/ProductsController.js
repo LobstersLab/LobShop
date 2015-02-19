@@ -39,7 +39,6 @@ module.exports = function (data) {
                     assets : []
                 };
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-                //console.log('File [' + fieldname + ']: filename: ' + filename);
 
                 var uuidFilename = uuid() + filename;
                 var saveToPath = path.join(path.normalize(__dirname  + '/../../../public/storage/products/images/'), path.basename(uuidFilename));
@@ -49,7 +48,6 @@ module.exports = function (data) {
                     pathToFile: 'storage/products/images/' + uuidFilename
                 };
                 productData.assets.push(productImageData);
-                console.log(filename);
                 file.pipe(fs.createWriteStream(saveToPath));
             });
 
@@ -80,19 +78,52 @@ module.exports = function (data) {
             req.pipe(busboy);
         },
         updateProductById: function (req, res) {
-            data.products.updateProductById(req.body)
-                .then(function (updatedProduct) {
-                    res.json({
-                        message: 'Product updated successfully!',
-                        product: updatedProduct
+            var busboy = new Busboy({ headers: req.headers }),
+                productData = {
+                    assets : []
+                };
+            busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+
+                var uuidFilename = uuid() + filename;
+                var saveToPath = path.join(path.normalize(__dirname  + '/../../../public/storage/products/images/'), path.basename(uuidFilename));
+
+                var productImageData = {
+                    fileName: filename,
+                    pathToFile: 'storage/products/images/' + uuidFilename
+                };
+                productData.assets.push(productImageData);
+                file.pipe(fs.createWriteStream(saveToPath));
+            });
+
+            busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+                if(fieldname == 'description' || fieldname == 'attributes') {
+                    var value = JSON.parse(val);
+                }else{
+                    var value = val;
+                }
+
+                productData[fieldname] = value;
+            });
+
+            busboy.on('finish', function() {
+
+
+
+
+                data.products.updateProductById(productData)
+                    .then(function (updatedProduct) {
+                        res.json({
+                            message: 'Product updated successfully!',
+                            product: updatedProduct
+                        });
+                    },function (error) {
+                        res.render('error', {
+                            message: 'Cannot update product!',
+                            error: error
+                        });
                     });
-                },function (error) {
-                    res.render('error', {
-                        message: 'Cannot update product!',
-                        error: error
-                    });
-                });
-            
+            });
+            req.pipe(busboy);
         },
         remove: function (req, res) { 
         

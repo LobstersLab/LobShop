@@ -32,8 +32,19 @@ function getById (id) {
                 deferred.reject(error);
                 return deferred.promise;
             }
+            product.getPrice(function (error, price){
+                if (error){
+                    deferred.reject(error);
+                    return deferred.promise;
+                }
+                //TODO think of better way to do this GG
+                var result = {
+                    product: product,
+                    price: price
+                };
+                deferred.resolve(result);
+            });
 
-            deferred.resolve(product);
         });
 
     return deferred.promise;

@@ -16,4 +16,9 @@
   .productEditFormContainer .fileSelectDiv {
     width: 30%; }
 
+progress-bar.ng-hide {
+  opacity: 0;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s; }
+
 /*# sourceMappingURL=dashboard.css.map */

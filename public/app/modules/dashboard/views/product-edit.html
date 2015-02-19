@@ -1,10 +1,10 @@
 <div class="panel center-block productEditFormContainer">
 
     <div class="row panel center-block">
-        <progressbar value="productDashboardCtrl.uploadPercent" type="success" ><b>{{productDashboardCtrl.uploadPercent}}%</b></progressbar>
+        <progressbar value="productDashboardCtrl.uploadPercent" type="success" ><b>{{productDashboardCtrl.uploadPercentText}}</b></progressbar>
     </div>
 
-    <form novalidate name="productEditForm" ng-submit="productDashboardCtrl.productEditFormSubmit()">
+    <form name="productEditForm" ng-submit="productDashboardCtrl.productEditFormSubmit()">
 
         <div class="row panel center-block">
             <label for="productName" class="col-md-3 text-right">Product Name</label>
@@ -33,12 +33,12 @@
 
         <div class="row panel center-block">
             <label for="frontImageSource" class="col-md-3 text-right">Front Image</label>
-            <div id="frontImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.frontImage">{{productDashboardCtrl.selectedProduct.frontImage[0].name || "Select"}}</div>
+            <div id="frontImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.frontImageNew">{{productDashboardCtrl.selectedProduct.frontImage[0].name || "Select"}}</div>
         </div>
 
         <div class="row panel center-block">
             <label for="backImageSource" class="col-md-3 text-right">Back Image</label>
-            <div id="backImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.backImage">{{productDashboardCtrl.selectedProduct.backImage[0].name || "Select"}}</div>
+            <div id="backImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.backImageNew">{{productDashboardCtrl.selectedProduct.backImage[0].name || "Select"}}</div>
         </div>
 
         <div class="row panel center-block">
