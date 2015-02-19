@@ -1,5 +1,9 @@
 <div class="panel center-block productEditFormContainer">
 
+    <div class="row panel center-block">
+        <progressbar value="productDashboardCtrl.uploadPercent" type="success" ><b>{{productDashboardCtrl.uploadPercent}}%</b></progressbar>
+    </div>
+
     <form novalidate name="productEditForm" ng-submit="productDashboardCtrl.productEditFormSubmit()">
 
         <div class="row panel center-block">
@@ -9,17 +13,17 @@
 
         <div class="row panel center-block">
             <label for="productDescription" class="col-md-3 text-right">Description</label>
-            <textarea class="col-md-6" id="productDescription" name="productDescription" ng-model="productDashboardCtrl.selectedProduct.description[0].value" required></textarea>
+            <textarea class="col-md-6" id="productDescription" name="productDescription" ng-model="productDashboardCtrl.selectedProduct.description" required></textarea>
         </div>
 
         <div class="row panel center-block">
             <label for="productLot" class="col-md-3 text-right">Lot</label>
-            <input class="col-md-6" id="productLot" name="productLot" type="text" ng-model="productDashboardCtrl.selectedProduct.attributes[0].value" required/>
+            <input class="col-md-6" id="productLot" name="productLot" type="text" ng-model="productDashboardCtrl.selectedProduct.lot" required/>
         </div>
 
         <div class="row panel center-block">
             <label for="productYear" class="col-md-3 text-right">Years</label>
-            <input class="col-md-6" id="productYear" name="productYear" type="text" ng-model="productDashboardCtrl.selectedProduct.attributes[1].value" required/>
+            <input class="col-md-6" id="productYear" name="productYear" type="text" ng-model="productDashboardCtrl.selectedProduct.years" required/>
         </div>
 
         <div class="row panel center-block">

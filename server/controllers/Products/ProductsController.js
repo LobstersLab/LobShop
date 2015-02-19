@@ -49,12 +49,12 @@ module.exports = function (data) {
                     pathToFile: 'storage/products/images/' + uuidFilename
                 };
                 productData.assets.push(productImageData);
-
+                console.log(filename);
                 file.pipe(fs.createWriteStream(saveToPath));
             });
 
             busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-                if(fieldname == 'description'){
+                if(fieldname == 'description' || fieldname == 'attributes') {
                     var value = JSON.parse(val);
                 }else{
                     var value = val;
