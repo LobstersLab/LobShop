@@ -21,6 +21,7 @@
 <div class="group">
     <input type="text" name="postalCode"
            class="material-input"
+           ng-pattern="/^[0-9]*$/"
            ng-model="registerCtrl.user.postalCode"
            ng-class="{ 'not-empty': !registerCtrl.isEmpty('postalCode')}">
     <span class="highlight"></span>
