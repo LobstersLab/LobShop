@@ -1,1 +1,46 @@
-<h1>Personal info</h1>
+<h1 class="text-center">Personal Info</h1>
+<br/>
+<div class="group">
+    <input type="text" name="firstname"
+           class="material-input"
+           ng-model="orderCtrl.user.firstname"
+           ng-class="{ 'not-empty': !orderCtrl.isEmpty('firstname')}"
+           ng-minlength="6"
+           required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label class="material-label">First name</label>
+</div>
+<div class="group">
+    <input type="text" name="lastname"
+           class="material-input"
+           ng-model="orderCtrl.user.lastname"
+           ng-class="{ 'not-empty': !orderCtrl.isEmpty('lastname')}"
+           ng-minlength="6"
+           required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label class="material-label">Last name</label>
+</div>
+<div class="group">
+    <input type="email" name="email"
+           class="material-input"
+           ng-model="orderCtrl.user.email"
+           ng-class="{ 'not-empty': !orderCtrl.isEmpty('email')}"
+           required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label class="material-label">Email</label>
+</div>
+<div class="group">
+    <input type="text" name="telephoneNumber"
+           class="material-input"
+           ng-model="orderCtrl.user.telephoneNumber"
+           ng-class="{ 'not-empty': !orderCtrl.isEmpty('telephoneNumber')}"
+           required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label class="material-label">Telephone</label>
+</div>
+<button class="btn btn-default" ui-sref="shoppingCart">Back</button>
+<button class="btn btn-info pull-right" ui-sref="order.deliveryInfo">Next</button>
