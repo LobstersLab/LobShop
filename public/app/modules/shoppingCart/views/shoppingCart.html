@@ -1,1 +1,50 @@
-<h1>Items: {{shoppingCartCtrl.cart.getCount()}}</h1>
+<sub-header></sub-header>
+<div class="container">
+    <div class="shopping-cart-grid" ng-show="shoppingCartCtrl.cart.getItems().length > 0">
+        <div class="row grid-header text-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-5">
+                <h4>Title</h4>
+            </div>
+            <div class="col-md-1">
+                <h4>Lot</h4>
+            </div>
+            <div class="col-md-1">
+                <h4>Price</h4>
+            </div>
+            <div class="col-md-1">
+                <h4>Quantity</h4>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row cart-item text-center" ng-repeat="cartItem in shoppingCartCtrl.cart.getItems()">
+            <div class="col-md-3">
+                <img class="img-responsive" src="assets/images/CoinBack.jpg" alt=""/>
+            </div>
+            <div class="col-md-5">
+                {{cartItem.item.title}}
+            </div>
+            <div class="col-md-1">
+                {{cartItem.item.lot}}
+            </div>
+            <div class="col-md-1">
+                {{cartItem.item.price | currency}}
+            </div>
+            <div class="col-md-1">
+                {{cartItem.quantity}}
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-danger" ng-click="shoppingCartCtrl.cart.removeItem(cartItem)">Delete</button>
+            </div>
+        </div>
+        <div class="pull-right">
+            <div>
+                Total Price: {{shoppingCartCtrl.cart.getTotal() | currency}}
+            </div>
+            <button class="btn btn-default" ui-sref="order.personalInfo">Check out</button>
+        </div>
+    </div>
+    <div class="text-center" ng-show="shoppingCartCtrl.cart.getItems().length == 0">
+        <h3>There are no items in the shopping cart</h3>
+    </div>
+</div>
