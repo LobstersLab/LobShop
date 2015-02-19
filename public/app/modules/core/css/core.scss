@@ -1,7 +1,8 @@
-.shown {
-  display: block;
-}
+.sub-header {
+  height: 50px;
+  background-color: #373a3d;
 
-.hidden {
-  display: none;
+  .btn {
+    color: #d6cd9b;
+  }
 }
