@@ -1,12 +1,12 @@
 menu {
-  width: 30%;
-  max-width: 300px;
-  position: absolute;
-  right: 0;
+  position: fixed;
   top: 0;
+  right: 0;
+  bottom: 0;
+  width: 65%;
+  max-width: 550px;
   margin: 0;
   padding: 0;
-  bottom: 0;
   background-color: #fbf8e8;
   z-index: 1000;
   -webkit-box-shadow: 0px 0px 50px #202329;
@@ -16,20 +16,20 @@ menu {
     -webkit-transition: all linear 0.3s;
     transition: all linear 0.3s; }
   menu.ng-hide {
-    opacity: 0;
-    width: 0; }
+    width: 0;
+    opacity: 0; }
   menu.ng-show {
     opacity: 1; }
 
 .overlay {
-  opacity: 0.5;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: black;
-  z-index: 500; }
+  z-index: 500;
+  opacity: 0.5;
+  background-color: black; }
   .overlay.ng-show, .overlay.ng-hide {
     -webkit-transition: all linear 0.3s;
     transition: all linear 0.3s; }
@@ -39,15 +39,15 @@ menu {
     opacity: 0.5; }
 
 .menu-header {
+  margin-bottom: 9em;
+  padding: 3.1em 1em;
   background-color: #373a3d;
-  height: 75px;
-  padding: 10px 15px;
   color: #fbf8e8; }
 
 .menu-header:after {
-  content: '';
   display: block;
-  clear: both; }
+  clear: both;
+  content: ''; }
 
 .menu-header .btn {
   color: #fbf8e8; }
@@ -56,28 +56,30 @@ menu {
   color: #9ba08d; }
 
 .menu-navigation {
-  text-align: center;
-  margin: 50px 10px; }
+  margin: 50px 0px;
+  text-align: center; }
 
 .menu-navigation li {
   display: block;
-  margin: 20px 0;
-  padding: 10px; }
+  width: 100%; }
 
 .menu-navigation li a {
+  width: 100%;
+  padding: 4em 0;
   text-decoration: none;
   text-transform: uppercase;
   color: #373a3d; }
 
 .menu-navigation li .btn:hover {
+  width: 100%;
   color: #fbf8e8;
   border-radius: 0px;
   background-color: #373a3d; }
 
 .menu-navigation li .active {
+  background-color: #373a3d;
   color: #fbf8e8;
-  border-radius: 0px;
-  background-color: #373a3d; }
+  border-radius: 0px; }
 
 .close-cross {
   float: right;
@@ -85,7 +87,7 @@ menu {
   cursor: pointer; }
 
 .profile-image img {
-  border-radius: 25px;
-  width: 15%; }
+  width: 15%;
+  border-radius: 25px; }
 
 /*# sourceMappingURL=menu.css.map */
