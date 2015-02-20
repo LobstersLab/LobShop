@@ -1,13 +1,47 @@
 <sub-header></sub-header>
-<div class="col-md-3">
-    <a ui-sref-active="active" ui-sref=".personalInfo"><span></span> Personal Info </a>
-    <a ui-sref-active="active" ui-sref=".deliveryInfo"><span></span> Delivery Info </a>
-    <a ui-sref-active="active" ui-sref=".paymentInfo"><span></span> Payment method </a>
-    <a ui-sref-active="active" ui-sref=".confirm"><span></span> Confirm </a>
-</div>
-<div class="col-md-9">
-    <form novalidate id="order-form" name="orderForm"
-          ng-submit="orderCtrl.register()">
-        <ui-view></ui-view>
-    </form>
-</div>
+    <div class="col-md-3 order-wrap">
+        <div class="status">
+            <a ui-sref-active="active" ui-sref=".personalInfo" >
+                <span class="status-circle complete ">1</span>
+                <span>Personal Info</span>
+            </a>
+
+            <div class="status-line line-complete"></div>
+        </div>
+        <!--/.status-->
+        <div class="status">
+            <a ui-sref-active="active" ui-sref=".deliveryInfo" >
+                <span class="status-circle complete disable">2</span>
+                <span class="disable">Delivery Info</span>
+            </a>
+
+            <div class="status-line line-complete disable"></div>
+        </div>
+        <!--/.status-->
+        <div class="status">
+            <a ui-sref-active="active" ui-sref=".paymentInfo" >
+                <span class="status-circle complete disable">3</span>
+                <span class="disable">Payment method</span>
+            </a>
+
+            <div class="status-line line-complete disable"></div>
+        </div>
+        <!--/.status-->
+        <div class="status">
+            <a ui-sref-active="active" ui-sref=".confirm">
+                <span class="status-circle complete disable">4</span>
+                <span class="disable">Confirm</span>
+            </a>
+
+        </div>
+        <!--/.status-->
+    </div>
+    <!--/.col-md-3-->
+    <div class="col-md-9 order-wrap">
+
+        <form novalidate id="order-form" name="orderForm"
+              ng-submit="orderCtrl.register()">
+            <ui-view></ui-view>
+        </form>
+    </div>
+    <!--/.col-md-9-->

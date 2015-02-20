@@ -4,7 +4,7 @@ menu {
   right: 0;
   bottom: 0;
   width: 65%;
-  max-width: 550px;
+  max-width: 450px;
   margin: 0;
   padding: 0;
   background-color: #fbf8e8;
@@ -29,7 +29,7 @@ menu {
   left: 0;
   z-index: 500;
   opacity: 0.5;
-  background-color: black; }
+  background-color: #393b3e; }
   .overlay.ng-show, .overlay.ng-hide {
     -webkit-transition: all linear 0.3s;
     transition: all linear 0.3s; }
@@ -38,9 +38,12 @@ menu {
   .overlay.ng-show {
     opacity: 0.5; }
 
+/************************************
+              MENU HEADER
+*************************************/
 .menu-header {
-  margin-bottom: 9em;
-  padding: 3.1em 1em;
+  margin-bottom: 7em;
+  padding: 1.1em 1em;
   background-color: #373a3d;
   color: #fbf8e8; }
 
@@ -49,12 +52,14 @@ menu {
   clear: both;
   content: ''; }
 
+/**  Menu BTN **/
 .menu-header .btn {
   color: #fbf8e8; }
 
 .menu-header .btn:hover {
   color: #9ba08d; }
 
+/**  Menu Nav **/
 .menu-navigation {
   margin: 50px 0px;
   text-align: center; }
@@ -65,29 +70,51 @@ menu {
 
 .menu-navigation li a {
   width: 100%;
-  padding: 4em 0;
+  padding: 3em 0;
   text-decoration: none;
   text-transform: uppercase;
   color: #373a3d; }
 
 .menu-navigation li .btn:hover {
   width: 100%;
-  color: #fbf8e8;
+  color: #d6cd9b;
   border-radius: 0px;
   background-color: #373a3d; }
 
 .menu-navigation li .active {
   background-color: #373a3d;
-  color: #fbf8e8;
+  color: #d6cd9b;
   border-radius: 0px; }
 
+/************************************
+              PROFILE
+*************************************/
 .close-cross {
   float: right;
   font-weight: 800;
   cursor: pointer; }
 
+/**  icons **/
+.profile-holder {
+  margin: 0.625em 0.625em 0.625em 1.25em; }
+
+.profile-icons-holder {
+  margin: -.4em 0 1.6em; }
+
+.profile-icons {
+  padding: 0; }
+
+/**  name **/
+.profile-name {
+  margin: 0;
+  color: #d6cd9b; }
+
+.profile-icons-holder, .profile-name {
+  margin-left: 5em; }
+
+/**  image **/
 .profile-image img {
-  width: 15%;
-  border-radius: 25px; }
+  border: 2px solid #d6cd9b;
+  border-radius: 50%; }
 
 /*# sourceMappingURL=menu.css.map */

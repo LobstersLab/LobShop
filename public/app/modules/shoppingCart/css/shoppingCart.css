@@ -1,15 +1,46 @@
 .shopping-cart-summary {
-  background-color: #373a3d;
-  height: 50px;
   position: fixed;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   left: 0;
-  color: #fbf8e8;
-  padding: 10px; }
+  height: 50px;
+  padding: 10px;
+  background-color: #373a3d;
+  color: #fbf8e8; }
 
 .cart-item {
-  border-bottom: 1px solid darkgray;
-  padding: 10px 0; }
+  padding: 10px 0;
+  border-bottom: 1px solid darkgray; }
+
+.order-wrap {
+  margin-top: 5em; }
+
+/*********************************
+      SHOPPING CART STATUS
+*********************************/
+.status a {
+  margin-left: 47.5%;
+  color: #393b3e; }
+
+.status-circle {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid #393b3e;
+  border-radius: 50%;
+  text-align: center; }
+
+.status-line {
+  width: 1px;
+  height: 11em;
+  margin: 0 auto;
+  background-color: #393b3e; }
+
+.status-line.disable {
+  background-color: #b3b3b3; }
+
+.disable {
+  color: #b3b3b3;
+  border-color: #b3b3b3; }
 
 /*# sourceMappingURL=shoppingCart.css.map */

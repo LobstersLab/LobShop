@@ -4,7 +4,7 @@ menu {
   right: 0;
   bottom: 0;
   width: 65%;
-  max-width: 550px;
+  max-width: 450px;
   margin: 0;
   padding: 0;
   background-color: #fbf8e8;
@@ -14,18 +14,18 @@ menu {
   box-shadow: 0px 0px 50px rgb(32, 35, 41);
 
   &.ng-show,
-  &.ng-hide  {
-    -webkit-transition:all linear 0.3s;
-    transition:all linear 0.3s;
+  &.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s;
   }
 
-  &.ng-hide  {
-    width:0;
-    opacity:0;
+  &.ng-hide {
+    width: 0;
+    opacity: 0;
   }
 
-  &.ng-show{
-    opacity:1;
+  &.ng-show {
+    opacity: 1;
   }
 }
 
@@ -36,27 +36,31 @@ menu {
   bottom: 0;
   left: 0;
   z-index: 500;
-  opacity : 0.5;
-  background-color: black;
+  opacity: 0.5;
+  background-color: #393b3e;
 
   &.ng-show,
-  &.ng-hide  {
-    -webkit-transition:all linear 0.3s;
-    transition:all linear 0.3s;
+  &.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s;
   }
 
-  &.ng-hide  {
-    opacity:0;
+  &.ng-hide {
+    opacity: 0;
   }
 
-  &.ng-show{
-    opacity:0.5;
+  &.ng-show {
+    opacity: 0.5;
   }
 }
 
+/************************************
+              MENU HEADER
+*************************************/
+
 .menu-header {
-  margin-bottom: 9em;
-  padding: 3.1em 1em;
+  margin-bottom: 7em;
+  padding: 1.1em 1em;
   background-color: #373a3d;
   color: #fbf8e8;
 }
@@ -67,6 +71,8 @@ menu {
   content: '';
 }
 
+/**  Menu BTN **/
+
 .menu-header .btn {
   color: #fbf8e8;
 }
@@ -74,6 +80,8 @@ menu {
 .menu-header .btn:hover {
   color: #9ba08d;
 }
+
+/**  Menu Nav **/
 
 .menu-navigation {
   margin: 50px 0px;
@@ -87,7 +95,7 @@ menu {
 
 .menu-navigation li a {
   width: 100%;
-  padding: 4em 0;
+  padding: 3em 0;
   text-decoration: none;
   text-transform: uppercase;
   color: #373a3d;
@@ -95,16 +103,20 @@ menu {
 
 .menu-navigation li .btn:hover {
   width: 100%;
-  color: #fbf8e8;
+  color: #d6cd9b;
   border-radius: 0px;
   background-color: #373a3d;
 }
 
 .menu-navigation li .active {
   background-color: #373a3d;
-  color: #fbf8e8;
+  color: #d6cd9b;
   border-radius: 0px;
 }
+
+/************************************
+              PROFILE
+*************************************/
 
 .close-cross {
   float: right;
@@ -112,8 +124,37 @@ menu {
   cursor: pointer;
 }
 
-.profile-image img {
-  width: 15%;
-  border-radius: 25px;
+/**  icons **/
+
+.profile-holder {
+  margin: 0.625em 0.625em 0.625em 1.25em;
 }
+
+.profile-icons-holder {
+  margin: -.4em 0 1.6em;
+}
+
+.profile-icons {
+  padding: 0;
+}
+
+/**  name **/
+
+.profile-name {
+  margin: 0;
+  color: #d6cd9b;
+}
+
+.profile-icons-holder, .profile-name {
+  margin-left: 5em;
+}
+
+/**  image **/
+
+.profile-image img {
+  border: 2px solid #d6cd9b;
+  border-radius: 50%;
+}
+
+
 

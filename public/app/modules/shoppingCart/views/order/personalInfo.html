@@ -10,7 +10,7 @@
     <span class="highlight"></span>
     <span class="bar"></span>
     <label class="material-label">First name</label>
-</div>
+</div><!--/.group-->
 <div class="group">
     <input type="text" name="lastname"
            class="material-input"
@@ -21,7 +21,7 @@
     <span class="highlight"></span>
     <span class="bar"></span>
     <label class="material-label">Last name</label>
-</div>
+</div><!--/.group-->
 <div class="group">
     <input type="email" name="email"
            class="material-input"
@@ -31,9 +31,9 @@
     <span class="highlight"></span>
     <span class="bar"></span>
     <label class="material-label">Email</label>
-</div>
+</div><!--/.group-->
 <div class="group">
-    <input type="text" name="telephoneNumber"
+    <input type="tel" name="telephoneNumber"
            class="material-input"
            ng-model="orderCtrl.user.telephoneNumber"
            ng-class="{ 'not-empty': !orderCtrl.isEmpty('telephoneNumber')}"
@@ -41,6 +41,6 @@
     <span class="highlight"></span>
     <span class="bar"></span>
     <label class="material-label">Telephone</label>
-</div>
+</div><!--/.group-->
 <button class="btn btn-default" ui-sref="shoppingCart">Back</button>
 <button class="btn btn-info pull-right" ui-sref="order.deliveryInfo">Next</button>
