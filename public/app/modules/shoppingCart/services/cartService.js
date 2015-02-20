@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .factory('CartService', [function () {
+    .factory('ShoppingCart', [function () {
         var self = this;
 
         self.cartItems = [];

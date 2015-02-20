@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('product')
-    .factory('ProductsResource', ['$resource','$q', '$upload',
+    .factory('ProductsResource', ['$resource', '$q', '$upload',
         function ProductsResource ($resource, $q, $upload) {
             var Product = $resource('/api/products/:productId', { productId: '@productId' });
 
             return {
                 getAllProducts : function () {
+                    // TODO: transform the products as in getProductById or change the response from the server
                     return Product.query();
                 },
                 getProductById: function (id){
@@ -56,8 +57,5 @@ angular.module('product')
                     return deferred.promise;
                 }
             };
-
-            //return Product;
-
         }
     ]);

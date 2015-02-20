@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('catalog')
-    .controller('CatalogController', ['$state', 'ProductsResource', 'CartService',
-        function CatalogController ($state, ProductsResource, CartService) {
+    .controller('CatalogController', ['$state', 'ProductsResource', 'ShoppingCart',
+        function CatalogController ($state, ProductsResource, ShoppingCart) {
             var self = this;
 
             self.products = ProductsResource.getAllProducts();
 
             self.addProductToShoppingCart = function (product) {
                 if (product) {
-                    CartService.insertItem(product);
+                    ShoppingCart.insertItem(product);
                 }
             };
 

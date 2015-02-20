@@ -1,0 +1,67 @@
+<div class="filter-box" ng-cloak>
+    <div class="category" ng-click="filterCtrl.showPrice = !filterCtrl.showPrice">price</div>
+    <div class="categoty-container" ng-show="filterCtrl.showPrice">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <input type="radio" name="price-filter"/>
+                <label for="price-filter">From Lower</label>
+            </div>
+            <div class="col-md-6">
+                <input type="radio" name="price-filter"/>
+                <label for="price-filter">From Higher</label>
+            </div>
+        </div>
+        <div class="category category-advanced text-center" ng-click="filterCtrl.showPriceAdvanced = !filterCtrl.showPriceAdvanced">advanced</div>
+        <div ng-show="filterCtrl.showPriceAdvanced">
+            <input type="range" name="price-range" min="0" max="100" value="0">
+        </div>
+    </div>
+    <div class="category" ng-click="filterCtrl.showYear = !filterCtrl.showYear">year</div>
+    <div class="categoty-container" ng-show="filterCtrl.showYear">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <input type="radio" name="year-filter"/>
+                <label for="year-filter">From Lower</label>
+            </div>
+            <div class="col-md-6">
+                <input type="radio" name="year-filter"/>
+                <label for="year-filter">From Higher</label>
+            </div>
+        </div>
+        <div class="category category-advanced text-center" ng-click="filterCtrl.showYearAdvanced = !filterCtrl.showYearAdvanced">advanced</div>
+        <div ng-show="filterCtrl.showYearAdvanced">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <input type="radio" name="year-advanced-filter"/>
+                    <label for="year-advanced-filter">B.C</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="radio" name="year-advanced-filter"/>
+                    <label for="year-advanced-filter">A.D</label>
+                </div>
+            </div>
+            <input type="range" name="years-range" min="0" max="100" value="0">
+        </div>
+    </div>
+    <div class="category" ng-click="filterCtrl.showAge = !filterCtrl.showAge">age</div>
+    <div class="categoty-container text-center" ng-show="filterCtrl.showAge">
+        <select name="age" id="age">
+            <option value="Ancient">Ancient</option>
+            <option value="Ancient">Rome</option>
+            <option value="Ancient">Archaic</option>
+        </select>
+    </div>
+    <div class="category" ng-click="filterCtrl.showLot = !filterCtrl.showLot">lot</div>
+    <div class="categoty-container" ng-show="filterCtrl.showLot">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <input type="radio" name="lot-filter"/>
+                <label for="price-filter">From Lower</label>
+            </div>
+            <div class="col-md-6">
+                <input type="radio" name="lot-filter"/>
+                <label for="lot-filter">From Higher</label>
+            </div>
+        </div>
+    </div>
+</div>

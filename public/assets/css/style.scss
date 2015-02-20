@@ -11,6 +11,32 @@
 }
 
 
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  opacity: 0.5;
+  background-color: #393b3e;
+
+  &.ng-show,
+  &.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+  }
+
+  &.ng-hide {
+    opacity: 0;
+  }
+
+  &.ng-show {
+    opacity: 0.5;
+  }
+}
+
+
 
 /**************************************
               ALL INPUTS

@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .controller('ShoppingCartSummaryController', ['CartService',
-        function ShoppingCartSummaryController (CartService) {
+    .controller('ShoppingCartSummaryController', ['ShoppingCart',
+        function ShoppingCartSummaryController (ShoppingCart) {
             var self = this;
 
-            self.cart = CartService;
+            self.cart = ShoppingCart;
         }
     ]);

@@ -5,6 +5,7 @@ angular.module('menu')
 
             self.identity = Identity;
             self.menuToggle = false;
+            self.filterToggle = false;
 
             self.logout = function () {
                 Authentication.logout()
