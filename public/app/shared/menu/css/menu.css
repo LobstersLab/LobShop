@@ -100,4 +100,12 @@ menu {
   border: 2px solid #d6cd9b;
   border-radius: 50%; }
 
+/*TODO: SET THE ICONS AND THE MARKUP (they are links !!!)*/
+.settings:before {
+  font-family: 'LobShopIcons';
+  display: inline-block;
+  content: "\e610";
+  color: coral;
+  width: 20px; }
+
 /*# sourceMappingURL=menu.css.map */
