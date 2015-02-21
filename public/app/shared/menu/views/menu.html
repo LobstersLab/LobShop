@@ -9,8 +9,20 @@
                 </figure>
                 <!--/.profile-image -->
                 <div class="profile-icons-holder" ng-if="menuCtrl.identity.isAuthenticated()">
-                    <a class="btn profile-icons" href ng-click="menuCtrl.logout()"> Logout </a>
-                    <span class="settings"></span>
+                    <a class="btn profile-icons" ui-sref="profile" ng-click="menuCtrl.menuToggle = false">
+                        <figure class="menu-icons settings"></figure>
+                    </a>
+                    <!--/.settings-->
+                    <a class="btn profile-icons" ui-sref="shoppingCart" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons shoppig-bag">
+                        <span class="badge">{{ menuCtrl.cart.getCount() }}</span>
+                    </figure>
+                </a>
+                    <!--/.shopping-bag-->
+                    <a class="btn profile-icons" href ng-click="menuCtrl.logout()">
+                        <figure class="menu-icons log-out"></figure>
+                    </a>
+                    <!--/.LogOut-->
                 </div>
                 <!--/.profile-icons-holder-->
                 <address class="profile-name">

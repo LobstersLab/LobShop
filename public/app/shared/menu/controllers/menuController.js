@@ -1,9 +1,10 @@
 angular.module('menu')
-    .controller('MenuController', ['$state', 'Identity', 'Authentication',
-        function MenuController ($state, Identity, Authentication) {
+    .controller('MenuController', ['$state', 'Identity', 'Authentication', 'ShoppingCart',
+        function MenuController ($state, Identity, Authentication, ShoppingCart) {
             var self = this;
 
             self.identity = Identity;
+            self.cart = ShoppingCart;
             self.menuToggle = false;
             self.filterToggle = false;
 

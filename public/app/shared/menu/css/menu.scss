@@ -132,12 +132,54 @@ menu {
 }
 
 /*TODO: SET THE ICONS AND THE MARKUP (they are links !!!)*/
-.settings:before{
-  font-family: 'LobShopIcons';
-  display: inline-block;
-  content: "\e610";
-  color: coral;
-  width: 20px;
+.menu-icons{
+  &:before{
+    margin-left: 5px;
+
+    color: #b3b3b3;
+
+    font-family: 'LobShopIcons';
+    font-size: 24px;
+
+    transition: all .2s ease-in;
+  }
+  &:hover:before{
+    color: #fff;
+    transition: all .2s ease-in;
+  }
 }
+.settings{
+  &:before{
+    content: "\e610";
+  }
+}
+.shoppig-bag {
+  &:before {
+    content: "\e60b";
+  }
+
+  .badge{
+    top: 0;
+    right: 1.2em;
+    padding: 1px 4px;
+
+    background-color: #d6cd9b;
+    color: #393b3e;
+
+    border-radius: 50%;
+  }
+}
+.log-out{
+  &:before{
+    margin-left: -10px;
+
+    font-size: 21px;
+
+    content: "\e605";
+  }
+}
+
+
+
 
 
