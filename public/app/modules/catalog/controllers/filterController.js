@@ -4,4 +4,5 @@ angular.module('catalog')
     .controller('FilterController', [function () {
         var self = this;
 
+        self.predicate = '';
     }]);

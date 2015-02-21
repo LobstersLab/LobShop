@@ -6,7 +6,8 @@
             </div>
             <!--/.container .text-center-->
             <div ng-if="catalogCtrl.products.length > 0">
-                <div class="col-md-4" ng-repeat="product in catalogCtrl.products | filter: catalogHeaderCtrl.productSearch">
+                <div class="col-md-4"
+                     ng-repeat="product in catalogCtrl.products | filter: catalogHeaderCtrl.productSearch | orderBy: filterCtrl.predicate">
 
                     <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)"
                              ng-mouseleave="catalogCtrl.unhoverProduct(product)">

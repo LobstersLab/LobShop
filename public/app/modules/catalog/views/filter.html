@@ -3,11 +3,11 @@
     <div class="categoty-container" ng-show="filterCtrl.showPrice">
         <div class="row text-center">
             <div class="col-md-6">
-                <input type="radio" name="price-filter"/>
+                <input type="radio" name="price-filter" value="price" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Lower</label>
             </div>
             <div class="col-md-6">
-                <input type="radio" name="price-filter"/>
+                <input type="radio" name="price-filter" value="-price" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Higher</label>
             </div>
         </div>
@@ -20,11 +20,11 @@
     <div class="categoty-container" ng-show="filterCtrl.showYear">
         <div class="row text-center">
             <div class="col-md-6">
-                <input type="radio" name="year-filter"/>
+                <input type="radio" name="year-filter" value="-attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Lower</label>
             </div>
             <div class="col-md-6">
-                <input type="radio" name="year-filter"/>
+                <input type="radio" name="year-filter" value="attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Higher</label>
             </div>
         </div>
@@ -55,11 +55,11 @@
     <div class="categoty-container" ng-show="filterCtrl.showLot">
         <div class="row text-center">
             <div class="col-md-6">
-                <input type="radio" name="lot-filter"/>
+                <input type="radio" name="lot-filter" value="attributes[0].value" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Lower</label>
             </div>
             <div class="col-md-6">
-                <input type="radio" name="lot-filter"/>
+                <input type="radio" name="lot-filter" value="-attributes[0].value" ng-model="filterCtrl.predicate"/>
                 <label for="lot-filter">From Higher</label>
             </div>
         </div>

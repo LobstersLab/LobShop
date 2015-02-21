@@ -12,9 +12,6 @@
             <div class="col-md-1">
                 <h4>Price</h4>
             </div>
-            <div class="col-md-1">
-                <h4>Quantity</h4>
-            </div>
             <div class="col-md-1"></div>
         </div>
         <div class="row cart-item text-center" ng-repeat="cartItem in shoppingCartCtrl.cart.getItems()">
@@ -22,16 +19,13 @@
                 <img class="img-responsive" src="assets/images/CoinBack.jpg" alt=""/>
             </div>
             <div class="col-md-5">
-                {{cartItem.item.title}}
+                {{cartItem.item.name}}
             </div>
             <div class="col-md-1">
-                {{cartItem.item.lot}}
+                {{cartItem.item.attributes[0].value}}
             </div>
             <div class="col-md-1">
                 {{cartItem.item.price | currency}}
-            </div>
-            <div class="col-md-1">
-                {{cartItem.quantity}}
             </div>
             <div class="col-md-1">
                 <button class="btn btn-danger" ng-click="shoppingCartCtrl.cart.removeItem(cartItem)">Delete</button>
