@@ -10,17 +10,17 @@
                 <!--/.profile-image -->
                 <div class="profile-icons-holder" ng-if="menuCtrl.identity.isAuthenticated()">
                     <a class="btn profile-icons" ui-sref="profile" ng-click="menuCtrl.menuToggle = false">
-                        <figure class="menu-icons settings"></figure>
+                        <figure class="menu-header-icons settings"></figure>
                     </a>
                     <!--/.settings-->
                     <a class="btn profile-icons" ui-sref="shoppingCart" ng-click="menuCtrl.menuToggle = false">
-                    <figure class="menu-icons shoppig-bag">
-                        <span class="badge">{{ menuCtrl.cart.getCount() }}</span>
-                    </figure>
-                </a>
+                        <figure class="menu-header-icons shoppig-bag">
+                            <span class="badge">{{ menuCtrl.cart.getCount() }}</span>
+                        </figure>
+                    </a>
                     <!--/.shopping-bag-->
                     <a class="btn profile-icons" href ng-click="menuCtrl.logout()">
-                        <figure class="menu-icons log-out"></figure>
+                        <figure class="menu-header-icons log-out"></figure>
                     </a>
                     <!--/.LogOut-->
                 </div>
@@ -35,8 +35,15 @@
 
         </div>
         <!--/div-->
-        <div ng-if="!menuCtrl.identity.isAuthenticated()">
-            <a class="btn" ui-sref="login" ng-click="menuCtrl.menuToggle = false">LOG IN</a>
+        <div class="clearfix profile-holder" ng-if="!menuCtrl.identity.isAuthenticated()">
+            <figure class="profile-image pull-left">
+                <img src="assets/images/default-user-icon-profile.png" alt=""/>
+            </figure>
+            <div class="profile-icons-holder">
+                <a class="btn" ui-sref="login" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-header-icons log-in"></figure>
+                </a>
+            </div>
         </div>
         <!--/div-->
 
@@ -47,10 +54,27 @@
             <li ng-if="menuCtrl.identity.isAdmin()">
                 <a class="btn" ui-sref="dashboard.products" ng-click="menuCtrl.menuToggle = false"> Dashboard </a>
             </li>
-            <li><a class="btn" ui-sref="home" ng-click="menuCtrl.menuToggle = false"> Catalog </a></li>
-            <li><a class="btn" ui-sref="highlights" ng-click="menuCtrl.menuToggle = false"> Highlights </a></li>
-            <li><a class="btn" ui-sref="terms" ng-click="menuCtrl.menuToggle = false"> Terms & Conditions </a></li>
-            <li><a class="btn" ui-sref="contacts" ng-click="menuCtrl.menuToggle = false"> Contacts </a></li>
+            <li>
+                <a class="btn" ui-sref="home" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons catalog"></figure>
+                    Catalog
+                </a>
+            </li>
+            <li>
+                <a class="btn" ui-sref="highlights" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons highlight-icon"></figure>
+                    Highlights </a>
+            </li>
+            <li>
+                <a class="btn" ui-sref="terms" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons terms"></figure>
+                    Terms & Conditions </a>
+            </li>
+            <li>
+                <a class="btn" ui-sref="contacts" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons contacts"></figure>
+                    Contacts </a>
+            </li>
         </ul>
         <!--/.menu-navigation-->
     </nav>

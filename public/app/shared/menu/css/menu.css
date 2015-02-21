@@ -44,7 +44,6 @@ menu {
 
 /**  Menu Nav **/
 .menu-navigation {
-  margin: 50px 0px;
   text-align: center; }
 
 .menu-navigation li {
@@ -53,16 +52,18 @@ menu {
 
 .menu-navigation li a {
   width: 100%;
-  padding: 10% 0;
+  margin-bottom: 3em;
   text-decoration: none;
   text-transform: uppercase;
-  color: #373a3d; }
+  color: #373a3d;
+  transition: all .2s ease-in; }
 
 .menu-navigation li .btn:hover {
   width: 100%;
   color: #d6cd9b;
   border-radius: 0px;
-  background-color: #373a3d; }
+  background-color: #373a3d;
+  transition: all .2s ease-in; }
 
 .menu-navigation li .active {
   background-color: #373a3d;
@@ -89,10 +90,10 @@ menu {
 
 /**  name **/
 .profile-name {
-  margin: 0;
+  margin: 0 0 0 5.5em;
   color: #d6cd9b; }
 
-.profile-icons-holder, .profile-name {
+.profile-icons-holder {
   margin-left: 5em; }
 
 /**  image **/
@@ -101,13 +102,15 @@ menu {
   border-radius: 50%; }
 
 /*TODO: SET THE ICONS AND THE MARKUP (they are links !!!)*/
-.menu-icons:before {
+.menu-header-icons:before, .menu-icons:before {
+  font-family: 'LobShopIcons'; }
+
+.menu-header-icons:before {
   margin-left: 5px;
   color: #b3b3b3;
-  font-family: 'LobShopIcons';
   font-size: 24px;
   transition: all .2s ease-in; }
-.menu-icons:hover:before {
+.menu-header-icons:hover:before {
   color: #fff;
   transition: all .2s ease-in; }
 
@@ -124,9 +127,44 @@ menu {
   color: #393b3e;
   border-radius: 50%; }
 
+.log-in:before, .log-out:before {
+  font-size: 21px; }
+
 .log-out:before {
   margin-left: -10px;
-  font-size: 21px;
   content: "\e605"; }
+
+.log-in:before {
+  content: "\e609"; }
+
+.menu-icons {
+  height: 75px;
+  margin-top: -1em; }
+  .menu-icons:before {
+    font-size: 72px; }
+
+.catalog:before {
+  font-size: 72px;
+  content: "\e601"; }
+
+.highlight-icon {
+  height: 60px;
+  margin: 0; }
+  .highlight-icon:before {
+    content: "\e603";
+    font-size: 36px; }
+
+.terms {
+  margin: 0; }
+  .terms:before {
+    font-size: 48px;
+    content: "\e614"; }
+
+.contacts {
+  margin: 0;
+  height: 60px; }
+  .contacts:before {
+    font-size: 36px;
+    content: "\e60c"; }
 
 /*# sourceMappingURL=menu.css.map */

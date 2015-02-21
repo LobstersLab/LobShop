@@ -59,7 +59,6 @@ menu {
 /**  Menu Nav **/
 
 .menu-navigation {
-  margin: 50px 0px;
   text-align: center;
 }
 
@@ -70,10 +69,11 @@ menu {
 
 .menu-navigation li a {
   width: 100%;
-  padding: 10% 0;
+  margin-bottom: 3em;
   text-decoration: none;
   text-transform: uppercase;
   color: #373a3d;
+  transition: all .2s ease-in;
 }
 
 .menu-navigation li .btn:hover {
@@ -81,6 +81,7 @@ menu {
   color: #d6cd9b;
   border-radius: 0px;
   background-color: #373a3d;
+  transition: all .2s ease-in;
 }
 
 .menu-navigation li .active {
@@ -116,11 +117,11 @@ menu {
 /**  name **/
 
 .profile-name {
-  margin: 0;
+  margin: 0 0 0 5.5em;
   color: #d6cd9b;
 }
 
-.profile-icons-holder, .profile-name {
+.profile-icons-holder {
   margin-left: 5em;
 }
 
@@ -132,13 +133,18 @@ menu {
 }
 
 /*TODO: SET THE ICONS AND THE MARKUP (they are links !!!)*/
-.menu-icons{
+
+.menu-header-icons, .menu-icons{
+  &:before{
+    font-family: 'LobShopIcons';
+  }
+}
+.menu-header-icons{
   &:before{
     margin-left: 5px;
 
     color: #b3b3b3;
 
-    font-family: 'LobShopIcons';
     font-size: 24px;
 
     transition: all .2s ease-in;
@@ -148,6 +154,8 @@ menu {
     transition: all .2s ease-in;
   }
 }
+
+
 .settings{
   &:before{
     content: "\e610";
@@ -169,17 +177,59 @@ menu {
     border-radius: 50%;
   }
 }
+
+.log-in,.log-out{
+  &:before{
+    font-size: 21px;
+  }
+}
 .log-out{
   &:before{
     margin-left: -10px;
 
-    font-size: 21px;
-
     content: "\e605";
   }
 }
+.log-in{
+  &:before{
+    content: "\e609";
+  }
+}
 
+.menu-icons{
+  height: 75px;
+  margin-top: -1em;
+  &:before{
+    font-size: 72px;
+  }
+}
+.catalog{
+  &:before{
+    font-size: 72px;
+    content: "\e601";
+  }
+}
+.highlight-icon{
+  height: 60px;
+  margin: 0;
+  &:before{
+    content: "\e603";
+    font-size: 36px;
+  }
+}
 
-
-
-
+.terms{
+  margin: 0;
+  &:before{
+    font-size: 48px;
+    content: "\e614";
+  }
+}
+.contacts{
+  margin: 0;
+  height: 60px;
+  &:before{
+    font-size: 36px;
+    content: "\e60c";
+  }
+}

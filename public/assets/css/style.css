@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'LobShopIcons';
-  src: url("../icons/icons.eot");
-  src: url("../icons/icons.ttf") format("truetype"), url("../icons/icons.woff") format("woff"); }
+  src: url("../icons/icomoon.eot");
+  src: url("../icons/icomoon.ttf") format("truetype"), url("../icons/icomoon.woff") format("woff"); }
 @-ms-viewport {
   width: device-width; }
 .ng-leave {
