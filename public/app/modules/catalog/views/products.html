@@ -12,7 +12,7 @@
                     <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)"
                              ng-mouseleave="catalogCtrl.unhoverProduct(product)">
                         <div class="product-overlay text-center" ng-show="product.hover">
-                            <button class="btn btn-info" ng-click="catalogCtrl.addProductToShoppingCart(product)">Buy
+                            <button class="btn btn-info" ng-click="catalogCtrl.cart.insertItem(product)">Buy
                             </button>
                             <button class="btn btn-success" ng-click="catalogCtrl.openProductDetails(product)">Details
                             </button>
@@ -24,14 +24,14 @@
                             Lot:
                         </span>
                         <span>
-                            {{ product.attributes[0].value }}
+                            {{ product.lot }}
                         </span>
                         <span class="pull-right">
                             <span class="card-label label-purple">
                                 Price:
                             </span>
                             <span>
-                                {{ product.price }}
+                                {{ product.price.value }}
                             </span>
                         </span><!--/.pull-right-->
                         </header>
@@ -53,7 +53,7 @@
                         <div>
                             <p>
                                 <span class="card-label label-purple">Years:</span>
-                                {{ product.attributes[1].value }}
+                                {{ product.years }}
                             </p>
                         </div>
                         <!--/.div-->

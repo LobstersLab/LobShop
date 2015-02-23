@@ -13,21 +13,8 @@ angular.module('product')
                 getProductById: function (id){
                     var deferred = $q.defer();
 
-                    Product.get({productId:id}, function (data) {
-                        //Data assignment
-                        var productData = {
-                            name: data.product.name,
-                            description: data.product.description[0].value,
-                            price: (data.price && data.price.price)? data.price.price : 0
-                        };
-                        //Assign attributes
-                        var i=0;
-                        while(data.product.attributes.length > i){
-                            var attr = data.product.attributes[i];
-                            productData[attr.name] = attr.value;
-                            i++;
-                        }
-                        deferred.resolve(productData);
+                    Product.get({productId:id}, function (product) {
+                        deferred.resolve(product);
                     });
 
                     return deferred.promise;

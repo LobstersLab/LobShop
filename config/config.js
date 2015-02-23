@@ -11,7 +11,8 @@ var ASSETS = {
             'public/assets/css/bootstrap.css',
             'public/assets/css/bootstrap-theme.css',
             'public/assets/css/animate.min.css',
-            'public/assets/css/style.css'
+            'public/assets/css/style.css',
+            'public/assets/css/rzslider.css'
         ],
         js: [
             'public/assets/bower_components/angular/angular.js',
@@ -23,7 +24,8 @@ var ASSETS = {
             'public/assets/bower_components/angular-animate/angular-animate.js',
             'public/assets/bower_components/angular-ui-router/release/angular-ui-router.js',
             'public/assets/bower_components/ng-file-upload/angular-file-upload.js',
-            'public/assets/bower_components/ng-file-upload/angular-file-upload-shim.js'
+            'public/assets/bower_components/ng-file-upload/angular-file-upload-shim.js',
+            'public/assets/bower_components/angularjs-slider/rzslider.js'
         ]
     },
     css: [

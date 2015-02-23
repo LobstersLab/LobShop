@@ -7,9 +7,10 @@ var Summary = require('./../../models/Product/Summary');
 
 function getAll () {
     var deferred = Q.defer();
-    Product
+    Summary
         .find({})
-        .populate('brand')
+        //.populate('brand')
+        .populate('price')
         .exec(function (error, products) {
             if (error) {
                 deferred.reject(error);
@@ -24,27 +25,17 @@ function getAll () {
 function getById (id) {
     var deferred = Q.defer();
 
-    Product
+    Summary
         .findById(id)
-        .populate('brand')
+        // .populate('brand')
+        .populate('price')
         .exec(function (error, product) {
             if (error) {
                 deferred.reject(error);
                 return deferred.promise;
             }
-            product.getPrice(function (error, price){
-                if (error){
-                    deferred.reject(error);
-                    return deferred.promise;
-                }
-                //TODO think of better way to do this GG
-                var result = {
-                    product: product,
-                    price: price
-                };
-                deferred.resolve(result);
-            });
 
+            deferred.resolve(product);
         });
 
     return deferred.promise;
@@ -104,7 +95,7 @@ function create (params) {
         }
 
         savePrice(savedItem, params)
-        .then(function (){
+        .then(function (savedPrice){
             return saveSummary(savedItem);
         }, function (error){
             deferred.reject(error);
@@ -181,7 +172,7 @@ function savePrice (savedItem, params){
     var price = new Price({
         //If a store is added concatenate it to the item id
         _id: savedItem._id,
-        price : params.price
+        value: params.price
     });
 
     price.save(function (error){
@@ -201,6 +192,7 @@ function saveSummary (savedItem){
     var deferred = Q.defer();
 
     var summary = new Summary({
+        _id: savedItem._id,
         name: savedItem.name,
         lname: savedItem.lname,
         category: savedItem.categoryId,
@@ -209,7 +201,8 @@ function saveSummary (savedItem){
         assets:{
             images:savedItem.assets.images
         },
-        attributes: savedItem.attributes
+        attributes: savedItem.attributes,
+        price: mongoose.Types.ObjectId(savedItem._id)
     });
 
     summary.save(function (error){

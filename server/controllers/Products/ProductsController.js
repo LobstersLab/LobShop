@@ -2,7 +2,7 @@
     path = require('path'),
     fs = require('fs'),
     uuid = require('node-uuid'),
-    inspect = require('util').inspect;;
+    inspect = require('util').inspect;
 
 module.exports = function (data) {
     return {
@@ -75,6 +75,7 @@ module.exports = function (data) {
                         });
                     });
             });
+
             req.pipe(busboy);
         },
         updateProductById: function (req, res) {
@@ -106,10 +107,6 @@ module.exports = function (data) {
             });
 
             busboy.on('finish', function() {
-
-
-
-
                 data.products.updateProductById(productData)
                     .then(function (updatedProduct) {
                         res.json({
@@ -123,6 +120,7 @@ module.exports = function (data) {
                         });
                     });
             });
+
             req.pipe(busboy);
         },
         remove: function (req, res) { 

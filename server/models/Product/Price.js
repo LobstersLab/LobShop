@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductPriceSchema = new Schema({
-    price: {
+    value: {
         type: Number,
         required: 'Price must be set'
     },

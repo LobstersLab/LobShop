@@ -13,7 +13,14 @@
         </div>
         <div class="category category-advanced text-center" ng-click="filterCtrl.showPriceAdvanced = !filterCtrl.showPriceAdvanced">advanced</div>
         <div ng-show="filterCtrl.showPriceAdvanced">
-            <input type="range" name="price-range" min="0" max="100" value="0">
+            <rzslider
+                    rz-slider-floor="filterCtrl.floor"
+                    rz-slider-ceil="filterCtrl.ceil"
+                    rz-slider-model="filterCtrl.min"
+                    rz-slider-high="filterCtrl.max"
+                    rz-slider-step="{{filterCtrl.step}}">
+
+            </rzslider>
         </div>
     </div>
     <div class="category" ng-click="filterCtrl.showYear = !filterCtrl.showYear">year</div>

@@ -82,18 +82,9 @@ var ProductItemSchema = new Schema({
     }
 });
 
-ProductItemSchema.methods.getPrice = function (callback) {
-    //console.log('get', this);
-    return this.model('ProductPrice').findById(this._id,callback);
-};
-
-//ProductItemSchema.virtual('price').set(function (price){
-//
-//    this.price.Obj = price;
-//}).get(function () {
-//    console.log('da',this);
-//    return this.price;
-//});
+//ProductItemSchema.methods.getPrice = function (callback) {
+//    return this.model('ProductPrice').findById(this._id,callback);
+//};
 
 ProductItemSchema.set('toJSON', {
     virtuals: true

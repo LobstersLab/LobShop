@@ -5,7 +5,7 @@
         <div class="row text-center">
             <div class="col-md-6"> Lot: {{productCtrl.product.lot}}</div>
             <!--/.col-md-6-->
-            <div class="col-md-6"> Price: {{productCtrl.product.price}}</div>
+            <div class="col-md-6"> Price: {{productCtrl.product.price.value}}</div>
             <!--/.col-md-6-->
         </div>
         <!--/.text-center row-->
@@ -13,12 +13,12 @@
             <img class="img-responsive" src="assets/images/CoinBack.jpg" alt="coins"/>
         </div>
         <!--/.text-center-->
-        <h3>Title: {{productCtrl.product.title}}</h3>
+        <h3>Title: {{productCtrl.product.name}}</h3>
 
-        <p>{{productCtrl.product.description}}</p>
+        <p>{{productCtrl.product.description[0].value}}</p>
 
-        <h3>Years: {{productCtrl.product.year}}</h3>
-        <button class="btn btn-success pull-right">Buy</button>
+        <h3>Years: {{productCtrl.product.years}}</h3>
+        <button class="btn btn-success pull-right" ng-click="productCtrl.cart.insertItem(productCtrl.product)">Buy</button>
     </div>
     <!--/.col-md-9-->
     <div class="col-md-3">

@@ -5,17 +5,12 @@ angular.module('catalog')
         function CatalogController ($state, ProductsResource, ShoppingCart) {
             var self = this;
 
+            self.cart = ShoppingCart;
             self.products = ProductsResource.getAllProducts();
-
-            self.addProductToShoppingCart = function (product) {
-                if (product) {
-                    ShoppingCart.insertItem(product);
-                }
-            };
 
             self.openProductDetails = function (product) {
                 $state.go('product', {
-                    productId: product.id
+                    productId: product._id
                 });
 
                 product.hover = false;

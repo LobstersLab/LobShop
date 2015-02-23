@@ -18,6 +18,7 @@ var ProductSummarySchema = new Schema({
         default: '',
         trim: true
     },
+    price: { type: Schema.Types.ObjectId, ref: 'ProductPrice' },
     department: { type: Schema.Types.ObjectId },
     description: [{
         language: {
@@ -65,6 +66,18 @@ var ProductSummarySchema = new Schema({
         }],
         attributes: [{ type: String }]
     }]
+}, {
+    transform: true
 });
+
+if (!ProductSummarySchema.options.toJSON) ProductSummarySchema.options.toJSON = {};
+
+ProductSummarySchema.options.toJSON.transform = function (doc, ret, options) {
+    if (!doc.ownerDocument && doc.attributes) {
+        doc.attributes.forEach(function (attr) {
+            ret[attr.name] = attr.value;
+        });
+    }
+};
 
 module.exports = mongoose.model('ProductSummary', ProductSummarySchema);
