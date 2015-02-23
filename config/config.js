@@ -25,7 +25,7 @@ var ASSETS = {
             'public/assets/bower_components/angular-ui-router/release/angular-ui-router.js',
             'public/assets/bower_components/ng-file-upload/angular-file-upload.js',
             'public/assets/bower_components/ng-file-upload/angular-file-upload-shim.js',
-            'public/assets/bower_components/angularjs-slider/rzslider.js'
+            'public/assets/js/rzslider.js'
         ]
     },
     css: [

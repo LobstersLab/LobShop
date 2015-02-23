@@ -38,7 +38,7 @@ rzslider span.bar {
 rzslider span.bar.selection {
   z-index: 1;
   width: 0;
-  background: #D6CD89;
+  background: #CEC697;
 }
 
 rzslider span.pointer {
@@ -67,17 +67,17 @@ rzslider span.pointer:after {
 }
 
 rzslider span.pointer:hover:after {
-  background-color: #D6CD89;
+  background-color: #CEC697;
 }
 
 rzslider span.pointer.active:after {
-  background-color: #D6CD89;
+  background-color: #CEC697;
 }
 
 rzslider span.bubble {
   top: -32px;
   padding: 1px 3px 1px 3px;
-  color: #D6CD89;
+  color: #CEC697;
   cursor: default;
 }
 
@@ -86,5 +86,5 @@ rzslider span.bubble.selection {
 }
 
 rzslider span.bubble.limit {
-  color: #D6CD89;
+  color: #CEC697;
 }
