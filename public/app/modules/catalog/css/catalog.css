@@ -105,7 +105,8 @@ filter {
   .catalog-header .menu-icon:before {
     content: "\e60b"; }
   .catalog-header .btn {
-    color: #d6cd9b; }
+    color: #d6cd9b;
+    vertical-align: super; }
   .catalog-header input[type=search] {
     width: 10em;
     padding: .375em .75em;
@@ -128,6 +129,9 @@ filter {
     opacity: .5;
     transition: all .3s ease-out; }
 
+/*********************************
+             PRODUCTS
+  *********************************/
 .products {
   margin-top: 2.5em; }
 

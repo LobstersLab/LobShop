@@ -1,12 +1,14 @@
-<div class="catalog-header">
+<div class="catalog-header no-select">
     <div class="text-center">
         <div class="col-md-4 col-sm-4 col-xs-4">
             <span class="catalog-header-icons filter-icon"></span>
-            <a class="btn" href="#" ng-click="menuCtrl.filterToggle = !menuCtrl.filterToggle">filters</a>
+            <a class="btn" href="#" ng-click=" menuCtrl.filterToggle = !menuCtrl.filterToggle">filters</a>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-4">
-            <span class="catalog-header-icons search-icon"></span>
-            <input type="search" placeholder="Search..." ng-model="catalogHeaderCtrl.productSearch"/>
+            <span class="catalog-header-icons search-icon" ng-hide="catalogHeaderCtrl.searchClicked"></span>
+            <input type="search" placeholder="Search..." ng-model="catalogHeaderCtrl.productSearch"
+                   ng-focus="catalogHeaderCtrl.searchClicked = true"
+                   ng-blur="catalogHeaderCtrl.searchClicked = false"/>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-4">
             <span class="catalog-header-icons menu-icon"></span>
