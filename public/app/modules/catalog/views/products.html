@@ -12,10 +12,13 @@
                     <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)"
                              ng-mouseleave="catalogCtrl.unhoverProduct(product)">
                         <div class="product-overlay text-center" ng-show="product.hover">
-                            <button class="btn btn-info" ng-click="catalogCtrl.cart.insertItem(product)">Buy
-                            </button>
-                            <button class="btn btn-success" ng-click="catalogCtrl.openProductDetails(product)">Details
-                            </button>
+                            <a class="" ng-click="catalogCtrl.cart.insertItem(product)">
+                                <figure class="product-icons shoppig-bag"></figure>
+                            </a>
+                            <hr/>
+                            <a class="" ng-click="catalogCtrl.openProductDetails(product)">
+                                <figure class="product-icons product-details-icon"></figure>
+                            </a>
                         </div>
                         <!--/.product-overlay-->
                         <header>

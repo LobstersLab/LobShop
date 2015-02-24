@@ -106,7 +106,7 @@ filter {
     content: "\e60b"; }
   .catalog-header .btn {
     color: #d6cd9b;
-    vertical-align: super; }
+    vertical-align: top; }
   .catalog-header input[type=search] {
     width: 10em;
     padding: .375em .75em;
@@ -115,6 +115,7 @@ filter {
     outline: 0;
     border: 0;
     text-transform: uppercase;
+    vertical-align: top;
     transition: all .1s ease-out; }
   .catalog-header input[type=search]:focus {
     width: 100%;
@@ -133,6 +134,19 @@ filter {
              PRODUCTS
   *********************************/
 .products {
-  margin-top: 2.5em; }
+  margin-top: 2.5em;
+  /*  Icons  */ }
+  .products a {
+    text-decoration: none;
+    color: #fff; }
+    .products a:hover {
+      color: #d6cd9b; }
+  .products hr {
+    background-color: #fbf8e8; }
+  .products .product-icons {
+    font-family: LobShopIcons;
+    font-size: 96px; }
+  .products .product-details-icon:before {
+    content: "\e617"; }
 
 /*# sourceMappingURL=catalog.css.map */
