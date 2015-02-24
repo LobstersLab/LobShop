@@ -1,44 +1,48 @@
 <h1 class="text-center">Delivery Info</h1>
 <br/>
-<div class="group">
-    <input type="text" name="country"
-           class="material-input"
-           ng-model="orderCtrl.user.country"
-           ng-class="{ 'not-empty': !orderCtrl.isEmpty('country')}"
-           required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label class="material-label">Country</label>
-</div>
-<div class="group">
-    <input type="text" name="city"
-           class="material-input"
-           ng-model="orderCtrl.user.city"
-           ng-class="{ 'not-empty': !orderCtrl.isEmpty('city')}"
-           required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label class="material-label">City</label>
-</div>
-<div class="group">
-    <input type="text" name="address"
-           class="material-input"
-           ng-model="orderCtrl.user.address"
-           ng-class="{ 'not-empty': !orderCtrl.isEmpty('address')}"
-           required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label class="material-label">Address</label>
-</div>
-<div class="group">
-    <input type="text" name="postalCode"
-           class="material-input"
-           ng-model="orderCtrl.user.postalCode"
-           ng-class="{ 'not-empty': !orderCtrl.isEmpty('postalCode')}"
-           required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label class="material-label">Postal Code</label>
-</div>
+
+<ng-form name="deliveryInfoForm">
+    <div class="group">
+        <input type="text" name="country"
+               class="material-input"
+               ng-model="orderCtrl.user.country"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'country')}"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Country</label>
+    </div>
+    <div class="group">
+        <input type="text" name="city"
+               class="material-input"
+               ng-model="orderCtrl.user.city"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'city')}"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">City</label>
+    </div>
+    <div class="group">
+        <input type="text" name="address"
+               class="material-input"
+               ng-model="orderCtrl.user.address"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'address')}"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Address</label>
+    </div>
+    <div class="group">
+        <input type="text" name="postalCode"
+               class="material-input"
+               ng-model="orderCtrl.user.postalCode"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'postalCode')}"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Postal Code</label>
+    </div>
+</ng-form>
+
 <button class="btn btn-default" ui-sref="order.personalInfo">Back</button>
-<button class="btn btn-info pull-right" ui-sref="order.paymentInfo">Next</button>
+<button class="btn btn-info pull-right" ui-sref="order.paymentInfo" ng-click="orderCtrl.completeForm('deliveryInfo')">Next</button>

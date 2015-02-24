@@ -45,16 +45,40 @@
 .order-wrap{
   margin-top: 5em;
 }
+
 /*********************************
       SHOPPING CART STATUS
 *********************************/
-.status a {
-  margin-left: 47.5%;
-  color: #393b3e;
+
+.status {
+  a {
+    margin-left: 47.5%;
+    color: #393b3e;
+  }
+
+  &.disabled a{
+    color: #b3b3b3;
+  }
+
+  span {
+    &.completed {
+      background-color: #393b3e;
+
+      &:before {
+        font-family: LobShopIcons;
+        content: "\e603";
+        padding: 2px;
+        color: #fff;
+      }
+    }
+
+    &.disabled {
+      color: #b3b3b3;
+      border-color: #b3b3b3;
+    }
+  }
 }
-.status.disable a{
-  color: #b3b3b3;
-}
+
 .status-circle {
   display: inline-block;
   width: 1.5em;
@@ -65,26 +89,15 @@
 
   text-align: center;
 }
-.status span.complete:before{
-  font-family: LobShopIcons;
-  content: "\e603";
-  padding: 2px;
-  color: #fff;
-}
-.status span.complete{
-  background-color: #393b3e;
-}
-.status-line{
+
+.status-line {
   width: 1px;
   height: 11em;
   margin: 0 auto;
 
   background-color: #393b3e;
-}
-.status-line.disable{
-  background-color: #b3b3b3;
-}
-.status span.disable{
-  color: #b3b3b3;
-  border-color: #b3b3b3;
+
+  &.disabled {
+    background-color: #b3b3b3;
+  }
 }

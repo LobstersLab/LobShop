@@ -1,47 +1,61 @@
 <sub-header></sub-header>
-    <div class="col-md-3 order-wrap">
-        <div class="status">
-            <a ui-sref-active="active" ui-sref=".personalInfo" >
-                <span class="status-circle complete"></span>
-                <span>Personal Info</span>
-            </a>
+<div class="col-md-3 order-wrap">
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".personalInfo" >
+            <span class="status-circle"
+                ng-class="{'completed' : orderCtrl.isFormCompleted('personalInfo'), 'disabled' : orderCtrl.isDisabled('personalInfo')}">
+                <span ng-hide="orderCtrl.isFormCompleted('personalInfo')">1</span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.isDisabled('personalInfo')}">Personal Info</span>
+        </a>
 
-            <div class="status-line line-complete"></div>
-        </div>
-        <!--/.status-->
-        <div class="status">
-            <a ui-sref-active="active" ui-sref=".deliveryInfo" >
-                <span class="status-circle disable">2</span>
-                <span class="disable">Delivery Info</span>
-            </a>
-
-            <div class="status-line line-complete disable"></div>
-        </div>
-        <!--/.status-->
-        <div class="status">
-            <a ui-sref-active="active" ui-sref=".paymentInfo" >
-                <span class="status-circle disable">3</span>
-                <span class="disable">Payment method</span>
-            </a>
-
-            <div class="status-line line-complete disable"></div>
-        </div>
-        <!--/.status-->
-        <div class="status">
-            <a ui-sref-active="active" ui-sref=".confirm">
-                <span class="status-circle disable">4</span>
-                <span class="disable">Confirm</span>
-            </a>
-
-        </div>
-        <!--/.status-->
+        <div class="status-line line-complete"></div>
     </div>
-    <!--/.col-md-3-->
-    <div class="col-md-9 order-wrap">
+    <!--/.status-->
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".deliveryInfo" >
+            <span class="status-circle"
+                  ng-class="{'completed' : orderCtrl.isFormCompleted('deliveryInfo'), 'disabled' : orderCtrl.isDisabled('deliveryInfo')}">
+                <span ng-hide="orderCtrl.isFormCompleted('deliveryInfo')">2</span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.isDisabled('deliveryInfo')}">Delivery Info</span>
+        </a>
 
-        <form novalidate id="order-form" name="orderForm"
-              ng-submit="orderCtrl.register()">
-            <ui-view></ui-view>
-        </form>
+        <div class="status-line line-complete disable"></div>
     </div>
-    <!--/.col-md-9-->
+    <!--/.status-->
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".paymentInfo" >
+            <span class="status-circle"
+                  ng-class="{'completed' : orderCtrl.isFormCompleted('paymentInfo'), 'disabled' : orderCtrl.isDisabled('paymentInfo')}">
+                <span ng-hide="orderCtrl.isFormCompleted('paymentInfo')">3</span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.isDisabled('paymentInfo')}">Payment method</span>
+        </a>
+
+        <div class="status-line line-complete disable"></div>
+    </div>
+    <!--/.status-->
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".confirm">
+            <span class="status-circle"
+                  ng-class="{'completed' : orderCtrl.isFormCompleted('confirm'), 'disabled' : orderCtrl.isDisabled('confirm') }">
+                <span ng-hide="orderCtrl.isFormCompleted('confirm')">
+                    4
+                </span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.isDisabled('confirm')}">Confirm</span>
+        </a>
+
+    </div>
+    <!--/.status-->
+</div>
+<!--/.col-md-3-->
+<div class="col-md-9 order-wrap">
+
+    <form novalidate id="order-form" name="orderForm"
+          ng-submit="orderCtrl.register()">
+        <ui-view></ui-view>
+    </form>
+</div>
+<!--/.col-md-9-->

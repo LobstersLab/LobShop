@@ -30,7 +30,8 @@ angular.module('users')
                     url: '/register',
                     templateUrl: 'app/modules/users/views/register/register.html',
                     controller: 'RegisterController',
-                    controllerAs: 'registerCtrl'
+                    controllerAs: 'registerCtrl',
+                    abstract: true
                 })
                 .state('register.personal', {
                     url: '/personal',

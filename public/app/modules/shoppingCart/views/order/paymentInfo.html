@@ -1,54 +1,58 @@
 <h2 class="text-center">SELECT A PAYMENT METHOD</h2>
-<div class="text-center">
-    <input type="radio" class="radio-inline" name="paymentMethod"
-           id="credit-card" value="credit-card" ng-model="orderCtrl.user.paymentMethod"/>
-    <label for="credit-card">Creadit Card</label>
-    <input type="radio" class="radio-inline" name="paymentMethod"
-           id="cash" value="cash" ng-model="orderCtrl.user.paymentMethod"
-           ng-checked="true"/>
-    <label for="cash">Cash</label>
-</div>
-<div ng-show="orderCtrl.user.paymentMethod == 'credit-card'">
-    <div class="group">
-        <input type="text" name="cardNumber"
-               class="material-input"
-               ng-model="orderCtrl.user.cardNumber"
-               ng-class="{ 'not-empty': !orderCtrl.isEmpty('cardNumber')}"
-               required>
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label class="material-label">Credit card number</label>
+
+<ng-form name="paymentInfoForm">
+    <div class="text-center">
+        <input type="radio" class="radio-inline" name="paymentMethod"
+               id="credit-card" value="credit-card" ng-model="orderCtrl.user.paymentMethod"/>
+        <label for="credit-card">Creadit Card</label>
+        <input type="radio" class="radio-inline" name="paymentMethod"
+               id="cash" value="cash" ng-model="orderCtrl.user.paymentMethod"
+               ng-checked="true"/>
+        <label for="cash">Cash</label>
     </div>
-    <div class="group">
-        <input type="text" name="cardOwnerName"
-               class="material-input"
-               ng-model="orderCtrl.user.cardOwnerName"
-               ng-class="{ 'not-empty': !orderCtrl.isEmpty('cardOwnerName')}"
-               required>
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label class="material-label">Credit card owner's name</label>
+    <div ng-show="orderCtrl.user.paymentMethod == 'credit-card'">
+        <div class="group">
+            <input type="text" name="cardNumber"
+                   class="material-input"
+                   ng-model="orderCtrl.user.cardNumber"
+                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardNumber')}"
+                   required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="material-label">Credit card number</label>
+        </div>
+        <div class="group">
+            <input type="text" name="cardOwnerName"
+                   class="material-input"
+                   ng-model="orderCtrl.user.cardOwnerName"
+                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardOwnerName')}"
+                   required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="material-label">Credit card owner's name</label>
+        </div>
+        <div class="group">
+            <input type="text" name="cardCvv"
+                   class="material-input"
+                   ng-model="orderCtrl.user.cardCvv"
+                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardCvv')}"
+                   required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="material-label">CVV</label>
+        </div>
+        <div class="group">
+            <input type="text" name="cardExpiresOn"
+                   class="material-input"
+                   ng-model="orderCtrl.user.cardExpiresOn"
+                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardExpiresOn')}"
+                   required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="material-label">Expires on (MM/YYYY)</label>
+        </div>
     </div>
-    <div class="group">
-        <input type="text" name="cardCvv"
-               class="material-input"
-               ng-model="orderCtrl.user.cardCvv"
-               ng-class="{ 'not-empty': !orderCtrl.isEmpty('cardCvv')}"
-               required>
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label class="material-label">CVV</label>
-    </div>
-    <div class="group">
-        <input type="text" name="cardExpiresOn"
-               class="material-input"
-               ng-model="orderCtrl.user.cardExpiresOn"
-               ng-class="{ 'not-empty': !orderCtrl.isEmpty('cardExpiresOn')}"
-               required>
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label class="material-label">Expires on (MM/YYYY)</label>
-    </div>
-</div>
+</ng-form>
+
 <button class="btn btn-default" ui-sref="order.deliveryInfo">Back</button>
-<button class="btn btn-info pull-right" ui-sref="order.confirm">Next</button>
+<button class="btn btn-info pull-right" ui-sref="order.confirm" ng-click="orderCtrl.completeForm('paymentInfo')">Next</button>

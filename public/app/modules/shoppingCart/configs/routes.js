@@ -14,7 +14,8 @@ angular.module('shoppingCart')
                 url: '/order',
                 templateUrl: 'app/modules/shoppingCart/views/order/order.html',
                 controller: 'OrderController',
-                controllerAs: 'orderCtrl'
+                controllerAs: 'orderCtrl',
+                abstract: true
             })
             .state('order.personalInfo', {
                 url: '/personal-info',

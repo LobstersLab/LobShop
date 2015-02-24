@@ -33,9 +33,18 @@
 .status a {
   margin-left: 47.5%;
   color: #393b3e; }
-
-.status.disable a {
+.status.disabled a {
   color: #b3b3b3; }
+.status span.completed {
+  background-color: #393b3e; }
+  .status span.completed:before {
+    font-family: LobShopIcons;
+    content: "\e603";
+    padding: 2px;
+    color: #fff; }
+.status span.disabled {
+  color: #b3b3b3;
+  border-color: #b3b3b3; }
 
 .status-circle {
   display: inline-block;
@@ -45,26 +54,12 @@
   border-radius: 50%;
   text-align: center; }
 
-.status span.complete:before {
-  font-family: LobShopIcons;
-  content: "\e603";
-  padding: 2px;
-  color: #fff; }
-
-.status span.complete {
-  background-color: #393b3e; }
-
 .status-line {
   width: 1px;
   height: 11em;
   margin: 0 auto;
   background-color: #393b3e; }
-
-.status-line.disable {
-  background-color: #b3b3b3; }
-
-.status span.disable {
-  color: #b3b3b3;
-  border-color: #b3b3b3; }
+  .status-line.disabled {
+    background-color: #b3b3b3; }
 
 /*# sourceMappingURL=shoppingCart.css.map */

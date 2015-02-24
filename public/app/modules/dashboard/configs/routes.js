@@ -12,6 +12,9 @@ angular.module('dashboard')
                     controller: 'DashboardMainController',
                     controllerAs: 'dashboardCtrl',
                     resolve: RoutePermissionsProvider.isAdmin
+
+                    // TODO: Add the abstract property if the main dashboard view will be skipped to prevent
+                    //abstract: true
                 })
 
                 //Products routes

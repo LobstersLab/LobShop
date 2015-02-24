@@ -28,19 +28,13 @@ angular.module('shoppingCart')
             return total;
         }
 
-        // If the item exists increase its quantity by 1
         function insertItem (item) {
             if (item) {
                 var existingItem = self.cartItems.filter(function (i) { return i.id === item.id})[0];
-                var indexOfExistingItem = self.cartItems.indexOf(existingItem);
 
-                if (existingItem) {
-                    self.cartItems[indexOfExistingItem].quantity++;
-                }
-                else {
+                if (!existingItem) {
                     var cartItemToInsert = {
-                        id: item.id,
-                        quantity: 1,
+                        id: item._id,
                         item: item
                     };
 
@@ -51,7 +45,7 @@ angular.module('shoppingCart')
 
         function removeItem (item) {
             if (item) {
-                var itemInCart = self.cartItems.filter(function (i) { return i.id === item.id})[0];
+                var itemInCart = self.cartItems.filter(function (i) { return i.id === item._id})[0];
                 var indexOfItem = self.cartItems.indexOf(itemInCart);
 
                 self.cartItems.splice(indexOfItem, 1);
