@@ -1,0 +1,44 @@
+<sub-header></sub-header>
+<div class="loginForm container text-center">
+    <div class="form-container">
+        <div class="page-header text-center">
+            <h2>LOG IN</h2>
+        </div>
+        <form id="login-form" novalidate name="loginForm"
+              ng-submit="loginCtrl.login()">
+            <div class="text-center">
+                <div class="group">
+                    <input type="text" id="username" name="username"
+                           class="material-input"
+                           ng-model="loginCtrl.user.username"
+                           ng-class="{ 'not-empty': !loginCtrl.isEmpty('username')}"/>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="material-label">Username</label>
+                </div>
+
+                <div class="group">
+                    <input type="password" id="password" name="password"
+                           class="material-input"
+                           ng-model="loginCtrl.user.password"
+                           ng-class="{ 'not-empty': !loginCtrl.isEmpty('password')}"/>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="material-label">Password</label>
+                </div>
+            </div>
+            <div>
+                <a ui-sref="forgottenPassword">Forgot your password?</a>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-success"
+                    ng-disabled="loginForm.$invalid">
+                Log in
+            </button>
+            <button ui-sref="register.personal" class="btn btn-info">
+                Register
+            </button>
+
+        </form>
+    </div>
+</div>

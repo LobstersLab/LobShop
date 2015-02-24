@@ -14,9 +14,15 @@ angular.module('users')
             })
             .state('login', {
                 url: '/login',
-                templateUrl: 'app/modules/users/views/login.html',
+                templateUrl: 'app/modules/users/views/login/login.html',
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
+            })
+            .state('forgottenPassword', {
+                url: '/forgot-password',
+                templateUrl: 'app/modules/users/views/login/forgottenPassword.html',
+                controller: 'ForgottenPasswordController',
+                controllerAs: 'forgottenPasswordCtrl'
             })
             .state('register', {
                 url: '/register',
