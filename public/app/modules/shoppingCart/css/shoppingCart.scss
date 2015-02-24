@@ -50,14 +50,16 @@
 
   text-align: center;
 }
-.status span.complete{
+.status-circle.disable{
   display: none;
+}
+.status span.complete:before{
   font-family: LobShopIcons;
   content: "\e603";
   vertical-align: middle;
   color: #fff;
 }
-.status-circle .complete{
+.status span.complete{
   background-color: #393b3e;
 }
 .status-line{
