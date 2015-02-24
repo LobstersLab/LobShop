@@ -50,9 +50,6 @@
 
   text-align: center;
 }
-.status-circle.disable{
-  display: none;
-}
 .status span.complete:before{
   font-family: LobShopIcons;
   content: "\e603";
@@ -72,7 +69,7 @@
 .status-line.disable{
   background-color: #b3b3b3;
 }
-.disable{
+.status span.disable{
   color: #b3b3b3;
   border-color: #b3b3b3;
 }
