@@ -130,6 +130,7 @@ menu {
 .profile-image img {
   border: 2px solid #d6cd9b;
   border-radius: 50%;
+  width: 70px;
 }
 
 /*TODO: SET THE ICONS AND THE MARKUP (they are links !!!)*/
@@ -231,5 +232,15 @@ menu {
   &:before{
     font-size: 36px;
     content: "\e60c";
+  }
+}
+
+.profile-page-container {
+  padding-top: 20px;
+}
+
+.profile-image-holder {
+  img {
+    border: 2px solid #d6cd9b;
   }
 }

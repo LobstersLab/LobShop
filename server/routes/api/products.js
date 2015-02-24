@@ -2,7 +2,7 @@
 var router = express.Router();
 
 module.exports = function (data) {
-    var ProductsController = require('./../../../controllers/Products/ProductsController')(data);
+    var ProductsController = require('./../../controllers/Products/ProductsController')(data);
 
     router.route('/')
         .get(ProductsController.getAll)
@@ -10,7 +10,7 @@ module.exports = function (data) {
     
     router.route('/:id')
         .get(ProductsController.getById)
-        .put(ProductsController.updateProductById)
+        .put(ProductsController.updateById)
         .delete(ProductsController.remove);
     
     return router;

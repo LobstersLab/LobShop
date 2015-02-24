@@ -78,7 +78,7 @@ module.exports = function (data) {
 
             req.pipe(busboy);
         },
-        updateProductById: function (req, res) {
+        updateById: function (req, res) {
             var busboy = new Busboy({ headers: req.headers }),
                 productData = {
                     assets : []

@@ -167,6 +167,7 @@ var AuthenticationController = function (passport) {
 
     function getPublicUser (user) {
         return {
+            id: user._id,
             username: user.username,
             email: user.email,
             displayName: user.displayName,

@@ -51,15 +51,24 @@ function create (params) {
 }
 
 function updateById (id, updatesObject) {
-    //var deferred = Q.defer();
+    var deferred = Q.defer();
 
-    //return deferred.promise;
+    User.findByIdAndUpdate(id, updatesObject, function (error, updatedUser) {
+        if (error) {
+            deferred.reject(error);
+            return deferred.promise;
+        }
+
+        deferred.resolve(updatedUser);
+    });
+
+    return deferred.promise;
 }
 
 function removeById (id) {
-    //var deferred = Q.defer();
+    var deferred = Q.defer();
 
-    //return deferred.promise;
+    return deferred.promise;
 }
 
 function removeAll () {

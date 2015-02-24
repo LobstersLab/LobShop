@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 module.exports = function (data) {
-    var CategoriesController = require('./../../../controllers/Products/CategoriesController')(data);
+    var CategoriesController = require('./../../controllers/Products/CategoriesController')(data);
 
     router.route('/')
         .get(CategoriesController.getAll)
