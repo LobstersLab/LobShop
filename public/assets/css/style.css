@@ -193,7 +193,7 @@ input[type="radio"] {
     outline-offset: 0; }
     input[type="radio"]:focus:before {
       font-family: 'LobShopIcons';
-      content: "\e602";
+      content: "\e603";
       font-size: 21px;
       vertical-align: baseline; }
 
