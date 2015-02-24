@@ -48,10 +48,16 @@
 
   text-align: center;
 }
-//.status span.complete{
-//  display: none;
-//  background: #393b3e url("") center center no-repeat;
-//}
+.status span.complete{
+  display: none;
+  font-family: LobShopIcons;
+  content: "\e603";
+  vertical-align: middle;
+  color: #fff;
+}
+.status-circle .complete{
+  background-color: #393b3e;
+}
 .status-line{
   width: 1px;
   height: 11em;
@@ -65,5 +71,4 @@
 .disable{
   color: #b3b3b3;
   border-color: #b3b3b3;
-
 }
