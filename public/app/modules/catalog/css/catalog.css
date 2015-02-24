@@ -142,7 +142,10 @@ filter {
     .products a:hover {
       color: #d6cd9b; }
   .products hr {
-    background-color: #fbf8e8; }
+    height: 1px;
+    margin: 0;
+    background-color: #7d8082;
+    border: 0; }
   .products .product-icons {
     font-family: LobShopIcons;
     font-size: 96px; }
