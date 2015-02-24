@@ -77,6 +77,12 @@ filter {
   padding: .5em;
   background-color: #373a3d;
   text-transform: uppercase;
+ /*********************************
+           ICONS
+*********************************/
+ /*********************************
+           BUTTON
+*********************************/
   /*********************************
              SEARCH
   *********************************/
@@ -88,6 +94,16 @@ filter {
   .catalog-header li {
     display: inline-block;
     margin-left: 20%; }
+  .catalog-header .catalog-header-icons {
+    font-family: LobShopIcons;
+    color: #f9f6e6;
+    font-size: 20px; }
+  .catalog-header .filter-icon:before {
+    content: "\e607"; }
+  .catalog-header .search-icon:before {
+    content: "\e610"; }
+  .catalog-header .menu-icon:before {
+    content: "\e60b"; }
   .catalog-header .btn {
     color: #d6cd9b; }
   .catalog-header input[type=search] {

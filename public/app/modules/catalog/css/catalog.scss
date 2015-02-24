@@ -127,8 +127,38 @@ filter {
     margin-left: 20%;
   }
 
+  /*********************************
+            ICONS
+ *********************************/
+
+  .catalog-header-icons{
+    font-family: LobShopIcons;
+    color: #f9f6e6;
+    font-size: 20px;
+  }
+  .filter-icon{
+    &:before{
+      content: "\e607";
+    }
+  }
+  .search-icon{
+    &:before{
+      content: "\e610";
+    }
+  }
+  .menu-icon{
+    &:before{
+      content: "\e60b";
+    }
+  }
+
+  /*********************************
+            BUTTON
+ *********************************/
+
   .btn {
     color: #d6cd9b;
+    vertical-align: super;
   }
 
   /*********************************

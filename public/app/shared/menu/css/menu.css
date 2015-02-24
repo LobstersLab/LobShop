@@ -120,13 +120,6 @@ menu {
 
 .shoppig-bag:before {
   content: "\e60c"; }
-.shoppig-bag .badge {
-  top: 0;
-  right: 1.2em;
-  padding: 1px 4px;
-  background-color: #d6cd9b;
-  color: #393b3e;
-  border-radius: 50%; }
 
 .log-in:before, .log-out:before {
   font-size: 21px; }

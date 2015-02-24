@@ -136,6 +136,15 @@
 .material-input:focus ~ .bar:before, .material-input:focus ~ .bar:after {
   width: 50%; }
 
+.badge {
+  position: relative;
+  top: 0;
+  right: 1.2em;
+  padding: 1px 4px;
+  background-color: #d6cd9b;
+  color: #393b3e;
+  border-radius: 50%; }
+
 /* HIGHLIGHTER ================================== */
 .highlight {
   position: absolute;
@@ -196,5 +205,16 @@ input[type="radio"] {
       content: "\e603";
       font-size: 21px;
       vertical-align: baseline; }
+
+/***************************************
+               NO SELECT
+****************************************/
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 /*# sourceMappingURL=style.css.map */

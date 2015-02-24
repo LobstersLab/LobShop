@@ -1,4 +1,9 @@
 <div class="shopping-cart-summary">
-    <div class="pull-left">Bag items: {{shoppingCartSummaryCtrl.cart.getCount()}}</div>
+    <div class="pull-left">
+        <span class="catalog-header-icons shoppig-bag"></span>
+        <span class="badge">{{ menuCtrl.cart.getCount() }}</span>
+        <span>Bag items: {{shoppingCartSummaryCtrl.cart.getCount()}}</span>
+
+    </div>
     <button class="btn btn-default pull-right" ui-sref="shoppingCart">CHECK BAG</button>
 </div>
