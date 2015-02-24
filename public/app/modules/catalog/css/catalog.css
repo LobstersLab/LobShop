@@ -1,7 +1,10 @@
+/*********************************
+            FILTER
+ *********************************/
 filter {
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   bottom: 0;
   width: 65%;
   max-width: 450px;
@@ -11,7 +14,9 @@ filter {
   z-index: 1000;
   -webkit-box-shadow: 0px 0px 50px #202329;
   -moz-box-shadow: 0px 0px 50px #202329;
-  box-shadow: 0px 0px 50px #202329; }
+  box-shadow: 0px 0px 50px #202329;
+  /** Labels **/
+  /** Select age **/ }
   filter.ng-show, filter.ng-hide {
     -webkit-transition: all linear 0.3s;
     transition: all linear 0.3s; }
@@ -22,6 +27,14 @@ filter {
     opacity: 1; }
   filter .filter-box {
     padding: 30px; }
+  filter .collapse-arrow, filter .expanded-arrow {
+    margin-right: 1em; }
+    filter .collapse-arrow:before, filter .expanded-arrow:before {
+      font-family: 'LobShopIcons';
+      content: "\e600";
+      color: #d6cd9b; }
+  filter .expanded-arrow:before {
+    content: "\e617"; }
   filter .category {
     text-transform: uppercase;
     color: #d6cd9b;
@@ -31,7 +44,29 @@ filter {
     filter .category.category-advanced {
       font-size: 18px; }
   filter .categoty-container {
-    color: #CEC697; }
+    margin-bottom: 5em;
+    color: #fff; }
+  filter .push-down {
+    margin-bottom: 1em; }
+  filter .push-right {
+    margin-left: 5em; }
+  filter label {
+    margin: 0 0 0 10px;
+    vertical-align: text-bottom; }
+  filter .select {
+    width: 100%;
+    padding: .625em;
+    background: transparent;
+    border: 1px solid #d6cd9b; }
+    filter .select optgroup {
+      color: #393b3e;
+      background-color: #d6cd9b; }
+    filter .select option {
+      padding: 10px;
+      border: 1px solid #d6cd9b; }
+      filter .select option:hover {
+        color: #393b3e;
+        background-color: #d6cd9b; }
 
 .catalog-header {
   z-index: 400;
@@ -56,7 +91,7 @@ filter {
   .catalog-header .btn {
     color: #d6cd9b; }
   .catalog-header input[type=search] {
-    width: 25%;
+    width: 10em;
     padding: .375em .75em;
     background-color: transparent;
     color: #d6cd9b;

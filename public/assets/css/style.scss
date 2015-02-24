@@ -90,6 +90,7 @@
   border: none;
   border-bottom: 1px solid #373a3d;
 }
+
 .material-input:focus {
   outline: none;
 }
@@ -116,19 +117,20 @@
 }
 
 .material-input {
-  &.ng-valid{
+  &.ng-valid {
     color: #6b939d;
     border-color: #6b939d;
   }
-  &.ng-invalid{
+  &.ng-invalid {
     color: #9a6a6b;
     border-color: #9a6a6b;
   }
   &.ng-valid.bar:before,
-  &.ng-valid.bar:after{
+  &.ng-valid.bar:after {
     background: #6b939d;
   }
 }
+
 .material-label {
   .ng-valid ~ & {
     color: #6b939d;
@@ -164,6 +166,7 @@
 .bar:before {
   left: 50%;
 }
+
 .bar:after {
   right: 50%;
 }
@@ -176,11 +179,10 @@
   .ng-invalid ~ & {
     background-color: #9a6a6b;
   }
-  .ng-pristine ~ &{
+  .ng-pristine ~ & {
     background-color: #373a3d;
   }
 }
-
 
 /* active state */
 .material-input:focus ~ .bar:before, .material-input:focus ~ .bar:after {
@@ -197,7 +199,8 @@
   opacity: 0.5;
   pointer-events: none;
 }
-.highlight:focus{
+
+.highlight:focus {
   background-color: red;
 }
 
@@ -218,6 +221,7 @@
     background: transparent;
   }
 }
+
 @-moz-keyframes inputHighlighter {
   from {
     background: #393b3e;
@@ -227,6 +231,7 @@
     background: transparent;
   }
 }
+
 @keyframes inputHighlighter {
   from {
     background: #393b3e;
@@ -246,3 +251,26 @@
 .form-container {
   padding-top: 50px;
 }
+/***  Checkbox   ***/
+
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  border: 1px solid #b3b3b3;
+
+  &:focus {
+    &:before {
+      font-family: 'LobShopIcons';
+      content: "\e602";
+      font-size: 21px;
+      vertical-align: baseline;
+    }
+
+    border: 0;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+}
+

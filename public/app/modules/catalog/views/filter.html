@@ -1,17 +1,24 @@
 <div class="filter-box" ng-cloak>
-    <div class="category" ng-click="filterCtrl.showPrice = !filterCtrl.showPrice">price</div>
+    <div class="category push-down" ng-click="filterCtrl.showPrice = !filterCtrl.showPrice">
+        <span class="expanded-arrow"></span>
+        price
+    </div>
     <div class="categoty-container" ng-show="filterCtrl.showPrice">
-        <div class="row text-center">
-            <div class="col-md-6">
+        <div class="row push-down">
+            <div class="col-md-5">
                 <input type="radio" name="price-filter" value="price" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Lower</label>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5 push-right">
                 <input type="radio" name="price-filter" value="-price" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Higher</label>
             </div>
         </div>
-        <div class="category category-advanced text-center" ng-click="filterCtrl.showPriceAdvanced = !filterCtrl.showPriceAdvanced">advanced</div>
+        <div class="category category-advanced push-down push-right"
+             ng-click="filterCtrl.showPriceAdvanced = !filterCtrl.showPriceAdvanced">
+            <span class="collapse-arrow"></span>
+            advanced
+        </div>
         <div ng-show="filterCtrl.showPriceAdvanced">
             <rzslider
                     rz-slider-floor="filterCtrl.floor"
@@ -23,49 +30,67 @@
             </rzslider>
         </div>
     </div>
-    <div class="category" ng-click="filterCtrl.showYear = !filterCtrl.showYear">year</div>
+    <div class="category push-down" ng-click="filterCtrl.showYear = !filterCtrl.showYear">
+        <span class="expanded-arrow"></span>year
+    </div>
     <div class="categoty-container" ng-show="filterCtrl.showYear">
-        <div class="row text-center">
-            <div class="col-md-6">
+        <div class="row push-down">
+            <div class="col-md-5">
                 <input type="radio" name="year-filter" value="-attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Lower</label>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5 push-right">
                 <input type="radio" name="year-filter" value="attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Higher</label>
             </div>
         </div>
-        <div class="category category-advanced text-center" ng-click="filterCtrl.showYearAdvanced = !filterCtrl.showYearAdvanced">advanced</div>
-        <div ng-show="filterCtrl.showYearAdvanced">
-            <div class="row text-center">
-                <div class="col-md-6">
+        <div class="category category-advanced push-down push-right"
+             ng-click="filterCtrl.showYearAdvanced = !filterCtrl.showYearAdvanced">
+            <span class="collapse-arrow"></span>advanced
+        </div>
+        <div class="push-down " ng-show="filterCtrl.showYearAdvanced">
+            <div class="row">
+                <div class="col-md-4 push-down push-right">
                     <input type="radio" name="year-advanced-filter"/>
                     <label for="year-advanced-filter">B.C</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4 push-down">
                     <input type="radio" name="year-advanced-filter"/>
                     <label for="year-advanced-filter">A.D</label>
                 </div>
             </div>
-            <input type="range" name="years-range" min="0" max="100" value="0">
+            <rzslider
+                    rz-slider-floor="filterCtrl.floor"
+                    rz-slider-ceil="filterCtrl.ceil"
+                    rz-slider-model="filterCtrl.min"
+                    rz-slider-high="filterCtrl.max"
+                    rz-slider-step="{{filterCtrl.step}}">
+
+            </rzslider>
         </div>
     </div>
-    <div class="category" ng-click="filterCtrl.showAge = !filterCtrl.showAge">age</div>
-    <div class="categoty-container text-center" ng-show="filterCtrl.showAge">
-        <select name="age" id="age">
-            <option value="Ancient">Ancient</option>
-            <option value="Ancient">Rome</option>
-            <option value="Ancient">Archaic</option>
+    <div class="category push-down" ng-click="filterCtrl.showAge = !filterCtrl.showAge">
+        <span class="expanded-arrow"></span>age
+    </div>
+    <div class="categoty-container" ng-show="filterCtrl.showAge">
+        <select name="age" id="age" class="select">
+            <optgroup label="">
+                <option value="Ancient"><span></span>Ancient</option>
+                <option value="Ancient"><span></span>Rome</option>
+                <option value="Ancient"><span></span>Archaic</option>
+            </optgroup>
         </select>
     </div>
-    <div class="category" ng-click="filterCtrl.showLot = !filterCtrl.showLot">lot</div>
+    <div class="category push-down" ng-click="filterCtrl.showLot = !filterCtrl.showLot">
+        <span class="expanded-arrow"></span>lot
+    </div>
     <div class="categoty-container" ng-show="filterCtrl.showLot">
-        <div class="row text-center">
-            <div class="col-md-6">
+        <div class="row push-down">
+            <div class="col-md-5">
                 <input type="radio" name="lot-filter" value="attributes[0].value" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Lower</label>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5 push-right">
                 <input type="radio" name="lot-filter" value="-attributes[0].value" ng-model="filterCtrl.predicate"/>
                 <label for="lot-filter">From Higher</label>
             </div>

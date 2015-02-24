@@ -181,4 +181,20 @@
 .form-container {
   padding-top: 50px; }
 
+/***  Checkbox   ***/
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  border: 1px solid #b3b3b3; }
+  input[type="radio"]:focus {
+    border: 0;
+    outline: 0;
+    outline-offset: 0; }
+    input[type="radio"]:focus:before {
+      font-family: 'LobShopIcons';
+      content: "\e602";
+      font-size: 21px;
+      vertical-align: baseline; }
+
 /*# sourceMappingURL=style.css.map */

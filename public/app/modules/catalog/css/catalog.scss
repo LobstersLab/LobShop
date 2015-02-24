@@ -1,7 +1,10 @@
+/*********************************
+            FILTER
+ *********************************/
 filter {
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   bottom: 0;
   width: 65%;
   max-width: 450px;
@@ -12,6 +15,7 @@ filter {
   -webkit-box-shadow: 0px 0px 50px rgb(32, 35, 41);
   -moz-box-shadow: 0px 0px 50px rgb(32, 35, 41);
   box-shadow: 0px 0px 50px rgb(32, 35, 41);
+
 
   &.ng-show,
   &.ng-hide  {
@@ -32,11 +36,26 @@ filter {
     padding: 30px;
   }
 
+  .collapse-arrow, .expanded-arrow{
+    margin-right: 1em;
+    &:before{
+      font-family: 'LobShopIcons';
+      content: "\e600";
+      color: #d6cd9b;
+    }
+
+  }
+  .expanded-arrow{
+    &:before{
+      content: "\e617";
+    }
+
+  }
+
   .category {
     text-transform: uppercase;
     color: #d6cd9b;
     font-size: 24px;
-//    letter-spacing: 75px;
     font-family: "Rockwell";
     cursor: pointer;
 
@@ -46,7 +65,42 @@ filter {
   }
 
   .categoty-container {
-    color: #CEC697;
+    margin-bottom: 5em;
+    color: #fff;
+  }
+  .push-down{
+    margin-bottom: 1em;
+  }
+  .push-right{
+    margin-left: 5em;
+  }
+
+  /** Labels **/
+
+  label{
+    margin: 0 0 0 10px;
+    vertical-align: text-bottom;
+  }
+
+  /** Select age **/
+
+  .select{
+    optgroup{
+      color: #393b3e;
+      background-color: #d6cd9b;
+    }
+    option{
+      &:hover{
+        color: #393b3e;
+        background-color: #d6cd9b;
+      }
+      padding: 10px;
+      border: 1px solid #d6cd9b;
+    }
+    width: 100%;
+    padding: .625em;
+    background: transparent;
+    border: 1px solid #d6cd9b;
   }
 }
 
@@ -82,7 +136,7 @@ filter {
   *********************************/
 
   input[type=search]{
-    width: 25%;
+    width: 10em;
     padding: .375em .75em;
     background-color: transparent;
     color: #d6cd9b;
