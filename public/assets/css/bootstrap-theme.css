@@ -14,8 +14,12 @@
   float: left;
   height: 50px;
   padding: 15px 15px;
-  font-size: 18px;
+  margin: 10px;
+  font-family: 'CinzelDecorative';
+  font-size: 40px;
   line-height: 20px; }
+  .navbar-brand:first-letter {
+    color: #936f5f; }
 
 /*******************************************
               MODAL DIALOG

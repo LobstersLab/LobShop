@@ -1,4 +1,24 @@
 @font-face{
+  font-family: 'Bembo';
+  src: url('../fonts/Bembo/Bembo-Std_6601.ttf') format('truetype');
+  src: url('../fonts/Bembo/Bembo-Std-Bold_6595.ttf') format('truetype');
+  src: url('../fonts/Bembo/Bembo-Std-Italic_6598.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'Rockwell';
+  src: url('../fonts/Rockwell/Rockwell.ttf') format('truetype');
+  src: url('../fonts/Rockwell/RockwellBold.ttf') format('truetype');
+  src: url('../fonts/Rockwell/RockwellLight.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'CinzelDecorative';
+  src: url('../fonts/Cinzel_Decorative/CinzelDecorative-Regular.otf') format('opentype');
+  src: url('../fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
+}
+
+@font-face{
   font-family: 'LobShopIcons';
   src: url('../icons/icomoon.eot');
   src:
