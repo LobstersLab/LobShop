@@ -31,10 +31,10 @@ filter {
     margin-right: 1em; }
     filter .collapse-arrow:before, filter .expanded-arrow:before {
       font-family: 'LobShopIcons';
-      content: "\e600";
+      content: "\e601";
       color: #d6cd9b; }
   filter .expanded-arrow:before {
-    content: "\e617"; }
+    content: "\e600"; }
   filter .category {
     text-transform: uppercase;
     color: #d6cd9b;

@@ -40,14 +40,14 @@ filter {
     margin-right: 1em;
     &:before{
       font-family: 'LobShopIcons';
-      content: "\e600";
+      content: "\e601";
       color: #d6cd9b;
     }
 
   }
   .expanded-arrow{
     &:before{
-      content: "\e617";
+      content: "\e600";
     }
 
   }

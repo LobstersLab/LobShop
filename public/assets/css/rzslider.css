@@ -51,7 +51,10 @@ rzslider span.pointer:after {
   position: absolute;
   top: 12px;
   left: 12px;
-    content: "\e613";
+    content: "\e615";
+}
+rzslider span.pointer:nth-of-type(2):after{
+    content: "\e605";
 }
 
 rzslider span.pointer:hover:after {

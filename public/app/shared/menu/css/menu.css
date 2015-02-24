@@ -116,10 +116,10 @@ menu {
   transition: all .2s ease-in; }
 
 .settings:before {
-  content: "\e610"; }
+  content: "\e611"; }
 
 .shoppig-bag:before {
-  content: "\e60b"; }
+  content: "\e60c"; }
 .shoppig-bag .badge {
   top: 0;
   right: 1.2em;
@@ -133,10 +133,10 @@ menu {
 
 .log-out:before {
   margin-left: -10px;
-  content: "\e605"; }
+  content: "\e606"; }
 
 .log-in:before {
-  content: "\e609"; }
+  content: "\e60a"; }
 
 .menu-icons {
   height: 75px;
@@ -146,27 +146,27 @@ menu {
 
 .catalog:before {
   font-size: 72px;
-  content: "\e601"; }
+  content: "\e602"; }
 
 .highlight-icon {
   height: 60px;
   margin: 0; }
   .highlight-icon:before {
-    content: "\e603";
+    content: "\e604";
     font-size: 36px; }
 
 .terms {
   margin: 0; }
   .terms:before {
     font-size: 48px;
-    content: "\e614"; }
+    content: "\e616"; }
 
 .contacts {
   margin: 0;
   height: 60px; }
   .contacts:before {
     font-size: 36px;
-    content: "\e60c"; }
+    content: "\e60d"; }
 
 .profile-page-container {
   padding-top: 20px; }
