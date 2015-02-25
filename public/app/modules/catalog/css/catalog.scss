@@ -230,6 +230,66 @@ filter {
     font-size: 96px;
   }
 
+
+  $ornament-icon:"\e609";
+  $ornament-icon-size:150px;
+
+  .ornament-top-left{
+     position: relative;
+   }
+  .ornament-top-left:before{
+    position:absolute;
+    font-family: LobShopIcons;
+    font-size: $ornament-icon-size;
+    top: $ornament-icon-size * 0.35;
+    left:$ornament-icon-size * 0.05;
+    content:  $ornament-icon;
+    //transform: rotate(35deg);
+    color: #d6cd9b;
+  }
+
+  .ornament-top-right{
+    position: relative;
+  }
+  .ornament-top-right:before{
+    position:absolute;
+    font-family: LobShopIcons;
+    font-size: $ornament-icon-size;
+    top: -75px;
+    left: 230px;
+    content:  $ornament-icon;
+    transform: rotate(135deg);
+    color: #d6cd9b;
+  }
+
+  .ornament-bottom-left{
+    position: relative;
+  }
+  .ornament-bottom-left:before{
+    position:absolute;
+    font-family: LobShopIcons;
+    font-size: $ornament-icon-size;
+    top: 268px;
+    left: -83px;
+    content:  $ornament-icon;
+    transform: rotate(-35deg);
+    color: #d6cd9b;
+  }
+
+  .ornament-bottom-right{
+    position: relative;
+  }
+  .ornament-bottom-right:before{
+    position:absolute;
+    font-family: LobShopIcons;
+    font-size: $ornament-icon-size;
+    top: 268px;
+    left: 232px;
+    content:  $ornament-icon;
+    transform: rotate(-135deg);
+    color: #d6cd9b;
+  }
+
   .product-details-icon{
     &:before{
 

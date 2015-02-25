@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*********************************
             FILTER
  *********************************/
@@ -154,6 +155,49 @@ filter {
   .products .product-icons {
     font-family: LobShopIcons;
     font-size: 96px; }
+  .products .ornament-top-left {
+    position: relative; }
+  .products .ornament-top-left:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: 52.5px;
+    left: 7.5px;
+    content: "";
+    color: #d6cd9b; }
+  .products .ornament-top-right {
+    position: relative; }
+  .products .ornament-top-right:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: -75px;
+    left: 230px;
+    content: "";
+    transform: rotate(135deg);
+    color: #d6cd9b; }
+  .products .ornament-bottom-left {
+    position: relative; }
+  .products .ornament-bottom-left:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: 268px;
+    left: -83px;
+    content: "";
+    transform: rotate(-35deg);
+    color: #d6cd9b; }
+  .products .ornament-bottom-right {
+    position: relative; }
+  .products .ornament-bottom-right:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: 268px;
+    left: 232px;
+    content: "";
+    transform: rotate(-135deg);
+    color: #d6cd9b; }
   .products .product-details-icon:before {
     content: "\e617"; }
 

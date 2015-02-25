@@ -11,7 +11,12 @@
 
                     <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)"
                              ng-mouseleave="catalogCtrl.unhoverProduct(product)">
+
                         <div class="product-overlay text-center" ng-show="product.hover">
+                            <div class="ornament-top-left"></div>
+                            <div class="ornament-top-right"></div>
+                            <div class="ornament-bottom-left"></div>
+                            <div class="ornament-bottom-right"></div>
                             <a class="" ng-click="catalogCtrl.cart.insertItem(product)">
                                 <figure class="product-icons shoppig-bag"></figure>
                             </a>
