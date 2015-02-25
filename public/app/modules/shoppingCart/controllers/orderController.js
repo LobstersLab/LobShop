@@ -50,7 +50,7 @@ angular.module('shoppingCart')
 
             self.completeForm = function (formName) {
                 self.orderState.completedForms[formName] = true;
-                setOrderState(self.orderState);
+                setOrderState();
             };
 
             self.isDisabled = function (stateName) {
@@ -61,8 +61,8 @@ angular.module('shoppingCart')
                 return JSON.parse($window.sessionStorage.getItem(ORDER_STATE_STORAGE));
             }
 
-            function setOrderState (state) {
-                $window.sessionStorage.setItem(ORDER_STATE_STORAGE, JSON.stringify(state));
+            function setOrderState () {
+                $window.sessionStorage.setItem(ORDER_STATE_STORAGE, JSON.stringify(self.orderState));
             }
         }
     ]);
