@@ -104,12 +104,16 @@ filter {
   }
 }
 
-.catalog-header {
-  z-index: 400;
+.header-fixed {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+}
+
+.catalog-header {
+  z-index: 400;
+  height: 46px;
   padding: .5em;
   background-color: #373a3d;
   text-transform: uppercase;
