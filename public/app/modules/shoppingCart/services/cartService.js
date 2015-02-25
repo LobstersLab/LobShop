@@ -23,7 +23,7 @@ angular.module('shoppingCart')
                     var cartItem = self.cartItems[i];
 
                     if (cartItem.item.price) {
-                        total += cartItem.item.price;
+                        total += parseInt(cartItem.item.price.value);
                     }
                 }
 

@@ -11,8 +11,6 @@ angular.module('users')
             self.register = function () {
                 Authentication.signup(self.user)
                     .then(function () {
-                        console.log('User successfully registered!', arguments);
-
                         $state.go('home');
                     });
             };
