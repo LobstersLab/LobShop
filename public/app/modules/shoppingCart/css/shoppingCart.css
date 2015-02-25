@@ -20,9 +20,24 @@
   .shopping-cart-summary span:last-of-type {
     vertical-align: super; }
 
+.shopping-cart {
+  width: 90%;
+  padding: 4em 0; }
+  .shopping-cart .push {
+    margin-top: 3em; }
+  .shopping-cart hr {
+    width: 100%;
+    border-top: 1px solid #d0cec2; }
+  .shopping-cart .delete-icon {
+    font-family: LobShopIcons; }
+    .shopping-cart .delete-icon:before {
+      content: "\e603"; }
+  .shopping-cart a {
+    cursor: pointer;
+    color: #434343; }
+
 .cart-item {
-  padding: 10px 0;
-  border-bottom: 1px solid darkgray; }
+  padding: 2em 0; }
 
 .order-wrap {
   margin-top: 5em; }

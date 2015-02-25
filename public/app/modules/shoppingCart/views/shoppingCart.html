@@ -1,5 +1,5 @@
-<sub-header></sub-header>
-<div class="container">
+<sub-header show-on-top></sub-header>
+<div class="container shopping-cart">
     <div class="shopping-cart-grid" ng-show="shoppingCartCtrl.cart.getItems().length > 0">
         <div class="row grid-header text-center">
             <div class="col-md-3"></div>
@@ -14,22 +14,27 @@
             </div>
             <div class="col-md-1"></div>
         </div>
-        <div class="row cart-item text-center" ng-repeat="cartItem in shoppingCartCtrl.cart.getItems()">
-            <div class="col-md-3">
-                <img class="img-responsive" src="assets/images/CoinBack.jpg" alt=""/>
+        <div ng-repeat="cartItem in shoppingCartCtrl.cart.getItems()">
+            <div class="row cart-item text-center">
+                <div class="col-md-3">
+                    <img class="img-responsive" src="assets/images/CoinBack.jpg" alt=""/>
+                </div>
+                <div class="col-md-5 push">
+                    {{cartItem.item.name}}
+                </div>
+                <div class="col-md-1 push">
+                    {{cartItem.item.lot}}
+                </div>
+                <div class="col-md-1 push">
+                    {{cartItem.item.price.value | currency}}
+                </div>
+                <div class="col-md-1 push" >
+                    <div class="delete-icon"></div>
+                    <a ng-click="shoppingCartCtrl.cart.removeItem(cartItem)">Delete</a>
+                </div>
+
             </div>
-            <div class="col-md-5">
-                {{cartItem.item.name}}
-            </div>
-            <div class="col-md-1">
-                {{cartItem.item.attributes[0].value}}
-            </div>
-            <div class="col-md-1">
-                {{cartItem.item.price | currency}}
-            </div>
-            <div class="col-md-1">
-                <button class="btn btn-danger" ng-click="shoppingCartCtrl.cart.removeItem(cartItem)">Delete</button>
-            </div>
+            <hr/>
         </div>
         <div class="pull-right">
             <div>
@@ -38,6 +43,7 @@
             <button class="btn btn-default" ui-sref="order.personalInfo">Check out</button>
         </div>
     </div>
+
     <div class="text-center" ng-show="shoppingCartCtrl.cart.getItems().length == 0">
         <h3>There are no items in the shopping cart</h3>
     </div>

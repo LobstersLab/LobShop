@@ -109,7 +109,7 @@ menu {
 .menu-header-icons:before {
   margin-left: 5px;
   color: #b3b3b3;
-  font-size: 24px;
+  font-size: 1.5em;
   transition: all .2s ease-in; }
 .menu-header-icons:hover:before {
   color: #fff;
@@ -122,7 +122,7 @@ menu {
   content: "\e60c"; }
 
 .log-in:before, .log-out:before {
-  font-size: 21px; }
+  font-size: 1.3125em; }
 
 .log-out:before {
   margin-left: -10px;
@@ -132,37 +132,37 @@ menu {
   content: "\e60a"; }
 
 .menu-icons {
-  height: 75px;
+  height: 4.6875em;
   margin-top: -1em; }
   .menu-icons:before {
-    font-size: 72px; }
+    font-size: 4.5em; }
 
 .catalog:before {
-  font-size: 72px;
+  font-size: 4.5em;
   content: "\e602"; }
 
 .highlight-icon {
-  height: 60px;
+  height: 3.75em;
   margin: 0; }
   .highlight-icon:before {
     content: "\e604";
-    font-size: 36px; }
+    font-size: 2.25em; }
 
 .terms {
   margin: 0; }
   .terms:before {
-    font-size: 48px;
+    font-size: 3em;
     content: "\e616"; }
 
 .contacts {
   margin: 0;
-  height: 60px; }
+  height: 3.75em; }
   .contacts:before {
-    font-size: 36px;
+    font-size: 2.25em;
     content: "\e60d"; }
 
 .profile-page-container {
-  padding-top: 20px; }
+  padding-top: 1.25em; }
 
 .profile-image-holder img {
   border: 2px solid #d6cd9b; }

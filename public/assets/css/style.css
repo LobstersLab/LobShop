@@ -42,6 +42,19 @@
     opacity: 0.5; }
 
 /**************************************
+        STAY ON TOP DIRECTIVE
+***************************************/
+.header-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99999;
+  opacity: .8; }
+  .header-fixed:hover {
+    opacity: 1; }
+
+/**************************************
               ALL INPUTS
 ***************************************/
 .group {

@@ -1,3 +1,4 @@
+
 menu {
   position: fixed;
   top: 0;
@@ -146,7 +147,7 @@ menu {
 
     color: #b3b3b3;
 
-    font-size: 24px;
+    font-size: 1.5em;
 
     transition: all .2s ease-in;
   }
@@ -169,10 +170,9 @@ menu {
 
 
 }
-
 .log-in,.log-out{
   &:before{
-    font-size: 21px;
+    font-size: 1.3125em;
   }
 }
 .log-out{
@@ -189,45 +189,45 @@ menu {
 }
 
 .menu-icons{
-  height: 75px;
+  height: 4.6875em;
   margin-top: -1em;
   &:before{
-    font-size: 72px;
+    font-size: 4.5em;
   }
 }
 .catalog{
   &:before{
-    font-size: 72px;
+    font-size: 4.5em;
     content: "\e602";
   }
 }
 .highlight-icon{
-  height: 60px;
+  height: 3.75em;
   margin: 0;
   &:before{
     content: "\e604";
-    font-size: 36px;
+    font-size: 2.25em;
   }
 }
 
 .terms{
   margin: 0;
   &:before{
-    font-size: 48px;
+    font-size: 3em;
     content: "\e616";
   }
 }
 .contacts{
   margin: 0;
-  height: 60px;
+  height: 3.75em;
   &:before{
-    font-size: 36px;
+    font-size: 2.25em;
     content: "\e60d";
   }
 }
 
 .profile-page-container {
-  padding-top: 20px;
+  padding-top: 1.25em;
 }
 
 .profile-image-holder {
