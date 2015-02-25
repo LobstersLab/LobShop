@@ -11,20 +11,40 @@
                     <input type="text" id="username" name="username"
                            class="material-input"
                            ng-model="loginCtrl.user.username"
-                           ng-class="{ 'not-empty': !loginCtrl.isEmpty('username')}"/>
+                           ng-class="{ 'not-empty': !loginCtrl.isEmpty('username')}"
+                           ng-minlength="3"
+                           required/>
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label class="material-label">Username</label>
+                    <span class="pull-right material-error" ng-show="loginForm.username.$error.required && !loginForm.username.$pristine">
+                        Username is required
+                        <span class="error-icon"></span>
+                    </span>
+                    <span class="pull-right material-error" ng-show="loginForm.username.$error.minlength">
+                        Username must be at least 3 symbols
+                        <span class="error-icon"></span>
+                    </span>
                 </div>
 
                 <div class="group">
                     <input type="password" id="password" name="password"
                            class="material-input"
                            ng-model="loginCtrl.user.password"
-                           ng-class="{ 'not-empty': !loginCtrl.isEmpty('password')}"/>
+                           ng-class="{ 'not-empty': !loginCtrl.isEmpty('password')}"
+                           ng-minlength="6"
+                           required/>
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label class="material-label">Password</label>
+                    <span class="pull-right material-error" ng-show="loginForm.password.$error.required && !loginForm.password.$pristine">
+                        Password is required
+                        <span class="error-icon"></span>
+                    </span>
+                    <span class="pull-right material-error" ng-show="loginForm.password.$error.minlength">
+                        Password must be at least 6 symbols
+                        <span class="error-icon"></span>
+                    </span>
                 </div>
             </div>
             <div>

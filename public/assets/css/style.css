@@ -99,6 +99,20 @@
 .ng-pristine ~ .material-label {
   color: #373a3d; }
 
+/*************************************************
+                  ERROR MESSAGES
+**************************************************/
+.material-error {
+  margin-top: -30px;
+  color: #9a6a6b; }
+
+.error-icon {
+  font-family: 'LobShopIcons'; }
+  .error-icon:before {
+    content: "\e614";
+    font-size: 15px;
+    margin-left: 10px; }
+
 /* BOTTOM BARS ================================= */
 .bar {
   position: relative;
