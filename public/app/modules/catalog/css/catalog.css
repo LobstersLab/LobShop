@@ -27,6 +27,8 @@ filter {
     opacity: 1; }
   filter .filter-box {
     padding: 30px; }
+  filter .col-md-5 {
+    padding: 0; }
   filter .collapse-arrow, filter .expanded-arrow {
     margin-right: 1em; }
     filter .collapse-arrow:before, filter .expanded-arrow:before {
@@ -49,7 +51,7 @@ filter {
   filter .push-down {
     margin-bottom: 1em; }
   filter .push-right {
-    margin-left: 5em; }
+    margin-left: 4.5em; }
   filter label {
     margin: 0 0 0 10px;
     vertical-align: text-bottom; }

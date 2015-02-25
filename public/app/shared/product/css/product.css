@@ -19,6 +19,23 @@
 /*********************************
             PRODUCT
  *********************************/
+.row {
+  margin: 0 auto; }
+
+.product .product-category {
+  margin: 3em 0 0 5em; }
+.product .col-md-9 {
+  padding: 6em 0 0 8em; }
+  .product .col-md-9 .row, .product .col-md-9 .text-center, .product .col-md-9 h3 {
+    margin-bottom: 4em; }
+  .product .col-md-9 .img-responsive {
+    width: 60%; }
+.product .col-md-6 {
+  padding: 0; }
+.product .col-md-3 {
+  padding: 0em 2em 0 4em;
+  border-left: 1px solid black; }
+
 .product-overlay {
   position: absolute;
   top: 0;

@@ -35,6 +35,9 @@ filter {
   .filter-box {
     padding: 30px;
   }
+  .col-md-5{
+    padding: 0;
+  }
 
   .collapse-arrow, .expanded-arrow{
     margin-right: 1em;
@@ -72,7 +75,7 @@ filter {
     margin-bottom: 1em;
   }
   .push-right{
-    margin-left: 5em;
+    margin-left: 4.5em;
   }
 
   /** Labels **/
