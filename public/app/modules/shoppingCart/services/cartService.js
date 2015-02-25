@@ -30,7 +30,7 @@ angular.module('shoppingCart')
 
         function insertItem (item) {
             if (item) {
-                var existingItem = self.cartItems.filter(function (i) { return i.id === item.id})[0];
+                var existingItem = self.cartItems.filter(function (i) { return i.id === item._id})[0];
 
                 if (!existingItem) {
                     var cartItemToInsert = {
