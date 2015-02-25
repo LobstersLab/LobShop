@@ -259,6 +259,8 @@ filter {
     left: 230px;
     content:  $ornament-icon;
     transform: rotate(135deg);
+   // -ms-transform: rotate(7deg); /* IE 9 */
+   // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
     color: #d6cd9b;
   }
 
@@ -273,6 +275,8 @@ filter {
     left: -83px;
     content:  $ornament-icon;
     transform: rotate(-35deg);
+    //-ms-transform: rotate(7deg); /* IE 9 */
+   // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
     color: #d6cd9b;
   }
 
@@ -287,6 +291,8 @@ filter {
     left: 232px;
     content:  $ornament-icon;
     transform: rotate(-135deg);
+   // -ms-transform: rotate(7deg); /* IE 9 */
+   // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
     color: #d6cd9b;
   }
 
