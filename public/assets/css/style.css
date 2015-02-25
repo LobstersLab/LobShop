@@ -86,7 +86,7 @@
 .material-input.ng-valid {
   color: #6b939d;
   border-color: #6b939d; }
-.material-input.ng-invalid {
+.material-input.ng-invalid.ng-dirty {
   color: #9a6a6b;
   border-color: #9a6a6b; }
 .material-input.ng-valid.bar:before, .material-input.ng-valid.bar:after {
@@ -104,14 +104,23 @@
 **************************************************/
 .material-error {
   margin-top: -30px;
+  margin-right: 20px;
   color: #9a6a6b; }
 
 .error-icon {
-  font-family: 'LobShopIcons'; }
+  font-family: 'LobShopIcons';
+  margin-top: -30px;
+  color: #9a6a6b; }
   .error-icon:before {
     content: "\e614";
     font-size: 15px;
     margin-left: 10px; }
+
+.error-icon-satisfied {
+  color: #6b939d; }
+
+.error-icon-pristine {
+  color: #b3b3b3; }
 
 /* BOTTOM BARS ================================= */
 .bar {

@@ -7,12 +7,16 @@ angular.module('users')
 
             self.identity = Identity;
             self.user = {};
+            self.loginError = '';
 
             self.login = function () {
                 Authentication.login(self.user)
                     .then(function () {
-                        console.log('User successfully logged in! ', arguments);
                         $state.go('home');
+                    }, function (error) {
+                        if (error == 'No user found!') {
+                           self.loginError = 'Wrong username or password';
+                        }
                     });
             };
 

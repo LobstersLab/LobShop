@@ -121,7 +121,7 @@
     color: #6b939d;
     border-color: #6b939d;
   }
-  &.ng-invalid {
+  &.ng-invalid.ng-dirty {
     color: #9a6a6b;
     border-color: #9a6a6b;
   }
@@ -149,16 +149,27 @@
 
 .material-error {
   margin-top: -30px;
+  margin-right: 20px;
   color: #9a6a6b;
 }
 
 .error-icon{
   font-family: 'LobShopIcons';
+  margin-top: -30px;
+  color: #9a6a6b;
   &:before{
     content: "\e614";
     font-size: 15px;
     margin-left: 10px;
   }
+}
+
+.error-icon-satisfied {
+  color: #6b939d;
+}
+
+.error-icon-pristine {
+  color: #b3b3b3;
 }
 
 /* BOTTOM BARS ================================= */

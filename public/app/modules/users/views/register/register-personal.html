@@ -1,43 +1,76 @@
 <div class="row text-center">
     <div class="col-md-12">
-        <div class="group">
-            <input type="text" name="firstname"
-                   class="material-input"
-                   ng-model="registerCtrl.user.firstname"
-                   ng-class="{ 'not-empty': !registerCtrl.isEmpty('firstname')}"
-                   ng-minlength="4"
-                   required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label class="material-label">First name</label>
-        </div>
-        <div class="group">
-            <input type="text" name="lastname"
-                   class="material-input"
-                   ng-model="registerCtrl.user.lastname"
-                   ng-class="{ 'not-empty': !registerCtrl.isEmpty('lastname')}"
-                   ng-minlength="4"
-                   required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label class="material-label">Last name</label>
-        </div>
+        <ng-form name="personal">
+            <div class="group">
+                <input type="text" name="firstname"
+                       class="material-input"
+                       ng-model="registerCtrl.user.firstname"
+                       ng-class="{ 'not-empty': !registerCtrl.isEmpty('personal', 'firstname')}"
+                       ng-minlength="3"
+                       required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label class="material-label">First name</label>
+                <span class="pull-right material-error" ng-show="registrationForm.personal.firstname.$error.required && !registrationForm.personal.firstname.$pristine">
+                    First name is required
+                </span>
+                <span class="pull-right material-error" ng-show="registrationForm.personal.firstname.$error.minlength">
+                    First name must be at least 3 symbols
+                </span>
+                <span class="pull-right error-icon"
+                      ng-class="{'error-icon-satisfied': registrationForm.personal.firstname.$valid,
+                                 'error-icon-pristine': registrationForm.personal.firstname.$pristine }">
+                </span>
+            </div>
+            <div class="group">
+                <input type="text" name="lastname"
+                       class="material-input"
+                       ng-model="registerCtrl.user.lastname"
+                       ng-class="{ 'not-empty': !registerCtrl.isEmpty('personal', 'lastname')}"
+                       ng-minlength="3"
+                       required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label class="material-label">Last name</label>
+                <span class="pull-right material-error" ng-show="registrationForm.personal.lastname.$error.required && !registrationForm.personal.lastname.$pristine">
+                    Last name is required
+                </span>
+                <span class="pull-right material-error" ng-show="registrationForm.personal.lastname.$error.minlength">
+                    Last name must be at least 3 symbols
+                </span>
+                <span class="pull-right error-icon"
+                      ng-class="{'error-icon-satisfied': registrationForm.personal.lastname.$valid,
+                                 'error-icon-pristine': registrationForm.personal.lastname.$pristine }">
+                </span>
+            </div>
 
-        <div class="group">
-            <input type="email" name="email"
-                   class="material-input"
-                   ng-model="registerCtrl.user.email"
-                   ng-class="{ 'not-empty': !registerCtrl.isEmpty('email')}"
-                   required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label class="material-label">Email</label>
-        </div>
+            <div class="group">
+                <input type="email" name="email"
+                       class="material-input"
+                       ng-model="registerCtrl.user.email"
+                       ng-class="{ 'not-empty': !registerCtrl.isEmpty('personal', 'email')}"
+                       required
+                       ng-pattern="/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label class="material-label">Email</label>
+                <span class="pull-right material-error" ng-show="registrationForm.personal.email.$error.required && !registrationForm.personal.email.$pristine">
+                    Email is required
+                </span>
+                <span class="pull-right material-error" ng-show="registrationForm.personal.email.$error.pattern || registrationForm.personal.email.$error.email">
+                    Email is invalid
+                </span>
+                <span class="pull-right error-icon"
+                      ng-class="{'error-icon-satisfied': registrationForm.personal.email.$valid,
+                                 'error-icon-pristine': registrationForm.personal.email.$pristine }">
+                </span>
+            </div>
+        </ng-form>
     </div>
 </div>
 
 <div class="form-group row">
-    <a ui-sref="register.details" class="btn btn-info" ng-disabled="registrationForm.$invalid">
+    <a ui-sref="register.details" class="btn btn-info" ng-disabled="registrationForm.personal.$invalid">
         Next
     </a>
 </div>

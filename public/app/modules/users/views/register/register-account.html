@@ -1,44 +1,76 @@
-<div class="group">
-    <input type="text" name="username"
-           class="material-input"
-           ng-model="registerCtrl.user.username"
-           ng-class="{ 'not-empty': !registerCtrl.isEmpty('username')}"
-           ng-minlength="6"
-           required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label class="material-label">Username</label>
-</div>
+<ng-form name="account">
+    <div class="group">
+        <input type="text" name="username"
+               class="material-input"
+               ng-model="registerCtrl.user.username"
+               ng-class="{ 'not-empty': !registerCtrl.isEmpty('account', 'username')}"
+               ng-minlength="6"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Username</label>
+        <span class="pull-right material-error" ng-show="registrationForm.account.username.$error.required && !registrationForm.account.username.$pristine">
+            Username is required
+        </span>
+        <span class="pull-right material-error" ng-show="registrationForm.account.username.$error.minlength">
+            Username name must be at least 6 symbols
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': registrationForm.account.username.$valid,
+                         'error-icon-pristine': registrationForm.account.username.$pristine }">
+        </span>
+    </div>
 
-<div class="group">
-    <input type="password" name="password"
-           class="material-input"
-           ng-model="registerCtrl.user.password"
-           ng-class="{ 'not-empty': !registerCtrl.isEmpty('password')}"
-           ng-minlength="6"
-           required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label class="material-label">Password</label>
-</div>
+    <div class="group">
+        <input type="password" name="password"
+               class="material-input"
+               ng-model="registerCtrl.user.password"
+               ng-class="{ 'not-empty': !registerCtrl.isEmpty('account', 'password')}"
+               ng-minlength="6"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Password</label>
+        <span class="pull-right material-error" ng-show="registrationForm.account.password.$error.required && !registrationForm.account.password.$pristine">
+            Password is required
+        </span>
+        <span class="pull-right material-error" ng-show="registrationForm.account.password.$error.minlength">
+            Password must be at least 6 symbols
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': registrationForm.account.password.$valid,
+                         'error-icon-pristine': registrationForm.account.password.$pristine }">
+        </span>
+    </div>
 
-<div class="group">
-    <input type="password" name="repeat-password"
-           class="material-input"
-           ng-model="registerCtrl.user.repeatPassword"
-           ng-class="{ 'not-empty': !registerCtrl.isEmpty('repeat-password')}"
-           ng-minlength="6"
-           required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label class="material-label">Repeat password</label>
-</div>
+    <div class="group">
+        <input type="password" name="repeatPassword"
+               class="material-input"
+               ng-model="registerCtrl.user.repeatPassword"
+               ng-class="{ 'not-empty': !registerCtrl.isEmpty('account', 'repeatPassword')}"
+               required
+               compare-to="registerCtrl.user.password">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Repeat password</label>
+        <span class="pull-right material-error" ng-show="registrationForm.account.repeatPassword.$error.required && !registrationForm.account.repeatPassword.$pristine">
+            Repeat password is required
+        </span>
+        <span class="pull-right material-error" ng-show="registrationForm.account.repeatPassword.$error.compareTo && !registrationForm.account.repeatPassword.$pristine && !registrationForm.account.repeatPassword.$error.required">
+            Password does not match
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': registrationForm.account.repeatPassword.$valid,
+                         'error-icon-pristine': registrationForm.account.repeatPassword.$pristine }">
+        </span>
+    </div>
+</ng-form>
 
 <button class="btn btn-default" ui-sref="register.details">
     Back
 </button>
 <button type="submit"
         class="btn btn-success"
-        ng-disabled="registrationForm.$invalid">
+        ng-disabled="registrationForm.account.$invalid">
     Register
 </button>

@@ -64,17 +64,12 @@ angular.module('users')
 
                 $http(req)
                     .success(function (data, status, headers, config) {
-                        console.log('Success: ', data);
-
                         Identity.setCurrentUser(data.user);
 
                         deferred.resolve(true);
                     })
                     .error(function (data, status, headers, config) {
-                        // Handle error correctly
-                        console.error('Error: ', data.message);
-
-                        deferred.reject();
+                        deferred.reject(data.message);
                     });
 
                 return deferred.promise;

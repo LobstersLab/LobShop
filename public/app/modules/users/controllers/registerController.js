@@ -17,7 +17,7 @@ angular.module('users')
                     });
             };
 
-            self.isEmpty = function (fieldName) {
+            self.isEmpty = function (formName, fieldName) {
                 var field;
 
                 if (!fieldName) {
@@ -27,7 +27,7 @@ angular.module('users')
                     field = self.user[fieldName];
                 }
                 else {
-                    field = $scope.registrationForm[fieldName].$viewValue;
+                    field = $scope.registrationForm[formName][fieldName].$viewValue;
                 }
 
                 if (!field || field.length === 0) {
