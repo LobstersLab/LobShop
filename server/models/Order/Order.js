@@ -12,8 +12,9 @@ var OrderSchema = new Schema({
             type: String,
             default: '',
             trim: true
-        }
-        // TODO: Save paypal order info if payment method is with Credit Card
+        },
+        paypal : {type: Object},
+        creditCard: {type: Object}
     },
     comment: {
         type: String,
@@ -63,8 +64,6 @@ var OrderSchema = new Schema({
         default: '',
         trim: true,
         enum: [
-            'initiated',
-            'processing',
             'awaiting_payment',
             'paid',
             'delivered'
