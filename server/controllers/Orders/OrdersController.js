@@ -1,25 +1,37 @@
+var PayPalController = require('../PayPal/PayPalController');
 
 var Orders = function(data){
 
-    function create (req, res){
-
+    function createOrder (req, res){
         var validatedData = validateData(req);
-        if(!data){
-            return false;
-        }
 
-        data.orders.create(validatedData)
-            .then(function (createdOrder){
-                res.json({
-                    success: true,
-                    data: createdOrder
-                });
-            }, function (error){
-                res.render('error', {
-                    message: 'Cannot create order!',
-                    error: error
-                });
-            })
+        console.log('asd');
+        PayPalController.pay({paymentInfo:''}).then(function (data) {
+           res.json({
+               payment:data
+           });
+        }, function (error) {
+           res.json({
+               error:error
+           });
+        });
+
+        //if(!data){
+        //    return false;
+        //}
+        //
+        //data.orders.create(validatedData)
+        //    .then(function (createdOrder){
+        //        res.json({
+        //            success: true,
+        //            data: createdOrder
+        //        });
+        //    }, function (error){
+        //        res.render('error', {
+        //            message: 'Cannot create order!',
+        //            error: error
+        //        });
+        //    })
     }
 
     function validateData (req){
@@ -43,6 +55,14 @@ var Orders = function(data){
 
         //Validate payment method
         if (data.paymentMethod) {
+            if(data.paymentMethod == 'credit-card'){
+                //Validate billing address
+                if (data.creditCardInfo) {
+                    validatedData.creditCardInfo = data.creditCardInfo;
+                } else {
+                    return false;
+                }
+            }
             validatedData.paymentMethod = data.paymentMethod;
         } else {
             return false;
@@ -62,6 +82,9 @@ var Orders = function(data){
             return false;
         }
 
+
+
+
         //Add comment if available
         if (data.comment) {
             validatedData.comment = data.comment;
@@ -69,7 +92,7 @@ var Orders = function(data){
     }
 
     return {
-        create: create
+        createOrder: createOrder
     };
 };
 
