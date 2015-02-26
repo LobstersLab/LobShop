@@ -6,6 +6,7 @@ module.exports = {
     port: 3310,
     ip: '127.0.0.1',
     db: 'mongodb://127.0.0.1:27017/LobShop',
+    baseUrl : 'http://127.0.0.1:3310',
     session : {
         secret: 'chuck_noris',
         resave: true,
