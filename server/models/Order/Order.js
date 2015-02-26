@@ -5,7 +5,29 @@ var Schema = mongoose.Schema;
 
 var OrderSchema = new Schema({
 
-    userId: { type: Schema.Types.ObjectId, ref: 'User' },
+    userInfo: {
+        firstName: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        lastName: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        email: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        phoneNumber: {
+            type: String,
+            default: '',
+            trim: true
+        }
+    },
+    relatedRegisteredUserId : {type: Schema.Types.ObjectId},
     items: [{ type: Schema.Types.ObjectId, ref: 'ProductItem'}],
     payment: {
         method: {
