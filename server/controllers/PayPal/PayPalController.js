@@ -61,7 +61,7 @@ var PayPalController = (function(){
         return false;
     }
 
-    function cancelPaypalPayment () {
+    function cancelPayPalPayment () {
         return false;
     }
 
@@ -69,7 +69,7 @@ var PayPalController = (function(){
     return {
         pay: pay,
         executePayPalPayment : executePayPalPayment,
-        cancelPaypalPayment: cancelPaypalPayment
+        cancelPayPalPayment: cancelPayPalPayment
     };
 
 
