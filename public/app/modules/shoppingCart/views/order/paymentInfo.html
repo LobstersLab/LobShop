@@ -1,58 +1,124 @@
 <h2 class="text-center">SELECT A PAYMENT METHOD</h2>
 
-<ng-form name="paymentInfoForm">
-    <div class="text-center">
-        <input type="radio" class="radio-inline" name="paymentMethod"
-               id="credit-card" value="credit-card" ng-model="orderCtrl.user.paymentMethod"/>
-        <label for="credit-card">Creadit Card</label>
+<ng-form name="creditCardInfoForm">
+    <div class="text-center payment-method-radiogroup">
         <input type="radio" class="radio-inline" name="paymentMethod"
                id="cash" value="cash" ng-model="orderCtrl.user.paymentMethod"
                ng-checked="true"/>
         <label for="cash">Cash</label>
+        <input type="radio" class="radio-inline" name="paymentMethod"
+               id="credit-card" value="credit-card" ng-model="orderCtrl.user.paymentMethod"/>
+        <label for="credit-card">Credit Card</label>
+        <input type="radio" class="radio-inline" name="paymentMethod"
+               id="paypal" value="paypal" ng-model="orderCtrl.user.paymentMethod"/>
+        <label for="paypal">Pay Pal</label>
     </div>
     <div ng-show="orderCtrl.user.paymentMethod == 'credit-card'">
+        <div class="text-center credit-card-type-radiogroup">
+            <input type="radio" class="radio-inline" name="cardType"
+                   id="visa" value="visa" ng-model="orderCtrl.user.cardType"
+                   ng-checked="true" required ng-init="orderCtrl.user.cardType = 'visa'"
+                    ng-click="orderCtrl.validateCreditCardNumber()"/>
+            <label for="cash">VISA</label>
+            <input type="radio" class="radio-inline" name="cardType"
+                   id="master-card" value="master-card" ng-model="orderCtrl.user.cardType"
+                   required
+                   ng-click="orderCtrl.validateCreditCardNumber()"/>
+            <label for="master-card">Master card</label>
+            <input type="radio" class="radio-inline" name="cardType"
+                   id="american-express" value="american-express" ng-model="orderCtrl.user.cardType"
+                   required
+                   ng-click="orderCtrl.validateCreditCardNumber()"/>
+            <label for="american-express">American Express</label>
+        </div>
         <div class="group">
             <input type="text" name="cardNumber"
                    class="material-input"
                    ng-model="orderCtrl.user.cardNumber"
-                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardNumber')}"
-                   required>
+                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('creditCardInfoForm', 'cardNumber')}"
+                   required
+                   ng-pattern="orderCtrl.isValidCreditCardNumber">
             <span class="highlight"></span>
             <span class="bar"></span>
             <label class="material-label">Credit card number</label>
+            <span class="pull-right material-error" ng-show="orderForm.creditCardInfoForm.cardNumber.$error.required && !orderForm.creditCardInfoForm.cardNumber.$pristine">
+                Credit card number is required
+            </span>
+            <span class="pull-right material-error" ng-show="orderForm.creditCardInfoForm.cardNumber.$error.pattern">
+                Credit card number is invalid
+            </span>
+            <span class="pull-right error-icon"
+                  ng-class="{'error-icon-satisfied': orderForm.creditCardInfoForm.cardNumber.$valid,
+                             'error-icon-pristine': orderForm.creditCardInfoForm.cardNumber.$pristine }">
+            </span>
         </div>
         <div class="group">
             <input type="text" name="cardOwnerName"
                    class="material-input"
                    ng-model="orderCtrl.user.cardOwnerName"
-                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardOwnerName')}"
-                   required>
+                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('creditCardInfoForm', 'cardOwnerName')}"
+                   required
+                   ng-pattern="/^[a-zA-Z ]+$/"
+                   ui-validate="'orderCtrl.isValidFullName(orderCtrl.user.cardOwnerName)'"
+                   ui-validate-watch="'orderCtrl.user.cardOwnerName'">
             <span class="highlight"></span>
             <span class="bar"></span>
-            <label class="material-label">Credit card owner's name</label>
+            <label class="material-label">Owner's first and last name</label>
+            <span class="pull-right material-error" ng-show="orderForm.creditCardInfoForm.cardOwnerName.$error.required && !orderForm.creditCardInfoForm.cardOwnerName.$pristine">
+                Owner's first and last name is required
+            </span>
+            <span class="pull-right material-error" ng-show="orderForm.creditCardInfoForm.cardOwnerName.$error.validator && !orderForm.creditCardInfoForm.cardOwnerName.$pristine && !orderForm.creditCardInfoForm.cardOwnerName.$error.pattern && !orderForm.creditCardInfoForm.cardOwnerName.$error.required">
+                First and last name are invalid
+            </span>
+            <span class="pull-right material-error" ng-show="orderForm.creditCardInfoForm.cardOwnerName.$error.pattern">
+                Must contain only letters
+            </span>
+            <span class="pull-right error-icon"
+                  ng-class="{'error-icon-satisfied': orderForm.creditCardInfoForm.cardOwnerName.$valid,
+                             'error-icon-pristine': orderForm.creditCardInfoForm.cardOwnerName.$pristine }">
+            </span>
         </div>
         <div class="group">
             <input type="text" name="cardCvv"
                    class="material-input"
                    ng-model="orderCtrl.user.cardCvv"
-                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardCvv')}"
-                   required>
+                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('creditCardInfoForm', 'cardCvv')}"
+                   required
+                   ng-pattern="/^[0-9]{3,4}$/">
             <span class="highlight"></span>
             <span class="bar"></span>
             <label class="material-label">CVV</label>
+            <span class="pull-right material-error" ng-show="orderForm.creditCardInfoForm.cardCvv.$error.required && !orderForm.creditCardInfoForm.cardCvv.$pristine">
+                CVV is required
+            </span>
+            <span class="pull-right material-error" ng-show="orderForm.creditCardInfoForm.cardCvv.$error.pattern">
+                CVV must be 3-4 digit number
+            </span>
+            <span class="pull-right error-icon"
+                  ng-class="{'error-icon-satisfied': orderForm.creditCardInfoForm.cardCvv.$valid,
+                             'error-icon-pristine': orderForm.creditCardInfoForm.cardCvv.$pristine }">
+            </span>
         </div>
-        <div class="group">
-            <input type="text" name="cardExpiresOn"
-                   class="material-input"
-                   ng-model="orderCtrl.user.cardExpiresOn"
-                   ng-class="{ 'not-empty': !orderCtrl.isEmpty('paymentInfoForm', 'cardExpiresOn')}"
-                   required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label class="material-label">Expires on (MM/YYYY)</label>
+        <div class="text-center">
+            <label for="cardExpiresMonth">Expire Month</label>
+            <select name="cardExpiresMonth" required ng-model="orderCtrl.user.cardExpiresMonth">
+                <option value="" disabled selected>Select</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+            </select>
+            <label for="cardExpiresYear">Expire Year</label>
+            <select name="cardExpiresYear" required ng-model="orderCtrl.user.cardExpiresYear">
+                <option value="" disabled selected>Select</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+            </select>
         </div>
     </div>
 </ng-form>
 
-<button class="btn btn-default" ui-sref="order.deliveryInfo">Back</button>
-<button class="btn btn-info pull-right" ui-sref="order.confirm" ng-click="orderCtrl.completeForm('paymentInfo')">Next</button>
+<div class="order-buttons">
+    <button class="btn btn-default" ui-sref="order.deliveryInfo">Back</button>
+    <button class="btn btn-info pull-right" ui-sref="order.confirm"
+            ng-click="orderCtrl.completeState()"
+            ng-disabled="orderCtrl.user.paymentMethod === 'credit-card' ? orderForm.creditCardInfoForm.$invalid : false">Next</button>
+</div>

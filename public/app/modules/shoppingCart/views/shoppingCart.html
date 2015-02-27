@@ -37,10 +37,13 @@
             <hr/>
         </div>
         <div class="pull-right">
-            <div>
+            <div class="pull-right">
                 Total Price: {{shoppingCartCtrl.cart.getTotal() | currency}}
             </div>
-            <button class="btn btn-default" ui-sref="order.personalInfo">Check out</button>
+            <div>
+                <button class="btn btn-default" ui-sref="home">Continue shopping</button>
+                <button class="btn btn-primary" ui-sref="order.personalInfo">Check out</button>
+            </div>
         </div>
     </div>
 

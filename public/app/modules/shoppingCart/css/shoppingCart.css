@@ -19,6 +19,8 @@
     z-index: -1; }
   .shopping-cart-summary span:last-of-type {
     vertical-align: super; }
+  .shopping-cart-summary .btn {
+    margin: 10px; }
 
 .shopping-cart {
   width: 90%;
@@ -76,5 +78,8 @@
   background-color: #393b3e; }
   .status-line.disabled {
     background-color: #b3b3b3; }
+
+.payment-method-radiogroup {
+  margin-bottom: 35px; }
 
 /*# sourceMappingURL=shoppingCart.css.map */

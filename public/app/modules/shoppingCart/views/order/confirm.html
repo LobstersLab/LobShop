@@ -37,4 +37,5 @@
 </div>
 
 <button class="btn btn-default" ui-sref="order.paymentInfo">Back</button>
-<button class="btn btn-info pull-right" ng-disabled="!orderCtrl.user.agreeTerms" ng-click="orderCtrl.completeForm('confirm')">Confirm</button>
+<button class="btn btn-info pull-right" ng-disabled="!orderCtrl.user.agreeTerms"
+        ng-click="orderCtrl.completeState()">Confirm</button>

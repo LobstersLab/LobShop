@@ -11,6 +11,13 @@
         <span class="highlight"></span>
         <span class="bar"></span>
         <label class="material-label">Country</label>
+        <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.country.$error.required && !orderForm.deliveryInfoForm.country.$pristine">
+            Country is required
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.deliveryInfoForm.country.$valid,
+                         'error-icon-pristine': orderForm.deliveryInfoForm.country.$pristine }">
+        </span>
     </div>
     <div class="group">
         <input type="text" name="city"
@@ -21,6 +28,13 @@
         <span class="highlight"></span>
         <span class="bar"></span>
         <label class="material-label">City</label>
+        <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.city.$error.required && !orderForm.deliveryInfoForm.city.$pristine">
+            City is required
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.deliveryInfoForm.city.$valid,
+                         'error-icon-pristine': orderForm.deliveryInfoForm.city.$pristine }">
+        </span>
     </div>
     <div class="group">
         <input type="text" name="address"
@@ -31,18 +45,38 @@
         <span class="highlight"></span>
         <span class="bar"></span>
         <label class="material-label">Address</label>
+        <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.address.$error.required && !orderForm.deliveryInfoForm.address.$pristine">
+            Address is required
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.deliveryInfoForm.address.$valid,
+                         'error-icon-pristine': orderForm.deliveryInfoForm.address.$pristine }">
+        </span>
     </div>
     <div class="group">
         <input type="text" name="postalCode"
                class="material-input"
                ng-model="orderCtrl.user.postalCode"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'postalCode')}"
-               required>
+               required
+               ng-pattern="/^[0-9]*$/">
         <span class="highlight"></span>
         <span class="bar"></span>
         <label class="material-label">Postal Code</label>
+        <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.postalCode.$error.required && !orderForm.deliveryInfoForm.postalCode.$pristine">
+            Postal code is required
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.postalCode.$error.pattern">
+            Postal code must contain only digits
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.deliveryInfoForm.postalCode.$valid,
+                         'error-icon-pristine': orderForm.deliveryInfoForm.postalCode.$pristine }">
+        </span>
     </div>
 </ng-form>
 
 <button class="btn btn-default" ui-sref="order.personalInfo">Back</button>
-<button class="btn btn-info pull-right" ui-sref="order.paymentInfo" ng-click="orderCtrl.completeForm('deliveryInfo')">Next</button>
+<button class="btn btn-info pull-right" ui-sref="order.paymentInfo"
+        ng-click="orderCtrl.completeState()"
+        ng-disabled="orderForm.deliveryInfoForm.$invalid">Next</button>

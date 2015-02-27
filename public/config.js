@@ -10,6 +10,7 @@ var ApplicationConfiguration = (function() {
         'ngAnimate',
         'ui.router',
         'ui.bootstrap',
+        'ui.validate',
         'rzModule'
     ];
 
