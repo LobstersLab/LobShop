@@ -45,7 +45,7 @@ var OrderSchema = new Schema({
     },
     subTotal: { type: Number },
     tax: { type: Number },
-    deliveryAddress: [{
+    deliveryAddress: {
         country: {
             type: String,
             default: '',
@@ -56,14 +56,14 @@ var OrderSchema = new Schema({
             default: '',
             trim: true
         },
-        street: {
+        address: {
             type: String,
             default: '',
             trim: true
         },
         zip: { type: Number }
-    }],
-    billingAddress: [{
+    },
+    billingAddress: {
         country: {
             type: String,
             default: '',
@@ -74,13 +74,13 @@ var OrderSchema = new Schema({
             default: '',
             trim: true
         },
-        street: {
+        address: {
             type: String,
             default: '',
             trim: true
         },
         zip: { type: Number }
-    }],
+    },
     status: {
         type: String,
         default: '',
