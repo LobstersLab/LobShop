@@ -9,23 +9,52 @@ var PayPalController = (function(){
     //Config the paypal
     paypal.configure(config.paypal);
 
-    function createPayment (paymentInfo){
+    function makePayPalPayment (paymentInfo){
         var deferred = Q.defer();
 
-        paypal.payment.create(paymentInfo, function (error, payment) {
+        var payment = {
+            "intent": "sale",
+            "payer": {
+                "payment_method": "paypal"
+            },
+            "redirect_urls": {
+                "return_url": "http://localhost:3310/execute",
+                "cancel_url": "http://localhost:3310/cancel"
+            },
+            "transactions": [{
+                "amount": {
+                    "total": paymentInfo.total,
+                    "currency": paymentInfo.currency
+                },
+                "description": paymentInfo.description
+            }]
+        };
+
+        paypal.payment.create(payment, function (error, payment) {
             if (error) {
                 deferred.reject(error);
                 return deferred.promise;
             }
 
-            deferred.resolve(payment);
+            var redirectUrl;
+
+            for(var i=0; i < payment.links.length; i++) {
+                var link = payment.links[i];
+                if (link.method === 'REDIRECT') {
+                    redirectUrl = link.href;
+                }
+            }
+
+            deferred.resolve({
+                redirectUrl: redirectUrl,
+                payment: payment
+            });
         });
 
         return deferred.promise;
     }
 
     function makeCreditCardPayment (paymentInfo) {
-        console.log('3',paymentInfo);
         var deferred = Q.defer();
 
         var paymentInfo = {
@@ -54,7 +83,6 @@ var PayPalController = (function(){
         };
 
         paypal.payment.create(paymentInfo, function (error, payment) {
-            console.log('4', error);
             if (error) {
                 deferred.reject(error);
                 return deferred.promise;
@@ -66,22 +94,38 @@ var PayPalController = (function(){
         return deferred.promise;
     }
 
-    function executePayPalPayment () {
-        return false;
+    function executePayPalPayment (req, res) {
+        var paymentId = req.session.paymentId;
+        var payerId = req.param('PayerID');
+        var details = { "payer_id": payerId };
+
+        paypal.payment.execute(paymentId, details, function (error, payment) {
+            if (error) {
+                res.render('error', {
+                    error: error,
+                    message: 'PayPal payment execution failed'
+                });
+            } else {
+                res.json({
+                    success: true,
+                    message: "PayPal payment succeeded"
+                });
+            }
+        });
     }
 
-    function cancelPayPalPayment () {
-        return false;
+    function cancelPayPalPayment (req, res) {
+        res.render('index', {
+            message: 'PayPal payment cancelled'
+        });
     }
-
 
     return {
         makeCreditCardPayment: makeCreditCardPayment,
+        makePayPalPayment: makePayPalPayment,
         executePayPalPayment : executePayPalPayment,
         cancelPayPalPayment: cancelPayPalPayment
     };
-
-
 })();
 
 

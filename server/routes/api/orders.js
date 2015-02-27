@@ -11,11 +11,9 @@ module.exports = function (data) {
         .post(OrdersController.createOrder);
 
     router.route('/execute')
-        //.get(OrdersController.getAll)
         .get(PayPalController.executePayPalPayment);
 
     router.route('/cancel')
-        //.get(OrdersController.getAll)
         .get(PayPalController.cancelPayPalPayment);
 
     //router.route('/:id')

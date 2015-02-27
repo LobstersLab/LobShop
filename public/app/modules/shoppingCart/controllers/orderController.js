@@ -18,7 +18,8 @@ angular.module('shoppingCart')
                     country: currentUser.country,
                     city: currentUser.city,
                     address: currentUser.address,
-                    postalCode: currentUser.postalCode
+                    postalCode: currentUser.postalCode,
+                    total: ShoppingCart.getTotal()
                 };
             }
 

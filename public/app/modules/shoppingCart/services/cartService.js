@@ -112,7 +112,6 @@ angular.module('shoppingCart')
             }
 
             function checkoutOrder (formData) {
-
                 //Gather items ids
                 var items = getItems(),
                     itemIds = [],

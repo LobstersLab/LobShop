@@ -9,10 +9,13 @@ var Orders = function(data){
             user = req.user,
             validatedData = {};
 
+        //Set the order total price
+        validatedData.total = data.total;
+
         //Validate Registered user User
         if (user) {
             validatedData.relatedRegisteredUserId = user.ID;
-        };
+        }
 
         //Validate user info
         if(data.firstname && data.lastname && data.email && data.phoneNumber){
@@ -76,7 +79,7 @@ var Orders = function(data){
                 zip: data.postalCode
             };
         } else {
-            return {error:'Incorrect delivery info!'};;
+            return {error:'Incorrect delivery info!'};
         }
 
         //Add comment if available
@@ -86,7 +89,7 @@ var Orders = function(data){
 
         //If no problems
         return validatedData;
-    };
+    }
 
     function createOrder (req, res){
         var validatedData = validateData(req);
@@ -97,7 +100,7 @@ var Orders = function(data){
                 message: validatedData.error
             });
             return;
-        };
+        }
 
         //Adjust order status to awaiting payment
         validatedData.status = 'awaiting_payment';
@@ -110,7 +113,7 @@ var Orders = function(data){
                 //Credit Card
                 if(validatedData.paymentMethod == 'credit-card'){
 
-                    payOrderWithCreditCard(validatedData.paymentInfo, createdOrder).then(function (paymentData) {
+                    payOrderWithCreditCard(validatedData, createdOrder).then(function (paymentData) {
                         console.log('6');
                         //Update the order with the payment data on success
                         var paymentDataToUpdate = {
@@ -139,15 +142,33 @@ var Orders = function(data){
 
                         res.json({
                             success: false,
-                            message: 'Payment for order failed!',
+                            message: 'Credit card payment for order failed!',
                             error:error
                         });
 
                     });
 
                 }else if (validatedData.paymentMethod == 'paypal'){
-                    //TODO call paypal payment here
+                    var paymentInfo = {
+                        total: validatedData.total,
+                        currency: 'USD',
+                        description: 'Payment for order ' + createdOrder._id
+                    };
 
+                    PayPalController.makePayPalPayment(paymentInfo)
+                        .then(function (paymentData) {
+                            // TODO: Update order
+                            req.session.paymentId = paymentData.payment.id;
+
+                            res.redirect(paymentData.redirectUrl);
+                        }, function (error) {
+                            // TODO: Handle errors correctly
+                            res.json({
+                                success: false,
+                                message: 'PayPal payment for order failed!',
+                                error: error
+                            });
+                        });
                 }
 
             },
@@ -163,25 +184,24 @@ var Orders = function(data){
 
     function payOrderWithCreditCard (orderFormData, orderData) {
         var deferred = Q.defer(),
-            amountTotal = 10;
-        //TODO Calculate total amount of items in order
+            amountTotal = orderFormData.total;
+        //TODO Calculate total amount of items in order. If it si equal to amauntTotal - continue
 
         //Create payment info object
         var paymentInfo = {
-            creditCardNumber : orderFormData.creditCardNumber,
-            creditCardType: orderFormData.creditCardType,
-            creditCardExpireMonth: orderFormData.creditCardExpireMonth,
-            creditCardExpireYear: orderFormData.creditCardExpireYear,
-            creditCardCCV: orderFormData.creditCardCCV,
-            creditCardFirstName: orderFormData.creditCardFirstName,
-            creditCardLastName: orderFormData.creditCardLastName,
+            creditCardNumber : orderFormData.paymentInfo.creditCardNumber,
+            creditCardType: orderFormData.paymentInfo.creditCardType,
+            creditCardExpireMonth: orderFormData.paymentInfo.creditCardExpireMonth,
+            creditCardExpireYear: orderFormData.paymentInfo.creditCardExpireYear,
+            creditCardCCV: orderFormData.paymentInfo.creditCardCCV,
+            creditCardFirstName: orderFormData.paymentInfo.creditCardFirstName,
+            creditCardLastName: orderFormData.paymentInfo.creditCardLastName,
             amountTotal: amountTotal,
             currency: 'USD',
-            description: 'Payment for order' + orderData._id
+            description: 'Payment for order ' + orderData._id
         };
-        console.log('2');
+
         PayPalController.makeCreditCardPayment(paymentInfo).then(function (data) {
-                console.log('5');
                 //Payment is complete.
                 deferred.resolve(data);
 
