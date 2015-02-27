@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .factory('ShoppingCart', ['$window',
-        function ($window) {
+    .factory('ShoppingCart', ['$window','$http',
+        function ($window, $http) {
             var self = this;
             var SHOPPING_CART_ITEMS_STORAGE = 'ShoppingCartItems';
 
@@ -66,12 +66,37 @@ angular.module('shoppingCart')
                 $window.localStorage.setItem(SHOPPING_CART_ITEMS_STORAGE, JSON.stringify(self.cartItems));
             }
 
+            function checkoutOrder (formData) {
+                //Gather items ids
+                var items = getItems(),
+                    itemIds = [],
+                    i = 0;
+                debugger
+                while(items.length > i){
+                    itemIds.push(items[i].id)
+                    i++;
+                };
+                //Attach items to the form data
+                formData.items = itemIds;
+
+                $http.post('/api/orders', formData).
+                    success(function(data, status, headers, config) {
+                        // this callback will be called asynchronously
+                        // when the response is available
+                    }).
+                    error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
+            }
+
             return {
                 getItems: getItems,
                 getCount: getCount,
                 getTotal: getTotal,
                 insertItem: insertItem,
-                removeItem: removeItem
+                removeItem: removeItem,
+                checkoutOrder : checkoutOrder
             };
         }
     ]);
