@@ -5,7 +5,7 @@
     <div class="group">
         <input type="text" name="firstname"
                class="material-input"
-               ng-model="orderCtrl.user.firstname"
+               ng-model="orderCtrl.order.firstname"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'firstname')}"
                ng-minlength="3"
                required>
@@ -26,7 +26,7 @@
     <div class="group">
         <input type="text" name="lastname"
                class="material-input"
-               ng-model="orderCtrl.user.lastname"
+               ng-model="orderCtrl.order.lastname"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'lastname')}"
                ng-minlength="3"
                required>
@@ -47,7 +47,7 @@
     <div class="group">
         <input type="email" name="email"
                class="material-input"
-               ng-model="orderCtrl.user.email"
+               ng-model="orderCtrl.order.email"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'email')}"
                required
                ng-pattern="/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/">
@@ -68,7 +68,7 @@
     <div class="group">
         <input type="text" name="phoneNumber"
                class="material-input"
-               ng-model="orderCtrl.user.phoneNumber"
+               ng-model="orderCtrl.order.phoneNumber"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'phoneNumber')}"
                required
                ng-minlength="9"

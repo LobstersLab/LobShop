@@ -171,6 +171,8 @@ var AuthenticationController = function (passport) {
             username: user.username,
             email: user.email,
             displayName: user.displayName,
+            firstName: user.firstName,
+            lastName: user.lastName,
             roles: user.roles,
             country: user.country,
             city: user.city,

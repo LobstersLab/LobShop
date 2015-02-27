@@ -1,11 +1,28 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .controller('OrderController', ['$scope', '$state', 'ShoppingCart',
-        function OrderController ($scope, $state, ShoppingCart) {
+    .controller('OrderController', ['$scope', '$state', 'ShoppingCart', 'Identity',
+        function OrderController ($scope, $state, ShoppingCart, Identity) {
             var self = this;
+            var currentUser = Identity.getCurrentUser();
 
-            self.user = {};
+
+            self.order = {};
+
+            if (currentUser) {
+                self.order = {
+                    firstname: currentUser.firstName,
+                    lastname: currentUser.lastName,
+                    email: currentUser.email,
+                    phoneNumber: currentUser.phoneNumber,
+                    country: currentUser.country,
+                    city: currentUser.city,
+                    address: currentUser.address,
+                    postalCode: currentUser.postalCode
+                };
+            }
+
+            self.cart = ShoppingCart;
             self.states = ['personalInfo', 'deliveryInfo', 'paymentInfo', 'confirm'];
             self.completedStates = getStatesCompletion();
             self.activeState = getActiveState();
@@ -36,7 +53,7 @@ angular.module('shoppingCart')
                         if (self.states[indexOfActiveState + 1]) {
                             self.activeState = self.states[indexOfActiveState + 1];
                         } else {
-                            ShoppingCart.checkoutOrder(self.user);
+                            ShoppingCart.checkoutOrder(self.order);
                             console.log('Form is completed');
                         }
                     }
@@ -56,8 +73,8 @@ angular.module('shoppingCart')
                 if (!fieldName) {
                     return false;
                 }
-                else if (self.user[fieldName]) {
-                    field = self.user[fieldName];
+                else if (self.order[fieldName]) {
+                    field = self.order[fieldName];
                 }
                 else {
                     field = $scope.orderForm[formName][fieldName].$viewValue;
@@ -79,17 +96,17 @@ angular.module('shoppingCart')
                     test: function (value) {
                         var regexp;
 
-                        if (self.user.cardType === 'visa') {
+                        if (self.order.cardType === 'visa') {
                             regexp = /4[0-9]{12}(?:[0-9]{3})?/;
-                        } else if (self.user.cardType === 'master-card') {
+                        } else if (self.order.cardType === 'master-card') {
                             regexp = /5[1-5][0-9]{14}/;
-                        } else if (self.user.cardType === 'american-express') {
+                        } else if (self.order.cardType === 'american-express') {
                             regexp = /3[47][0-9]{13}/;
-                        } else if (self.user.cardType === 'diners-club') {
+                        } else if (self.order.cardType === 'diners-club') {
                             regexp = /3(?:0[0-5]|[68][0-9])[0-9]{11}/;
-                        } else if (self.user.cardType === 'discover') {
+                        } else if (self.order.cardType === 'discover') {
                             regexp = /6(?:011|5[0-9]{2})[0-9]{12}/;
-                        } else if (self.user.cardType === 'jcb') {
+                        } else if (self.order.cardType === 'jcb') {
                             regexp = /(?:2131|1800|35\d{3})\d{11}/;
                         }
 

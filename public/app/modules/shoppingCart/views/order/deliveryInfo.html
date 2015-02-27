@@ -5,7 +5,7 @@
     <div class="group">
         <input type="text" name="country"
                class="material-input"
-               ng-model="orderCtrl.user.country"
+               ng-model="orderCtrl.order.country"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'country')}"
                ng-minlength="4"
                required>
@@ -26,7 +26,7 @@
     <div class="group">
         <input type="text" name="city"
                class="material-input"
-               ng-model="orderCtrl.user.city"
+               ng-model="orderCtrl.order.city"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'city')}"
                required>
         <span class="highlight"></span>
@@ -43,7 +43,7 @@
     <div class="group">
         <input type="text" name="address"
                class="material-input"
-               ng-model="orderCtrl.user.address"
+               ng-model="orderCtrl.order.address"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'address')}"
                ng-minlength="10"
                required>
@@ -64,7 +64,7 @@
     <div class="group">
         <input type="text" name="postalCode"
                class="material-input"
-               ng-model="orderCtrl.user.postalCode"
+               ng-model="orderCtrl.order.postalCode"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'postalCode')}"
                required
                ng-pattern="/^[0-9]*$/">

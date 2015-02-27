@@ -3,39 +3,39 @@
     <div class="row">
         <div class="col-md-6">
             <h4>Personal Info</h4>
-            <span>{{orderCtrl.user.firstName}}</span>
-            <span>{{orderCtrl.user.lastName}}</span>
-            <span>{{orderCtrl.user.email}}</span>
-            <span>{{orderCtrl.user.telephoneNumber}}</span>
+            <div>{{orderCtrl.order.firstname}} {{orderCtrl.order.lastname}}</div>
+            <div>{{orderCtrl.order.email}}</div>
+            <div>{{orderCtrl.order.phoneNumber}}</div>
         </div>
         <div class="col-md-6">
             <h4>Delivery Info</h4>
-            <span>{{orderCtrl.user.country}}, {{orderCtrl.user.city}}</span>
-            <span>{{orderCtrl.user.address}}</span>
-            <span>{{orderCtrl.user.postalCode}}</span>
+            <div>{{orderCtrl.order.country}}, {{orderCtrl.order.city}}</div>
+            <div>{{orderCtrl.order.address}}</div>
+            <div>{{orderCtrl.order.postalCode}}</div>
 
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
             <h4>Payment Info</h4>
-            <span>{{orderCtrl.user.paymentMethod}}</span>
-            <div ng-if="orderCtrl.user.paymentMethod == 'credit-card'">
-                <span>{{orderCtrl.user.cardNumber}}</span>
-                <span>{{orderCtrl.user.cardOwnerName}}</span>
-                <span>{{orderCtrl.user.cardCvv}}</span>
-                <span>{{orderCtrl.user.cardExpiresOn}}</span>
+            <span>{{orderCtrl.order.paymentMethod}}</span>
+            <div ng-if="orderCtrl.order.paymentMethod == 'credit-card'">
+                <div>{{orderCtrl.order.cardType}}</div>
+                <div>{{orderCtrl.order.cardNumber}}</div>
+                <div>{{orderCtrl.order.cardOwnerName}}</div>
+                <div>{{orderCtrl.order.cardCvv}}</div>
+                <div>{{orderCtrl.order.cardExpiresMonth}}/{{orderCtrl.order.cardExpiresYear}}</div>
             </div>
         </div>
         <div class="col-md-6">
             <h4>Total Price</h4>
-            <span>{{orderCtrl.cart.getTotal()}}</span>
+            <span>{{orderCtrl.cart.getTotal() | currency}}</span>
         </div>
     </div>
-    <label for="agreeTerms">I agree the <a href="#">Terms & Conditions</a></label>
-    <input type="checkbox" name="agreeTerms" ng-model="orderCtrl.user.agreeTerms"/><br/>
+    <label for="agreeTerms">I agree the <a href="terms">Terms & Conditions</a></label>
+    <input type="checkbox" name="agreeTerms" ng-model="orderCtrl.order.agreeTerms"/><br/>
 </div>
 
 <button class="btn btn-default" ui-sref="order.paymentInfo">Back</button>
-<button class="btn btn-info pull-right" ng-disabled="!orderCtrl.user.agreeTerms"
+<button class="btn btn-info pull-right" ng-disabled="!orderCtrl.order.agreeTerms"
         ng-click="orderCtrl.completeState()">Confirm</button>

@@ -79,7 +79,7 @@
   .status-line.disabled {
     background-color: #b3b3b3; }
 
-.payment-method-radiogroup {
-  margin-bottom: 35px; }
+.payment-method-radiogroup, .credit-card-type-radiogroup {
+  margin-bottom: 20px; }
 
 /*# sourceMappingURL=shoppingCart.css.map */

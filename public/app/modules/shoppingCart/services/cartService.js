@@ -112,26 +112,26 @@ angular.module('shoppingCart')
             }
 
             function checkoutOrder (formData) {
+
                 //Gather items ids
                 var items = getItems(),
                     itemIds = [],
                     i = 0;
-                debugger
+
                 while(items.length > i){
-                    itemIds.push(items[i].id)
+                    itemIds.push(items[i].id);
                     i++;
-                };
+                }
+
                 //Attach items to the form data
                 formData.items = itemIds;
 
                 $http.post('/api/orders', formData).
                     success(function(data, status, headers, config) {
-                        // this callback will be called asynchronously
-                        // when the response is available
+                        //TODO: Redirect to the 'Congratulations' state
                     }).
                     error(function(data, status, headers, config) {
-                        // called asynchronously if an error occurs
-                        // or server returns response with an error status.
+                        //TODO: Show error message
                     });
             }
 
