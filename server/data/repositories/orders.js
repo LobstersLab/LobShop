@@ -1,6 +1,6 @@
 var Q = require('q');
 var mongoose = require('mongoose');
-var Order = require('./../../models/Orders/Order');
+var Order = require('../../models/Order/Order');
 
 function getAll () {
     var deferred = Q.defer();
@@ -22,8 +22,7 @@ function getAll () {
 function getById (id) {
     var deferred = Q.defer();
 
-    Order
-        .getById(id)
+    Order.getById(id)
         .exec(function (error, Order) {
             if (error) {
                 deferred.reject(error);
