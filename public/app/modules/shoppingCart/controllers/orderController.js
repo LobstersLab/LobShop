@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .controller('OrderController', ['$scope', '$state',
-        function OrderController ($scope, $state) {
+    .controller('OrderController', ['$scope', '$state', 'ShoppingCart',
+        function OrderController ($scope, $state, ShoppingCart) {
             var self = this;
 
             self.user = {};
@@ -36,7 +36,7 @@ angular.module('shoppingCart')
                         if (self.states[indexOfActiveState + 1]) {
                             self.activeState = self.states[indexOfActiveState + 1];
                         } else {
-                            // Do something when the form is completed
+                            ShoppingCart.checkoutOrder(self.user);
                             console.log('Form is completed');
                         }
                     }
