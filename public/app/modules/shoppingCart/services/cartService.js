@@ -1,12 +1,20 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .factory('ShoppingCart', ['$window','$http',
-        function ($window, $http) {
+    .factory('ShoppingCart', ['$rootScope', '$window', '$http', 'Identity',
+        function ($rootScope, $window, $http, Identity) {
             var self = this;
             var SHOPPING_CART_ITEMS_STORAGE = 'ShoppingCartItems';
 
             self.cartItems = getStorageItems() || [];
+
+            $rootScope.$on('logout', function () {
+                self.cartItems = getStorageItems() || [];
+            });
+
+            $rootScope.$on('login', function () {
+                self.cartItems = getStorageItems() || [];
+            });
 
             function getItems () {
                 return self.cartItems;
@@ -59,11 +67,48 @@ angular.module('shoppingCart')
             }
 
             function getStorageItems () {
-                return JSON.parse($window.localStorage.getItem(SHOPPING_CART_ITEMS_STORAGE));
+                if (!Identity.getCurrentUser()) {
+                    return;
+                }
+
+                var currentUserId = Identity.getCurrentUser().id;
+                var storage = JSON.parse($window.localStorage.getItem(SHOPPING_CART_ITEMS_STORAGE));
+
+                if (!storage) {
+                    return null;
+                } else {
+                    var storageItems = storage.filter(function (userItems) {
+                        return userItems.userId === currentUserId;
+                    })[0].items;
+
+                    return storageItems;
+                }
             }
 
             function setStorageItems () {
-                $window.localStorage.setItem(SHOPPING_CART_ITEMS_STORAGE, JSON.stringify(self.cartItems));
+                if (!Identity.getCurrentUser()) {
+                    return;
+                }
+
+                var currentUserId = Identity.getCurrentUser().id;
+                var storage = JSON.parse($window.localStorage.getItem(SHOPPING_CART_ITEMS_STORAGE)) || [];
+                var currentUserItems = storage.filter(function (userItems) {
+                    return userItems.userId === currentUserId;
+                })[0];
+
+                if (currentUserItems) {
+                    var currentUserItemsIndex = storage.indexOf(currentUserItems);
+                    currentUserItems.items = self.cartItems;
+
+                    storage[currentUserItemsIndex] = currentUserItems;
+                } else {
+                    storage.push({
+                        userId: currentUserId,
+                        items: self.cartItems
+                    });
+                }
+
+                $window.localStorage.setItem(SHOPPING_CART_ITEMS_STORAGE, JSON.stringify(storage));
             }
 
             function checkoutOrder (formData) {

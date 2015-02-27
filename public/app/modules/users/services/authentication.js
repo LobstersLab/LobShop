@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('users')
-    .factory('Authentication', ['$http', '$q', 'Identity',
-        function($http, $q, Identity) {
+    .factory('Authentication', ['$rootScope', '$http', '$q', 'Identity',
+        function($rootScope, $http, $q, Identity) {
             var baseApiUrl = 'http://localhost:3310';
 
             function signup (user) {
@@ -31,6 +31,7 @@ angular.module('users')
                         console.log('Success: ', data);
 
                         Identity.setCurrentUser(data.user);
+                        $rootScope.$broadcast('login');
 
                         deferred.resolve(true);
                     })
@@ -65,6 +66,7 @@ angular.module('users')
                 $http(req)
                     .success(function (data, status, headers, config) {
                         Identity.setCurrentUser(data.user);
+                        $rootScope.$broadcast('login');
 
                         deferred.resolve(true);
                     })
@@ -81,6 +83,8 @@ angular.module('users')
                 $http.get(baseApiUrl + '/auth/logout')
                     .success(function() {
                         Identity.setCurrentUser(undefined);
+                        $rootScope.$broadcast('logout');
+
                         deferred.resolve();
                     });
 

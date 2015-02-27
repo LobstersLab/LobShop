@@ -10,11 +10,11 @@ angular.module('shoppingCart')
             self.completedStates = getStatesCompletion();
             self.activeState = getActiveState();
 
-            //$scope.$on('$stateChangeSuccess', function () {
-            //    if (self.isDisabled(getCurrentStateName())) {
-            //        $state.go('order.' + self.activeState);
-            //    }
-            //});
+            $scope.$on('$stateChangeSuccess', function () {
+                if (self.isDisabled(getCurrentStateName())) {
+                    $state.go('order.' + self.activeState);
+                }
+            });
 
             self.isStateCompleted = function (state) {
                 var indexOfState = self.states.indexOf(state);
