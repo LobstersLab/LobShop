@@ -66,30 +66,30 @@
         </span>
     </div><!--/.group-->
     <div class="group">
-        <input type="tel" name="phoneNumber"
+        <input type="text" name="phoneNumber"
                class="material-input"
                ng-model="orderCtrl.user.phoneNumber"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'phoneNumber')}"
-               required>
+               required
+               ng-minlength="9"
+               ng-pattern="/^\+?[0-9]+$/">
         <span class="highlight"></span>
         <span class="bar"></span>
         <label class="material-label">Phone number</label>
         <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.phoneNumber.$error.required && !orderForm.personalInfoForm.phoneNumber.$pristine">
             Phone number is required
         </span>
-
-        <!-- TODO: Add phone number regex and show correct message if not satisfied -->
-        <!--<span class="pull-right material-error" ng-show="orderForm.personalInfoForm.phoneNumber.$error.pattern">-->
-
-            <!--|| orderForm.personalInfoForm.phoneNumber.$error.tel-->
-
-            <!--Phone number is invalid-->
-        <!--</span>-->
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.phoneNumber.$error.pattern">
+            Phone number is invalid. (ex. +3598987654321)
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.phoneNumber.$error.minlength && !orderForm.personalInfoForm.phoneNumber.$error.pattern">
+            Phone number must contain at least 9 symbols
+        </span>
         <span class="pull-right error-icon"
               ng-class="{'error-icon-satisfied': orderForm.personalInfoForm.phoneNumber.$valid,
                          'error-icon-pristine': orderForm.personalInfoForm.phoneNumber.$pristine }">
         </span>
-    </div><!--/.group-->
+    </div>
 </ng-form>
 <button class="btn btn-default" ui-sref="shoppingCart">Back</button>
 <button class="btn btn-info pull-right" ui-sref="order.deliveryInfo"

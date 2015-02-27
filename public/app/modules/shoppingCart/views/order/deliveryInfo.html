@@ -7,12 +7,16 @@
                class="material-input"
                ng-model="orderCtrl.user.country"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'country')}"
+               ng-minlength="4"
                required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label class="material-label">Country</label>
         <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.country.$error.required && !orderForm.deliveryInfoForm.country.$pristine">
             Country is required
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.country.$error.minlength">
+            Country must contains at least 4 letters
         </span>
         <span class="pull-right error-icon"
               ng-class="{'error-icon-satisfied': orderForm.deliveryInfoForm.country.$valid,
@@ -41,12 +45,16 @@
                class="material-input"
                ng-model="orderCtrl.user.address"
                ng-class="{ 'not-empty': !orderCtrl.isEmpty('deliveryInfoForm', 'address')}"
+               ng-minlength="10"
                required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label class="material-label">Address</label>
         <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.address.$error.required && !orderForm.deliveryInfoForm.address.$pristine">
             Address is required
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.deliveryInfoForm.address.$error.minlength">
+            Address must contain at least 10 letters
         </span>
         <span class="pull-right error-icon"
               ng-class="{'error-icon-satisfied': orderForm.deliveryInfoForm.address.$valid,

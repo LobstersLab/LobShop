@@ -32,6 +32,11 @@ var UserSchema = new Schema({
 		default: '',
 		match: [/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/, 'Please fill a valid email address']
 	},
+    phoneNumber: {
+        type: String,
+        trim: true,
+        default: ''
+    },
     city: {
         type: String,
         trim: true,

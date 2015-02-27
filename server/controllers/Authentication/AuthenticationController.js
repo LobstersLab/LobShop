@@ -175,7 +175,8 @@ var AuthenticationController = function (passport) {
             country: user.country,
             city: user.city,
             postalCode: user.postalCode,
-            address: user.address
+            address: user.address,
+            phoneNumber: user.phoneNumber
         };
     }
 

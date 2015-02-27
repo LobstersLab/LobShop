@@ -27,6 +27,7 @@ module.exports = function () {
                         username: username,
                         provider: 'local',
                         email: userData.email,
+                        phoneNumber: userData.phoneNumber,
                         firstName: userData.firstname,
                         lastName: userData.lastname,
                         displayName: userData.firstname + ' ' + userData.lastname,
