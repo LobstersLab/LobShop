@@ -19,8 +19,7 @@ angular.module('dashboard')
                 }
             };
 
-            self.categoryEditFormSubmit = function (){
-                debugger
+            self.categoryFormSubmit = function (){
                 CategoriesResource.createCategory(self.selectedCategory);
             }
         }
