@@ -7,7 +7,7 @@ module.exports = function (data) {
     var PayPalController = require('./../../controllers/PayPal/PayPalController')(data);
 
     router.route('/')
-        //.get(OrdersController.getAll)
+        .get(OrdersController.getAll)
         .post(OrdersController.createOrder);
 
     router.route('/execute')
@@ -16,10 +16,10 @@ module.exports = function (data) {
     router.route('/cancel')
         .get(PayPalController.cancelPayPalPayment);
 
-    //router.route('/:id')
-    //    .get(OrdersController.getById)
-    //    .put(OrdersController.updateById)
-    //    .delete(OrdersController.remove);
+    router.route('/:id')
+        .get(OrdersController.getById)
+        .put(OrdersController.updateById)
+        .delete(OrdersController.removeById);
 
     return router;
 };

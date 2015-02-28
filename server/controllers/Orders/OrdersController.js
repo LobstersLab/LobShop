@@ -5,6 +5,61 @@ var Orders = function(data){
 
     var PayPalController = require('../PayPal/PayPalController')(data);
 
+    function getAll (req, res) {
+        data.orders.getAll()
+            .then(function (orders) {
+                res.json(orders);
+            }, function (error) {
+                res.render('error', {
+                    error: error,
+                    message: 'Cannot get all orders!'
+                });
+            });
+    }
+
+    function getById (req, res) {
+        var orderId = req.params.id;
+
+        data.orders.getById(orderId)
+            .then(function (order) {
+                res.json(order);
+            }, function (error) {
+                res.render('error', {
+                    error: error,
+                    message: 'Cannot get order by id!' + orderId
+                });
+            });
+    }
+
+    function updateById (req, res) {
+        var orderId = req.params.id;
+        var updatesObject = req.body;
+
+        data.orders.updateById(orderId, updatesObject)
+            .then(function (updatedOrder) {
+                res.json(updatedOrder);
+            }, function (error) {
+                res.render('error', {
+                    error: error,
+                    message: 'Cannot update order by id!' + orderId
+                });
+            });
+    }
+
+    function removeById (req, res) {
+        var orderId = req.params.id;
+
+        data.orders.removeById(orderId)
+            .then(function (removedOrder) {
+                res.json(removedOrder);
+            }, function (error) {
+                res.render('error', {
+                    error: error,
+                    message: 'Cannot remove order by id!' + orderId
+                });
+            });
+    }
+
     function validateData (req){
         var data = req.body,
             user = req.user,
@@ -296,7 +351,11 @@ var Orders = function(data){
     }
 
     return {
-        createOrder: createOrder
+        getAll: getAll,
+        getById: getById,
+        createOrder: createOrder,
+        updateById: updateById,
+        removeById: removeById
     };
 };
 

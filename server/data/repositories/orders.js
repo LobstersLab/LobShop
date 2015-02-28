@@ -1,11 +1,11 @@
 var Q = require('q');
 var mongoose = require('mongoose');
-var OrderModel = require('../../models/Order/Order');
+var Order = require('../../models/Order/Order');
 
 function getAll () {
     var deferred = Q.defer();
 
-    OrderModel
+    Order
         .find({})
         .exec(function (error, orders) {
             if (error) {
@@ -22,14 +22,14 @@ function getAll () {
 function getById (id) {
     var deferred = Q.defer();
 
-    OrderModel.getById(id)
-        .exec(function (error, Order) {
+    Order.findById(id)
+        .exec(function (error, order) {
             if (error) {
                 deferred.reject(error);
                 return deferred.promise;
             }
 
-            deferred.resolve(Order);
+            deferred.resolve(order);
         });
 
     return deferred.promise;
@@ -40,9 +40,9 @@ function createOrder (params) {
 
 
     //TODO adjust to have all mandatory parameters
-    var Order = new OrderModel(params);
+    var order = new Order(params);
 
-    Order.save(function (error, savedItem) {
+    order.save(function (error, savedItem) {
         if (error) {
             deferred.reject(error);
             return deferred.promise;
@@ -57,7 +57,7 @@ function createOrder (params) {
 function updateById (id, updatesObject) {
     var deferred = Q.defer();
 
-    OrderModel
+    Order
         .findByIdAndUpdate(id, updatesObject)
         .exec(function (error) {
 
@@ -75,7 +75,7 @@ function updateById (id, updatesObject) {
 function removeById (id) {
     var deferred = Q.defer();
 
-    OrderModel
+    Order
         .findByIdAndRemove(id)
         .exec(function (error) {
             if (error) {
