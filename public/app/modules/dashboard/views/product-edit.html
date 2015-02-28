@@ -32,6 +32,11 @@
         </div>
 
         <div class="row panel center-block">
+            <label for="productCategory" class="col-md-3 text-right">Category</label>
+            <select class="col-md-6" ng-options="category.name for category in productDashboardCtrl.selectedProduct.categories" ng-model="productDashboardCtrl.selectedProduct.productCategory" required></select>
+        </div>
+
+        <div class="row panel center-block">
             <label for="frontImageSource" class="col-md-3 text-right">Front Image</label>
             <div id="frontImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productsDashboardCtrl.selectedProduct.frontImageNew">{{productsDashboardCtrl.selectedProduct.frontImage[0].name || "Select"}}</div>
         </div>

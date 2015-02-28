@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('dashboard')
-    .controller('ProductsDashboardController', ['$scope', '$upload', 'ProductsResource',
-        function($scope, $upload, ProductsResource){
+    .controller('ProductsDashboardController', ['$scope', '$upload', 'ProductsResource', 'CategoriesResource',
+        function($scope, $upload, ProductsResource, CategoriesResource){
             var self = this;
 
             self.uploadPercent = 0;
@@ -12,6 +12,8 @@ angular.module('dashboard')
             self.products = ProductsResource.getAllProducts();
 
             self.selectedProduct = {};
+
+            self.categories = CategoriesResource.getAllCategories();
 
             self.selectProduct = function (productId) {
                 if(productId){
