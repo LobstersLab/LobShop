@@ -1,44 +1,44 @@
 <div class="panel center-block productEditFormContainer">
 
     <div class="row panel center-block">
-        <progressbar value="productDashboardCtrl.uploadPercent" type="success" ><b>{{productDashboardCtrl.uploadPercentText}}</b></progressbar>
+        <progressbar value="productsDashboardCtrl.uploadPercent" type="success" ><b>{{productsDashboardCtrl.uploadPercentText}}</b></progressbar>
     </div>
 
-    <form name="productEditForm" ng-submit="productDashboardCtrl.productEditFormSubmit()">
+    <form name="productEditForm" ng-submit="productsDashboardCtrl.productEditFormSubmit()">
 
         <div class="row panel center-block">
             <label for="productName" class="col-md-3 text-right">Product Name</label>
-            <input class="col-md-6" id="productName" name="productName" type="text" ng-model="productDashboardCtrl.selectedProduct.name" required/>
+            <input class="col-md-6" id="productName" name="productName" type="text" ng-model="productsDashboardCtrl.selectedProduct.name" required/>
         </div>
 
         <div class="row panel center-block">
             <label for="productDescription" class="col-md-3 text-right">Description</label>
-            <textarea class="col-md-6" id="productDescription" name="productDescription" ng-model="productDashboardCtrl.selectedProduct.description" required></textarea>
+            <textarea class="col-md-6" id="productDescription" name="productDescription" ng-model="productsDashboardCtrl.selectedProduct.description" required></textarea>
         </div>
 
         <div class="row panel center-block">
             <label for="productLot" class="col-md-3 text-right">Lot</label>
-            <input class="col-md-6" id="productLot" name="productLot" type="text" ng-model="productDashboardCtrl.selectedProduct.lot" required/>
+            <input class="col-md-6" id="productLot" name="productLot" type="text" ng-model="productsDashboardCtrl.selectedProduct.lot" required/>
         </div>
 
         <div class="row panel center-block">
             <label for="productYear" class="col-md-3 text-right">Years</label>
-            <input class="col-md-6" id="productYear" name="productYear" type="text" ng-model="productDashboardCtrl.selectedProduct.years" required/>
+            <input class="col-md-6" id="productYear" name="productYear" type="text" ng-model="productsDashboardCtrl.selectedProduct.years" required/>
         </div>
 
         <div class="row panel center-block">
             <label for="productPrice" class="col-md-3 text-right">Price</label>
-            <input class="col-md-6" id="productPrice" name="productPrice" type="text" ng-model="productDashboardCtrl.selectedProduct.price" required/>
+            <input class="col-md-6" id="productPrice" name="productPrice" type="text" ng-model="productsDashboardCtrl.selectedProduct.price" required/>
         </div>
 
         <div class="row panel center-block">
             <label for="frontImageSource" class="col-md-3 text-right">Front Image</label>
-            <div id="frontImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.frontImageNew">{{productDashboardCtrl.selectedProduct.frontImage[0].name || "Select"}}</div>
+            <div id="frontImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productsDashboardCtrl.selectedProduct.frontImageNew">{{productsDashboardCtrl.selectedProduct.frontImage[0].name || "Select"}}</div>
         </div>
 
         <div class="row panel center-block">
             <label for="backImageSource" class="col-md-3 text-right">Back Image</label>
-            <div id="backImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productDashboardCtrl.selectedProduct.backImageNew">{{productDashboardCtrl.selectedProduct.backImage[0].name || "Select"}}</div>
+            <div id="backImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productsDashboardCtrl.selectedProduct.backImageNew">{{productsDashboardCtrl.selectedProduct.backImage[0].name || "Select"}}</div>
         </div>
 
         <div class="row panel center-block">
