@@ -24,7 +24,8 @@ progress-bar.ng-hide {
 .dashboard-container {
   padding: 20px; }
   .dashboard-container h3 {
-    margin: 0; }
+    margin: 0;
+    text-align: center; }
   .dashboard-container hr {
     margin: 15px 20%; }
 

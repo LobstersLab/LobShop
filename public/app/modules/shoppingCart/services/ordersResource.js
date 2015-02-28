@@ -7,7 +7,6 @@ angular.module('shoppingCart')
 
             return {
                 getAllOrders : function () {
-                    // TODO: transform the products as in getProductById or change the response from the server
                     return Order.query();
                 },
                 getOrderById: function (id){

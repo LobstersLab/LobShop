@@ -7,7 +7,6 @@ angular.module('product')
 
             return {
                 getAllProducts : function () {
-                    // TODO: transform the products as in getProductById or change the response from the server
                     return Product.query();
                 },
                 getProductById: function (id){

@@ -29,12 +29,18 @@ angular.module('dashboard')
                     templateUrl: 'app/modules/dashboard/views/product-edit.html'
                 })
 
-                //Brands routes
+                //Orders routes
                 .state('dashboard.orders', {
                     url: '/orders',
                     templateUrl: 'app/modules/dashboard/views/orders.html',
                     controller: 'OrdersDashboardController',
                     controllerAs: 'ordersDashboardCtrl'
+                })
+                .state('dashboard.orders.details', {
+                    url: '/details/:orderId',
+                    templateUrl: 'app/modules/dashboard/views/order-details.html',
+                    controller: 'OrderDetailsController',
+                    controllerAs: 'orderDetailsCtrl'
                 })
 
                 //Category routes

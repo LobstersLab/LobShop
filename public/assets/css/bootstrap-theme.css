@@ -539,4 +539,19 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%; }
 
+/**********************************
+              PANELS
+**********************************/
+.panel {
+  border-radius: 0; }
+
+.panel-default .panel-heading {
+  color: #D6CD9B;
+  background-color: #373A3D;
+  border-color: #ddd;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+.panel-default .panel-body {
+  min-height: 190px; }
+
 /*# sourceMappingURL=bootstrap-theme.css.map */
