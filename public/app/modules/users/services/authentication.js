@@ -3,14 +3,13 @@
 angular.module('users')
     .factory('Authentication', ['$rootScope', '$http', '$q', 'Identity',
         function($rootScope, $http, $q, Identity) {
-            var baseApiUrl = 'http://localhost:3310';
 
             function signup (user) {
                 var deferred = $q.defer();
 
                 var req = {
                     method: 'POST',
-                    url: baseApiUrl + '/auth/signup',
+                    url: '/auth/signup',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
@@ -50,7 +49,7 @@ angular.module('users')
 
                 var req = {
                     method: 'POST',
-                    url: baseApiUrl + '/auth/login',
+                    url: '/auth/login',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
@@ -80,7 +79,7 @@ angular.module('users')
             function logout () {
                 var deferred = $q.defer();
 
-                $http.get(baseApiUrl + '/auth/logout')
+                $http.get('/auth/logout')
                     .success(function() {
                         Identity.setCurrentUser(undefined);
                         $rootScope.$broadcast('logout');
