@@ -193,52 +193,70 @@ var Orders = function(data){
 
     function payOrderWithCreditCard (orderFormData, orderData) {
         var deferred = Q.defer(),
-            amountTotal = orderFormData.total;
+            amountTotalFromOrder = orderFormData.total;
 
-        //TODO Calculate total amount of items in order. If it si equal to amauntTotal - continue
-
-        //Create payment info object
-        var paymentInfo = {
-            creditCardNumber : orderFormData.paymentInfo.creditCardNumber,
-            creditCardType: orderFormData.paymentInfo.creditCardType,
-            creditCardExpireMonth: orderFormData.paymentInfo.creditCardExpireMonth,
-            creditCardExpireYear: orderFormData.paymentInfo.creditCardExpireYear,
-            creditCardCCV: orderFormData.paymentInfo.creditCardCCV,
-            creditCardFirstName: orderFormData.paymentInfo.creditCardFirstName,
-            creditCardLastName: orderFormData.paymentInfo.creditCardLastName,
-            amountTotal: amountTotal,
-            currency: 'USD',
-            description: 'Payment for order ' + orderData._id
-        };
-
-        PayPalController.makeCreditCardPayment(paymentInfo)
-            .then(function (data) {
-                //Payment is complete.
-                deferred.resolve(data);
-            },
-            //Error from creditCard payment
-            function (error) {
+        getAmountTotalFromServer(orderData.items).then(function (amountTotalFromServer) {
+            if(amountTotalFromServer != amountTotalFromOrder){
                 deferred.reject(error);
-            });
+                return;
+            }
+            //Create payment info object
+            var paymentInfo = {
+                creditCardNumber : orderFormData.paymentInfo.creditCardNumber,
+                creditCardType: orderFormData.paymentInfo.creditCardType,
+                creditCardExpireMonth: orderFormData.paymentInfo.creditCardExpireMonth,
+                creditCardExpireYear: orderFormData.paymentInfo.creditCardExpireYear,
+                creditCardCCV: orderFormData.paymentInfo.creditCardCCV,
+                creditCardFirstName: orderFormData.paymentInfo.creditCardFirstName,
+                creditCardLastName: orderFormData.paymentInfo.creditCardLastName,
+                amountTotal: amountTotalFromServer,
+                currency: 'USD',
+                description: 'Payment for order ' + orderData._id
+            };
+
+            PayPalController.makeCreditCardPayment(paymentInfo)
+                .then(function (data) {
+                    //Payment is complete.
+                    deferred.resolve(data);
+                },
+                //Error from creditCard payment
+                function (error) {
+                    deferred.reject(error);
+                });
+            
+        }, function (error) {
+            deferred.reject(error);
+        });
 
         return deferred.promise;
     }
 
     function payOrderWithPayPal (orderFormData, orderData) {
-        var deferred = Q.defer();
+        var deferred = Q.defer(),
+            amountTotalFromOrder = orderFormData.total;
 
-        var paymentInfo = {
-            total: orderFormData.total,
-            currency: 'USD',
-            description: 'Payment for order ' + orderData._id
-        };
-
-        PayPalController.makePayPalPayment(paymentInfo)
-            .then(function (data) {
-                deferred.resolve(data);
-            }, function (error) {
+        getAmountTotalFromServer(orderData.items).then(function (amountTotalFromServer) {
+            if(amountTotalFromServer != amountTotalFromOrder){
                 deferred.reject(error);
-            });
+                return;
+            }
+
+            var paymentInfo = {
+                total: amountTotalFromOrder,
+                currency: 'USD',
+                description: 'Payment for order ' + orderData._id
+            };
+
+            PayPalController.makePayPalPayment(paymentInfo)
+                .then(function (data) {
+                    deferred.resolve(data);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+        }, function (error) {
+            deferred.reject(error);
+        });
 
         return deferred.promise;
     }
@@ -254,6 +272,25 @@ var Orders = function(data){
             function (error) {
                 deferred.reject(error);
             });
+
+        return deferred.promise;
+    }
+
+    function getAmountTotalFromServer (itemIds) {
+
+        var deferred = Q.defer();
+
+        data.prices.getById(itemIds).then(function (allPricesForOrder) {
+            var amountTotalFromServer = 0,
+                i = 0;
+            while (allPricesForOrder.length > i){
+                amountTotalFromServer += allPricesForOrder[i].value;
+                i++;
+            };
+            deferred.resolve(amountTotalFromServer);
+        }, function (error) {
+            deferred.reject(error);
+        });
 
         return deferred.promise;
     }
