@@ -12,17 +12,19 @@ angular.module('dashboard')
 
                     console.log(self.order);
 
-                    var i = 0;
+                    var i = 0,
+                        categoriesIds = [];
                     while (i < self.order.items.length) {
-                        ProductsResource.getProductById(self.order.items[i])
-                            .then(function (product) {
-                                self.orderItems.push(product);
-                            }, function (error) {
-                                console.error('Cannot get product with id: ',self.order.items[i], error);
-                            });
 
+                        categoriesIds.push(self.order.items[i]);
                         i++;
                     }
+                    ProductsResource.getProductsById(categoriesIds)
+                        .then(function (product) {
+                            self.orderItems.push(product);
+                        }, function (error) {
+                            console.error('Cannot get product with id: ',self.order.items[i], error);
+                        });
                 }, function (error) {
                     console.error('Cannot get order by id: ', $stateParams.orderId, error);
                 });

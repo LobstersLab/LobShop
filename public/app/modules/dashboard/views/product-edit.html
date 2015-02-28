@@ -33,7 +33,7 @@
 
         <div class="row panel center-block">
             <label for="productCategory" class="col-md-3 text-right">Category</label>
-            <select class="col-md-6" ng-options="category.name for category in productDashboardCtrl.selectedProduct.categories" ng-model="productDashboardCtrl.selectedProduct.productCategory" required></select>
+            <select class="col-md-6" id="productCategory"  ng-options="category.name for category in productsDashboardCtrl.categories" ng-model="productsDashboardCtrl.selectedProduct.productCategory" required></select>
         </div>
 
         <div class="row panel center-block">

@@ -6,6 +6,11 @@ angular.module('core')
             return {
                 getAllCategories : function () {
                     return Category.query();
+                },
+                createCategory: function (categoryData) {
+                    debugger
+                    var category = new Category(categoryData);
+                    category.$save();
                 }
             };
         }

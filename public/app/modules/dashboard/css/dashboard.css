@@ -16,6 +16,9 @@
   .productEditFormContainer .fileSelectDiv {
     width: 30%; }
 
+.categoryEditFormContainer {
+  width: 70%; }
+
 progress-bar.ng-hide {
   opacity: 0;
   -webkit-transition: all linear 0.2s;
@@ -23,7 +26,6 @@ progress-bar.ng-hide {
 
 .dashboard-container {
   padding: 20px; }
-  /* line 50, E:/KirsAuction/LobShop/public/app/modules/dashboard/css/dashboard.scss */
   .dashboard-container h3 {
     margin: 0;
     text-align: center; }

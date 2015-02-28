@@ -46,6 +46,13 @@ angular.module('dashboard')
                 //Category routes
                 .state('dashboard.categories', {
                     url: '/categories',
+                    templateUrl: 'app/modules/dashboard/views/categories.html',
+                    controller: 'CategoriesDashboardController',
+                    controllerAs: 'categoriesDashboardCtrl'
+                })
+
+                .state('dashboard.categories.categoryEdit', {
+                    url: '/categories',
                     templateUrl: 'app/modules/dashboard/views/category-edit.html'
                 });
         }
