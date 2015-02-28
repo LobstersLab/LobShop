@@ -1,0 +1,34 @@
+<div class="dashboard-container">
+    <h3 class="text-center">Manage Orders</h3>
+    <hr/>
+    <div class="dashboard-search-header">
+        <label>Search:</label>
+        <input type="text" ng-model="ordersDashboardCtrl.search"/>
+    </div>
+    <div>
+        <div class="table-responsive">
+            <table class="table table-hover ">
+                <thead>
+                <tr>
+                    <th><b>Status</b></th>
+                    <th><b>Buyer</b></th>
+                    <th><b>Address</b></th>
+                    <th><b>Price</b></th>
+                </tr>
+                </thead>
+                <tr class="dashboardProductsListRow"
+                    ng-repeat="order in ordersDashboardCtrl.orders | filter: ordersDashboardCtrl.search"
+                    ng-class="{active: tableRowHover}"
+                    ng-mouseenter="tableRowHover = true"
+                    ng-mouseleave="tableRowHover = false"
+                    ng-animate="'animate'">
+                    <td class="col-md-1">{{order.status}}</td>
+                    <td class="col-md-3">{{order.userInfo.firstName}} {{order.userInfo.lastName}}</td>
+                    <td class="col-md-5">{{order.deliveryAddress.country}}, {{order.deliveryAddress.city}}, {{order.deliveryAddress.address}}</td>
+                    <td class="col-md-2">{{order.payment.paymentInfo.transactions[0].amount.total | currency}}</td>
+                    <td class="col-md-1"><button type="button" ui-sref="dashboard.orders" class="btn btn-primary" ng-click="ordersDashboardCtrl.selectOrder(order._id)">Details</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

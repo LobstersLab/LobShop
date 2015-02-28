@@ -21,4 +21,14 @@ progress-bar.ng-hide {
   -webkit-transition: all linear 0.2s;
   transition: all linear 0.2s; }
 
+.dashboard-container {
+  padding: 20px; }
+  .dashboard-container h3 {
+    margin: 0; }
+  .dashboard-container hr {
+    margin: 15px 20%; }
+
+.dashboard-search-header {
+  margin-bottom: 20px; }
+
 /*# sourceMappingURL=dashboard.css.map */

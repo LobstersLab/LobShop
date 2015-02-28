@@ -21,9 +21,12 @@ angular.module('product')
                 },
                 createProduct : function (params){
                     var deferred = $q.defer();
+
                     params.url = 'api/products';
+
                     $upload.upload(params).progress(function (evt) {
                         var progressPercentage = parseInt(100.0 * (evt.loaded / evt.total));
+
                         deferred.notify(progressPercentage);
                     }).success(function (data, status, headers, config) {
                         deferred.resolve('Upload Complete!');

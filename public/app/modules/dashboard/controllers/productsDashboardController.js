@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dashboard')
-    .controller('ProductDashboardController', ['$scope', '$upload', 'ProductsResource',
+    .controller('ProductsDashboardController', ['$scope', '$upload', 'ProductsResource',
         function($scope, $upload, ProductsResource){
             var self = this;
 

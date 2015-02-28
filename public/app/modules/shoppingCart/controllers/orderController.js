@@ -55,7 +55,10 @@ angular.module('shoppingCart')
                             self.activeState = self.states[indexOfActiveState + 1];
                         } else {
                             ShoppingCart.checkoutOrder(self.order);
-                            console.log('Form is completed');
+
+                            //TODO: Redirect to correct state
+                            //TODO: Empty the shopping cart
+                            //TODO: Handle error conrrectly
                         }
                     }
                     else {

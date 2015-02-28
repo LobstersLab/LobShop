@@ -21,22 +21,20 @@ angular.module('dashboard')
                 .state('dashboard.products', {
                     url: '/products',
                     templateUrl: 'app/modules/dashboard/views/products.html',
-                    controller: 'ProductDashboardController',
-                    controllerAs: 'productDashboardCtrl'
+                    controller: 'ProductsDashboardController',
+                    controllerAs: 'productsDashboardCtrl'
                 })
                 .state('dashboard.products.productEdit', {
                     url: '/productEdit',
                     templateUrl: 'app/modules/dashboard/views/product-edit.html'
                 })
-                .state('dashboard.products.productSearch', {
-                    url: '/productEdit',
-                    templateUrl: 'app/modules/dashboard/views/product-list.html'
-                })
 
                 //Brands routes
-                .state('dashboard.brands', {
-                    url: '/brands',
-                    templateUrl: 'app/modules/dashboard/views/brand-edit.html'
+                .state('dashboard.orders', {
+                    url: '/orders',
+                    templateUrl: 'app/modules/dashboard/views/orders.html',
+                    controller: 'OrdersDashboardController',
+                    controllerAs: 'ordersDashboardCtrl'
                 })
 
                 //Category routes
