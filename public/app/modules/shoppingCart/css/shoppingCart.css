@@ -3,7 +3,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 0 10em;
+  padding: 0 5%;
   background-color: #373a3d;
   color: #fbf8e8; }
   .shopping-cart-summary .catalog-header-icons {
@@ -78,6 +78,9 @@
   background-color: #393b3e; }
   .status-line.disabled {
     background-color: #b3b3b3; }
+
+.bag-button-push {
+  margin-top: 10px; }
 
 .payment-method-radiogroup, .credit-card-type-radiogroup {
   margin-bottom: 20px; }

@@ -23,6 +23,7 @@ progress-bar.ng-hide {
 
 .dashboard-container {
   padding: 20px; }
+  /* line 50, E:/KirsAuction/LobShop/public/app/modules/dashboard/css/dashboard.scss */
   .dashboard-container h3 {
     margin: 0;
     text-align: center; }
