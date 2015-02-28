@@ -26,6 +26,16 @@
     url('../icons/icomoon.woff') format('woff');
 }
 
+/*******************************************
+               GLOBAL
+******************************************/
+
+html{
+  font-size: 62.5%;
+}
+body{
+  font-size: 1.8rem;
+}
 
 @-ms-viewport {
   width: device-width;
@@ -298,7 +308,6 @@
   }
 }
 
-/*TODO: inputHighlighter based on state*/
 
 /***************************************
                 FORMS
@@ -339,4 +348,11 @@ input[type="radio"] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+
+@media (min-width: 1400px){
+.container {
+  width: 1378px;
+}
 }

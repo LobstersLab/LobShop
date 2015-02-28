@@ -16,6 +16,15 @@
   font-family: 'LobShopIcons';
   src: url("../icons/icomoon.eot");
   src: url("../icons/icomoon.ttf") format("truetype"), url("../icons/icomoon.woff") format("woff"); }
+/*******************************************
+               GLOBAL
+******************************************/
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.8rem; }
+
 @-ms-viewport {
   width: device-width; }
 .ng-leave {
@@ -219,7 +228,6 @@
   to {
     width: 0;
     background: transparent; } }
-/*TODO: inputHighlighter based on state*/
 /***************************************
                 FORMS
 ****************************************/
@@ -252,5 +260,9 @@ input[type="radio"] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+
+@media (min-width: 1400px) {
+  .container {
+    width: 1378px; } }
 
 /*# sourceMappingURL=style.css.map */

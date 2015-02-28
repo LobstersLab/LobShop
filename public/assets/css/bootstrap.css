@@ -1069,7 +1069,7 @@ th {
           box-sizing: border-box;
 }
 html {
-  font-size: 10px;
+  font-size: 62.5%;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -1107,6 +1107,7 @@ figure {
 }
 img {
   vertical-align: middle;
+
 }
 .img-responsive,
 .thumbnail > img,
@@ -6523,6 +6524,7 @@ button.close {
 .visible-print {
   display: none !important;
 }
+
 @media print {
   .visible-print {
     display: block !important;
