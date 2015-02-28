@@ -4,17 +4,17 @@
         price
     </div>
     <div class="categoty-container" ng-show="filterCtrl.showPrice">
-        <div class="row push-down">
-            <div class="col-md-5">
+        <div class="row push-down clearfix">
+            <div class="pull-left">
                 <input type="radio" name="price-filter" value="price" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Lower</label>
             </div>
-            <div class="col-md-5 push-right">
+            <div class="pull-right">
                 <input type="radio" name="price-filter" value="-price" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Higher</label>
             </div>
         </div>
-        <div class="category category-advanced push-down push-right"
+        <div class="category category-advanced push-down col-xs-offset-3"
              ng-click="filterCtrl.showPriceAdvanced = !filterCtrl.showPriceAdvanced">
             <span class="collapse-arrow"></span>
             advanced
@@ -34,27 +34,27 @@
         <span class="expanded-arrow"></span>year
     </div>
     <div class="categoty-container" ng-show="filterCtrl.showYear">
-        <div class="row push-down">
-            <div class="col-md-5">
+        <div class="row push-down clearfix">
+            <div class="pull-left">
                 <input type="radio" name="year-filter" value="-attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Lower</label>
             </div>
-            <div class="col-md-5 push-right">
+            <div class="pull-right">
                 <input type="radio" name="year-filter" value="attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Higher</label>
             </div>
         </div>
-        <div class="category category-advanced push-down push-right"
+        <div class="category category-advanced push-down col-xs-offset-3"
              ng-click="filterCtrl.showYearAdvanced = !filterCtrl.showYearAdvanced">
             <span class="collapse-arrow"></span>advanced
         </div>
         <div class="push-down " ng-show="filterCtrl.showYearAdvanced">
-            <div class="row">
-                <div class="col-md-4 push-down push-right">
+            <div class="row col-xs-offset-7">
+                <div class="pull-left push-down col-xs-offset-2">
                     <input type="radio" name="year-advanced-filter"/>
                     <label for="year-advanced-filter">B.C</label>
                 </div>
-                <div class="col-md-4 push-down">
+                <div class="col-xs-offset-7 push-down">
                     <input type="radio" name="year-advanced-filter"/>
                     <label for="year-advanced-filter">A.D</label>
                 </div>
@@ -84,13 +84,13 @@
     <div class="category push-down" ng-click="filterCtrl.showLot = !filterCtrl.showLot">
         <span class="expanded-arrow"></span>lot
     </div>
-    <div class="categoty-container" ng-show="filterCtrl.showLot">
+    <div class="categoty-container clearfix" ng-show="filterCtrl.showLot">
         <div class="row push-down">
-            <div class="col-md-5">
+            <div class="pull-left">
                 <input type="radio" name="lot-filter" value="attributes[0].value" ng-model="filterCtrl.predicate"/>
                 <label for="price-filter">From Lower</label>
             </div>
-            <div class="col-md-5 push-right">
+            <div class="pull-right">
                 <input type="radio" name="lot-filter" value="-attributes[0].value" ng-model="filterCtrl.predicate"/>
                 <label for="lot-filter">From Higher</label>
             </div>

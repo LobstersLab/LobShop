@@ -1,12 +1,12 @@
 <div class="products container animated no-select center-block">
     <div class="row">
-        <div class="row-same-height">
+        <div class="">
             <div class="container text-center" ng-show="catalogCtrl.products.length == 0">
                 <h1>No products found</h1>
             </div>
             <!--/.container .text-center-->
             <div ng-if="catalogCtrl.products.length > 0">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xs-height col-sm-height col-md-height col-lg-height"
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xs-height"
                      ng-repeat="product in catalogCtrl.products | filter: catalogHeaderCtrl.productSearch | orderBy: filterCtrl.predicate">
 
                     <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)"
