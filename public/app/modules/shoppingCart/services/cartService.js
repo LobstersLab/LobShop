@@ -77,11 +77,16 @@ angular.module('shoppingCart')
                 if (!storage) {
                     return null;
                 } else {
+
                     var storageItems = storage.filter(function (userItems) {
                         return userItems.userId === currentUserId;
-                    })[0].items;
+                    })[0];
 
-                    return storageItems;
+                    if(!storageItems){
+                        return null;
+                    };
+
+                    return storageItems.items;
                 }
             }
 
