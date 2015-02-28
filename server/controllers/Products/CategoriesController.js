@@ -2,8 +2,8 @@ var CategoriesController = function (data) {
 
     function getAll (req, res) {
         data.categories.getAll()
-            .then(function (products) {
-                res.json(products);
+            .then(function (categories) {
+                res.json(categories);
             }, function (error) {
                 res.render('error', {
                     error: error,
@@ -26,7 +26,7 @@ var CategoriesController = function (data) {
             });
     }
 
-    function create (req, res) {
+    function createCategory (req, res) {
         data.categories.create(req.body)
             .then(function (createdCategory) {
                 res.json(createdCategory);
@@ -70,7 +70,7 @@ var CategoriesController = function (data) {
     return {
         getAll: getAll,
         getById: getById,
-        create: create,
+        createCategory: createCategory,
         updateById: updateById,
         remove: remove
     }

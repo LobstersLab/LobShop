@@ -6,7 +6,7 @@ module.exports = function (data) {
 
     router.route('/')
         .get(CategoriesController.getAll)
-        .post(CategoriesController.create);
+        .post(CategoriesController.createCategory);
 
     router.route('/:id')
         .get(CategoriesController.getById)
