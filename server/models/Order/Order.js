@@ -35,8 +35,7 @@ var OrderSchema = new Schema({
             default: '',
             trim: true
         },
-        paypal : {type: Object},
-        creditCard: {type: Object}
+        paymentInfo : {type: Object}
     },
     comment: {
         type: String,

@@ -4,7 +4,7 @@ var paypal = require('paypal-rest-sdk'),
 
 
 
-var PayPalController = (function(){
+var PayPalController = function(data) {
 
     //Config the paypal
     paypal.configure(config.paypal);
@@ -18,8 +18,8 @@ var PayPalController = (function(){
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": "http://localhost:3310/execute",
-                "cancel_url": "http://localhost:3310/cancel"
+                "return_url": "http://localhost:3310/api/orders/execute",
+                "cancel_url": "http://localhost:3310/api/orders/cancel"
             },
             "transactions": [{
                 "amount": {
@@ -101,21 +101,49 @@ var PayPalController = (function(){
 
         paypal.payment.execute(paymentId, details, function (error, payment) {
             if (error) {
-                res.render('error', {
+                res.json({
+                    success: false,
                     error: error,
                     message: 'PayPal payment execution failed'
                 });
             } else {
-                res.json({
-                    success: true,
-                    message: "PayPal payment succeeded"
-                });
+                //Update order
+                var paymentDataToUpdate = {
+                    payment: {
+                        method: 'paypal',
+                        paymentInfo: payment
+                    },
+                    status: 'paid'
+                };
+
+                //TODO: Assign the orderId to the payment info instead of session if it is a good idea
+                var orderId = req.session.orderId;
+
+                data.orders.updateById(orderId , paymentDataToUpdate)
+                    .then(function () {
+                        // Here the payment is executed and the order is updated
+                        // Send some data to the client or redirect
+
+                        res.json({
+                            success: true,
+                            message: "PayPal payment succeeded"
+                        });
+                    },
+                    //Error updating order with payment info
+                    function (error) {
+                        res.json({
+                            success: false,
+                            message: 'PayPal payment execution failed',
+                            error: error
+                        });
+                    });
             }
         });
     }
 
     function cancelPayPalPayment (req, res) {
-        res.render('index', {
+        res.json({
+            success: false,
             message: 'PayPal payment cancelled'
         });
     }
@@ -126,7 +154,7 @@ var PayPalController = (function(){
         executePayPalPayment : executePayPalPayment,
         cancelPayPalPayment: cancelPayPalPayment
     };
-})();
+};
 
 
 module.exports = PayPalController;

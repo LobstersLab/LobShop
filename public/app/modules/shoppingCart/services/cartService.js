@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .factory('ShoppingCart', ['$rootScope', '$window', '$http', 'Identity',
-        function ($rootScope, $window, $http, Identity) {
+    .factory('ShoppingCart', ['$rootScope', '$window', '$http', '$state', '$location', 'Identity',
+        function ($rootScope, $window, $http, $state, $location, Identity) {
             var self = this;
             var SHOPPING_CART_ITEMS_STORAGE = 'ShoppingCartItems';
 
@@ -128,6 +128,10 @@ angular.module('shoppingCart')
                 $http.post('/api/orders', formData).
                     success(function(data, status, headers, config) {
                         //TODO: Redirect to the 'Congratulations' state
+
+                        if (data.redirectUrl) {
+                            $window.location = data.redirectUrl;
+                        }
                     }).
                     error(function(data, status, headers, config) {
                         //TODO: Show error message

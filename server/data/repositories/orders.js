@@ -62,12 +62,10 @@ function updateById (id, updatesObject) {
         .exec(function (error) {
 
             if (error) {
-                console.log('error updating order',error);
                 deferred.reject(error);
                 return deferred.promise;
             }
-            console.log('success updating order',error);
-            // TODO: Check what is returned from the findByIdAndUpdate() method
+
             deferred.resolve();
         });
 

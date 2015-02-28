@@ -72,14 +72,14 @@ module.exports = function (app, passport) {
         app.use(lusca.xssProtection(true));
     }
 
-    // Access-Control-Allow-Origin headers configuration
-    app.use(function (req, res, next) {
-
-        res.header('Access-Control-Allow-Credentials', true);
-        res.header('Access-Control-Allow-Origin', '*');
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-        res.header('Access-Control-Allow-Headers', 'X-Custom-Header, Content-Type, Authorization, Content-Length, X-Requested-With');
-
-        next();
-    });
+    //// Access-Control-Allow-Origin headers configuration
+    //app.use(function (req, res, next) {
+    //
+    //    res.header('Access-Control-Allow-Credentials', true);
+    //    res.header('Access-Control-Allow-Origin', '*');
+    //    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    //    res.header('Access-Control-Allow-Headers', 'X-Custom-Header, Content-Type, Authorization, Content-Length, X-Requested-With');
+    //
+    //    next();
+    //});
 };

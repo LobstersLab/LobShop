@@ -4,7 +4,7 @@ var router = express.Router();
 module.exports = function (data) {
 
     var OrdersController = require('./../../controllers/Orders/OrdersController')(data);
-    var PayPalController = require('./../../controllers/PayPal/PayPalController');
+    var PayPalController = require('./../../controllers/PayPal/PayPalController')(data);
 
     router.route('/')
         //.get(OrdersController.getAll)
