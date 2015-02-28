@@ -15,5 +15,21 @@ angular.module('product')
                 }, function (error) {
 
                 });
+
+            self.openProductDetails = function (product) {
+                $state.go('product', {
+                    productId: product._id
+                });
+
+                product.hover = false;
+            };
+
+            self.hoverProduct = function (product) {
+                product.hover = true;
+            };
+
+            self.unhoverProduct = function (product) {
+                product.hover = false;
+            };
         }
     ]);

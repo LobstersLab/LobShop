@@ -25,8 +25,51 @@
         <div class="related-products">
             <h3>RELATED:</h3>
 
-            <div ng-repeat="relatedProduct in productCtrl.relatedProducts">
-                {{ relatedProduct.title }}
+            <div ng-repeat="relatedProduct in productCtrl.relatedProducts | limitTo: 5">
+                <div>
+                    <section class="card-border" ng-mouseover="productCtrl.hoverProduct(relatedProduct)"
+                             ng-mouseleave="productCtrl.unhoverProduct(relatedProduct)">
+
+                        <div class="product-overlay text-center" ng-show="relatedProduct.hover">
+                            <div class="ornament-top-left"></div>
+                            <div class="ornament-top-right"></div>
+                            <div class="ornament-bottom-left"></div>
+                            <div class="ornament-bottom-right"></div>
+                            <a class="" ng-click="productCtrl.openProductDetails(relatedProduct)">
+                                <figure class="product-icons product-details-icon"></figure>
+                            </a>
+                        </div>
+                        <!--/.product-overlay-->
+                        <header>
+                            <span></span>
+                        <span class="card-label label-purple">
+                            Lot:
+                        </span>
+                        <span>
+                            {{ relatedProduct.lot }}
+                        </span>
+                        <span class="pull-right">
+                            <span class="card-label label-purple">
+                                Price:
+                            </span>
+                            <span>
+                                {{ relatedProduct.price.value }}
+                            </span>
+                        </span><!--/.pull-right-->
+                        </header>
+                        <!--/header-->
+                        <figure>
+                            <img class="img-responsive catalog-image" src="{{relatedProduct.images[0].src}}" alt=""/>
+                            <img class="img-responsive catalog-image" src="{{relatedProduct.images[1].src}}" alt=""/>
+                        </figure>
+                        <div>
+                            <p>
+                                <span class="card-label label-purple">Title:</span>
+                                <strong>{{ relatedProduct.name }}</strong>
+                            </p>
+                        </div>
+                    </section>
+                </div>
             </div>
             <!--/.div-->
         </div>
