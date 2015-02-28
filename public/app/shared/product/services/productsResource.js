@@ -35,7 +35,9 @@ angular.module('product')
                 },
                 updateProduct : function (params){
                     var deferred = $q.defer();
+
                     params.url = 'api/products:' + params.productId;
+
                     $upload.upload(params).progress(function (evt) {
                         var progressPercentage = parseInt(100.0 * (evt.loaded / evt.total));
                         deferred.notify(progressPercentage);

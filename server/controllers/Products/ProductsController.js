@@ -44,8 +44,9 @@ module.exports = function (data) {
                 var saveToPath = path.join(path.normalize(__dirname  + '/../../../public/storage/products/images/'), path.basename(uuidFilename));
 
                 var productImageData = {
-                    fileName: filename,
-                    pathToFile: 'storage/products/images/' + uuidFilename
+                    title: filename,
+                    src: 'storage/products/images/' + uuidFilename
+                    // TODO: get width and height and assign them here
                 };
                 productData.assets.push(productImageData);
                 file.pipe(fs.createWriteStream(saveToPath));

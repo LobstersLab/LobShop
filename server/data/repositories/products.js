@@ -198,9 +198,7 @@ function saveSummary (savedItem){
         category: savedItem.categoryId,
         description: savedItem.description,
         brand: mongoose.Types.ObjectId(savedItem.brandId),
-        assets:{
-            images:savedItem.assets.images
-        },
+        images: savedItem.assets.images,
         attributes: savedItem.attributes,
         price: mongoose.Types.ObjectId(savedItem._id)
     });

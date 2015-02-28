@@ -36,6 +36,11 @@ var ProductItemSchema = new Schema({
     brand: { type: Schema.Types.ObjectId, ref: 'ProductBrand' },
     assets: {
         images: [{
+            title: {
+                type: String,
+                default: '',
+                trim: true
+            },
             height: { type: Number },
             width: { type: Number },
             src: {

@@ -23,7 +23,7 @@ function getById (id) {
     var deferred = Q.defer();
 
     Category
-        .getById(id)
+        .findById(id)
         .exec(function (error, category) {
             if (error) {
                 deferred.reject(error);

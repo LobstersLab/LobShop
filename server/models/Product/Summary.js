@@ -32,7 +32,7 @@ var ProductSummarySchema = new Schema({
             trim: true
         }
     }],
-    img: [{
+    images: [{
         height: { type: Number },
         width: { type: Number },
         title: {

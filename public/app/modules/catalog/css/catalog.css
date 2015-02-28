@@ -1,7 +1,7 @@
+@charset "UTF-8";
 /*********************************
             FILTER
  *********************************/
-/* line 4, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
 filter {
   left: 0;
   position: fixed;
@@ -18,130 +18,102 @@ filter {
   box-shadow: 0px 0px 50px #202329;
   /** Labels **/
   /** Select age **/ }
-  /* line 21, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter.ng-show, filter.ng-hide {
     -webkit-transition: all linear 0.3s;
     transition: all linear 0.3s; }
-  /* line 26, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter.ng-hide {
     width: 0;
     opacity: 0; }
-  /* line 31, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter.ng-show {
     opacity: 1; }
-  /* line 35, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .filter-box {
     padding: 30px; }
-  /* line 38, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .col-md-5 {
     padding: 0; }
-  /* line 42, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .collapse-arrow, filter .expanded-arrow {
     margin-right: 1em; }
-    /* line 44, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
     filter .collapse-arrow:before, filter .expanded-arrow:before {
       font-family: 'LobShopIcons';
       content: "\e601";
       color: #d6cd9b; }
-  /* line 52, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .expanded-arrow:before {
     content: "\e600"; }
-  /* line 58, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .category {
     text-transform: uppercase;
     color: #d6cd9b;
     font-size: 24px;
     font-family: "Rockwell";
     cursor: pointer; }
-    /* line 65, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
     filter .category.category-advanced {
       font-size: 18px; }
-  /* line 70, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .categoty-container {
     margin-bottom: 5em;
     color: #fff; }
-  /* line 74, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .push-down {
     margin-bottom: 1em; }
-  /* line 77, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .push-right {
     margin-left: 4.5em; }
   /* line 83, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter label {
     margin: 0 0 0 10px;
     vertical-align: text-bottom; }
-  /* line 90, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter .select {
     width: 100%;
     padding: 0.625em;
     background: transparent;
     border: 1px solid #d6cd9b; }
-    /* line 91, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
     filter .select optgroup {
       color: #393b3e;
       background-color: #d6cd9b; }
-    /* line 95, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
     filter .select option {
       padding: 10px;
       border: 1px solid #d6cd9b; }
-      /* line 96, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
       filter .select option:hover {
         color: #393b3e;
         background-color: #d6cd9b; }
 
-/* line 110, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
 .header-fixed {
   position: fixed;
   top: 0;
   right: 0;
   left: 0; }
 
-/* line 117, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
 .catalog-header {
   z-index: 400;
   height: 46px;
   padding: 0.5em;
   background-color: #373a3d;
   text-transform: uppercase;
-  /*********************************
-            ICONS
- *********************************/
-  /*********************************
-            BUTTON
- *********************************/
+ /*********************************
+           ICONS
+*********************************/
+ /*********************************
+           BUTTON
+*********************************/
   /*********************************
              SEARCH
   *********************************/
   /** Search placeholder **/ }
-  /* line 124, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header ul {
     padding-top: 8px; }
-  /* line 128, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header ul:first-child {
     margin-left: 0; }
-  /* line 132, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header li {
     display: inline-block;
     margin-left: 20%; }
-  /* line 141, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header .catalog-header-icons {
     font-family: LobShopIcons;
     color: #f9f6e6;
     font-size: 20px; }
-  /* line 147, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header .filter-icon:before {
     content: "\e607"; }
-  /* line 152, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header .search-icon:before {
     content: "\e610"; }
-  /* line 157, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header .menu-icon:before {
     content: "\e60b"; }
-  /* line 167, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header .btn {
     color: #d6cd9b;
     vertical-align: top; }
-  /* line 176, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .catalog-header input[type=search] {
     width: 10em;
     padding: 0.375em 0.75em;
@@ -171,31 +143,24 @@ filter {
 /*********************************
              PRODUCTS
   *********************************/
-/* line 211, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
 .products {
   margin-top: 2.5em;
   /*  Icons  */ }
-  /* line 215, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products a {
     text-decoration: none;
     color: #fff; }
-    /* line 218, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
     .products a:hover {
       color: #d6cd9b; }
-  /* line 222, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products hr {
     height: 1px;
     margin: 0;
     background-color: #7d8082;
     border: 0; }
-  /* line 228, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .product-icons {
     font-family: LobShopIcons;
     font-size: 96px; }
-  /* line 237, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-top-left {
     position: relative; }
-  /* line 240, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-top-left:before {
     position: absolute;
     font-family: LobShopIcons;
@@ -204,10 +169,8 @@ filter {
     left: 7.5px;
     content: "\e609";
     color: #d6cd9b; }
-  /* line 251, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-top-right {
     position: relative; }
-  /* line 254, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-top-right:before {
     position: absolute;
     font-family: LobShopIcons;
@@ -217,10 +180,8 @@ filter {
     content: "\e609";
     transform: rotate(135deg);
     color: #d6cd9b; }
-  /* line 267, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-bottom-left {
     position: relative; }
-  /* line 270, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-bottom-left:before {
     position: absolute;
     font-family: LobShopIcons;
@@ -230,10 +191,8 @@ filter {
     content: "\e609";
     transform: rotate(-35deg);
     color: #d6cd9b; }
-  /* line 283, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-bottom-right {
     position: relative; }
-  /* line 286, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .ornament-bottom-right:before {
     position: absolute;
     font-family: LobShopIcons;
@@ -243,8 +202,11 @@ filter {
     content: "\e609";
     transform: rotate(-135deg);
     color: #d6cd9b; }
-  /* line 300, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   .products .product-details-icon:before {
     content: "\e617"; }
+
+.catalog-image {
+  height: 80px;
+  display: inline-block; }
 
 /*# sourceMappingURL=catalog.css.map */
