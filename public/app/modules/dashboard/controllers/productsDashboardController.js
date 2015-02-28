@@ -19,6 +19,9 @@ angular.module('dashboard')
                 if(productId){
                     ProductsResource.getProductById(productId).then(function (data){
                         self.selectedProduct = data;
+
+                        //TODO fix this in a different way as this is petarded
+                        self.selectedProduct.description = data.description[0].value;
                     });
                 }else{
                     self.selectedProduct = {};
@@ -44,7 +47,7 @@ angular.module('dashboard')
                     'name': self.selectedProduct.name,
                     'description': [{
                         'language': "en",
-                        'value': self.selectedProduct.description[0].value
+                        'value': self.selectedProduct.description
                     }],
                     'price': self.selectedProduct.price,
                     'attributes':[
