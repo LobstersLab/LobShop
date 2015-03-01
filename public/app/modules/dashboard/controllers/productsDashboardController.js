@@ -19,10 +19,10 @@ angular.module('dashboard')
                 if(productId){
                     ProductsResource.getProductById(productId).then(function (data){
                         self.selectedProduct = data;
-
                         //TODO fix this in a different way as this is petarded
                         self.selectedProduct.description = data.description[0].value;
                         self.selectedProduct.productCategory = data.category;
+                        self.selectedProduct.highlight = !!data.highlight;
 
                     });
                 }else{
@@ -60,7 +60,16 @@ angular.module('dashboard')
                         {
                             'name': 'years',
                             'value': self.selectedProduct.years
+                        },
+                        {
+                            'name': 'highlight',
+                            'value': self.selectedProduct.highlight
+                        },
+                        {
+                            'name': 'preservation',
+                            'value': self.selectedProduct.preservation
                         }
+
                     ],
                     'category' : self.selectedProduct.productCategory
                 };

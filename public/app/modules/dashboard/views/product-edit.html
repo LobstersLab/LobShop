@@ -37,6 +37,25 @@
         </div>
 
         <div class="row panel center-block">
+            <label for="productPrice" class="col-md-3 text-right">Highlighted</label>
+            <input type="checkbox" ng-model="productsDashboardCtrl.selectedProduct.highlight">
+        </div>
+
+        <div class="row panel center-block">
+            <label for="productPreservation" class="col-md-3 text-right">Preservation</label>
+            <select class="col-md-6" id="productPreservation" ng-model="productsDashboardCtrl.selectedProduct.preservation" required>
+                <option value="Uncirculated">Uncirculated</option>
+                <option value="Extremely  fine">Extremely fine</option>
+                <option value="Very fine">Very fine</option>
+                <option value="Fine">Fine</option>
+                <option value="About (almost)">About (almost)</option>
+                <option value="Rare">Rare</option>
+                <option value="Very rare">Very rare</option>
+                <option value="Extremely rare">Extremely rare</option>
+            </select>
+        </div>
+
+        <div class="row panel center-block">
             <label for="frontImageSource" class="col-md-3 text-right">Front Image</label>
             <div id="frontImageSource" class="fileSelectDiv pull-left btn btn-default center-block" ng-file-select ng-model="productsDashboardCtrl.selectedProduct.frontImageNew">{{productsDashboardCtrl.selectedProduct.frontImage[0].name || "Select"}}</div>
         </div>
