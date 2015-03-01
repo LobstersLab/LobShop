@@ -1,12 +1,21 @@
 'use strict';
 
 angular.module('users')
-    .controller('RegisterController', ['$scope', '$state', 'Identity', 'Authentication',
-        function RegisterController ($scope, $state, Identity, Authentication) {
+    .controller('RegisterController', ['$scope', '$state', 'Identity', 'Authentication', 'StatelineFactory',
+        function RegisterController ($scope, $state, Identity, Authentication, StatelineFactory) {
             var self = this;
 
             self.identity = Identity;
             self.user = {};
+
+            self.stateline = new StatelineFactory({
+                states: ['personal', 'details', 'account'],
+                baseState: 'register.',
+                scope: $scope,
+                callback: function () {
+                    console.log('Congratulations! Registration form is complete!');
+                }
+            });
 
             self.register = function () {
                 Authentication.signup(self.user)

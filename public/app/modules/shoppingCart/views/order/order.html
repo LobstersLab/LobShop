@@ -3,10 +3,10 @@
     <div class="status">
         <a ui-sref-active="active" ui-sref=".personalInfo" >
             <span class="status-circle"
-                ng-class="{'completed' : orderCtrl.isStateCompleted('personalInfo'), 'disabled' : orderCtrl.isDisabled('personalInfo')}">
-                <span ng-hide="orderCtrl.isStateCompleted('personalInfo')">1</span>
+                ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('personalInfo'), 'disabled' : orderCtrl.stateline.isStateDisabled('personalInfo')}">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('personalInfo')">1</span>
             </span>
-            <span ng-class="{'disabled' : orderCtrl.isDisabled('personalInfo')}">Personal Info</span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('personalInfo')}">Personal Info</span>
         </a>
 
         <div class="status-line line-complete"></div>
@@ -15,10 +15,10 @@
     <div class="status">
         <a ui-sref-active="active" ui-sref=".deliveryInfo" >
             <span class="status-circle"
-                  ng-class="{'completed' : orderCtrl.isStateCompleted('deliveryInfo'), 'disabled' : orderCtrl.isDisabled('deliveryInfo')}">
-                <span ng-hide="orderCtrl.isStateCompleted('deliveryInfo')">2</span>
+                  ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('deliveryInfo'), 'disabled' : orderCtrl.stateline.isStateDisabled('deliveryInfo')}">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('deliveryInfo')">2</span>
             </span>
-            <span ng-class="{'disabled' : orderCtrl.isDisabled('deliveryInfo')}">Delivery Info</span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('deliveryInfo')}">Delivery Info</span>
         </a>
 
         <div class="status-line line-complete disable"></div>
@@ -27,10 +27,10 @@
     <div class="status">
         <a ui-sref-active="active" ui-sref=".paymentInfo" >
             <span class="status-circle"
-                  ng-class="{'completed' : orderCtrl.isStateCompleted('paymentInfo'), 'disabled' : orderCtrl.isDisabled('paymentInfo')}">
-                <span ng-hide="orderCtrl.isStateCompleted('paymentInfo')">3</span>
+                  ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('paymentInfo'), 'disabled' : orderCtrl.stateline.isStateDisabled('paymentInfo')}">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('paymentInfo')">3</span>
             </span>
-            <span ng-class="{'disabled' : orderCtrl.isDisabled('paymentInfo')}">Payment method</span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('paymentInfo')}">Payment method</span>
         </a>
 
         <div class="status-line line-complete disable"></div>
@@ -39,12 +39,12 @@
     <div class="status">
         <a ui-sref-active="active" ui-sref=".confirm">
             <span class="status-circle"
-                  ng-class="{'completed' : orderCtrl.isStateCompleted('confirm'), 'disabled' : orderCtrl.isDisabled('confirm') }">
-                <span ng-hide="orderCtrl.isStateCompleted('confirm')">
+                  ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('confirm'), 'disabled' : orderCtrl.stateline.isStateDisabled('confirm') }">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('confirm')">
                     4
                 </span>
             </span>
-            <span ng-class="{'disabled' : orderCtrl.isDisabled('confirm')}">Confirm</span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('confirm')}">Confirm</span>
         </a>
 
     </div>

@@ -88,7 +88,10 @@
     <a ui-sref="register.personal" class="btn btn-default">
         Back
     </a>
-    <a ui-sref="register.account" class="btn btn-info" ng-disabled="registrationForm.details.$invalid">
+    <a ui-sref="register.account"
+       class="btn btn-info"
+       ng-click="registerCtrl.stateline.completeState()"
+       ng-disabled="registrationForm.details.$invalid">
         Next
     </a>
 </div>

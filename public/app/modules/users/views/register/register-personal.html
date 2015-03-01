@@ -94,7 +94,10 @@
 </div>
 
 <div class="form-group row">
-    <a ui-sref="register.details" class="btn btn-info" ng-disabled="registrationForm.personal.$invalid">
+    <a ui-sref="register.details"
+       class="btn btn-info"
+       ng-click="registerCtrl.stateline.completeState()"
+       ng-disabled="registrationForm.personal.$invalid">
         Next
     </a>
 </div>
