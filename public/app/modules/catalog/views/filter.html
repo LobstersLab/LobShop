@@ -36,11 +36,11 @@
     <div class="categoty-container" ng-show="filterCtrl.showYear">
         <div class="row push-down clearfix">
             <div class="pull-left">
-                <input type="radio" name="year-filter" value="attributes[1].value" ng-model="filterCtrl.predicate"/>
+                <input type="radio" name="year-filter" value="-attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Lower</label>
             </div>
             <div class="pull-right">
-                <input type="radio" name="year-filter" value="-attributes[1].value" ng-model="filterCtrl.predicate"/>
+                <input type="radio" name="year-filter" value="attributes[1].value" ng-model="filterCtrl.predicate"/>
                 <label for="year-filter">From Higher</label>
             </div>
         </div>
@@ -64,7 +64,7 @@
                     rz-slider-ceil="filterCtrl.yearsRange.ceil"
                     rz-slider-model="filterCtrl.yearsRange.min"
                     rz-slider-high="filterCtrl.yearsRange.max"
-                    rz-slider-step="{{filterCtrl.yearsRange.step}}">
+                    rz-slider-step="{{filterCtrl.step}}">
 
             </rzslider>
         </div>
@@ -72,11 +72,13 @@
     <div class="category push-down" ng-click="filterCtrl.showAge = !filterCtrl.showAge">
         <span class="expanded-arrow"></span>age
     </div>
+
     <div class="categoty-container" ng-show="filterCtrl.showAge">
         <select class="select" id="productCategory"
-                ng-options="category.name for category in filterCtrl.categories"
+                ng-options="category._id as category.name for category in filterCtrl.categories"
                 ng-model="filterCtrl.filterCategory"
-                ng-change="filterCtrl.filterByCategory()"></select>
+                ng-change="filterCtrl.filterByCategory()">
+        </select>
     </div>
     <div class="category push-down" ng-click="filterCtrl.showLot = !filterCtrl.showLot">
         <span class="expanded-arrow"></span>lot

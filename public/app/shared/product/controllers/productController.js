@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('product')
-    .controller('ProductController', ['$stateParams', 'ProductsResource', 'ShoppingCart',
-        function ProductController ($stateParams, ProductsResource, ShoppingCart) {
+    .controller('ProductController', ['$stateParams', 'ProductsResource', 'CategoriesResource', 'ShoppingCart',
+        function ProductController ($stateParams, ProductsResource, CategoriesResource, ShoppingCart) {
             var self = this;
 
             self.cart = ShoppingCart;
@@ -12,6 +12,12 @@ angular.module('product')
             ProductsResource.getProductById(self.productId)
                 .then(function (product) {
                     self.product = product;
+                    CategoriesResource.getCategoryById(product.category)
+                        .then(function (category) {
+                            self.category = category;
+                        }, function (error) {
+                            console.error('Cannot get category by id: ', error);
+                        });
                 }, function (error) {
 
                 });

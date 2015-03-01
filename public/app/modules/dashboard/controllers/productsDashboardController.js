@@ -76,8 +76,8 @@ angular.module('dashboard')
                             self.selectedProduct = {};
                         },
                         //Error
-                        function(){
-
+                        function(error){
+                            console.error('Cannot update product!', error);
                         },
                         //Update
                         function(uploadProgress){
@@ -95,8 +95,8 @@ angular.module('dashboard')
                             self.selectedProduct = {};
                         },
                         //Error
-                        function(){
-
+                        function(error){
+                            console.error('Cannot create product!', error);
                         },
                         //Update
                         function(uploadProgress){

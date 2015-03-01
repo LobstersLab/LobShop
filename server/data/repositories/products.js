@@ -206,6 +206,10 @@ function updateSummaryById (id, updateObject){
     var deferred = Q.defer();
         //TODO remove this heresy as soon as possible!!!!!
         delete updateObject.price;
+
+        // TODO: updates on only one images will override all the images in the summary. Fix this
+        updateObject.images = updateObject.assets;
+
         Summary.findByIdAndUpdate(id, updateObject , function (error, updatedSummary){
             if (error) {
                 deferred.reject(error);
