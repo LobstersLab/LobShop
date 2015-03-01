@@ -35,7 +35,12 @@ html {
 
 body {
   font-size: 1.8rem;
+  line-height:1.85;
 }
+h1{
+
+}
+
 
 @-ms-viewport {
   width: device-width;
@@ -115,6 +120,9 @@ body {
 
 .material-input:focus {
   outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fbf8e8 inset;
 }
 
 /* LABEL ======================================= */
@@ -349,9 +357,21 @@ input[type="radio"] {
   user-select: none;
 }
 
+/***************************************
+               MEDIA QUERIES
+****************************************/
 @media (min-width: 1400px) {
   .container {
     width: 1378px;
   }
 }
-
+@media screen and (max-width: 767px) {
+  .catalog-header{
+    a.btn span:not(.catalog-header-icons){
+      display: none;
+    }
+    input[placeholder="Search..."]{
+      display: none;
+    }
+  }
+}

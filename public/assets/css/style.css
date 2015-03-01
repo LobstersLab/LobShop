@@ -23,7 +23,8 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  line-height: 1.85; }
 
 @-ms-viewport {
   width: device-width; }
@@ -85,6 +86,9 @@ body {
 
 .material-input:focus {
   outline: none; }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fbf8e8 inset; }
 
 /* LABEL ======================================= */
 .material-label {
@@ -260,8 +264,16 @@ input[type="radio"] {
   -ms-user-select: none;
   user-select: none; }
 
+/***************************************
+               MEDIA QUERIES
+****************************************/
 @media (min-width: 1400px) {
   .container {
     width: 1378px; } }
+@media screen and (max-width: 767px) {
+  .catalog-header a.btn span:not(.catalog-header-icons) {
+    display: none; }
+  .catalog-header input[placeholder="Search..."] {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */
