@@ -1,8 +1,8 @@
 ﻿var Busboy = require('busboy'),
     path = require('path'),
     fs = require('fs'),
-    uuid = require('node-uuid'),
-    inspect = require('util').inspect;
+    gm = require('gm'),
+    uuid = require('node-uuid');
 
 module.exports = function (data) {
     return {
@@ -48,8 +48,27 @@ module.exports = function (data) {
                     src: 'storage/products/images/' + uuidFilename
                     // TODO: get width and height and assign them here
                 };
+
+                var fileStream = fs.createWriteStream(saveToPath);
                 productData.assets.push(productImageData);
-                file.pipe(fs.createWriteStream(saveToPath));
+                file.pipe(fileStream);
+                file.on('end', function() {
+
+                    var pathToNewImage = (path.normalize(__dirname  + '/../../../public/storage/products/images/') + 'thumb_' + uuidFilename );
+                    //var pathGG = 'd:\\projects\\LobstersLab\\LobShop\\public\\storage\\products\\images\\';
+                    //console.log('GM start',pathToNewImage);
+                    //
+                    //var size = {width: 200, height: 200};
+                    gm(saveToPath)
+                        .options({imageMagick: true})
+                        .resize(58, 50, '%')
+                        .write(pathToNewImage, function(err){
+                            if (err) return console.dir(arguments)
+                            console.log(this.outname + " created  ::  " + arguments[3])
+                        }
+                    )
+                });
+
             });
 
             busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
