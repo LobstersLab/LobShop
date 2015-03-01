@@ -108,7 +108,7 @@ module.exports = function (data) {
             });
 
             busboy.on('finish', function() {
-                data.products.updateProductById(productData)
+                data.products.updateProductById({id:req.params.id, updatesObject:productData})
                     .then(function (updatedProduct) {
                         res.json({
                             message: 'Product updated successfully!',

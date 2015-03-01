@@ -119,37 +119,25 @@ function updateProductById (params) {
     var id = params.id;
     var updatesObject = params.updatesObject;
 
+    //TODO more robust data validation is needed here
     //Data Validation and adjustments
     if(updatesObject.name){
         updatesObject.lname = updatesObject.name.toLowerCase();
     }
 
-    Product.findById(id, function (error, product){
-        if(error){
-            deferred.reject(error);
-            return deferred.promise;
-        }
-
-        Object.keys(updatesObject).forEach(function (key) {
-            product.set(key, updatesObject[key]);
-        });
-
-        product = product.toObject();
-
-        Product.findByIdAndUpdate(id, { $set: product }, function (error, updatedProduct){
+        Product.findByIdAndUpdate(id, updatesObject, function (error, updatedProduct){
             if (error) {
                 deferred.reject(error);
                 return deferred.promise;
             }
 
-            updateSummaryById(updatedProduct)
+            updateSummaryById(id, updatesObject)
                 .then(function (updatedSummary){
-
+                    deferred.resolve(updatedSummary);
                 });
 
-            deferred.resolve(updatedProduct);
         });
-    });
+
 
     return deferred.promise;
 }
@@ -215,23 +203,12 @@ function saveSummary (savedItem){
     return deferred.promise;
 }
 
-function updateSummaryById (product){
+function updateSummaryById (id, updateObject){
 
     var deferred = Q.defer();
-
-    Summary.findById(product.id, function (error, summary){
-        if(error){
-            deferred.reject(error);
-            return deferred.promise;
-        }
-
-        Object.keys(product).forEach(function (key) {
-            summary.set(key, product[key]);
-        });
-
-        summary = summary.toObject();
-
-        Summary.findByIdAndUpdate(id, { $set: summary }, function (error, updatedSummary){
+        //TODO remove this heresy as soon as possible!!!!!
+        delete updateObject.price;
+        Summary.findByIdAndUpdate(id, updateObject , function (error, updatedSummary){
             if (error) {
                 deferred.reject(error);
                 return deferred.promise;
@@ -239,7 +216,6 @@ function updateSummaryById (product){
 
             deferred.resolve(updatedSummary);
         });
-    });
 
     return deferred.promise;
 }
@@ -250,7 +226,7 @@ module.exports = {
         getAll: getAll,
         getById: getById,
         create: create,
-        updateById: updateProductById,
+        updateProductById: updateProductById,
         removeById: removeById,
         removeAll: removeAll
     }

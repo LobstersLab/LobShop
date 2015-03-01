@@ -19,6 +19,7 @@ angular.module('product')
                     return deferred.promise;
                 },
                 createProduct : function (params){
+                    debugger
                     var deferred = $q.defer();
 
                     params.url = 'api/products';
@@ -34,9 +35,10 @@ angular.module('product')
                     return deferred.promise;
                 },
                 updateProduct : function (params){
+                    debugger
                     var deferred = $q.defer();
 
-                    params.url = 'api/products:' + params.productId;
+                    params.url = 'api/products/' + params.productId;
 
                     $upload.upload(params).progress(function (evt) {
                         var progressPercentage = parseInt(100.0 * (evt.loaded / evt.total));

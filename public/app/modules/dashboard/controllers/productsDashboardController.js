@@ -22,6 +22,8 @@ angular.module('dashboard')
 
                         //TODO fix this in a different way as this is petarded
                         self.selectedProduct.description = data.description[0].value;
+                        self.selectedProduct.productCategory = data.category;
+
                     });
                 }else{
                     self.selectedProduct = {};
@@ -59,13 +61,13 @@ angular.module('dashboard')
                             'name': 'years',
                             'value': self.selectedProduct.years
                         }
-                    ]
+                    ],
+                    'category' : self.selectedProduct.productCategory
                 };
 
                 //Check if new product or update
-                if (self.selectedProduct.id){
-
-                    params.productId = self.selectedProduct.id;
+                if (self.selectedProduct._id){
+                    params.productId = self.selectedProduct._id;
 
                     ProductsResource.updateProduct(params).then(
                         //Success
@@ -83,7 +85,6 @@ angular.module('dashboard')
                         }
                     );
                 }else{
-
                     ProductsResource.createProduct(params).then(
                         //Success
                         function(message){
