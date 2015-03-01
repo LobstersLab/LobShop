@@ -4,8 +4,7 @@
   "repository": "https://github.com/LobstersLab/LobShop",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app",
-	"postinstall" : "HOME=$HOME/app-root/runtime ./node_modules/.bin/bower install"
+    "start": "node app"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
