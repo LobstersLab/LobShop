@@ -1,0 +1,82 @@
+<div>
+    <header class="menu-header">
+        <figure class="close-cross" ng-click="menuCtrl.menuToggle = false">&#10005</figure>
+        <!--/.close-cross-->
+        <div ng-if="menuCtrl.identity.isAuthenticated()">
+            <div class="clearfix profile-holder">
+                <figure class="profile-image pull-left">
+                    <img src="assets/images/default-user-icon-profile.png" alt=""/>
+                </figure>
+                <!--/.profile-image -->
+                <div class="profile-icons-holder" ng-if="menuCtrl.identity.isAuthenticated()">
+                    <a class="btn profile-icons" ui-sref="profile" ng-click="menuCtrl.menuToggle = false">
+                        <figure class="menu-header-icons settings"></figure>
+                    </a>
+                    <!--/.settings-->
+                    <a class="btn profile-icons" ui-sref="shoppingCart" ng-click="menuCtrl.menuToggle = false">
+                        <figure class="menu-header-icons shoppig-bag">
+                            <span class="badge">{{ menuCtrl.cart.getCount() }}</span>
+                        </figure>
+                    </a>
+                    <!--/.shopping-bag-->
+                    <a class="btn profile-icons" href ng-click="menuCtrl.logout()">
+                        <figure class="menu-header-icons log-out"></figure>
+                    </a>
+                    <!--/.LogOut-->
+                </div>
+                <!--/.profile-icons-holder-->
+                <address class="profile-name">
+                    {{menuCtrl.identity.getCurrentUser().displayName}}
+                </address>
+                <!--/.profile-name-->
+
+            </div>
+            <!--/.profile-holder-->
+
+        </div>
+        <!--/div-->
+        <div class="clearfix profile-holder" ng-if="!menuCtrl.identity.isAuthenticated()">
+            <figure class="profile-image pull-left">
+                <img src="assets/images/default-user-icon-profile.png" alt=""/>
+            </figure>
+            <div class="profile-icons-holder">
+                <a class="btn" ui-sref="login" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-header-icons log-in"></figure>
+                </a>
+            </div>
+        </div>
+        <!--/div-->
+
+    </header>
+    <!--/.menu-header-->
+    <nav>
+        <ul class="menu-navigation">
+            <li ng-if="menuCtrl.identity.isAdmin()">
+                <a class="btn" ui-sref="dashboard.products" ng-click="menuCtrl.menuToggle = false"> Dashboard </a>
+            </li>
+            <li>
+                <a class="btn" ui-sref="home" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons catalog"></figure>
+                    Catalog
+                </a>
+            </li>
+            <li>
+                <a class="btn" ui-sref="highlights" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons highlight-icon"></figure>
+                    Highlights </a>
+            </li>
+            <li>
+                <a class="btn" ui-sref="terms" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons terms"></figure>
+                    Terms & Conditions </a>
+            </li>
+            <li>
+                <a class="btn" ui-sref="contacts" ng-click="menuCtrl.menuToggle = false">
+                    <figure class="menu-icons contacts"></figure>
+                    Contacts </a>
+            </li>
+        </ul>
+        <!--/.menu-navigation-->
+    </nav>
+    <!--/.nav-->
+</div>

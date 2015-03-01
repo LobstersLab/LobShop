@@ -1,0 +1,24 @@
+<div class="panel center-block categoryEditFormContainer">
+
+    <form class="form-horizontal" name="productEditForm" ng-submit="categoriesDashboardCtrl.categoryFormSubmit()">
+        <div class="form-group">
+            <label for="productCategory" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-5">
+                <input id="categoryName" type="text" ng-model="categoriesDashboardCtrl.selectedCategory.name" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="productCategory" class="col-sm-2 control-label">Parent Category</label>
+            <div class="col-sm-3">
+                <select class="form-control" id="productCategory"  ng-options="category.name for category in categoriesDashboardCtrl.selectedCategory.categories" ng-model="categoriesDashboardCtrl.selectedCategory.categoryParent"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-default" type="submit" id="submit" value="Submit"  class="btn btn-default center-block"/>
+            </div>
+        </div>
+    </form>
+</div>

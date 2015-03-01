@@ -1,0 +1,97 @@
+<ng-form name="details">
+    <div class="group">
+        <input type="text" name="country"
+               class="material-input"
+               ng-model="registerCtrl.user.country"
+               ng-class="{ 'not-empty': !registerCtrl.isEmpty('details', 'country')}"
+               ng-minlength="4"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Country</label>
+        <span class="pull-right material-error" ng-show="registrationForm.details.country.$error.required && !registrationForm.details.country.$pristine">
+            Country is required
+        </span>
+        <span class="pull-right material-error" ng-show="registrationForm.details.country.$error.minlength">
+            Country must contain at least 4 letters
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': registrationForm.details.country.$valid,
+                         'error-icon-pristine': registrationForm.details.country.$pristine }">
+        </span>
+    </div>
+
+    <div class="group">
+        <input type="text" name="city"
+               class="material-input"
+               ng-model="registerCtrl.user.city"
+               ng-class="{ 'not-empty': !registerCtrl.isEmpty('details', 'city')}"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">City</label>
+        <span class="pull-right material-error" ng-show="registrationForm.details.city.$error.required && !registrationForm.details.city.$pristine">
+            City is required
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': registrationForm.details.city.$valid,
+                         'error-icon-pristine': registrationForm.details.city.$pristine }">
+        </span>
+    </div>
+
+    <div class="group">
+        <input type="text" name="postalCode"
+               class="material-input"
+               ng-pattern="/^[0-9]*$/"
+               ng-model="registerCtrl.user.postalCode"
+               ng-class="{ 'not-empty': !registerCtrl.isEmpty('details', 'postalCode')}"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Postal code</label>
+        <span class="pull-right material-error" ng-show="registrationForm.details.postalCode.$error.required && !registrationForm.details.postalCode.$pristine">
+            Postal code is required
+        </span>
+        <span class="pull-right material-error" ng-show="registrationForm.details.postalCode.$error.pattern">
+            Postal code must contain only digits
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': registrationForm.details.postalCode.$valid,
+                         'error-icon-pristine': registrationForm.details.postalCode.$pristine }">
+        </span>
+    </div>
+
+    <div class="group">
+        <input type="text" name="address"
+               class="material-input"
+               ng-model="registerCtrl.user.address"
+               ng-class="{ 'not-empty': !registerCtrl.isEmpty('details', 'address')}"
+               ng-minlength="10"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Address</label>
+        <span class="pull-right material-error" ng-show="registrationForm.details.address.$error.required && !registrationForm.details.address.$pristine">
+            Address is required
+        </span>
+        <span class="pull-right material-error" ng-show="registrationForm.details.address.$error.minlength">
+            Address must contain at least 10 letters
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': registrationForm.details.address.$valid,
+                         'error-icon-pristine': registrationForm.details.address.$pristine }">
+        </span>
+    </div>
+</ng-form>
+
+<div class="form-group row">
+    <a ui-sref="register.personal" class="btn btn-default">
+        Back
+    </a>
+    <a ui-sref="register.account"
+       class="btn btn-info"
+       ng-click="registerCtrl.stateline.completeState()"
+       ng-disabled="registrationForm.details.$invalid">
+        Next
+    </a>
+</div>

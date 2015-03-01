@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %} <%= title %> {% endblock %}
+
+{% block content %}
+
+    <div ng-cloak ng-animate="'animate'" class="overlay"
+         ng-show="menuCtrl.menuToggle || menuCtrl.filterToggle"
+         ng-click="menuCtrl.menuToggle = false; menuCtrl.filterToggle = false;"></div>
+    <header-navigation ng-cloak></header-navigation>
+    <ui-view ng-cloak></ui-view>
+    <menu ng-class="{'ng-show':menuCtrl.menuToggle}" ng-show="menuCtrl.menuToggle" ng-cloak></menu>
+
+{% endblock %}

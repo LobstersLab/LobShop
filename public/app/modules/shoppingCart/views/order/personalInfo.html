@@ -1,0 +1,97 @@
+<h1 class="text-center">Personal Info</h1>
+<br/>
+
+<ng-form name="personalInfoForm">
+    <div class="group">
+        <input type="text" name="firstname"
+               class="material-input"
+               ng-model="orderCtrl.order.firstname"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'firstname')}"
+               ng-minlength="3"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">First name</label>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.firstname.$error.required && !orderForm.personalInfoForm.firstname.$pristine">
+            First name is required
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.firstname.$error.minlength">
+            First name must be at least 3 symbols
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.personalInfoForm.firstname.$valid,
+                         'error-icon-pristine': orderForm.personalInfoForm.firstname.$pristine }">
+        </span>
+    </div><!--/.group-->
+    <div class="group">
+        <input type="text" name="lastname"
+               class="material-input"
+               ng-model="orderCtrl.order.lastname"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'lastname')}"
+               ng-minlength="3"
+               required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Last name</label>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.lastname.$error.required && !orderForm.personalInfoForm.lastname.$pristine">
+            Last name is required
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.lastname.$error.minlength">
+            Last name must be at least 3 symbols
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.personalInfoForm.lastname.$valid,
+                         'error-icon-pristine': orderForm.personalInfoForm.lastname.$pristine }">
+        </span>
+    </div><!--/.group-->
+    <div class="group">
+        <input type="email" name="email"
+               class="material-input"
+               ng-model="orderCtrl.order.email"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'email')}"
+               required
+               ng-pattern="/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Email</label>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.email.$error.required && !orderForm.personalInfoForm.email.$pristine">
+            Email is required
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.email.$error.pattern || orderForm.personalInfoForm.email.$error.email">
+            Email is invalid
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.personalInfoForm.email.$valid,
+                         'error-icon-pristine': orderForm.personalInfoForm.email.$pristine }">
+        </span>
+    </div><!--/.group-->
+    <div class="group">
+        <input type="text" name="phoneNumber"
+               class="material-input"
+               ng-model="orderCtrl.order.phoneNumber"
+               ng-class="{ 'not-empty': !orderCtrl.isEmpty('personalInfoForm', 'phoneNumber')}"
+               required
+               ng-minlength="9"
+               ng-pattern="/^\+?[0-9]+$/">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label class="material-label">Phone number</label>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.phoneNumber.$error.required && !orderForm.personalInfoForm.phoneNumber.$pristine">
+            Phone number is required
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.phoneNumber.$error.pattern">
+            Phone number is invalid. (ex. +3598987654321)
+        </span>
+        <span class="pull-right material-error" ng-show="orderForm.personalInfoForm.phoneNumber.$error.minlength && !orderForm.personalInfoForm.phoneNumber.$error.pattern">
+            Phone number must contain at least 9 symbols
+        </span>
+        <span class="pull-right error-icon"
+              ng-class="{'error-icon-satisfied': orderForm.personalInfoForm.phoneNumber.$valid,
+                         'error-icon-pristine': orderForm.personalInfoForm.phoneNumber.$pristine }">
+        </span>
+    </div>
+</ng-form>
+<button class="btn btn-default" ui-sref="shoppingCart">Back</button>
+<button class="btn btn-info pull-right" ui-sref="order.deliveryInfo"
+        ng-click="orderCtrl.stateline.completeState()"
+        ng-disabled="orderForm.personalInfoForm.$invalid">Next</button>

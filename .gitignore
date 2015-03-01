@@ -26,3 +26,10 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# WebStorm
+.idea/
+
+# Bower
+public/assets/bower_components/
+

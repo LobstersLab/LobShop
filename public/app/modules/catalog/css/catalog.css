@@ -1,0 +1,206 @@
+@charset "UTF-8";
+/*********************************
+            FILTER
+ *********************************/
+filter {
+  left: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 65%;
+  max-width: 450px;
+  margin: 0;
+  padding: 0;
+  background-color: #45474b;
+  z-index: 1000;
+  -webkit-box-shadow: 0px 0px 50px #202329;
+  -moz-box-shadow: 0px 0px 50px #202329;
+  box-shadow: 0px 0px 50px #202329;
+  /** Labels **/
+  /** Select age **/ }
+  filter.ng-show, filter.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s; }
+  filter.ng-hide {
+    width: 0;
+    opacity: 0; }
+  filter.ng-show {
+    opacity: 1; }
+  filter .filter-box {
+    padding: 30px; }
+  filter .col-md-5 {
+    padding: 0; }
+  filter .collapse-arrow, filter .expanded-arrow {
+    margin-right: 1em; }
+    filter .collapse-arrow:before, filter .expanded-arrow:before {
+      font-family: 'LobShopIcons';
+      content: "\e601";
+      color: #d6cd9b; }
+  filter .expanded-arrow:before {
+    content: "\e600"; }
+  filter .category {
+    text-transform: uppercase;
+    color: #d6cd9b;
+    font-size: 24px;
+    font-family: "Rockwell";
+    cursor: pointer; }
+    filter .category.category-advanced {
+      font-size: 18px; }
+  filter .categoty-container {
+    margin-bottom: 5em;
+    color: #fff; }
+  filter .push-down {
+    margin-bottom: 1em; }
+  filter label {
+    margin: 0 0 0 10px;
+    vertical-align: text-bottom; }
+  filter .select {
+    width: 100%;
+    padding: .625em;
+    background: transparent;
+    border: 1px solid #d6cd9b; }
+    filter .select optgroup {
+      color: #393b3e;
+      background-color: #d6cd9b; }
+    filter .select option {
+      padding: 10px;
+      border: 1px solid #d6cd9b; }
+      filter .select option:hover {
+        color: #393b3e;
+        background-color: #d6cd9b; }
+
+.header-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0; }
+
+.catalog-header {
+  z-index: 400;
+  height: 46px;
+  padding: .5em;
+  background-color: #373a3d;
+  text-transform: uppercase;
+ /*********************************
+           ICONS
+*********************************/
+ /*********************************
+           BUTTON
+*********************************/
+  /*********************************
+             SEARCH
+  *********************************/
+  /** Search placeholder **/ }
+  .catalog-header ul {
+    padding-top: 8px; }
+  .catalog-header ul:first-child {
+    margin-left: 0; }
+  .catalog-header li {
+    display: inline-block;
+    margin-left: 20%; }
+  .catalog-header .catalog-header-icons {
+    font-family: LobShopIcons;
+    color: #f9f6e6;
+    font-size: 20px; }
+  .catalog-header .filter-icon:before {
+    content: "\e607"; }
+  .catalog-header .search-icon:before {
+    content: "\e610"; }
+  .catalog-header .menu-icon:before {
+    content: "\e60b"; }
+  .catalog-header .btn {
+    color: #d6cd9b;
+    vertical-align: top; }
+  .catalog-header input[type=search] {
+    width: 10em;
+    padding: .375em .75em;
+    background-color: transparent;
+    color: #d6cd9b;
+    outline: 0;
+    border: 0;
+    text-transform: uppercase;
+    vertical-align: top;
+    transition: all .1s ease-out; }
+  .catalog-header input[type=search]:focus {
+    width: 100%;
+    border-bottom: 1px solid  #d6cd9b;
+    transition: all .3s ease-out; }
+  .catalog-header input[type=search]::-webkit-input-placeholder {
+    color: #d6cd9b;
+    text-transform: uppercase;
+    transition: all .1s ease-out; }
+  .catalog-header input[type=search]:focus::-webkit-input-placeholder {
+    color: #d6cd9b;
+    opacity: .5;
+    transition: all .3s ease-out; }
+
+/*********************************
+             PRODUCTS
+  *********************************/
+.products {
+  margin-top: 2.5em;
+  /*  Icons  */ }
+  .products a {
+    text-decoration: none;
+    color: #fff; }
+    .products a:hover {
+      color: #d6cd9b; }
+  .products hr {
+    height: 1px;
+    margin: 0;
+    background-color: #7d8082;
+    border: 0; }
+  .products .product-icons {
+    font-family: LobShopIcons;
+    font-size: 96px; }
+  .products .ornament-top-left {
+    position: relative; }
+  .products .ornament-top-left:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: 52.5px;
+    left: 7.5px;
+    content: "";
+    color: #d6cd9b; }
+  .products .ornament-top-right {
+    position: relative; }
+  .products .ornament-top-right:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: -75px;
+    left: 230px;
+    content: "";
+    transform: rotate(135deg);
+    color: #d6cd9b; }
+  .products .ornament-bottom-left {
+    position: relative; }
+  .products .ornament-bottom-left:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: 268px;
+    left: -83px;
+    content: "";
+    transform: rotate(-35deg);
+    color: #d6cd9b; }
+  .products .ornament-bottom-right {
+    position: relative; }
+  .products .ornament-bottom-right:before {
+    position: absolute;
+    font-family: LobShopIcons;
+    font-size: 150px;
+    top: 268px;
+    left: 232px;
+    content: "";
+    transform: rotate(-135deg);
+    color: #d6cd9b; }
+  .products .product-details-icon:before {
+    content: "\e617"; }
+
+.catalog-image {
+  height: 80px;
+  display: inline-block; }
+
+/*# sourceMappingURL=catalog.css.map */

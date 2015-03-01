@@ -1,0 +1,1 @@
+# Image files that are common for the whole application

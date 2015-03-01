@@ -1,0 +1,377 @@
+@font-face {
+  font-family: 'Bembo';
+  src: url('../fonts/Bembo/Bembo-Std_6601.ttf') format('truetype');
+  src: url('../fonts/Bembo/Bembo-Std-Bold_6595.ttf') format('truetype');
+  src: url('../fonts/Bembo/Bembo-Std-Italic_6598.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Rockwell';
+  src: url('../fonts/Rockwell/Rockwell.ttf') format('truetype');
+  src: url('../fonts/Rockwell/RockwellBold.ttf') format('truetype');
+  src: url('../fonts/Rockwell/RockwellLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CinzelDecorative';
+  src: url('../fonts/Cinzel_Decorative/CinzelDecorative-Regular.otf') format('opentype');
+  src: url('../fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LobShopIcons';
+  src: url('../icons/icomoon.eot');
+  src: url('../icons/icomoon.ttf') format('truetype'),
+  url('../icons/icomoon.woff') format('woff');
+}
+
+/*******************************************
+               GLOBAL
+******************************************/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  line-height:1.85;
+}
+h1{
+
+}
+
+
+@-ms-viewport {
+  width: device-width;
+}
+
+.ng-leave {
+  animation: 0.5s lightSpeedOut ease;
+}
+
+.ng-enter {
+  animation: 0.5s lightSpeedOut ease;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  opacity: 0.5;
+  background-color: #393b3e;
+
+  &.ng-show,
+  &.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+  }
+
+  &.ng-hide {
+    opacity: 0;
+  }
+
+  &.ng-show {
+    opacity: 0.5;
+  }
+}
+
+/**************************************
+        STAY ON TOP DIRECTIVE
+***************************************/
+
+.header-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99999;
+  opacity: .8;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/**************************************
+              ALL INPUTS
+***************************************/
+
+.group {
+  position: relative;
+  max-width: 700px;
+  width: 70%;
+  margin-right: auto;
+  margin-bottom: 3.75em;
+  margin-left: auto;
+}
+
+.material-input {
+  display: block;
+  width: 100%;
+  padding: 10px 10px 10px 5px;
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #373a3d;
+}
+
+.material-input:focus {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fbf8e8 inset;
+}
+
+/* LABEL ======================================= */
+.material-label {
+  position: absolute;
+  top: 10px;
+  color: #818181;
+  left: 5px;
+  font-size: 18px;
+  font-weight: normal;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.material-input:focus ~ .material-label,
+.not-empty ~ .material-label {
+  top: -20px;
+  font-size: 14px;
+}
+
+.material-input {
+  &.ng-valid {
+    color: #6b939d;
+    border-color: #6b939d;
+  }
+  &.ng-invalid.ng-dirty {
+    color: #9a6a6b;
+    border-color: #9a6a6b;
+  }
+  &.ng-valid.bar:before,
+  &.ng-valid.bar:after {
+    background: #6b939d;
+  }
+}
+
+.material-label {
+  .ng-valid ~ & {
+    color: #6b939d;
+  }
+  .ng-invalid ~ & {
+    color: #9a6a6b;
+  }
+  .ng-pristine ~ & {
+    color: #373a3d;
+  }
+}
+
+/*************************************************
+                  ERROR MESSAGES
+**************************************************/
+
+.material-error {
+  margin-top: -30px;
+  margin-right: 20px;
+  color: #9a6a6b;
+}
+
+.error-icon {
+  font-family: 'LobShopIcons';
+  margin-top: -30px;
+  color: #9a6a6b;
+  &:before {
+    content: "\e614";
+    font-size: 15px;
+    margin-left: 10px;
+  }
+}
+
+.error-icon-satisfied {
+  color: #6b939d;
+}
+
+.error-icon-pristine {
+  color: #b3b3b3;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.bar:before,
+.bar:after {
+  position: absolute;
+  bottom: 1px;
+  width: 0;
+  height: 2px;
+
+  content: '';
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+.bar:before,
+.bar:after {
+  .ng-valid ~ & {
+    background-color: #6b939d;
+  }
+  .ng-invalid ~ & {
+    background-color: #9a6a6b;
+  }
+  .ng-pristine ~ & {
+    background-color: #373a3d;
+  }
+}
+
+/* active state */
+.material-input:focus ~ .bar:before, .material-input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.badge {
+  position: relative;
+  top: 0;
+  right: 1.2em;
+  padding: 1px 4px;
+
+  background-color: #d6cd9b;
+  color: #393b3e;
+
+  border-radius: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.highlight:focus {
+  background-color: red;
+}
+
+/* active state */
+.material-input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #393b3e;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #393b3e;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #393b3e;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+/***************************************
+                FORMS
+****************************************/
+
+.form-container {
+  padding-top: 50px;
+}
+
+/***  Checkbox   ***/
+
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  border: 1px solid #b3b3b3;
+
+  &:checked {
+    &:before {
+      font-family: 'LobShopIcons';
+      content: "\e603";
+      font-size: 21px;
+      vertical-align: baseline;
+    }
+
+    border: 0;
+    outline: 0;
+    outline-offset: 0;
+  }
+
+}
+
+
+
+/***************************************
+               NO SELECT
+****************************************/
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/***************************************
+               MEDIA QUERIES
+****************************************/
+@media (min-width: 1400px) {
+  .container {
+    width: 1378px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .catalog-header{
+    a.btn span:not(.catalog-header-icons){
+      display: none;
+    }
+    input[placeholder="Search..."]{
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.dashboardProductsListRow.ng-move, .dashboardProductsListRow.ng-enter, .dashboardProductsListRow.ng-leave {
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s; }
+.dashboardProductsListRow.ng-leave.ng-leave-active, .dashboardProductsListRow.ng-move, .dashboardProductsListRow.ng-enter {
+  opacity: 0; }
+.dashboardProductsListRow.ng-leave, .dashboardProductsListRow.ng-move.ng-move-active, .dashboardProductsListRow.ng-enter.ng-enter-active {
+  opacity: 1; }
+.dashboardProductsListRow.active {
+  background-color: #0000cc !important; }
+
+.productEditForm.ng-invalid {
+  border-color: red; }
+
+.productEditFormContainer {
+  width: 70%; }
+  .productEditFormContainer .fileSelectDiv {
+    width: 30%; }
+
+.categoryEditFormContainer {
+  width: 70%; }
+
+progress-bar.ng-hide {
+  opacity: 0;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s; }
+
+.dashboard-container {
+  padding: 20px; }
+  .dashboard-container h3 {
+    margin: 0;
+    text-align: center; }
+  .dashboard-container hr {
+    margin: 15px 20%; }
+
+.dashboard-search-header {
+  margin-bottom: 20px; }
+
+/*# sourceMappingURL=dashboard.css.map */

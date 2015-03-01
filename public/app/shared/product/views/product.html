@@ -1,0 +1,81 @@
+<sub-header></sub-header>
+<div class="row product">
+    <div class="product-category">{{productCtrl.category.name}}</div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-6"> Lot: {{productCtrl.product.lot}}</div>
+            <!--/.col-md-6-->
+            <div class="col-md-6"> Price: {{productCtrl.product.price.value}}</div>
+            <!--/.col-md-6-->
+        </div>
+        <!--/.text-center row-->
+        <div class="text-center product-hover">
+            <img class="img-responsive" ng-src="{{productCtrl.product.images[0].src}}" alt="coins"/>
+            <img class="img-responsive" ng-src="{{productCtrl.product.images[1].src}}" alt="coins"/>
+        </div>
+        <!--/.text-center-->
+        <h3>Title: {{productCtrl.product.name}}</h3>
+
+        <p>{{productCtrl.product.description[0].value}}</p>
+
+        <h3>Years: {{productCtrl.product.years}}</h3>
+        <button class="btn btn-success pull-right" ng-click="productCtrl.cart.insertItem(productCtrl.product)">Buy</button>
+    </div>
+    <!--/.col-md-9-->
+    <div class="col-md-3">
+        <div class="related-products">
+            <h3>RELATED:</h3>
+
+            <div ng-repeat="relatedProduct in productCtrl.relatedProducts | limitTo: 5">
+                <div>
+                    <section class="card-border" ng-mouseover="productCtrl.hoverProduct(relatedProduct)"
+                             ng-mouseleave="productCtrl.unhoverProduct(relatedProduct)">
+
+                        <div class="product-overlay text-center" ng-show="relatedProduct.hover">
+                            <div class="ornament-top-left"></div>
+                            <div class="ornament-top-right"></div>
+                            <div class="ornament-bottom-left"></div>
+                            <div class="ornament-bottom-right"></div>
+                            <a class="" ng-click="productCtrl.openProductDetails(relatedProduct)">
+                                <figure class="product-icons product-details-icon"></figure>
+                            </a>
+                        </div>
+                        <!--/.product-overlay-->
+                        <header>
+                            <span></span>
+                        <span class="card-label label-purple">
+                            Lot:
+                        </span>
+                        <span>
+                            {{ relatedProduct.lot }}
+                        </span>
+                        <span class="pull-right">
+                            <span class="card-label label-purple">
+                                Price:
+                            </span>
+                            <span>
+                                {{ relatedProduct.price.value }}
+                            </span>
+                        </span><!--/.pull-right-->
+                        </header>
+                        <!--/header-->
+                        <figure>
+                            <img class="img-responsive catalog-image" src="{{relatedProduct.images[0].src}}" alt=""/>
+                            <img class="img-responsive catalog-image" src="{{relatedProduct.images[1].src}}" alt=""/>
+                        </figure>
+                        <div>
+                            <p>
+                                <span class="card-label label-purple">Title:</span>
+                                <strong>{{ relatedProduct.name }}</strong>
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--/.div-->
+        </div>
+        <!--/.related-products-->
+    </div>
+    <!--/.col-md-3-->
+</div><!--/.row-->
+<shopping-cart-summary></shopping-cart-summary>

@@ -1,0 +1,170 @@
+menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 65%;
+  max-width: 450px;
+  margin: 0;
+  padding: 0;
+  background-color: #fbf8e8;
+  z-index: 1000;
+  -webkit-box-shadow: 0px 0px 50px #202329;
+  -moz-box-shadow: 0px 0px 50px #202329;
+  box-shadow: 0px 0px 50px #202329; }
+  menu.ng-show, menu.ng-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s; }
+  menu.ng-hide {
+    width: 0;
+    opacity: 0; }
+  menu.ng-show {
+    opacity: 1; }
+
+/************************************
+              MENU HEADER
+*************************************/
+.menu-header {
+  margin-bottom: 6em;
+  padding: 1.1em 1em;
+  background-color: #373a3d;
+  color: #fbf8e8; }
+
+.menu-header:after {
+  display: block;
+  clear: both;
+  content: ''; }
+
+/**  Menu BTN **/
+.menu-header .btn {
+  color: #fbf8e8; }
+
+.menu-header .btn:hover {
+  color: #9ba08d; }
+
+/**  Menu Nav **/
+.menu-navigation {
+  text-align: center; }
+
+.menu-navigation li {
+  display: block;
+  width: 100%; }
+
+.menu-navigation li a {
+  width: 100%;
+  margin-bottom: 42px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #373a3d;
+  transition: all .2s ease-in; }
+
+.menu-navigation li .btn:hover {
+  width: 100%;
+  color: #d6cd9b;
+  border-radius: 0px;
+  background-color: #373a3d;
+  transition: all .2s ease-in; }
+
+.menu-navigation li .active {
+  background-color: #373a3d;
+  color: #d6cd9b;
+  border-radius: 0px; }
+
+/************************************
+              PROFILE
+*************************************/
+.close-cross {
+  float: right;
+  font-weight: 800;
+  cursor: pointer; }
+
+/**  icons **/
+.profile-holder {
+  margin: 0.625em 0.625em 0.625em 1.25em; }
+
+.profile-icons-holder {
+  margin: -.4em 0 1.6em; }
+
+.profile-icons {
+  padding: 0; }
+
+/**  name **/
+.profile-name {
+  margin: 0 0 0 5.5em;
+  color: #d6cd9b; }
+
+.profile-icons-holder {
+  margin-left: 5em; }
+
+/**  image **/
+.profile-image img {
+  border: 2px solid #d6cd9b;
+  border-radius: 50%;
+  width: 70px; }
+
+/*TODO: SET THE ICONS AND THE MARKUP (they are links !!!)*/
+.menu-header-icons:before, .menu-icons:before {
+  font-family: 'LobShopIcons'; }
+
+.menu-header-icons:before {
+  margin-left: 5px;
+  color: #b3b3b3;
+  font-size: 1.5em;
+  transition: all .2s ease-in; }
+.menu-header-icons:hover:before {
+  color: #fff;
+  transition: all .2s ease-in; }
+
+.settings:before {
+  content: "\e611"; }
+
+.shoppig-bag:before {
+  content: "\e60c"; }
+
+.log-in:before, .log-out:before {
+  font-size: 1.3125em; }
+
+.log-out:before {
+  margin-left: -10px;
+  content: "\e606"; }
+
+.log-in:before {
+  content: "\e60a"; }
+
+.menu-icons {
+  height: 4.6875em;
+  margin-top: -1em; }
+  .menu-icons:before {
+    font-size: 4.5em; }
+
+.catalog:before {
+  font-size: 4.5em;
+  content: "\e602"; }
+
+.highlight-icon {
+  height: 3.75em;
+  margin: 0; }
+  .highlight-icon:before {
+    content: "\e604";
+    font-size: 2.25em; }
+
+.terms {
+  margin: 0; }
+  .terms:before {
+    font-size: 3em;
+    content: "\e616"; }
+
+.contacts {
+  margin: 0;
+  height: 3.75em; }
+  .contacts:before {
+    font-size: 2.25em;
+    content: "\e60d"; }
+
+.profile-page-container {
+  padding-top: 1.25em; }
+
+.profile-image-holder img {
+  border: 2px solid #d6cd9b; }
+
+/*# sourceMappingURL=menu.css.map */

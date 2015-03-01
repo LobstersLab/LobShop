@@ -1,0 +1,61 @@
+<sub-header></sub-header>
+<div class="col-md-3 order-wrap">
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".personalInfo" >
+            <span class="status-circle"
+                ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('personalInfo'), 'disabled' : orderCtrl.stateline.isStateDisabled('personalInfo')}">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('personalInfo')">1</span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('personalInfo')}">Personal Info</span>
+        </a>
+
+        <div class="status-line line-complete"></div>
+    </div>
+    <!--/.status-->
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".deliveryInfo" >
+            <span class="status-circle"
+                  ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('deliveryInfo'), 'disabled' : orderCtrl.stateline.isStateDisabled('deliveryInfo')}">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('deliveryInfo')">2</span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('deliveryInfo')}">Delivery Info</span>
+        </a>
+
+        <div class="status-line line-complete disable"></div>
+    </div>
+    <!--/.status-->
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".paymentInfo" >
+            <span class="status-circle"
+                  ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('paymentInfo'), 'disabled' : orderCtrl.stateline.isStateDisabled('paymentInfo')}">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('paymentInfo')">3</span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('paymentInfo')}">Payment method</span>
+        </a>
+
+        <div class="status-line line-complete disable"></div>
+    </div>
+    <!--/.status-->
+    <div class="status">
+        <a ui-sref-active="active" ui-sref=".confirm">
+            <span class="status-circle"
+                  ng-class="{'completed' : orderCtrl.stateline.isStateCompleted('confirm'), 'disabled' : orderCtrl.stateline.isStateDisabled('confirm') }">
+                <span ng-hide="orderCtrl.stateline.isStateCompleted('confirm')">
+                    4
+                </span>
+            </span>
+            <span ng-class="{'disabled' : orderCtrl.stateline.isStateDisabled('confirm')}">Confirm</span>
+        </a>
+
+    </div>
+    <!--/.status-->
+</div>
+<!--/.col-md-3-->
+<div class="col-md-9 order-wrap">
+
+    <form novalidate id="order-form" name="orderForm"
+          ng-submit="orderCtrl.register()">
+        <ui-view></ui-view>
+    </form>
+</div>
+<!--/.col-md-9-->
