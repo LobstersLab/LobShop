@@ -1,12 +1,16 @@
 ﻿var path = require('path');
 var rootPath = path.normalize(__dirname + '/../../');
 
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3310;
+//var mongoIp = mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
+
 module.exports = {
     rootPath: rootPath,
-    port: 3310,
-    ip: '127.0.0.1',
-    db: 'mongodb://127.0.0.1:27017/LobShop',
-    baseUrl : 'http://127.0.0.1:3310',
+    port: port,
+    ip: ip,
+    db: 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/',
+    baseUrl : 'http://' + ip + ':' + port,
     session : {
         secret: 'chuck_noris',
         resave: true,
