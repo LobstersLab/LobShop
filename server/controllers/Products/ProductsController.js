@@ -38,6 +38,7 @@ module.exports = function (data) {
                 productData = {
                     assets : []
                 };
+
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
@@ -45,26 +46,28 @@ module.exports = function (data) {
 
                 var productImageData = {
                     title: filename,
-                    src: 'storage/products/images/' + uuidFilename
+                    src: 'storage/products/images/' + uuidFilename,
+                    thumbSrc: 'storage/products/images/thumb_' + uuidFilename
                     // TODO: get width and height and assign them here
                 };
 
                 var fileStream = fs.createWriteStream(saveToPath);
-                productData.assets.push(productImageData);
-                file.pipe(fileStream);
-                file.on('end', function() {
 
+                productData.assets.push(productImageData);
+
+                file.pipe(fileStream);
+
+                file.on('end', function() {
                     var pathToNewImage = (path.normalize(__dirname  + '/../../../public/storage/products/images/') + 'thumb_' + uuidFilename );
-                    //var pathGG = 'd:\\projects\\LobstersLab\\LobShop\\public\\storage\\products\\images\\';
-                    //console.log('GM start',pathToNewImage);
-                    //
-                    //var size = {width: 200, height: 200};
+
                     gm(saveToPath)
                         .options({imageMagick: true})
-                        .resize(58, 50, '%')
-                        .write(pathToNewImage, function(err){
-                            if (err) return console.dir(arguments)
-                            console.log(this.outname + " created  ::  " + arguments[3])
+                        // TODO: Choose the correct image
+                        .resize(50, 50, '%')
+                        .write(pathToNewImage, function(error){
+                            if (error) {
+                                return console.log('Image thumb cannot be created! ', arguments);
+                            }
                         }
                     )
                 });

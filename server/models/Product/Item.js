@@ -47,6 +47,11 @@ var ProductItemSchema = new Schema({
                 type: String,
                 default: '',
                 trim: true
+            },
+            thumbSrc: {
+                type: String,
+                default: '',
+                trim: true
             }
         }]
     },

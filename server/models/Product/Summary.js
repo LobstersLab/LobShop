@@ -44,6 +44,11 @@ var ProductSummarySchema = new Schema({
             type: String,
             default: '',
             trim: true
+        },
+        thumbSrc: {
+            type: String,
+            default: '',
+            trim: true
         }
     }],
     attributes: [{

@@ -1,4 +1,4 @@
-var Q = require('Q'),
+var Q = require('q'),
     config = require('../../../config/config');
 
 var Orders = function(data){
