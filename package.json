@@ -4,8 +4,8 @@
   "repository": "https://github.com/LobstersLab/LobShop",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js"
-	"postinstall": "postinstall": "export HOME=/var/lib/openshift/54f373bb5973caccb40001c5/app-root/runtime/repo; ./node_modules/bower/bin/bower install"
+    "start": "node app.js",
+	"postinstall": "export HOME=/var/lib/openshift/54f373bb5973caccb40001c5/app-root/runtime/repo; ./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
