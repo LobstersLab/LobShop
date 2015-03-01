@@ -7,7 +7,11 @@
             <!--/.container .text-center-->
             <div ng-if="catalogCtrl.products.length > 0">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xs-height"
-                     ng-repeat="product in catalogCtrl.products | filter: catalogHeaderCtrl.productSearch | orderBy: filterCtrl.predicate">
+                     ng-repeat="product in catalogCtrl.products
+                     | filter: catalogHeaderCtrl.productSearch
+                     | priceRange: filterCtrl.priceRange.min: filterCtrl.priceRange.max
+                     | yearsRange: filterCtrl.yearsRange.min: filterCtrl.yearsRange.max
+                     | orderProductsBy: filterCtrl.predicate">
 
                     <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)"
                              ng-mouseleave="catalogCtrl.unhoverProduct(product)">
@@ -45,8 +49,8 @@
                         </header>
                         <!--/header-->
                         <figure>
-                            <img class="img-responsive catalog-image" src="{{product.images[0].src}}" alt=""/>
-                            <img class="img-responsive catalog-image" src="{{product.images[1].src}}" alt=""/>
+                            <img class="img-responsive catalog-image" ng-src="{{product.images[0].src}}" alt=""/>
+                            <img class="img-responsive catalog-image" ng-src="{{product.images[1].src}}" alt=""/>
                         </figure>
                         <div>
                             <p>

@@ -51,7 +51,7 @@ angular.module('dashboard')
                         'language': "en",
                         'value': self.selectedProduct.description
                     }],
-                    'price': self.selectedProduct.price,
+                    'price': self.selectedProduct.price.value,
                     'attributes':[
                         {
                             'name': 'lot',

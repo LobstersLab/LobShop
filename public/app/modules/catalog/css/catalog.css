@@ -51,15 +51,12 @@ filter {
     color: #fff; }
   filter .push-down {
     margin-bottom: 1em; }
-  filter .push-right {
-    margin-left: 4.5em; }
-  /* line 83, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
   filter label {
     margin: 0 0 0 10px;
     vertical-align: text-bottom; }
   filter .select {
     width: 100%;
-    padding: 0.625em;
+    padding: .625em;
     background: transparent;
     border: 1px solid #d6cd9b; }
     filter .select optgroup {
@@ -81,7 +78,7 @@ filter {
 .catalog-header {
   z-index: 400;
   height: 46px;
-  padding: 0.5em;
+  padding: .5em;
   background-color: #373a3d;
   text-transform: uppercase;
  /*********************************
@@ -116,29 +113,26 @@ filter {
     vertical-align: top; }
   .catalog-header input[type=search] {
     width: 10em;
-    padding: 0.375em 0.75em;
+    padding: .375em .75em;
     background-color: transparent;
     color: #d6cd9b;
     outline: 0;
     border: 0;
     text-transform: uppercase;
     vertical-align: top;
-    transition: all 0.1s ease-out; }
-  /* line 188, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
+    transition: all .1s ease-out; }
   .catalog-header input[type=search]:focus {
     width: 100%;
-    border-bottom: 1px solid #d6cd9b;
-    transition: all 0.3s ease-out; }
-  /* line 196, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
+    border-bottom: 1px solid  #d6cd9b;
+    transition: all .3s ease-out; }
   .catalog-header input[type=search]::-webkit-input-placeholder {
     color: #d6cd9b;
     text-transform: uppercase;
-    transition: all 0.1s ease-out; }
-  /* line 201, E:/KirsAuction/LobShop/public/app/modules/catalog/css/catalog.scss */
+    transition: all .1s ease-out; }
   .catalog-header input[type=search]:focus::-webkit-input-placeholder {
     color: #d6cd9b;
-    opacity: 0.5;
-    transition: all 0.3s ease-out; }
+    opacity: .5;
+    transition: all .3s ease-out; }
 
 /*********************************
              PRODUCTS
@@ -167,7 +161,7 @@ filter {
     font-size: 150px;
     top: 52.5px;
     left: 7.5px;
-    content: "\e609";
+    content: "";
     color: #d6cd9b; }
   .products .ornament-top-right {
     position: relative; }
@@ -177,7 +171,7 @@ filter {
     font-size: 150px;
     top: -75px;
     left: 230px;
-    content: "\e609";
+    content: "";
     transform: rotate(135deg);
     color: #d6cd9b; }
   .products .ornament-bottom-left {
@@ -188,7 +182,7 @@ filter {
     font-size: 150px;
     top: 268px;
     left: -83px;
-    content: "\e609";
+    content: "";
     transform: rotate(-35deg);
     color: #d6cd9b; }
   .products .ornament-bottom-right {
@@ -199,7 +193,7 @@ filter {
     font-size: 150px;
     top: 268px;
     left: 232px;
-    content: "\e609";
+    content: "";
     transform: rotate(-135deg);
     color: #d6cd9b; }
   .products .product-details-icon:before {

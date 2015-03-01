@@ -101,12 +101,21 @@
         </div>
         <div class="text-center">
             <label for="cardExpiresMonth">Expire Month</label>
+            <select class="form-control" id="productCategory"
+                    ng-options="category.name for category in categoriesDashboardCtrl.selectedCategory.categories"
+                    ng-model="categoriesDashboardCtrl.selectedCategory.categoryParent">
+            </select>
             <select name="cardExpiresMonth" required ng-model="orderCtrl.order.cardExpiresMonth">
                 <option value="" disabled selected>Select</option>
                 <option value="02">02</option>
                 <option value="03">03</option>
             </select>
             <label for="cardExpiresYear">Expire Year</label>
+            <select class="form-control" id="productCategory"
+                    ng-options="category.name for category in categoriesDashboardCtrl.selectedCategory.categories"
+                    ng-model="categoriesDashboardCtrl.selectedCategory.categoryParent">
+            </select>
+
             <select name="cardExpiresYear" required ng-model="orderCtrl.order.cardExpiresYear">
                 <option value="" disabled selected>Select</option>
                 <option value="2016">2016</option>

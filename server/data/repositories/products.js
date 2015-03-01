@@ -77,9 +77,8 @@ function create (params) {
     item = new Product({
         name: params.name,
         lname: params.name.toLowerCase(),
-        category: params.categoryId,
+        category: params.category,
         description: params.description,
-        brand: mongoose.Types.ObjectId(params.brandId),
         assets:{
             images: params.assets
         },
@@ -183,9 +182,8 @@ function saveSummary (savedItem){
         _id: savedItem._id,
         name: savedItem.name,
         lname: savedItem.lname,
-        category: savedItem.categoryId,
+        category: savedItem.category,
         description: savedItem.description,
-        brand: mongoose.Types.ObjectId(savedItem.brandId),
         images: savedItem.assets.images,
         attributes: savedItem.attributes,
         price: mongoose.Types.ObjectId(savedItem._id)

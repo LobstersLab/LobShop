@@ -48,10 +48,15 @@ rzslider span.pointer {
 }
 
 rzslider span.pointer:after {
-  position: absolute;
-  top: 12px;
-  left: 12px;
+    position: absolute;
+    top: 30px;
+    left: -8px;
     content: "\e615";
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 rzslider span.pointer:nth-of-type(2):after{
     content: "\e605";
@@ -67,8 +72,8 @@ rzslider span.pointer.active:after{
     user-select: none;
 }
 rzslider span.pointer.active:after{
-    top: 0;
-    font-size: 20px;
+    top: 30px;
+    font-size: 30px;
 }
 rzslider span.bubble {
   top: -32px;
