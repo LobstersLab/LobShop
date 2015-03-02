@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-	"postinstall": "./node_modules/bower/bin/bower install --config.interactive=false"
+	"postinstall": "test=HOME; export HOME=$HOME/app-root/runtime/repo; ./node_modules/bower/bin/bower install --config.interactive=false; HOME=test;"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
