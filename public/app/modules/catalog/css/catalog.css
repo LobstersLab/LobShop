@@ -12,6 +12,8 @@ filter {
   margin: 0;
   padding: 0;
   background-color: #45474b;
+  font-family: "Rockwell Regular";
+  letter-spacing: 0.075em;
   z-index: 1000;
   -webkit-box-shadow: 0px 0px 50px #202329;
   -moz-box-shadow: 0px 0px 50px #202329;
@@ -41,18 +43,21 @@ filter {
   filter .category {
     text-transform: uppercase;
     color: #d6cd9b;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-family: "Rockwell";
     cursor: pointer; }
     filter .category.category-advanced {
-      font-size: 18px; }
+      font-size: 1.8rem; }
   filter .categoty-container {
-    margin-bottom: 5em;
+    margin-bottom: 8vh;
     color: #fff; }
   filter .push-down {
-    margin-bottom: 1em; }
+    margin-bottom: 1vh; }
   filter label {
-    margin: 0 0 0 10px;
+    font-family: "Rockwell Light";
+    font-weight: 100;
+    font-size: 1.6rem;
+    margin: 0 0 -4px 10px;
     vertical-align: text-bottom; }
   filter .select {
     width: 100%;
@@ -77,8 +82,7 @@ filter {
 
 .catalog-header {
   z-index: 400;
-  height: 46px;
-  padding: .5em;
+  height: 50px;
   background-color: #373a3d;
   text-transform: uppercase;
  /*********************************
@@ -101,7 +105,7 @@ filter {
   .catalog-header .catalog-header-icons {
     font-family: LobShopIcons;
     color: #f9f6e6;
-    font-size: 20px; }
+    font-size: 2.1rem; }
   .catalog-header .filter-icon:before {
     content: "\e607"; }
   .catalog-header .search-icon:before {
@@ -109,8 +113,10 @@ filter {
   .catalog-header .menu-icon:before {
     content: "\e60b"; }
   .catalog-header .btn {
-    color: #d6cd9b;
-    vertical-align: top; }
+    margin: 4px;
+    letter-spacing: 0.2em;
+    font-size: 1.8rem;
+    color: #d6cd9b; }
   .catalog-header input[type=search] {
     width: 10em;
     padding: .375em .75em;
@@ -152,55 +158,51 @@ filter {
     border: 0; }
   .products .product-icons {
     font-family: LobShopIcons;
-    font-size: 96px; }
+    font-size: 9.6rem; }
   .products .ornament-top-left {
-    position: relative; }
-  .products .ornament-top-left:before {
     position: absolute;
+    top: -8.5px;
+    left: 6.5px; }
+  .products .ornament-top-left:before {
     font-family: LobShopIcons;
-    font-size: 150px;
-    top: 52.5px;
-    left: 7.5px;
+    font-size: 4rem;
     content: "";
     color: #d6cd9b; }
   .products .ornament-top-right {
-    position: relative; }
-  .products .ornament-top-right:before {
     position: absolute;
+    top: -8.5px;
+    left: 37rem;
+    transform: rotate(90deg); }
+  .products .ornament-top-right:before {
     font-family: LobShopIcons;
-    font-size: 150px;
-    top: -75px;
-    left: 230px;
+    font-size: 4rem;
     content: "";
-    transform: rotate(135deg);
     color: #d6cd9b; }
   .products .ornament-bottom-left {
-    position: relative; }
-  .products .ornament-bottom-left:before {
     position: absolute;
+    top: 35rem;
+    left: 6.5px;
+    transform: rotate(-90deg); }
+  .products .ornament-bottom-left:before {
     font-family: LobShopIcons;
-    font-size: 150px;
-    top: 268px;
-    left: -83px;
+    font-size: 4rem;
     content: "";
-    transform: rotate(-35deg);
     color: #d6cd9b; }
   .products .ornament-bottom-right {
-    position: relative; }
-  .products .ornament-bottom-right:before {
     position: absolute;
+    transform: rotate(-180deg);
+    top: 35rem;
+    left: 37.5rem; }
+  .products .ornament-bottom-right:before {
     font-family: LobShopIcons;
-    font-size: 150px;
-    top: 268px;
-    left: 232px;
+    font-size: 4rem;
     content: "";
-    transform: rotate(-135deg);
     color: #d6cd9b; }
   .products .product-details-icon:before {
     content: "\e617"; }
 
 .catalog-image {
-  height: 80px;
+  height: 6.25em;
   display: inline-block; }
 
 /*# sourceMappingURL=catalog.css.map */

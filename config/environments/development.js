@@ -4,7 +4,7 @@ var rootPath = path.normalize(__dirname + '/../../');
 module.exports = {
     rootPath: rootPath,
     port: 3310,
-    ip: '127.0.0.1',
+    ip: '192.168.0.101',
     db: 'mongodb://127.0.0.1:27017/LobShop',
     baseUrl : 'http://127.0.0.1:3310',
     session : {
