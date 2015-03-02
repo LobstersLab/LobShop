@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h3 class="modal-title">Congratulations</h3>
+</div>
+<div class="modal-body">
+    <b>"{{ buyedItemDialogCtrl.buyedProduct.name }}"</b>
+    <span> added to shopping cart successfully!</span>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="buyedItemDialogCtrl.continueToShoppingCart()">Checkout now</button>
+    <button class="btn btn-warning" ng-click="buyedItemDialogCtrl.cancelBuyedItemDialog()">Continue shopping</button>
+</div>
