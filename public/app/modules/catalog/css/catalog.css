@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*********************************
             FILTER
  *********************************/
@@ -144,66 +143,12 @@ filter {
              PRODUCTS
   *********************************/
 .products {
-  margin-top: 2.5em;
-  /*  Icons  */ }
-  .products a {
-    text-decoration: none;
-    color: #fff; }
-    .products a:hover {
-      color: #d6cd9b; }
+  margin-top: 2.5em; }
   .products hr {
     height: 1px;
     margin: 0;
     background-color: #7d8082;
     border: 0; }
-  .products .product-icons {
-    font-family: LobShopIcons;
-    font-size: 9.6rem; }
-  .products .ornament-top-left {
-    position: absolute;
-    top: -8.5px;
-    left: 6.5px; }
-  .products .ornament-top-left:before {
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content: "";
-    color: #d6cd9b; }
-  .products .ornament-top-right {
-    position: absolute;
-    top: -8.5px;
-    left: 37rem;
-    transform: rotate(90deg); }
-  .products .ornament-top-right:before {
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content: "";
-    color: #d6cd9b; }
-  .products .ornament-bottom-left {
-    position: absolute;
-    top: 35rem;
-    left: 6.5px;
-    transform: rotate(-90deg); }
-  .products .ornament-bottom-left:before {
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content: "";
-    color: #d6cd9b; }
-  .products .ornament-bottom-right {
-    position: absolute;
-    transform: rotate(-180deg);
-    top: 35rem;
-    left: 37.5rem; }
-  .products .ornament-bottom-right:before {
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content: "";
-    color: #d6cd9b; }
-  .products .product-details-icon:before {
-    content: "\e617"; }
-
-.catalog-image {
-  height: 6.25em;
-  display: inline-block; }
 
 .highlighted {
   color: #d6cd9b !important;

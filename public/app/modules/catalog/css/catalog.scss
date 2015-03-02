@@ -214,100 +214,12 @@ filter {
   *********************************/
 .products {
   margin-top: 2.5em;
-
-  /*  Icons  */
-  a{
-    text-decoration: none;
-    color: #fff;
-    &:hover{
-      color: #d6cd9b;
-    }
-  }
-  hr{
+  hr {
     height: 1px;
     margin: 0;
     background-color: #7d8082;
     border: 0;
   }
-  .product-icons{
-    font-family: LobShopIcons;
-    font-size: 9.6rem;
-  }
-
-
-  $ornament-icon:"\e609";
-
-  .ornament-top-left{
-    position:absolute;
-    top: -8.5px;
-    left: 6.5px;
-
-   }
-  .ornament-top-left:before{
-
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content:  $ornament-icon;
-    color: #d6cd9b;
-  }
-
-  .ornament-top-right{
-    position:absolute;
-    top: -8.5px;
-    left: 37rem;
-    transform: rotate(90deg);
-  }
-  .ornament-top-right:before{
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content:  $ornament-icon;
-   // -ms-transform: rotate(7deg); /* IE 9 */
-   // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
-    color: #d6cd9b;
-  }
-
-  .ornament-bottom-left{
-    position:absolute;
-    top: 35rem;
-    left: 6.5px;
-    transform: rotate(-90deg);
-  }
-  .ornament-bottom-left:before{
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content:  $ornament-icon;
-    //-ms-transform: rotate(7deg); /* IE 9 */
-   // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
-    color: #d6cd9b;
-  }
-
-  .ornament-bottom-right{
-    position: absolute;
-    transform: rotate(-180deg);
-    top: 35rem;
-    left: 37.5rem;
-  }
-  .ornament-bottom-right:before{
-
-    font-family: LobShopIcons;
-    font-size: 4rem;
-    content:  $ornament-icon;
-   // -ms-transform: rotate(7deg); /* IE 9 */
-   // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
-    color: #d6cd9b;
-  }
-
-  .product-details-icon{
-    &:before{
-
-      content: "\e617";
-    }
-  }
-}
-
-.catalog-image {
-  height: 6.25em;
-  display: inline-block;
 }
 
 .highlighted {
