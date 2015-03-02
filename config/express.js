@@ -31,6 +31,9 @@ module.exports = function (app, passport) {
     // Setting static folder to serve
     app.use(express.static(path.join(config.rootPath, 'public')));
 
+    // Setting static folder for images
+    app.use(express.static(config.storageDir));
+
 
     app.use(favicon());
     app.use(bodyParser.json());
