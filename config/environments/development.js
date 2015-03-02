@@ -6,8 +6,8 @@ var rootPath = path.normalize(__dirname + '/../../');
 
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3310;
-//var dataDirRoot =  process.env.OPENSHIFT_DATA_DIR || './public/storage';
-var dataDirRoot = '/public/storage';
+var dataDirRoot =  process.env.OPENSHIFT_DATA_DIR;
+//var dataDirRoot = '/public/storage';
 var localConnectionString = 'mongodb://127.0.0.1:27017';
 //var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL || localConnectionString;
 //var dbName = 'LobShop';
