@@ -4,26 +4,47 @@
 
 var rootPath = path.normalize(__dirname + '/../../');
 
-
 var ip = '127.0.0.1';
 var port = 3310;
 var connection_string = 'mongodb://127.0.0.1:27017/LobShop';
 var dataDirRoot = rootPath + 'public/storage/';
 
 (function initStorageFolderStructure() {
-    fs.readdir(dataDirRoot + '/products',function(error, files){
-        if(error){
-            console.log('Does not exist: ',dataDirRoot+ '/products');
-            fs.mkdir(dataDirRoot + '/products',function(){
-                console.log('Folder created', dataDirRoot + '/products');
-                fs.readdir(dataDirRoot + '/products/images',function(error, files){
+    fs.readdir(dataDirRoot, function (error, files) {
+        if (error) {
+            fs.mkdir(dataDirRoot, function (error) {
+                if (error) {
+                    console.log('Error when creating storage folder!', error);
+                    return;
+                }
+                fs.readdir(dataDirRoot + '/products', function(error, files){
                     if(error){
-                        console.log('Does not exist: ',dataDirRoot+ '/products/images');
-                        fs.mkdir(dataDirRoot + '/products/images',function(){
-                            console.log('Folder created', dataDirRoot + '/products/images');
+                        console.log('Does not exist: ', dataDirRoot+ '/products');
+
+                        fs.mkdir(dataDirRoot + '/products', function(error){
+                            if (error) {
+                                console.log('Error when creating products folder: ', error);
+                                return;
+                            }
+                            console.log('Folder created', dataDirRoot + '/products');
+
+                            fs.readdir(dataDirRoot + '/products/images', function(error, files){
+                                if(error){
+                                    console.log('Does not exist: ', dataDirRoot+ '/products/images');
+
+                                    fs.mkdir(dataDirRoot + '/products/images', function(error){
+                                        if (error) {
+                                            console.log('Error when creating images folder: ', error);
+                                            return;
+                                        }
+
+                                        console.log('Folder created', dataDirRoot + '/products/images');
+                                    });
+                                }
+                            })
                         });
                     }
-                })
+                });
             });
         }
     });
