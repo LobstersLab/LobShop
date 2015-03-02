@@ -43,7 +43,7 @@ module.exports = {
     rootPath: rootPath,
     port: port,
     ip: ip,
-    db: connection_string + '/' + dbName,
+    db: connection_string + dbName,
     storageDir: dataDirRoot,
     baseUrl : 'http://' + ip + ':' + port,
     session : {
