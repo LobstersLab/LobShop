@@ -43,7 +43,7 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = path.join(config.storageDir, path.basename(uuidFilename));
+                var saveToPath = path.join(config.storageDir + '/products/images', path.basename(uuidFilename));
 
                 var productImageData = {
                     title: filename,
@@ -59,11 +59,11 @@ module.exports = function (data) {
                 file.pipe(fileStream);
 
                 file.on('end', function() {
-                    var pathToNewImage = path.join(config.storageDir , 'thumb_' + path.basename(uuidFilename));
+                    var pathToNewImage = path.join(config.storageDir + '/products/images' , 'thumb_' + path.basename(uuidFilename));
                     gm(saveToPath)
                         .options({imageMagick: true})
                         // TODO: Choose the correct image
-                        .resize(50, 50, '%')
+                        .resize(30, 30, '%')
                         .write(pathToNewImage, function(error){
                             if (error) {
                                 return console.log('Image thumb cannot be created! ', arguments);
@@ -117,6 +117,19 @@ module.exports = function (data) {
                 };
                 productData.assets.push(productImageData);
                 file.pipe(fs.createWriteStream(saveToPath));
+
+                file.on('end', function() {
+                    var pathToNewImage = path.join(config.storageDir + '/products/images' , 'thumb_' + path.basename(uuidFilename));
+                    gm(saveToPath)
+                        .options({imageMagick: true})
+                        // TODO: Choose the correct image
+                        .resize(30, 30, '%')
+                        .write(pathToNewImage, function(error){
+                            if (error) {
+                                return console.log('Image thumb cannot be created! ', arguments);
+                            }
+                        })
+                });
             });
 
             busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
