@@ -84,6 +84,7 @@ module.exports = function (data) {
             });
 
             busboy.on('finish', function() {
+                console.log('finish busboy create');
                 data.products.create(productData)
                     .then(function (createdProduct) {
                         res.json({
@@ -91,9 +92,9 @@ module.exports = function (data) {
                             product: createdProduct
                         });
                     }, function (error) {
-                        res.render('error', {
-                            message: 'Cannot create product!',
-                            error: error
+                        res.json({
+                            message: 'New product saved successfully!',
+                            success: createdProduct
                         });
                     });
             });
