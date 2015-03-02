@@ -205,4 +205,15 @@ filter {
   height: 6.25em;
   display: inline-block; }
 
+.highlighted {
+  color: #d6cd9b !important;
+  position: absolute;
+  top: -5px;
+  transform: rotate(45deg);
+  right: -5px; }
+
+.in-shopping-cart-message {
+  color: #fff;
+  text-transform: uppercase; }
+
 /*# sourceMappingURL=catalog.css.map */

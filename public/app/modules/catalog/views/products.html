@@ -17,7 +17,7 @@
                     <section class="card-border" ng-mouseover="catalogCtrl.hoverProduct(product)"
                              ng-mouseleave="catalogCtrl.unhoverProduct(product)">
 
-                        <div class="product-overlay text-center" ng-show="product.hover">
+                        <div class="product-overlay text-center" ng-show="product.hover && !product.inShoppingCart">
                             <div class="ornament-top-left"></div>
                             <div class="ornament-top-right"></div>
                             <div class="ornament-bottom-left"></div>
@@ -31,6 +31,19 @@
                             </a>
                         </div>
                         <!--/.product-overlay-->
+
+                        <div class="product-overlay text-center" ng-show="product.inShoppingCart">
+                            <span class="in-shopping-cart-message">In Bag</span>
+                            <hr/>
+                            <a class="" ng-click="catalogCtrl.openProductDetails(product)">
+                                <figure class="product-icons product-details-icon"></figure>
+                            </a>
+                        </div>
+
+                        <div ng-show="!!product.highlight && (!product.hover ||  product.inShoppingCart)">
+                            <a class="btn menu-icons highlight-icon highlighted"></a>
+                        </div>
+
                         <header>
                             <span></span>
                         <span class="card-label label-purple">

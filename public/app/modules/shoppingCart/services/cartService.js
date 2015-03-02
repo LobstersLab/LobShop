@@ -38,6 +38,26 @@ angular.module('shoppingCart')
                 return total;
             }
 
+            function isInShoppingCart (item) {
+                var isInCart = false;
+                var itemToSearch = {
+                    id: item._id,
+                    item: item
+                };
+
+                var i = 0;
+                while (i < self.cartItems.length) {
+                    if (self.cartItems[i].id === item._id) {
+                        isInCart = true;
+                        break;
+                    }
+
+                    i++;
+                }
+
+                return isInCart;
+            }
+
             function insertItem (item) {
                 if (item) {
                     var existingItem = self.cartItems.filter(function (i) { return i.id === item._id})[0];
@@ -147,6 +167,7 @@ angular.module('shoppingCart')
                 getItems: getItems,
                 getCount: getCount,
                 getTotal: getTotal,
+                isInShoppingCart: isInShoppingCart,
                 insertItem: insertItem,
                 removeItem: removeItem,
                 checkoutOrder : checkoutOrder
