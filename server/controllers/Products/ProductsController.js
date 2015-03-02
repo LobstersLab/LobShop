@@ -48,7 +48,7 @@ module.exports = function (data) {
                 var productImageData = {
                     title: filename,
                     src: config.storageDir + '/products/images/' + uuidFilename,
-                    thumbSrc: config.storageDir + 'storage/products/images/thumb_' + uuidFilename
+                    thumbSrc: config.storageDir + '/products/images/thumb_' + uuidFilename
                     // TODO: get width and height and assign them here
                 };
 
