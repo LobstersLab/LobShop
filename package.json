@@ -4,10 +4,10 @@
   "repository": "https://github.com/LobstersLab/LobShop",
   "version": "0.0.1",
   "scripts": {
-    "start": "supervisor app.js",
+    "start": "supervisor server.js",
 	"postinstall": "export HOME=/var/lib/openshift/54f373bb5973caccb40001c5/app-root/runtime/repo; ./node_modules/bower/bin/bower install --config.interactive=false"
   },
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.0.2",
