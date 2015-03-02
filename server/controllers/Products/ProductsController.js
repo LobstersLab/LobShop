@@ -1,7 +1,7 @@
 ﻿var Busboy = require('busboy'),
     path = require('path'),
     fs = require('fs'),
-    //gm = require('gm'),
+    gm = require('gm'),
     uuid = require('node-uuid'),
     config = require('../../../config/config');
 
