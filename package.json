@@ -1,12 +1,12 @@
 {
-  "name": "LobShop",
+  "name": "shop",
   "author": "Lobsters Lab",
   "repository": "https://github.com/LobstersLab/LobShop",
   "version": "0.0.1",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-	"postinstall": "test=HOME; export HOME=$HOME/app-root/runtime/repo; ./node_modules/bower/bin/bower install --config.interactive=false; HOME=test;"
+	"postinstall": "export HOME=$HOME/app-root/runtime/repo; ./node_modules/bower/bin/bower install --config.interactive=false;"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
