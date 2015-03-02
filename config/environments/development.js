@@ -22,27 +22,19 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
 }
 
 (function initStorageFolderStructure() {
-    fs.readdir(dataDirRoot, function (error, files) {
+    fs.readdir(dataDirRoot + '/products',function(error, files){
         if(error){
-            console.log('Does not exist: ', dataDirRoot);
-            fs.mkdir(dataDirRoot, function (error, files) {
-                console.log('Folder created', dataDirRoot);
-                fs.readdir(dataDirRoot + '/products',function(error, files){
+            console.log('Does not exist: ',dataDirRoot+ '/products');
+            fs.mkdir(dataDirRoot + '/products',function(){
+                console.log('Folder created', dataDirRoot + '/products');
+                fs.readdir(dataDirRoot + '/products/images',function(error, files){
                     if(error){
-                        console.log('Does not exist: ',dataDirRoot+ '/products');
-                        fs.mkdir(dataDirRoot + '/products',function(){
-                            console.log('Folder created', dataDirRoot + '/products');
-                            fs.readdir(dataDirRoot + '/products/images',function(error, files){
-                                if(error){
-                                    console.log('Does not exist: ',dataDirRoot+ '/products/images');
-                                    fs.mkdir(dataDirRoot + '/products/images',function(){
-                                        console.log('Folder created', dataDirRoot + '/products/images');
-                                    });
-                                }
-                            })
+                        console.log('Does not exist: ',dataDirRoot+ '/products/images');
+                        fs.mkdir(dataDirRoot + '/products/images',function(){
+                            console.log('Folder created', dataDirRoot + '/products/images');
                         });
                     }
-                });
+                })
             });
         }
     });
