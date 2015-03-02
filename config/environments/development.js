@@ -1,8 +1,12 @@
-﻿var path = require('path');
+﻿var path = require('path'),
+    fs = require('fs'),
+    q = require('q');
+
 var rootPath = path.normalize(__dirname + '/../../');
 
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3310;
+var dataDirRoot =  process.env.OPENSHIFT_DATA_DIR || './public/storage'
 var connection_string = '';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
@@ -13,11 +17,39 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
   process.env.OPENSHIFT_APP_NAME;
 }
 
+(function initStorageFolderStructure() {
+    fs.readdir(dataDirRoot, function (error, files) {
+        if(error){
+            console.log('Does not exist: ', dataDirRoot);
+            fs.mkdir(dataDirRoot, function (error, files) {
+                console.log('Folder created', dataDirRoot);
+                fs.readdir(dataDirRoot + '/products',function(error, files){
+                    if(error){
+                        console.log('Does not exist: ',dataDirRoot+ '/products');
+                        fs.mkdir(dataDirRoot + '/products',function(){
+                            console.log('Folder created', dataDirRoot + '/products');
+                            fs.readdir(dataDirRoot + '/products/images',function(error, files){
+                                if(error){
+                                    console.log('Does not exist: ',dataDirRoot+ '/products/images');
+                                    fs.mkdir(dataDirRoot + '/products/images',function(){
+                                        console.log('Folder created', dataDirRoot + '/products/images');
+                                    });
+                                }
+                            })
+                        });
+                    }
+                });
+            });
+        }
+    });
+})();
+
 module.exports = {
     rootPath: rootPath,
     port: port,
     ip: ip,
-    db: connection_string,
+    db: connection_string || 'mongodb://127.0.0.1:27017/LobShop',
+    storageDir: dataDirRoot,
     baseUrl : 'http://' + ip + ':' + port,
     session : {
         secret: 'chuck_noris',

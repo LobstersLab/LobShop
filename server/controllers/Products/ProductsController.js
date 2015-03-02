@@ -2,7 +2,8 @@
     path = require('path'),
     fs = require('fs'),
     gm = require('gm'),
-    uuid = require('node-uuid');
+    uuid = require('node-uuid'),
+    config = require('../../../config/config');
 
 module.exports = function (data) {
     return {
@@ -42,12 +43,12 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = path.join(path.normalize(__dirname  + '/../../../public/storage/products/images/'), path.basename(uuidFilename));
+                var saveToPath = path.join(path.normalize(config.storageDir  + '/products/images/'), path.basename(uuidFilename));
 
                 var productImageData = {
                     title: filename,
-                    src: 'storage/products/images/' + uuidFilename,
-                    thumbSrc: 'storage/products/images/thumb_' + uuidFilename
+                    src: config.storageDir + '/products/images/' + uuidFilename,
+                    thumbSrc: config.storageDir + 'storage/products/images/thumb_' + uuidFilename
                     // TODO: get width and height and assign them here
                 };
 
@@ -58,7 +59,7 @@ module.exports = function (data) {
                 file.pipe(fileStream);
 
                 file.on('end', function() {
-                    var pathToNewImage = (path.normalize(__dirname  + '/../../../public/storage/products/images/') + 'thumb_' + uuidFilename );
+                    var pathToNewImage = (path.normalize(config.storageDir  + '/products/images/') + 'thumb_' + uuidFilename );
 
                     gm(saveToPath)
                         .options({imageMagick: true})

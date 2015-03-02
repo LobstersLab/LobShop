@@ -1,1 +1,0 @@
-# All the front end logic goes here
