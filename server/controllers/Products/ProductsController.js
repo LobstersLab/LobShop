@@ -43,7 +43,7 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = config.storageDir + 'products/images';
+                var saveToPath = config.storageDir + 'products/images/';
                 var saveToImageName = path.basename(uuidFilename);
                 var fullSaveToPath = path.join(saveToPath, saveToImageName);
 
@@ -111,7 +111,7 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = config.storageDir + 'products/images';
+                var saveToPath = config.storageDir + 'products/images/';
                 var saveToImageName = path.basename(uuidFilename);
                 var fullSaveToPath = path.join(saveToPath, saveToImageName);
 
