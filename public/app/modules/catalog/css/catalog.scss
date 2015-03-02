@@ -309,3 +309,16 @@ filter {
   height: 6.25em;
   display: inline-block;
 }
+
+.highlighted {
+  color: rgb(214, 205, 155) !important;
+  position: absolute;
+  top: -5px;
+  transform: rotate(45deg);
+  right: -5px;
+}
+
+.in-shopping-cart-message {
+  color: #fff;
+  text-transform: uppercase;
+}
