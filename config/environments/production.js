@@ -1,5 +1,6 @@
 ﻿var path = require('path');
 var rootPath = path.normalize(__dirname + '/../../');
+var fs = require('fs');
 
 var ip = process.env.OPENSHIFT_NODEJS_IP;
 var port = process.env.OPENSHIFT_NODEJS_PORT;
