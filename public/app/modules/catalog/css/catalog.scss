@@ -11,6 +11,8 @@ filter {
   margin: 0;
   padding: 0;
   background-color: #45474b;
+  font-family: "Rockwell Regular";
+  letter-spacing: 0.075em;
   z-index: 1000;
   -webkit-box-shadow: 0px 0px 50px rgb(32, 35, 41);
   -moz-box-shadow: 0px 0px 50px rgb(32, 35, 41);
@@ -58,27 +60,30 @@ filter {
   .category {
     text-transform: uppercase;
     color: #d6cd9b;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-family: "Rockwell";
     cursor: pointer;
 
     &.category-advanced {
-      font-size: 18px;
+      font-size: 1.8rem;
     }
   }
 
   .categoty-container {
-    margin-bottom: 5em;
+    margin-bottom: 8vh;
     color: #fff;
   }
   .push-down{
-    margin-bottom: 1em;
+    margin-bottom: 1vh;
   }
 
   /** Labels **/
 
   label{
-    margin: 0 0 0 10px;
+    font-family: "Rockwell Light";
+    font-weight: 100;
+    font-size: 1.6rem;
+    margin: 0 0 -4px 10px;
     vertical-align: text-bottom;
   }
 
@@ -113,8 +118,7 @@ filter {
 
 .catalog-header {
   z-index: 400;
-  height: 46px;
-  padding: .5em;
+  height:50px;
   background-color: #373a3d;
   text-transform: uppercase;
 
@@ -140,7 +144,7 @@ filter {
   .catalog-header-icons{
     font-family: LobShopIcons;
     color: #f9f6e6;
-    font-size: 20px;
+    font-size: 2.1rem;
   }
   .filter-icon{
     &:before{
@@ -164,8 +168,10 @@ filter {
  *********************************/
 
   .btn {
+    margin: 4px;
+    letter-spacing: 0.2em;
+    font-size: 1.8rem;
     color: #d6cd9b;
-    vertical-align: top;
   }
 
   /*********************************
@@ -225,70 +231,67 @@ filter {
   }
   .product-icons{
     font-family: LobShopIcons;
-    font-size: 96px;
+    font-size: 9.6rem;
   }
 
 
   $ornament-icon:"\e609";
-  $ornament-icon-size:150px;
 
   .ornament-top-left{
-     position: relative;
+    position:absolute;
+    top: -8.5px;
+    left: 6.5px;
+
    }
   .ornament-top-left:before{
-    position:absolute;
+
     font-family: LobShopIcons;
-    font-size: $ornament-icon-size;
-    top: $ornament-icon-size * 0.35;
-    left:$ornament-icon-size * 0.05;
+    font-size: 4rem;
     content:  $ornament-icon;
-    //transform: rotate(35deg);
     color: #d6cd9b;
   }
 
   .ornament-top-right{
-    position: relative;
+    position:absolute;
+    top: -8.5px;
+    left: 37rem;
+    transform: rotate(90deg);
   }
   .ornament-top-right:before{
-    position:absolute;
     font-family: LobShopIcons;
-    font-size: $ornament-icon-size;
-    top: -75px;
-    left: 230px;
+    font-size: 4rem;
     content:  $ornament-icon;
-    transform: rotate(135deg);
    // -ms-transform: rotate(7deg); /* IE 9 */
    // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
     color: #d6cd9b;
   }
 
   .ornament-bottom-left{
-    position: relative;
+    position:absolute;
+    top: 35rem;
+    left: 6.5px;
+    transform: rotate(-90deg);
   }
   .ornament-bottom-left:before{
-    position:absolute;
     font-family: LobShopIcons;
-    font-size: $ornament-icon-size;
-    top: 268px;
-    left: -83px;
+    font-size: 4rem;
     content:  $ornament-icon;
-    transform: rotate(-35deg);
     //-ms-transform: rotate(7deg); /* IE 9 */
    // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
     color: #d6cd9b;
   }
 
   .ornament-bottom-right{
-    position: relative;
+    position: absolute;
+    transform: rotate(-180deg);
+    top: 35rem;
+    left: 37.5rem;
   }
   .ornament-bottom-right:before{
-    position:absolute;
+
     font-family: LobShopIcons;
-    font-size: $ornament-icon-size;
-    top: 268px;
-    left: 232px;
+    font-size: 4rem;
     content:  $ornament-icon;
-    transform: rotate(-135deg);
    // -ms-transform: rotate(7deg); /* IE 9 */
    // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
     color: #d6cd9b;
@@ -303,6 +306,6 @@ filter {
 }
 
 .catalog-image {
-  height: 80px;
+  height: 6.25em;
   display: inline-block;
 }

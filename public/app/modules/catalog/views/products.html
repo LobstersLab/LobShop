@@ -22,7 +22,7 @@
                             <div class="ornament-top-right"></div>
                             <div class="ornament-bottom-left"></div>
                             <div class="ornament-bottom-right"></div>
-                            <a class="" ng-click="catalogCtrl.cart.insertItem(product)">
+                            <a ng-click="catalogCtrl.cart.insertItem(product)">
                                 <figure class="product-icons shoppig-bag"></figure>
                             </a>
                             <hr/>
@@ -36,30 +36,30 @@
                         <span class="card-label label-purple">
                             Lot:
                         </span>
-                        <span>
+                        <span class="digits-transform">
                             {{ product.lot }}
                         </span>
                         <span class="pull-right">
                             <span class="card-label label-purple">
                                 Price:
                             </span>
-                            <span>
+                            <span class="digits-transform">
                                 {{ product.price.value }}
                             </span>
                         </span><!--/.pull-right-->
                         </header>
                         <!--/header-->
                         <figure>
-                            <img class="img-responsive catalog-image" ng-src="{{product.images[0].thumbSrc}}" alt=""/>
-                            <img class="img-responsive catalog-image" ng-src="{{product.images[1].thumbSrc}}" alt=""/>
+                            <img class="img-responsive pull-left catalog-image" ng-src="{{product.images[0].thumbSrc}}" alt=""/>
+                            <img class="img-responsive pull-right catalog-image" ng-src="{{product.images[1].thumbSrc}}" alt=""/>
                         </figure>
                         <div>
                             <p>
                                 <span class="card-label label-purple">Title:</span>
-                                <strong>{{ product.name }}</strong>
+                                <strong >{{ product.name }}</strong>
                             </p>
 
-                            <p>
+                            <p class="coin-description">
                                 {{ product.description[0].value | limitTo : 70}}...
                             </p>
                         </div>
@@ -67,7 +67,7 @@
                         <div>
                             <p>
                                 <span class="card-label label-purple">Years:</span>
-                                {{ product.years }}
+                                <span class="digits-transform">{{ product.years }}</span>
                             </p>
                         </div>
                         <!--/.div-->
