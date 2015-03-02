@@ -49,8 +49,8 @@ module.exports = function (data) {
 
                 var productImageData = {
                     title: filename,
-                    src: fullSaveToPath,
-                    thumbSrc: saveToPath + 'thumb_' + saveToImageName
+                    src: 'products/images/' + saveToImageName,
+                    thumbSrc: 'products/images/' + 'thumb_' + saveToImageName
                     // TODO: get width and height and assign them here
                 };
 
@@ -117,8 +117,8 @@ module.exports = function (data) {
 
                 var productImageData = {
                     title: filename,
-                    src: fullSaveToPath,
-                    thumbSrc: saveToPath + 'thumb_' + saveToImageName
+                    src: 'products/images/' + saveToImageName,
+                    thumbSrc: 'products/images/' + 'thumb_' + saveToImageName
                     // TODO: get width and height and assign them here
                 };
 
