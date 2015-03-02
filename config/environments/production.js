@@ -1,14 +1,18 @@
-﻿var path = require('path'),
-    fs = require('fs'),
-    q = require('q');
-
+﻿var path = require('path');
 var rootPath = path.normalize(__dirname + '/../../');
 
+var ip = process.env.OPENSHIFT_NODEJS_IP;
+var port = process.env.OPENSHIFT_NODEJS_PORT;
+var dataDirRoot =  process.env.OPENSHIFT_DATA_DIR;
+var connection_string = '';
 
-var ip = '127.0.0.1';
-var port = 3310;
-var connection_string = 'mongodb://127.0.0.1:27017/LobShop';
-var dataDirRoot = rootPath + 'public/storage/';
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+    connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+    process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+    process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+    process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+    process.env.OPENSHIFT_APP_NAME;
+}
 
 (function initStorageFolderStructure() {
     fs.readdir(dataDirRoot + '/products',function(error, files){
@@ -34,8 +38,8 @@ module.exports = {
     port: port,
     ip: ip,
     db: connection_string,
-    storageDir: dataDirRoot,
     baseUrl : 'http://' + ip + ':' + port,
+    storageDir: dataDirRoot,
     session : {
         secret: 'chuck_noris',
         resave: true,

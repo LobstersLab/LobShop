@@ -1,6 +1,6 @@
 <div class="filter-box no-select" ng-cloak>
     <div class="category push-down" ng-click="filterCtrl.showPrice = !filterCtrl.showPrice">
-        <span class="expanded-arrow"></span>
+        <span ng-class="{'collapse-arrow': filterCtrl.showPrice, 'expanded-arrow': !filterCtrl.showPrice}"></span>
         price
     </div>
     <div class="categoty-container" ng-show="filterCtrl.showPrice">
@@ -16,7 +16,7 @@
         </div>
         <div class="category category-advanced push-down col-xs-offset-3"
              ng-click="filterCtrl.showPriceAdvanced = !filterCtrl.showPriceAdvanced">
-            <span class="collapse-arrow"></span>
+            <span ng-class="{'collapse-arrow': filterCtrl.showPriceAdvanced, 'expanded-arrow': !filterCtrl.showPriceAdvanced}"></span>
             advanced
         </div>
         <div ng-show="filterCtrl.showPriceAdvanced">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="category push-down" ng-click="filterCtrl.showYear = !filterCtrl.showYear">
-        <span class="expanded-arrow"></span>year
+        <span ng-class="{'collapse-arrow': filterCtrl.showYear, 'expanded-arrow': !filterCtrl.showYear}"></span>year
     </div>
     <div class="categoty-container" ng-show="filterCtrl.showYear">
         <div class="row push-down clearfix">
@@ -46,7 +46,7 @@
         </div>
         <div class="category category-advanced push-down col-xs-offset-3"
              ng-click="filterCtrl.showYearAdvanced = !filterCtrl.showYearAdvanced">
-            <span class="collapse-arrow"></span>advanced
+            <span ng-class="{'collapse-arrow': filterCtrl.showYearAdvanced, 'expanded-arrow': !filterCtrl.showYearAdvanced}"></span>advanced
         </div>
         <div class="push-down " ng-show="filterCtrl.showYearAdvanced">
             <div class="row col-xs-offset-7">
@@ -64,13 +64,13 @@
                     rz-slider-ceil="filterCtrl.yearsRange.ceil"
                     rz-slider-model="filterCtrl.yearsRange.min"
                     rz-slider-high="filterCtrl.yearsRange.max"
-                    rz-slider-step="{{filterCtrl.step}}">
+                    rz-slider-step="{{filterCtrl.yearsRange.step}}">
 
             </rzslider>
         </div>
     </div>
     <div class="category push-down" ng-click="filterCtrl.showAge = !filterCtrl.showAge">
-        <span class="expanded-arrow"></span>age
+        <span ng-class="{'collapse-arrow': filterCtrl.showAge, 'expanded-arrow': !filterCtrl.showAge}"></span>age
     </div>
 
     <div class="categoty-container" ng-show="filterCtrl.showAge">
@@ -81,7 +81,7 @@
         </select>
     </div>
     <div class="category push-down" ng-click="filterCtrl.showLot = !filterCtrl.showLot">
-        <span class="expanded-arrow"></span>lot
+        <span ng-class="{'collapse-arrow': filterCtrl.showLot, 'expanded-arrow': !filterCtrl.showLot}"></span>lot
     </div>
     <div class="categoty-container clearfix" ng-show="filterCtrl.showLot">
         <div class="row push-down">

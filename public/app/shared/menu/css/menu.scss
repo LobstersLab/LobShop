@@ -35,8 +35,8 @@ menu {
 *************************************/
 
 .menu-header {
-  margin-bottom: 6em;
-  padding: 1.1em 1em;
+  margin-bottom: 6vh;
+  padding: 1.1rem 1rem;
   background-color: #373a3d;
   color: #fbf8e8;
 }
@@ -70,11 +70,14 @@ menu {
 
 .menu-navigation li a {
   width: 100%;
-  margin-bottom: 42px;
+  margin-bottom: 4vh;
   text-decoration: none;
   text-transform: uppercase;
   color: #373a3d;
   transition: all .2s ease-in;
+  font-family: "Bembo Regular";
+  letter-spacing: .3em;
+  font-size: 1.6rem;
 }
 
 .menu-navigation li .btn:hover {
@@ -118,8 +121,12 @@ menu {
 /**  name **/
 
 .profile-name {
-  margin: 0 0 0 5.5em;
+  margin: 0 0 0 6.4em;
   color: #d6cd9b;
+  font-family: "Rockwell Light";
+  font-weight: 100;
+  letter-spacing: .075em;
+  font-size: 1.6rem;
 }
 
 .profile-icons-holder {
@@ -143,11 +150,11 @@ menu {
 }
 .menu-header-icons{
   &:before{
-    margin-left: 5px;
+    margin-left: .3em;
 
     color: #b3b3b3;
 
-    font-size: 1.5em;
+    font-size: 2rem;
 
     transition: all .2s ease-in;
   }
@@ -172,12 +179,12 @@ menu {
 }
 .log-in,.log-out{
   &:before{
-    font-size: 1.3125em;
+    font-size: 1.8rem;
   }
 }
 .log-out{
   &:before{
-    margin-left: -10px;
+    margin-left: -.2em;
 
     content: "\e606";
   }
@@ -189,39 +196,28 @@ menu {
 }
 
 .menu-icons{
-  height: 4.6875em;
-  margin-top: -1em;
   &:before{
-    font-size: 4.5em;
+    font-size: 3rem;
   }
 }
 .catalog{
   &:before{
-    font-size: 4.5em;
     content: "\e602";
   }
 }
 .highlight-icon{
-  height: 3.75em;
-  margin: 0;
   &:before{
     content: "\e604";
-    font-size: 2.25em;
   }
 }
 
 .terms{
-  margin: 0;
   &:before{
-    font-size: 3em;
     content: "\e616";
   }
 }
 .contacts{
-  margin: 0;
-  height: 3.75em;
   &:before{
-    font-size: 2.25em;
     content: "\e60d";
   }
 }
