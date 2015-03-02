@@ -43,12 +43,12 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = path.join(config.storageDir  + '/products/images/', path.basename(uuidFilename));
+                var saveToPath = path.join(config.storageDir, path.basename(uuidFilename));
 
                 var productImageData = {
                     title: filename,
-                    src: config.storageDir + '/products/images/' + uuidFilename,
-                    thumbSrc: config.storageDir + '/products/images/thumb_' + uuidFilename
+                    src: config.storageDir + uuidFilename,
+                    thumbSrc: config.storageDir + uuidFilename
                     // TODO: get width and height and assign them here
                 };
 
