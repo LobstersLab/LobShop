@@ -59,8 +59,7 @@ module.exports = function (data) {
                 file.pipe(fileStream);
 
                 file.on('end', function() {
-                    var pathToNewImage = (path.normalize(config.storageDir  + '/products/images/') + 'thumb_' + uuidFilename );
-
+                    var pathToNewImage = path.join(path.normalize(config.storageDir  + '/products/images/'), 'thumb_' + path.basename(uuidFilename));
                     gm(saveToPath)
                         .options({imageMagick: true})
                         // TODO: Choose the correct image
