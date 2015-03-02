@@ -2,34 +2,36 @@
   font-family: 'Bembo Regular';
   src: url('../fonts/Bembo/Bembo-Std_6601.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Bembo Bold';
   src: url('../fonts/Bembo/Bembo-Std-Bold_6595.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Bembo italic';
   src: url('../fonts/Bembo/Bembo-Std-Italic_6598.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Bembo small';
   src: url('../fonts/Bembo/bembo-1361531548.ttf') format('truetype');
 }
 
-
 @font-face {
   font-family: 'Rockwell Regular';
   src: url('../fonts/Rockwell/Rockwell-Std.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Rockwell Bold';
   src: url('../fonts/Rockwell/Rockwell-Std-Bold_38427.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Rockwell Light';
   src: url('../fonts/Rockwell/Rockwell-Std-Light.ttf') format('truetype');
 }
-
-
 
 @font-face {
   font-family: 'CinzelDecorative';
@@ -56,13 +58,12 @@ body {
   font-family: "Bembo Regular", serif;
   font-style: normal;
   font-size: 1.8rem;
-  line-height:1.85;
-}
-h1{
-
+  line-height: 1.85;
 }
 
+h1 {
 
+}
 
 @-ms-viewport {
   width: device-width;
@@ -143,6 +144,7 @@ h1{
 .material-input:focus {
   outline: none;
 }
+
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fbf8e8 inset;
 }
@@ -366,7 +368,10 @@ input[type="radio"] {
 
 }
 
-
+.digits-transform {
+  font-family: "CinzelDecorative";
+  font-variant: small-caps;
+}
 
 /***************************************
                NO SELECT
@@ -387,16 +392,28 @@ input[type="radio"] {
     width: 1378px;
   }
 }
-@media (min-width: 992px){
+
+@media (min-width: 992px) {
 
 }
+
 @media screen and (max-width: 767px) {
-  .catalog-header{
-    a.btn span:not(.catalog-header-icons){
+  .catalog-header {
+    a.btn span:not(.catalog-header-icons) {
       display: none;
     }
-    input[placeholder="Search..."]{
+    input[placeholder="Search..."] {
       display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .product {
+    .related-products {
+      .related-category-image {
+        margin: 0 0;
+      }
     }
   }
 }

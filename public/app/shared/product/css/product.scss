@@ -26,8 +26,8 @@
 .card-label ~ strong{
   font-family: "Bembo Bold";
 }
-.coin-description{
-
+.coin-title{
+  font-family: "Bembo Bold";
 }
 /*********************************
             PRODUCT
@@ -36,24 +36,70 @@
   margin: 0 auto;
 }
 .product{
+
   .product-category{
-    margin: 3em 0 0 5em;
+
+    margin: 5em 0 0 5em;
+
   }
-  .col-md-9{
-    padding: 6em 0 0 8em;
-    .row, .text-center, h3{
+  .col-md-9, .col-md-8{
+    padding: 0 5%;
+    .row, .text-center{
       margin-bottom: 4em;
     }
-    .img-responsive{
-      width: 100%;
+    .product-hover{
+      margin: 0 5% 4em 5%;
+      .img-responsive{
+        width: 35%;
+
+      }
     }
   }
+
   .col-md-6{
     padding: 0
   }
   .col-md-3{
-    padding: 0em 2em 0 4em;
-    border-left: 1px solid black;
+    border-left: 1px solid rgba(179,179,179, .3);
+  }
+
+  .related-products {
+    margin: 0 5%;
+    h4{
+      font-size: 2rem;
+      margin-bottom: 4em;
+    }
+    .card-border{
+      padding: 2em;
+      header, figure {
+        margin-bottom: 1em;
+      }
+    }
+    .card-label{
+      font-size: 1.8rem;
+      ~strong{
+        font-size: 1.4rem;
+      }
+    }
+    .related-category-image{
+      height: 4.25em;
+//      margin: 0 5%;
+    }
+  .related-product-price{}
+    font-size: 1.8rem;
+  }
+  h3{
+    font-size: 3rem;
+    letter-spacing: .075em;
+    font-family: "Rockwell Regular";
+    margin-top: 0;
+  }
+  .product-details{
+    font-size: 2.4rem;
+    font-family: "Bembo italic";
+    letter-spacing: .075em;
+    line-height: 1.8;
+    margin-bottom: 4em;
   }
 }
 .product-overlay {
@@ -68,7 +114,9 @@
   .btn{
     display: block;
   }
-
+  .product-icons{
+    margin: 0;
+  }
 }
 /** labels  **/
 .label-purple {
@@ -96,12 +144,91 @@
   }
 }
 
-.related-products {
-
+/*  Icons  */
+a{
+  text-decoration: none;
+  color: #fff;
+  &:hover{
+    text-decoration: none;
+    color: #d6cd9b;
+  }
+}
+.product-icons{
+  font-family: LobShopIcons;
+  font-size: 9.6rem;
 }
 
-.digits-transform{
-  font-family: "CinzelDecorative";
-  font-variant: small-caps;
 
+$ornament-icon:"\e609";
+
+.ornament-top-left{
+  position:absolute;
+  top: 0;
+  left: 15px;
+
+}
+.ornament-top-left:before{
+
+  font-family: LobShopIcons;
+  font-size: 4rem;
+  content:  $ornament-icon;
+  color: #d6cd9b;
+}
+
+.ornament-top-right{
+  position:absolute;
+  top: 0;
+  right: 15px;
+  transform: rotate(90deg);
+}
+.ornament-top-right:before{
+  font-family: LobShopIcons;
+  font-size: 4rem;
+  content:  $ornament-icon;
+  // -ms-transform: rotate(7deg); /* IE 9 */
+  // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+  color: #d6cd9b;
+}
+
+.ornament-bottom-left{
+  position:absolute;
+  bottom: 0;
+  left: 15px;
+  transform: rotate(-90deg);
+}
+.ornament-bottom-left:before{
+  font-family: LobShopIcons;
+  font-size: 4rem;
+  content:  $ornament-icon;
+  //-ms-transform: rotate(7deg); /* IE 9 */
+  // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+  color: #d6cd9b;
+}
+
+.ornament-bottom-right{
+  position: absolute;
+  transform: rotate(-180deg);
+  bottom: 0;
+  right: 15px;
+}
+.ornament-bottom-right:before{
+
+  font-family: LobShopIcons;
+  font-size: 4rem;
+  content:  $ornament-icon;
+  // -ms-transform: rotate(7deg); /* IE 9 */
+  // -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+  color: #d6cd9b;
+}
+
+.product-details-icon{
+  &:before{
+
+    content: "\e617";
+  }
+}
+.catalog-image {
+  height: 6.25em;
+  display: inline-block;
+  //  margin: 0 3%;
 }
