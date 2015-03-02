@@ -1,7 +1,7 @@
 var _ = require('lodash');
 var glob = require('glob');
 
-var environment = process.env.NODE_ENV || 'development';
+var environment = 'development';
 var config = _.extend(require('./environments/' + environment));
 
 var ASSETS = {
