@@ -43,24 +43,26 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = path.join(config.storageDir + '/products/images', path.basename(uuidFilename));
+                var saveToPath = config.storageDir + '/products/images';
+                var saveToImageName = path.basename(uuidFilename);
+                var fullSaveToPath = path.join(saveToPath, saveToImageName);
 
                 var productImageData = {
                     title: filename,
-                    src: config.storageDir + uuidFilename,
-                    thumbSrc: config.storageDir + uuidFilename
+                    src: fullSaveToPath,
+                    thumbSrc: saveToPath + 'thumb_' + saveToImageName
                     // TODO: get width and height and assign them here
                 };
 
-                var fileStream = fs.createWriteStream(saveToPath);
+                var fileStream = fs.createWriteStream(fullSaveToPath);
 
                 productData.assets.push(productImageData);
 
                 file.pipe(fileStream);
 
                 file.on('end', function() {
-                    var pathToNewImage = path.join(config.storageDir + '/products/images' , 'thumb_' + path.basename(uuidFilename));
-                    gm(saveToPath)
+                    var pathToNewImage = path.join(saveToPath , 'thumb_' + saveToImageName);
+                    gm(fullSaveToPath)
                         .options({imageMagick: true})
                         // TODO: Choose the correct image
                         .resize(30, 30, '%')
@@ -109,18 +111,24 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = path.join(path.normalize(__dirname  + '/../../../public/storage/products/images/'), path.basename(uuidFilename));
+                var saveToPath = config.storageDir + '/products/images';
+                var saveToImageName = path.basename(uuidFilename);
+                var fullSaveToPath = path.join(saveToPath, saveToImageName);
 
                 var productImageData = {
                     title: filename,
-                    src: 'storage/products/images/' + uuidFilename
+                    src: fullSaveToPath,
+                    thumbSrc: saveToPath + 'thumb_' + saveToImageName
+                    // TODO: get width and height and assign them here
                 };
+
                 productData.assets.push(productImageData);
-                file.pipe(fs.createWriteStream(saveToPath));
+
+                file.pipe(fs.createWriteStream(fullSaveToPath));
 
                 file.on('end', function() {
-                    var pathToNewImage = path.join(config.storageDir + '/products/images' , 'thumb_' + path.basename(uuidFilename));
-                    gm(saveToPath)
+                    var pathToNewImage = path.join(saveToPath , 'thumb_' + saveToImageName);
+                    gm(fullSaveToPath)
                         .options({imageMagick: true})
                         // TODO: Choose the correct image
                         .resize(30, 30, '%')
