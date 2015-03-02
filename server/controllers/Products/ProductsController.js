@@ -43,7 +43,7 @@ module.exports = function (data) {
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 
                 var uuidFilename = uuid() + filename;
-                var saveToPath = path.join(path.normalize(config.storageDir  + '/products/images/'), path.basename(uuidFilename));
+                var saveToPath = path.join(config.storageDir  + '/products/images/', path.basename(uuidFilename));
 
                 var productImageData = {
                     title: filename,
