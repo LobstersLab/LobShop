@@ -58,7 +58,7 @@
     font-family: LobShopIcons;
     content: "\e603";
     position: relative;
-    top: -2px;
+    bottom: 3px;
     color: #fff; }
 .status span.disabled {
   color: #b3b3b3;
@@ -71,6 +71,10 @@
   border: 1px solid #393b3e;
   border-radius: 50%;
   text-align: center; }
+
+.status-circle > span {
+  position: relative;
+  bottom: 3px; }
 
 .status-line {
   width: 1px;

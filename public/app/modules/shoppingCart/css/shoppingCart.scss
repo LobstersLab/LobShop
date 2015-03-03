@@ -91,7 +91,7 @@
         font-family: LobShopIcons;
         content: "\e603";
         position: relative;
-        top: -2px;
+        bottom:3px;
 
         color: #fff;
       }
@@ -113,6 +113,10 @@
   border-radius: 50%;
 
   text-align: center;
+}
+.status-circle > span{
+  position: relative;
+  bottom:3px;
 }
 
 .status-line {

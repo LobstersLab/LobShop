@@ -13,10 +13,6 @@
   src: url('../fonts/Bembo/Bembo-Std-Italic_6598.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: 'Bembo small';
-  src: url('../fonts/Bembo/bembo-1361531548.ttf') format('truetype');
-}
 
 @font-face {
   font-family: 'Rockwell Regular';
@@ -129,6 +125,7 @@ h1 {
   margin-right: auto;
   margin-bottom: 3.75em;
   margin-left: auto;
+  letter-spacing: 0.075em;
 }
 
 .material-input {
@@ -481,7 +478,7 @@ input[type="radio"] {
 
 }
 
-.btn-default, .btn-sinfo {
+.btn-default, .btn-info {
   &:after, &:before {
     font-size: 1.4rem;
   }
@@ -489,7 +486,14 @@ input[type="radio"] {
 
 .btn-default {
   border-color: #818181;
+  color: #818181;
+
+  &:hover, &:active, &:focus{
+    border-color: #818181;
+    background-color: #818181;
+    color: #fff;
   }
+
   &:before {
     margin-left: 0;
     margin-right: 10px;
@@ -503,7 +507,6 @@ input[type="radio"] {
   border-color: #aad6d0;
   color: #fff;
   background-color: #aad6d0;
-  outline-color: #aad6d0;
 }
 
 .btn-success {
@@ -512,6 +515,7 @@ input[type="radio"] {
   color: #aad6d0;
 
   &:hover, &:active, &:focus {
+    border-color: #aad6d0;
     background-color: #aad6d0;
     color: #fffff7;
   }
@@ -525,7 +529,7 @@ input[type="radio"] {
     content: "\e60e";
   }
 
-  &:hover, &:active {
+  &:hover, &:active, &:focus {
     background-color: #818181;
     color: #fffff7;
   }
@@ -548,6 +552,7 @@ input[type="radio"] {
 
   &:hover, &:active, &:focus {
     background-color: #d6cd9b;
+    border-color: #d6cd9b;
     color: #393b3e;
   }
 }
@@ -558,6 +563,7 @@ input[type="radio"] {
 
   &:hover, &:active, &:focus {
     background-color: #393b3e;
+    border-color: #393b3e;
     color: #d6cd9b;
   }
 }
@@ -592,6 +598,7 @@ fieldset[disabled] .btn-primary.active {
 
   &:hover, &:active, &:focus {
     background-color: #638ba7;
+    border-color: #638ba7;
     color: #fff;
   }
 }
@@ -604,8 +611,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-info:focus,
 .btn-info.focus,
 .btn-info:active,
-.btn-info.active,
-.open > .dropdown-toggle.btn-info{
+.btn-info.active{
   border-color: #6b939d;
   color: #fff;
 }
@@ -619,6 +625,7 @@ fieldset[disabled] .btn-primary.active {
 
   &:hover, &:active, &:focus {
     background-color: #6b939d;
+    border-color: #6b939d;
     color: #fff;
   }
 
@@ -650,7 +657,7 @@ fieldset[disabled] .btn-info.active {
   color: #393b3e;
 
   &:hover, &:active, &:focus {
-    background-color: #lightcoral;
+    background-color: lightcoral;
     color: #fff;
   }
 }

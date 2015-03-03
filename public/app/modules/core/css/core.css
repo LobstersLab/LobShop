@@ -16,4 +16,11 @@
 .success-message {
   color: #6b939d; }
 
+.terms-hold {
+  margin-bottom: 2em;
+  margin-top: 4em;
+  padding: 0 10em; }
+  .terms-hold h1 {
+    margin-bottom: 50px; }
+
 /*# sourceMappingURL=core.css.map */

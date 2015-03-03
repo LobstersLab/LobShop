@@ -8,9 +8,6 @@
   font-family: 'Bembo italic';
   src: url("../fonts/Bembo/Bembo-Std-Italic_6598.ttf") format("truetype"); }
 @font-face {
-  font-family: 'Bembo small';
-  src: url("../fonts/Bembo/bembo-1361531548.ttf") format("truetype"); }
-@font-face {
   font-family: 'Rockwell Regular';
   src: url("../fonts/Rockwell/Rockwell-Std.ttf") format("truetype"); }
 @font-face {
@@ -86,7 +83,8 @@ body {
   width: 70%;
   margin-right: auto;
   margin-bottom: 3.75em;
-  margin-left: auto; }
+  margin-left: auto;
+  letter-spacing: 0.075em; }
 
 .material-input {
   display: block;
@@ -338,15 +336,16 @@ input[type="radio"] {
     margin-left: 10px;
     font-family: LobShopIcons; }
 
-.btn-default:after, .btn-default:before, .btn-sinfo:after, .btn-sinfo:before {
+.btn-default:after, .btn-default:before, .btn-info:after, .btn-info:before {
   font-size: 1.4rem; }
 
 .btn-default {
   border-color: #818181;
   color: #818181; }
   .btn-default:hover, .btn-default:active, .btn-default:focus {
+    border-color: #818181;
     background-color: #818181;
-    color: #fffff7; }
+    color: #fff; }
   .btn-default:before {
     margin-left: 0;
     margin-right: 10px;
@@ -357,14 +356,14 @@ input[type="radio"] {
 .btn-success.disabled, .btn-success[disabled], fieldset[disabled] .btn-success, .btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover, .btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus, .btn-success.disabled.focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success.focus, .btn-success.disabled:active, .btn-success[disabled]:active, fieldset[disabled] .btn-success:active, .btn-success.disabled.active, .btn-success[disabled].active, fieldset[disabled] .btn-success.active {
   border-color: #aad6d0;
   color: #fff;
-  background-color: #aad6d0;
-  outline-color: #aad6d0; }
+  background-color: #aad6d0; }
 
 .btn-success {
   outline-color: #aad6d0;
   border-color: #aad6d0;
   color: #aad6d0; }
   .btn-success:hover, .btn-success:active, .btn-success:focus {
+    border-color: #aad6d0;
     background-color: #aad6d0;
     color: #fffff7; }
 
@@ -373,7 +372,7 @@ input[type="radio"] {
   color: #818181; }
   .btn-info-disable:after {
     content: "\e60e"; }
-  .btn-info-disable:hover, .btn-info-disable:active {
+  .btn-info-disable:hover, .btn-info-disable:active, .btn-info-disable:focus {
     background-color: #818181;
     color: #fffff7; }
 
@@ -390,6 +389,7 @@ input[type="radio"] {
   color: #d6cd9b; }
   .btn-check-bag:hover, .btn-check-bag:active, .btn-check-bag:focus {
     background-color: #d6cd9b;
+    border-color: #d6cd9b;
     color: #393b3e; }
 
 .btn-check-out {
@@ -397,6 +397,7 @@ input[type="radio"] {
   color: #393b3e; }
   .btn-check-out:hover, .btn-check-out:active, .btn-check-out:focus {
     background-color: #393b3e;
+    border-color: #393b3e;
     color: #d6cd9b; }
 
 /*register button is primary*/
@@ -428,6 +429,7 @@ fieldset[disabled] .btn-primary.active {
   color: #638ba7; }
   .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
     background-color: #638ba7;
+    border-color: #638ba7;
     color: #fff; }
 
 .btn-primary[disabled] {
@@ -438,8 +440,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-info:focus,
 .btn-info.focus,
 .btn-info:active,
-.btn-info.active,
-.open > .dropdown-toggle.btn-info {
+.btn-info.active {
   border-color: #6b939d;
   color: #fff; }
 
@@ -450,6 +451,7 @@ fieldset[disabled] .btn-primary.active {
     content: "\e60e"; }
   .btn-info:hover, .btn-info:active, .btn-info:focus {
     background-color: #6b939d;
+    border-color: #6b939d;
     color: #fff; }
 
 .btn-info.disabled,
@@ -478,7 +480,7 @@ fieldset[disabled] .btn-info.active {
   border-color: lightcoral;
   color: #393b3e; }
   .bth-other:hover, .bth-other:active, .bth-other:focus {
-    background-color: #lightcoral;
+    background-color: lightcoral;
     color: #fff; }
 
 .btn-danger.disabled,
