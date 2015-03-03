@@ -51,12 +51,14 @@
         <div class="push-down " ng-show="filterCtrl.showYearAdvanced">
             <div class="row col-xs-offset-7">
                 <div class="pull-left push-down col-xs-offset-2">
-                    <input type="radio" name="year-advanced-filter"/>
-                    <label for="year-advanced-filter">B.C</label>
+                    <input type="radio" name="year-advanced-filter" value="B.C."
+                           ng-model="filterCtrl.age"/>
+                    <label for="year-advanced-filter">B.C.</label>
                 </div>
                 <div class="col-xs-offset-7 push-down">
-                    <input type="radio" name="year-advanced-filter"/>
-                    <label for="year-advanced-filter">A.D</label>
+                    <input type="radio" name="year-advanced-filter" value="A.D."
+                           ng-model="filterCtrl.age"/>
+                    <label for="year-advanced-filter">A.D.</label>
                 </div>
             </div>
             <rzslider
@@ -78,6 +80,7 @@
                 ng-options="category._id as category.name for category in filterCtrl.categories"
                 ng-model="filterCtrl.filterCategory"
                 ng-change="filterCtrl.filterByCategory()">
+            <option value="">All</option>
         </select>
     </div>
     <div class="category push-down" ng-click="filterCtrl.showLot = !filterCtrl.showLot">

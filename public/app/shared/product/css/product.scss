@@ -36,10 +36,11 @@
   margin: 0 auto;
 }
 .product{
+  padding-bottom: 60px;
 
   .product-category{
 
-    margin: 5em 0 0 5em;
+    margin: 3em 0 0 5em;
 
   }
   .col-md-9, .col-md-8{
@@ -47,11 +48,30 @@
     .row, .text-center{
       margin-bottom: 4em;
     }
-    .product-hover{
+    .product-images{
       margin: 0 5% 4em 5%;
+      position: relative;
+
       .img-responsive{
         width: 35%;
 
+      }
+      .product-images-hover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0.5;
+
+        .product-image-zoom {
+          height: 100%;
+          padding-top: 40px;
+          &:before {
+            content: "\e610";
+          }
+        }
       }
     }
   }

@@ -1,16 +1,17 @@
 'use strict';
 
 angular.module('catalog')
-    .filter('yearsRange', [
+    .filter('filterByAge', [
         function() {
-            return function(items, minYear, maxYear) {
+            return function(items, age) {
+                if (!age) {
+                    return items;
+                }
+
                 var filtered = [];
 
                 angular.forEach(items, function(item) {
-                    var yearsFrom = parseInt(item.yearsFrom);
-                    var yearsTo = parseInt(item.yearsTo);
-
-                    if(yearsFrom >= minYear && yearsTo <= maxYear) {
+                    if(item.age === age) {
                         filtered.push(item);
                     }
                 });

@@ -31,48 +31,64 @@
 .row {
   margin: 0 auto; }
 
-.product .product-category {
-  margin: 5em 0 0 5em; }
-.product .col-md-9, .product .col-md-8 {
-  padding: 0 5%; }
-  .product .col-md-9 .row, .product .col-md-9 .text-center, .product .col-md-8 .row, .product .col-md-8 .text-center {
-    margin-bottom: 4em; }
-  .product .col-md-9 .product-hover, .product .col-md-8 .product-hover {
-    margin: 0 5% 4em 5%; }
-    .product .col-md-9 .product-hover .img-responsive, .product .col-md-8 .product-hover .img-responsive {
-      width: 35%; }
-.product .col-md-6 {
-  padding: 0; }
-.product .col-md-3 {
-  border-left: 1px solid rgba(179, 179, 179, 0.3); }
-.product .related-products {
-  margin: 0 5%;
-  font-size: 1.8rem; }
-  .product .related-products h4 {
-    font-size: 2rem;
-    margin-bottom: 4em; }
-  .product .related-products .card-border {
-    padding: 2em; }
-    .product .related-products .card-border header, .product .related-products .card-border figure {
-      margin-bottom: 1em; }
-  .product .related-products .card-label {
+.product {
+  padding-bottom: 60px; }
+  .product .product-category {
+    margin: 3em 0 0 5em; }
+  .product .col-md-9, .product .col-md-8 {
+    padding: 0 5%; }
+    .product .col-md-9 .row, .product .col-md-9 .text-center, .product .col-md-8 .row, .product .col-md-8 .text-center {
+      margin-bottom: 4em; }
+    .product .col-md-9 .product-images, .product .col-md-8 .product-images {
+      margin: 0 5% 4em 5%;
+      position: relative; }
+      .product .col-md-9 .product-images .img-responsive, .product .col-md-8 .product-images .img-responsive {
+        width: 35%; }
+      .product .col-md-9 .product-images .product-images-hover, .product .col-md-8 .product-images .product-images-hover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0.5; }
+        .product .col-md-9 .product-images .product-images-hover .product-image-zoom, .product .col-md-8 .product-images .product-images-hover .product-image-zoom {
+          height: 100%;
+          padding-top: 40px; }
+          .product .col-md-9 .product-images .product-images-hover .product-image-zoom:before, .product .col-md-8 .product-images .product-images-hover .product-image-zoom:before {
+            content: "\e610"; }
+  .product .col-md-6 {
+    padding: 0; }
+  .product .col-md-3 {
+    border-left: 1px solid rgba(179, 179, 179, 0.3); }
+  .product .related-products {
+    margin: 0 5%;
     font-size: 1.8rem; }
-    .product .related-products .card-label ~ strong {
-      font-size: 1.4rem; }
-  .product .related-products .related-category-image {
-    height: 4.25em;
-    max-width: 4.25em; }
-.product h3 {
-  font-size: 3rem;
-  letter-spacing: .075em;
-  font-family: "Rockwell Regular";
-  margin-top: 0; }
-.product .product-details {
-  font-size: 2.4rem;
-  font-family: "Bembo italic";
-  letter-spacing: .075em;
-  line-height: 1.8;
-  margin-bottom: 4em; }
+    .product .related-products h4 {
+      font-size: 2rem;
+      margin-bottom: 4em; }
+    .product .related-products .card-border {
+      padding: 2em; }
+      .product .related-products .card-border header, .product .related-products .card-border figure {
+        margin-bottom: 1em; }
+    .product .related-products .card-label {
+      font-size: 1.8rem; }
+      .product .related-products .card-label ~ strong {
+        font-size: 1.4rem; }
+    .product .related-products .related-category-image {
+      height: 4.25em;
+      max-width: 4.25em; }
+  .product h3 {
+    font-size: 3rem;
+    letter-spacing: .075em;
+    font-family: "Rockwell Regular";
+    margin-top: 0; }
+  .product .product-details {
+    font-size: 2.4rem;
+    font-family: "Bembo italic";
+    letter-spacing: .075em;
+    line-height: 1.8;
+    margin-bottom: 4em; }
 
 .product-overlay {
   position: absolute;

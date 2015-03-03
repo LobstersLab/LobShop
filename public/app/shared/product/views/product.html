@@ -9,16 +9,28 @@
             <!--/.col-md-6-->
         </div>
         <!--/.text-center row-->
-        <div class="text-center product-hover clearfix">
-            <img class="img-responsive pull-left" ng-src="{{productCtrl.product.images[0].src}}" alt="coins"/>
-            <img class="img-responsive pull-right" ng-src="{{productCtrl.product.images[1].src}}" alt="coins"/>
+        <div class="text-center product-images clearfix"
+             ng-click="productCtrl.zoomImage()"
+             ng-mouseover="productCtrl.hoverProduct(productCtrl.product)"
+             ng-mouseleave="productCtrl.unhoverProduct(productCtrl.product)">
+            <!--<div class="product-images-hover" ng-show="productCtrl.product.hover">-->
+                <!--<a>-->
+                    <!--<figure class="product-icons product-image-zoom"></figure>-->
+                <!--</a>-->
+            <!--</div>-->
+            <img class="img-responsive pull-left"
+                 ng-click="productCtrl.zoomImage(productCtrl.product.images[0].src)"
+                 ng-src="{{productCtrl.product.images[0].src}}" alt="coins"/>
+            <img class="img-responsive pull-right"
+                 ng-click="productCtrl.zoomImage(productCtrl.product.images[1].src)"
+                 ng-src="{{productCtrl.product.images[1].src}}" alt="coins"/>
         </div>
         <!--/.text-center-->
         <h3>Title: <span class="coin-title">{{productCtrl.product.name}}</span></h3>
 
         <p class="product-details">{{productCtrl.product.description[0].value}}</p>
 
-        <h3>Years: <span class="digits-transform">{{productCtrl.product.years}}</span></h3>
+        <h3>Years: <span class="digits-transform">{{ productCtrl.product.yearsFrom }} - {{productCtrl.product.yearsTo}} {{productCtrl.product.age}}</span></h3>
         <button class="btn btn-success pull-right" ng-click="productCtrl.cart.insertItem(productCtrl.product)">Buy</button>
     </div>
     <!--/.col-md-9-->
@@ -26,7 +38,7 @@
         <div class="related-products">
             <h4>RELATED:</h4>
 
-            <div ng-repeat="relatedProduct in productCtrl.relatedProducts | limitTo: 5">
+            <div ng-repeat="relatedProduct in productCtrl.relatedProducts | limitTo: 3">
                 <div>
                     <section class="card-border" ng-mouseover="productCtrl.hoverProduct(relatedProduct)"
                              ng-mouseleave="productCtrl.unhoverProduct(relatedProduct)">

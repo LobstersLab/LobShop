@@ -15,8 +15,6 @@ angular.module('dashboard')
 
             self.categories = CategoriesResource.getAllCategories();
 
-
-            //Petarded
             self.ages = ['B.C.','A.D.'];
 
             self.selectProduct = function (productId) {

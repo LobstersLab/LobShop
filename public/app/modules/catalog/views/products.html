@@ -11,6 +11,7 @@
                      | filter: catalogHeaderCtrl.productSearch
                      | priceRange: filterCtrl.priceRange.min: filterCtrl.priceRange.max
                      | yearsRange: filterCtrl.yearsRange.min: filterCtrl.yearsRange.max
+                     | filterByAge: filterCtrl.age
                      | filterByCategory: filterCtrl.filterCategory
                      | orderProductsBy: filterCtrl.predicate">
 
@@ -73,14 +74,14 @@
                             </p>
 
                             <p class="coin-description">
-                                {{ product.description[0].value | limitTo : 70}}...
+                                {{ product.description[0].value | limitTo : 30}}...
                             </p>
                         </div>
                         <!--/.div-->
                         <div>
                             <p>
                                 <span class="card-label label-purple">Years:</span>
-                                <span class="digits-transform">{{ product.years }}</span>
+                                <span class="digits-transform">{{ product.yearsFrom }} - {{product.yearsTo}} {{product.age}}</span>
                             </p>
                         </div>
                         <!--/.div-->

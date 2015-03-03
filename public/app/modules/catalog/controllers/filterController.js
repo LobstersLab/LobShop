@@ -27,12 +27,5 @@ angular.module('catalog')
             };
 
             self.categories = CategoriesResource.getAllCategories();
-
-            self.filterByCategory = function () {
-                // This might not be necessary, but if just filter by category name doesn't work
-                // do something from here
-
-                var category = self.filterCategory;
-            };
         }
     ]);

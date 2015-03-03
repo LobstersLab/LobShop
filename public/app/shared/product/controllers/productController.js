@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('product')
-    .controller('ProductController', ['$stateParams', 'ProductsResource', 'CategoriesResource', 'ShoppingCart',
-        function ProductController ($stateParams, ProductsResource, CategoriesResource, ShoppingCart) {
+    .controller('ProductController', ['$stateParams', '$window', '$modal', 'ProductsResource', 'CategoriesResource', 'ShoppingCart',
+        function ProductController ($stateParams, $window, $modal, ProductsResource, CategoriesResource, ShoppingCart) {
             var self = this;
 
             self.cart = ShoppingCart;
@@ -36,6 +36,22 @@ angular.module('product')
 
             self.unhoverProduct = function (product) {
                 product.hover = false;
+            };
+
+            self.zoomImage = function (src) {
+                $window.open(src, '_blank');
+
+                //self.modalInstance = $modal.open({
+                //    templateUrl: 'app/shared/product/views/zoomedImage.html',
+                //    controller: 'ZoomedImageController',
+                //    controllerAs: 'zoomedImageCtrl',
+                //    size: 'lg',
+                //    resolve: {
+                //        product: function () {
+                //            return self.product;
+                //        }
+                //    }
+                //});
             };
         }
     ]);
