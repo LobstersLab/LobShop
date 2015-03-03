@@ -40,8 +40,7 @@
                                 <figure class="product-icons product-details-icon"></figure>
                             </a>
                         </div>
-
-                        <div ng-show="!!product.highlight && (!product.hover ||  product.inShoppingCart)">
+                        <div ng-show="(product.highlight === 'true'? true : false) && (!product.hover ||  product.inShoppingCart)">
                             <a class="btn menu-icons highlight-icon highlighted"></a>
                         </div>
 

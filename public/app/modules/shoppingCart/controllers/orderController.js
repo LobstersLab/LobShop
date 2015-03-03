@@ -6,7 +6,9 @@ angular.module('shoppingCart')
             var self = this;
             var currentUser = Identity.getCurrentUser();
 
-            self.order = {};
+            self.order = {
+                paymentMethod: 'cash'
+            };
             self.expiryMonths = ['01','02','03','04','05','06','07','08','09','10','11','12'];
             self.expiryYears = [];
             var currentYear = new Date().getFullYear(),
@@ -28,7 +30,8 @@ angular.module('shoppingCart')
                     city: currentUser.city,
                     address: currentUser.address,
                     postalCode: currentUser.postalCode,
-                    total: ShoppingCart.getTotal()
+                    total: ShoppingCart.getTotal(),
+                    paymentMethod: 'cash'
                 };
             }
 
@@ -39,7 +42,6 @@ angular.module('shoppingCart')
                 baseState: 'order.',
                 scope: $scope,
                 callback: function () {
-                    console.log('Congratulations! Order form is complete!');
                 }
             });
         }
