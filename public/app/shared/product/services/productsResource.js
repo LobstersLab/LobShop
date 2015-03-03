@@ -48,6 +48,13 @@ angular.module('product')
                     });
 
                     return deferred.promise;
+                },
+                deleteProductById: function (productID) {
+                    var deferred = $q.defer();
+                    Product.delete({productId:productID}, function (data) {
+                        deferred.resolve(data);
+                    });
+                    return deferred.promise;
                 }
             };
         }

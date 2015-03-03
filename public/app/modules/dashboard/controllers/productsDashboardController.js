@@ -30,6 +30,17 @@ angular.module('dashboard')
                 }
             };
 
+            self.deleteProduct = function (productID) {
+                if(confirm('Delete item?')) {
+                    ProductsResource.deleteProductById(productID).then(function (data) {
+                        self.products = ProductsResource.getAllProducts();
+                        console.log('Product Deleted Successfully!');
+                    }, function (error) {
+                        console.log('Error deleting product!');
+                    });
+                }
+            };
+
             self.productEditFormSubmit = function (){
                 var files = [],
                     params = {};

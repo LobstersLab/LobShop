@@ -31,7 +31,7 @@
                         <td class="col-md-2">{{product.price.value | currency}}</td>
                         <td class="col-md-2">{{product.years}}</td>
                         <td class="col-md-1"><button type="button" ui-sref="dashboard.products.productEdit" class="btn btn-primary" ng-click="productsDashboardCtrl.selectProduct(product._id)">Edit</button></td>
-                        <td class="col-md-1"><button type="button" class="btn btn-danger">Delete</button></td>
+                        <td class="col-md-1"><button class="btn-check-bag" ng-click="productsDashboardCtrl.deleteProduct(product._id)">Delete</button></td>
                     </tr>
                 </table>
             </div>

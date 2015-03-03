@@ -70,7 +70,11 @@ var ProductSummarySchema = new Schema({
             src: { type: String }
         }],
         attributes: [{ type: String }]
-    }]
+    }],
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
 }, {
     transform: true
 });
