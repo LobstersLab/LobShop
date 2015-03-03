@@ -34,7 +34,7 @@ node_modules
 public/assets/bower_components/
 
 # Nodemailer config
-config/nodemailer.js
+# config/nodemailer.js
 
 # ImageMagick binaries
 binaries
