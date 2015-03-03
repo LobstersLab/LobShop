@@ -55,15 +55,15 @@
                 </div>
             </div>
             <div>
-                <a ui-sref="forgottenPassword">Forgot your password?</a>
+                <a class="forgotten-password" ui-sref="forgottenPassword">Forgot your password?</a>
             </div>
             <br/>
+            <button ui-sref="register.personal" class="btn btn-info">
+                Register
+            </button>
             <button type="submit" class="btn btn-success"
                     ng-disabled="loginForm.$invalid">
                 Log in
-            </button>
-            <button ui-sref="register.personal" class="btn btn-info">
-                Register
             </button>
         </form>
     </div>

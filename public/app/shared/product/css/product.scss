@@ -83,6 +83,7 @@
     }
     .related-category-image{
       height: 4.25em;
+      max-width: 4.25em;
 //      margin: 0 5%;
     }
   .related-product-price{}
@@ -229,6 +230,10 @@ $ornament-icon:"\e609";
 }
 .catalog-image {
   height: 6.25em;
+  max-width: 6.25em;
   display: inline-block;
   //  margin: 0 3%;
+}
+.in-bag{
+  padding: 7em 4em;
 }
