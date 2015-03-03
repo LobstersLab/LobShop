@@ -11,7 +11,7 @@ angular.module('dashboard')
 
             self.selectCategory = function (categoryId) {
                 if(categoryId){
-                    ProductsResource.getProductById(categoryId).then(function (data){
+                    CategoriesResource.getCategoryById(categoryId).then(function (data){
                         self.selectedCategory = data;
                     });
                 }else{
@@ -20,7 +20,13 @@ angular.module('dashboard')
             };
 
             self.categoryFormSubmit = function (){
-                CategoriesResource.createCategory(self.selectedCategory);
+                //If selected category has id it means it came from server so update rather than create a new one
+                if(self.selectedCategory._id){
+                    CategoriesResource.updateCategoryById(self.selectedCategory);
+                }else{
+                    CategoriesResource.createCategory(self.selectedCategory);
+                }
+
             }
         }
     ]);
