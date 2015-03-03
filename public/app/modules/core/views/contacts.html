@@ -1,2 +1,73 @@
 <sub-header></sub-header>
-<h1 class="text-center">Contacts page goes here</h1>
+<div class="loginForm container text-center">
+    <div class="form-container">
+        <div class="page-header text-center">
+            <h2>CONTACT US</h2>
+        </div>
+        <div class="text-center success-message">
+            <h4 ng-show="contactsCtrl.successMessage">{{contactsCtrl.successMessage}}</h4>
+        </div>
+        <form id="contact-form" novalidate name="contactForm"
+              ng-submit="contactsCtrl.sendMail()">
+            <div class="text-center">
+                <div class="group">
+                    <input type="text" id="fullname" name="fullname"
+                           class="material-input"
+                           ng-model="contactsCtrl.email.sender"
+                           ng-class="{ 'not-empty': !contactsCtrl.isEmpty('fullname')}"
+                           ng-minlength="6"
+                           required/>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="material-label">Full name</label>
+                    <span class="pull-right material-error" ng-show="contactForm.fullname.$error.required && !contactForm.fullname.$pristine">
+                        Full name is required
+                    </span>
+                    <span class="pull-right material-error" ng-show="contactForm.fullname.$error.minlength">
+                        Full name must be at least 6 symbols
+                    </span>
+                    <span class="pull-right error-icon"
+                          ng-class="{'error-icon-satisfied': contactForm.fullname.$valid,
+                                     'error-icon-pristine': contactForm.fullname.$pristine }">
+                    </span>
+                </div>
+
+                <div class="group">
+                    <input type="email" name="email"
+                           class="material-input"
+                           ng-model="contactsCtrl.email.senderEmail"
+                           ng-class="{ 'not-empty': !contactsCtrl.isEmpty('email')}"
+                           required
+                           ng-pattern="/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="material-label">Email</label>
+                    <span class="pull-right material-error" ng-show="contactForm.email.$error.required && !contactForm.email.$pristine">
+                        Email is required
+                    </span>
+                    <span class="pull-right material-error" ng-show="contactForm.email.$error.pattern || contactForm.email.$error.email">
+                        Email is invalid
+                    </span>
+                    <span class="pull-right error-icon"
+                          ng-class="{'error-icon-satisfied': contactForm.email.$valid,
+                                     'error-icon-pristine': contactForm.email.$pristine }">
+                    </span>
+                </div>
+
+                <textarea name="message" id="message" cols="30" rows="10"
+                          class="message-box" ng-model="contactsCtrl.email.message" required>
+
+                </textarea>
+                <span class="pull-right material-error" ng-show="contactForm.message.$error.required && !contactForm.message.$pristine">
+                    Message is required
+                </span>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-success"
+                    ng-click="contactForm.$setPristine()"
+                    ng-disabled="loginForm.$invalid">
+                Send message
+            </button>
+        </form>
+    </div>
+</div>
