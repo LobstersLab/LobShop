@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-var mailConfig = require('./../../../config/nodemailer');
+var mailConfig;
+if (process.env.OPENSHIFT_DATA_DIR) {
+    mailConfig = require(process.env.OPENSHIFT_DATA_DIR + 'nodemailer');
+} else {
+    mailConfig = require('./../../../config/nodemailer');
+}
 
 module.exports = (function () {
     // TODO: Add EmailsController and persist the email in the database.
