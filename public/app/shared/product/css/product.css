@@ -60,7 +60,8 @@
     .product .related-products .card-label ~ strong {
       font-size: 1.4rem; }
   .product .related-products .related-category-image {
-    height: 4.25em; }
+    height: 4.25em;
+    max-width: 4.25em; }
 .product h3 {
   font-size: 3rem;
   letter-spacing: .075em;
@@ -169,6 +170,10 @@ a {
 
 .catalog-image {
   height: 6.25em;
+  max-width: 6.25em;
   display: inline-block; }
+
+.in-bag {
+  padding: 7em 4em; }
 
 /*# sourceMappingURL=product.css.map */

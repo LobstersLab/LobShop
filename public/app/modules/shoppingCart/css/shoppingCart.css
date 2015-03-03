@@ -57,7 +57,8 @@
   .status span.completed:before {
     font-family: LobShopIcons;
     content: "\e603";
-    padding: 2px;
+    position: relative;
+    top: -2px;
     color: #fff; }
 .status span.disabled {
   color: #b3b3b3;

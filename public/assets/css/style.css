@@ -143,17 +143,19 @@ input:-webkit-autofill {
 **************************************************/
 .material-error {
   margin-top: -30px;
-  margin-right: 20px;
+  font-size: 1.6rem;
+  letter-spacing: .075em;
+  font-family: "Rockwell Light";
   color: #9a6a6b; }
 
 .error-icon {
   font-family: 'LobShopIcons';
-  margin-top: -30px;
+  margin-top: -55px;
+  margin-right: 0.3em;
   color: #9a6a6b; }
   .error-icon:before {
     content: "\e614";
-    font-size: 15px;
-    margin-left: 10px; }
+    font-size: .9em; }
 
 .error-icon-satisfied {
   color: #6b939d; }
@@ -295,5 +297,134 @@ input[type="radio"] {
 @media screen and (max-width: 1200px) {
   .product .related-products .related-category-image {
     margin: 0 0; } }
+@media (max-width: 480px) {
+  .login-error h4 {
+    font-size: 1.2rem; }
+
+  .material-error {
+    margin-top: -20px;
+    font-size: 1rem;
+    letter-spacing: .075em;
+    font-family: "Rockwell Light";
+    color: #9a6a6b; }
+
+  body menu, body filter {
+    width: 100%;
+    max-width: 100%; }
+    body menu .menu-navigation li a, body filter .menu-navigation li a {
+      font-size: 1.4rem; }
+    body menu .menu-icons:before, body filter .menu-icons:before {
+      font-size: 2rem; }
+    body menu .profile-name, body filter .profile-name {
+      margin-left: 8.4em;
+      font-size: 1.2rem; }
+    body menu .log-in:before, body menu .log-out:before, body menu .menu-header-icons:before, body filter .log-in:before, body filter .log-out:before, body filter .menu-header-icons:before {
+      font-size: 1.4rem; }
+    body menu span.badge.ng-binding, body filter span.badge.ng-binding {
+      font-size: 1rem; }
+    body menu .category, body menu .category.category-advanced, body filter .category, body filter .category.category-advanced {
+      font-size: 1.4rem; }
+    body menu label, body filter label {
+      font-size: 1.2rem; }
+    body menu input[type="radio"], body filter input[type="radio"] {
+      width: 1em;
+      height: 1em; } }
+.btn-default, .btn-info, .btn-success, .btn-check-bag, .btn-check-out, .btn-primary, .bth-other {
+  background-color: transparent;
+  font-family: "Rockwell Light";
+  letter-spacing: .2em; }
+  .btn-default:after, .btn-default:before, .btn-info:after, .btn-info:before, .btn-success:after, .btn-success:before, .btn-check-bag:after, .btn-check-bag:before, .btn-check-out:after, .btn-check-out:before, .btn-primary:after, .btn-primary:before, .bth-other:after, .bth-other:before {
+    display: inline-block;
+    margin-left: 10px;
+    font-family: LobShopIcons; }
+
+.btn-default:after, .btn-default:before, .btn-sinfo:after, .btn-sinfo:before {
+  font-size: 1.4rem; }
+
+.btn-default {
+  border-color: #818181;
+  color: #818181; }
+  .btn-default:hover, .btn-default:active {
+    background-color: #818181;
+    color: #fffff7; }
+  .btn-default:before {
+    margin-left: 0;
+    margin-right: 10px;
+    content: "\e60e";
+    transform: rotate(180deg); }
+
+/*login button*/
+.btn-success {
+  border-color: #769c9d;
+  color: #769c9d; }
+  .btn-success:hover, .btn-success:active {
+    background-color: #769c9d;
+    color: #fffff7; }
+
+.btn-info-disable {
+  border-color: #818181;
+  color: #818181; }
+  .btn-info-disable:after {
+    content: "\e60e"; }
+  .btn-info-disable:hover, .btn-info-disable:active {
+    background-color: #818181;
+    color: #fffff7; }
+
+.btn-check-out, .btn-check-bag {
+  padding: 10px 30px;
+  font-family: "Bembo Regular"; }
+  .btn-check-out:after, .btn-check-bag:after {
+    content: "\e60c";
+    font-size: 1.6rem;
+    vertical-align: bottom; }
+
+.btn-check-bag {
+  border-color: #d6cd9b;
+  color: #d6cd9b; }
+  .btn-check-bag:hover, .btn-check-bag:active {
+    background-color: #d6cd9b;
+    color: #393b3e; }
+
+.btn-check-out {
+  border-color: #393b3e;
+  color: #393b3e; }
+  .btn-check-out:hover, .btn-check-out:active {
+    background-color: #393b3e;
+    color: #d6cd9b; }
+
+/*register button is primary*/
+.btn-primary {
+  border-color: #638ba7;
+  color: #638ba7; }
+  .btn-primary:hover, .btn-primary:active {
+    background-color: #638ba7;
+    color: #fff; }
+
+.btn-info {
+  border-color: #6b939d;
+  color: #6b939d; }
+  .btn-info:after {
+    content: "\e60e"; }
+  .btn-info:hover, .btn-info:active {
+    background-color: #6b939d;
+    color: #fff; }
+
+.bth-other {
+  border-color: lightcoral;
+  color: #393b3e; }
+  .bth-other:hover, .bth-other:active {
+    background-color: #lightcoral;
+    color: #fff; }
+
+.btn-danger {
+  background: transparent;
+  border: 0;
+  outline: 0; }
+  .btn-danger:before {
+    /*TODO Icon*/ }
+  .btn-danger:hover {
+    background: transparent;
+    border: 0;
+    outline: 0; }
 
 /*# sourceMappingURL=style.css.map */

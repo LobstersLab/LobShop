@@ -90,7 +90,9 @@
       &:before {
         font-family: LobShopIcons;
         content: "\e603";
-        padding: 2px;
+        position: relative;
+        top: -2px;
+
         color: #fff;
       }
     }
