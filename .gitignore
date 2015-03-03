@@ -33,3 +33,12 @@ node_modules
 # Bower
 public/assets/bower_components/
 
+# Nodemailer config
+config/nodemailer.js
+
+# ImageMagick binaries
+binaries
+
+# Storage folder
+public/storage
+
