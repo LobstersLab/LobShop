@@ -86,7 +86,6 @@ module.exports = function (data) {
             });
 
             busboy.on('finish', function() {
-                console.log('finish busboy create');
                 data.products.create(productData)
                     .then(function (createdProduct) {
                         res.json({
@@ -167,8 +166,20 @@ module.exports = function (data) {
 
             req.pipe(busboy);
         },
-        remove: function (req, res) { 
-        
+        remove: function (req, res) {
+            var id = req.params.id;
+            data.products.removeById(id).then(function (data) {
+                res.json({
+                    success: true,
+                    message: 'Product deleted successfully!'
+                });
+            }, function (error) {
+                res.json({
+                    success: false,
+                    message: 'Error deleting product!',
+                    error: error
+                });
+            });
         }
     }
 };

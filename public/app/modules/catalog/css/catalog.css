@@ -159,6 +159,7 @@ filter {
 
 .in-shopping-cart-message {
   color: #fff;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  letter-spacing: .3em; }
 
 /*# sourceMappingURL=catalog.css.map */

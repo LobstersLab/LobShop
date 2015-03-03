@@ -3,7 +3,9 @@
 angular.module('core')
     .factory('CategoriesResource', ['$resource', '$q',
         function CategoriesResource ($resource, $q) {
-            var Category = $resource('/api/categories/:categoryId', { categoryId: '@categoryId' });
+            var Category = $resource('/api/categories/:categoryId', { categoryId: '@categoryId' },{
+                update: {method: 'PUT'}
+            });
 
             return {
                 getAllCategories : function () {
@@ -23,15 +25,13 @@ angular.module('core')
 
                     category.$save();
                 },
-                updateCategoryById: function (id, updates) {
+                updateCategoryById: function (category) {
                     var deferred = $q.defer();
-
-                    Category.get({categoryId: id}, function (category) {
-                        category.name = updates.name;
-                        // TODO: Update category parents
-
-                        category.$save();
-
+                    debugger
+                    Category.get({categoryId: category._id}, function (data) {
+                        debugger
+                        data.name = category.name;
+                        category.$update({categoryId: category._id});
                         deferred.resolve(true);
                     });
 

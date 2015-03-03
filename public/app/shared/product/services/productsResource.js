@@ -19,7 +19,6 @@ angular.module('product')
                     return deferred.promise;
                 },
                 createProduct : function (params){
-                    debugger
                     var deferred = $q.defer();
 
                     params.url = 'api/products';
@@ -35,7 +34,6 @@ angular.module('product')
                     return deferred.promise;
                 },
                 updateProduct : function (params){
-                    debugger
                     var deferred = $q.defer();
 
                     params.url = 'api/products/' + params.productId;
@@ -47,6 +45,13 @@ angular.module('product')
                         deferred.resolve('Update Complete!');
                     });
 
+                    return deferred.promise;
+                },
+                deleteProductById: function (productID) {
+                    var deferred = $q.defer();
+                    Product.delete({productId:productID}, function (data) {
+                        deferred.resolve(data);
+                    });
                     return deferred.promise;
                 }
             };

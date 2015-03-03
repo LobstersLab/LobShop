@@ -15,6 +15,10 @@ angular.module('dashboard')
 
             self.categories = CategoriesResource.getAllCategories();
 
+
+            //Petarded
+            self.ages = ['B.C.','A.D.'];
+
             self.selectProduct = function (productId) {
                 if(productId){
                     ProductsResource.getProductById(productId).then(function (data){
@@ -23,10 +27,20 @@ angular.module('dashboard')
                         self.selectedProduct.description = data.description[0].value;
                         self.selectedProduct.productCategory = data.category;
                         self.selectedProduct.highlight = !!data.highlight;
-
                     });
                 }else{
                     self.selectedProduct = {};
+                }
+            };
+
+            self.deleteProduct = function (productID) {
+                if(confirm('Delete item?')) {
+                    ProductsResource.deleteProductById(productID).then(function (data) {
+                        self.products = ProductsResource.getAllProducts();
+                        console.log('Product Deleted Successfully!');
+                    }, function (error) {
+                        console.log('Error deleting product!');
+                    });
                 }
             };
 
@@ -58,8 +72,16 @@ angular.module('dashboard')
                             'value': self.selectedProduct.lot
                         },
                         {
-                            'name': 'years',
-                            'value': self.selectedProduct.years
+                            'name': 'yearsFrom',
+                            'value': self.selectedProduct.yearsFrom
+                        },
+                        {
+                            'name': 'yearsTo',
+                            'value': self.selectedProduct.yearsTo
+                        },
+                        {
+                            'name': 'age',
+                            'value': self.selectedProduct.age
                         },
                         {
                             'name': 'highlight',

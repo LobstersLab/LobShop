@@ -9,7 +9,28 @@
 }
 
 .login-error {
-  margin-bottom: 40px;
+  margin-bottom: 2.25em;
   color: #9a6a6b;
-  height: 20px;
+  font-family: Rockwell Light;
+  letter-spacing: 0.075em;
+  h4{
+  }
+}
+.forgotten-password{
+  color: #23527c;
+  font-size: 1.4rem;
+  font-family: "Rockwell Light";
+  letter-spacing: .075em;
+
+  &:hover{
+    color: #393b3e;
+    text-decoration: underline;
+  }
+
+}
+.line{
+  margin-top: 3.5em;
+}
+.registerForm {
+  margin-top: 3em;
 }

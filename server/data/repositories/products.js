@@ -8,7 +8,7 @@ var Summary = require('./../../models/Product/Summary');
 function getAll () {
     var deferred = Q.defer();
     Summary
-        .find({})
+        .find({isDeleted: false})
         //.populate('brand')
         .populate('price')
         .exec(function (error, products) {
@@ -26,15 +26,13 @@ function getById (id) {
     var deferred = Q.defer();
 
     Summary
-        .findById(id)
-        // .populate('brand')
+        .findOne({_id: id, isDeleted: false})
         .populate('price')
         .exec(function (error, product) {
             if (error) {
                 deferred.reject(error);
                 return deferred.promise;
             }
-
             deferred.resolve(product);
         });
 
@@ -45,7 +43,6 @@ function create (params) {
     //Make the promise
     var deferred = Q.defer();
     var item;
-    console.log(params);
     // categoryHierarchy = '',
     // assets = [],
     // attributes = [],
@@ -142,9 +139,22 @@ function updateProductById (params) {
 }
 
 function removeById (id) {
-    //var deferred = Q.defer();
+    var deferred = Q.defer();
+    Product.findByIdAndUpdate(id, {isDeleted:true}, function (error, removedProduct) {
+        if(error){
+            deferred.reject(error);
+            return deferred.promise;
+        }
+        Summary.findByIdAndUpdate(id, {isDeleted:true} , function (error, updatedSummary){
+            if (error) {
+                deferred.reject(error);
+                return deferred.promise;
+            }
 
-    //return deferred.promise;
+            deferred.resolve(updatedSummary);
+        });
+    });
+    return deferred.promise;
 }
 
 function removeAll () {
