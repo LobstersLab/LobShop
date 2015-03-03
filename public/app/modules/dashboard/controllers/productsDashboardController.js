@@ -110,6 +110,8 @@ angular.module('dashboard')
                         },
                         //Update
                         function(uploadProgress){
+                            self.showUploadBar = true;
+                            self.uploadPercentText = uploadProgress + '%';
                             self.uploadPercent = uploadProgress;
                         }
                     );

@@ -12,6 +12,7 @@
                      | priceRange: filterCtrl.priceRange.min: filterCtrl.priceRange.max
                      | yearsRange: filterCtrl.yearsRange.min: filterCtrl.yearsRange.max
                      | filterByAge: filterCtrl.age
+                     | filter: {highlight : ((catalogCtrl.state == 'highlights')?'true':'')}
                      | filterByCategory: filterCtrl.filterCategory
                      | orderProductsBy: filterCtrl.predicate">
 

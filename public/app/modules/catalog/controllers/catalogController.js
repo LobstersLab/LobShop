@@ -8,6 +8,8 @@ angular.module('catalog')
             self.cart = ShoppingCart;
             self.products = ProductsResource.getAllProducts();
 
+            self.state = $state.current.name;
+
             self.products.$promise.then(function () {
                 angular.forEach(self.products, function (product) {
                     if (ShoppingCart.isInShoppingCart(product)) {
