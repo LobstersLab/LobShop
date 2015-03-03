@@ -86,7 +86,6 @@ module.exports = function (data) {
             });
 
             busboy.on('finish', function() {
-                console.log('finish busboy create');
                 data.products.create(productData)
                     .then(function (createdProduct) {
                         res.json({

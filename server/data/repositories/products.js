@@ -7,7 +7,6 @@ var Summary = require('./../../models/Product/Summary');
 
 function getAll () {
     var deferred = Q.defer();
-    console.log('delete4d false');
     Summary
         .find({isDeleted: false})
         //.populate('brand')
@@ -34,7 +33,6 @@ function getById (id) {
                 deferred.reject(error);
                 return deferred.promise;
             }
-            console.log('Get by id',product);
             deferred.resolve(product);
         });
 
@@ -45,7 +43,6 @@ function create (params) {
     //Make the promise
     var deferred = Q.defer();
     var item;
-    console.log(params);
     // categoryHierarchy = '',
     // assets = [],
     // attributes = [],
