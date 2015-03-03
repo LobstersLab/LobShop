@@ -310,16 +310,16 @@ input[type="radio"] {
     width: 100%;
     max-width: 100%; }
     body menu .menu-navigation li a, body filter .menu-navigation li a {
-      font-size: 1.4rem; }
+      font-size: 1.8rem; }
     body menu .menu-icons:before, body filter .menu-icons:before {
-      font-size: 2rem; }
+      font-size: 2.2rem; }
     body menu .profile-name, body filter .profile-name {
       margin-left: 8.4em;
       font-size: 1.2rem; }
     body menu .log-in:before, body menu .log-out:before, body menu .menu-header-icons:before, body filter .log-in:before, body filter .log-out:before, body filter .menu-header-icons:before {
-      font-size: 1.4rem; }
+      font-size: 1.8rem; }
     body menu span.badge.ng-binding, body filter span.badge.ng-binding {
-      font-size: 1rem; }
+      font-size: 1.2rem; }
     body menu .category, body menu .category.category-advanced, body filter .category, body filter .category.category-advanced {
       font-size: 1.4rem; }
     body menu label, body filter label {
