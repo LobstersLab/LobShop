@@ -422,7 +422,7 @@ input[type="radio"] {
 
 @media (max-width: 480px) {
   .login-error {
-    h4{
+    h4 {
       font-size: 1.2rem;
     }
   }
@@ -433,26 +433,26 @@ input[type="radio"] {
     font-family: "Rockwell Light";
     color: #9a6a6b;
   }
-  body menu, body filter{
+  body menu, body filter {
     width: 100%;
     max-width: 100%;
 
-    .menu-navigation li a{
+    .menu-navigation li a {
       font-size: 1.4rem;
     }
-    .menu-icons{
-      &:before{
+    .menu-icons {
+      &:before {
         font-size: 2rem;
       }
     }
-    .profile-name{
+    .profile-name {
       margin-left: 8.4em;
       font-size: 1.2rem;
     }
-    .log-in:before, .log-out:before, .menu-header-icons:before{
+    .log-in:before, .log-out:before, .menu-header-icons:before {
       font-size: 1.4rem;
     }
-    span.badge.ng-binding{
+    span.badge.ng-binding {
       font-size: 1rem;
     }
     .category, .category.category-advanced {
@@ -468,142 +468,224 @@ input[type="radio"] {
   }
 }
 
-
-
-
-.btn-default,.btn-info,.btn-success,.btn-check-bag,.btn-check-out, .btn-primary, .bth-other{
+.btn-default, .btn-info, .btn-success, .btn-check-bag, .btn-check-out, .btn-primary, .bth-other {
   background-color: transparent;
   font-family: "Rockwell Light";
   letter-spacing: .2em;
 
-  &:after,&:before{
+  &:after, &:before {
     display: inline-block;
     margin-left: 10px;
     font-family: LobShopIcons;
   }
 
 }
-.btn-default, .btn-sinfo{
-  &:after, &:before{
+
+.btn-default, .btn-sinfo {
+  &:after, &:before {
     font-size: 1.4rem;
   }
 }
 
-.btn-default{
+.btn-default {
   border-color: #818181;
-  color: #818181;
-
-  &:hover, &:active{
-    background-color: #818181;
-    color: #fffff7;
   }
-  &:before{
+  &:before {
     margin-left: 0;
     margin-right: 10px;
     content: "\e60e";
     transform: rotate(180deg);
   }
 }
-/*login button*/
-.btn-success{
-  border-color: #769c9d;
-  color: #769c9d;
 
-  &:hover, &:active{
-    background-color: #769c9d;
+/*login button*/
+.btn-success.disabled, .btn-success[disabled], fieldset[disabled] .btn-success, .btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover, .btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus, .btn-success.disabled.focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success.focus, .btn-success.disabled:active, .btn-success[disabled]:active, fieldset[disabled] .btn-success:active, .btn-success.disabled.active, .btn-success[disabled].active, fieldset[disabled] .btn-success.active {
+  border-color: #aad6d0;
+  color: #fff;
+  background-color: #aad6d0;
+  outline-color: #aad6d0;
+}
+
+.btn-success {
+  outline-color: #aad6d0;
+  border-color: #aad6d0;
+  color: #aad6d0;
+
+  &:hover, &:active, &:focus {
+    background-color: #aad6d0;
     color: #fffff7;
   }
 }
-.btn-info-disable{
+
+.btn-info-disable {
   border-color: #818181;
   color: #818181;
 
-  &:after{
+  &:after {
     content: "\e60e";
   }
 
-  &:hover, &:active{
+  &:hover, &:active {
     background-color: #818181;
     color: #fffff7;
   }
 }
 
-.btn-check-out,.btn-check-bag{
+.btn-check-out, .btn-check-bag {
   padding: 10px 30px;
   font-family: "Bembo Regular";
 
-  &:after{
+  &:after {
     content: "\e60c";
     font-size: 1.6rem;
     vertical-align: bottom;
   }
 }
-.btn-check-bag{
+
+.btn-check-bag {
   border-color: #d6cd9b;
   color: #d6cd9b;
 
-
-  &:hover, &:active{
+  &:hover, &:active, &:focus {
     background-color: #d6cd9b;
     color: #393b3e;
   }
 }
 
-.btn-check-out{
+.btn-check-out {
   border-color: #393b3e;
   color: #393b3e;
 
-  &:hover, &:active{
+  &:hover, &:active, &:focus {
     background-color: #393b3e;
     color: #d6cd9b;
   }
 }
+
 /*register button is primary*/
-.btn-primary{
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  border-color: #638ba7;
+  background-color: #638ba7;
+  color: #fff;
+  outline-color: #638ba7;
+}
+.btn-primary {
   border-color: #638ba7;
   color: #638ba7;
 
-  &:hover, &:active{
+  &:hover, &:active, &:focus {
     background-color: #638ba7;
     color: #fff;
   }
 }
-.btn-info{
+
+.btn-primary[disabled] {
+  border-color: #638ba7;
+  color: #638ba7;
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info.focus,
+.btn-info:active,
+.btn-info.active,
+.open > .dropdown-toggle.btn-info{
+  border-color: #6b939d;
+  color: #fff;
+}
+.btn-info {
   border-color: #6b939d;
   color: #6b939d;
 
-  &:after{
+  &:after {
     content: "\e60e";
   }
 
-  &:hover, &:active{
+  &:hover, &:active, &:focus {
     background-color: #6b939d;
     color: #fff;
   }
 
-
 }
-.bth-other{
+.btn-info.disabled,
+.btn-info[disabled],
+fieldset[disabled] .btn-info,
+.btn-info.disabled:hover,
+.btn-info[disabled]:hover,
+fieldset[disabled] .btn-info:hover,
+.btn-info.disabled:focus,
+.btn-info[disabled]:focus,
+fieldset[disabled] .btn-info:focus,
+.btn-info.disabled.focus,
+.btn-info[disabled].focus,
+fieldset[disabled] .btn-info.focus,
+.btn-info.disabled:active,
+.btn-info[disabled]:active,
+fieldset[disabled] .btn-info:active,
+.btn-info.disabled.active,
+.btn-info[disabled].active,
+fieldset[disabled] .btn-info.active {
+  background-color: #6b939d;
+  border-color: #6b939d;
+  color: #fff;}
+
+.bth-other {
   border-color: lightcoral;
   color: #393b3e;
 
-  &:hover, &:active{
+  &:hover, &:active, &:focus {
     background-color: #lightcoral;
     color: #fff;
   }
 }
-
-
-.btn-danger{
+.btn-danger.disabled,
+.btn-danger[disabled],
+fieldset[disabled] .btn-danger,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-danger:hover,
+.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-danger:focus,
+.btn-danger.disabled.focus,
+.btn-danger[disabled].focus,
+fieldset[disabled] .btn-danger.focus,
+.btn-danger.disabled:active,
+.btn-danger[disabled]:active,
+fieldset[disabled] .btn-danger:active,
+.btn-danger.disabled.active,
+.btn-danger[disabled].active,
+fieldset[disabled] .btn-danger.active{
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+.btn-danger {
   background: transparent;
   border: 0;
   outline: 0;
 
-  &:before{
+  &:before {
     /*TODO Icon*/
   }
 
-  &:hover{
+  &:hover {
     background: transparent;
     border: 0;
     outline: 0;
