@@ -83,8 +83,9 @@
         </span>
     </div>
 </ng-form>
-
+<div class="text-center">
 <button class="btn btn-default" ui-sref="order.personalInfo">Back</button>
-<button class="btn btn-info pull-right" ui-sref="order.paymentInfo"
+<button class="btn btn-info" ui-sref="order.paymentInfo"
         ng-click="orderCtrl.stateline.completeState()"
         ng-disabled="orderForm.deliveryInfoForm.$invalid">Next</button>
+    </div>
