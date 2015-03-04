@@ -152,6 +152,8 @@ filter {
     }
   }
   .search-icon{
+    position: relative;
+    top: 8px;
     &:before{
       content: "\e610";
     }
@@ -163,7 +165,7 @@ filter {
   }
 
 
-  /*********************************
+ /*********************************
             BUTTON
  *********************************/
 
@@ -180,7 +182,7 @@ filter {
 
   input[type=search]{
     width: 10em;
-    padding: .375em .75em;
+    padding: 0.675em .75em;
     background-color: transparent;
     color: #d6cd9b;
     outline: 0;
@@ -192,7 +194,6 @@ filter {
   }
   input[type=search]:focus{
     width: 100%;
-    border-bottom: 1px solid  #d6cd9b;
     transition: all .3s ease-out;
   }
 
@@ -235,3 +236,6 @@ filter {
   text-transform: uppercase;
   letter-spacing: .3em;
 }
+
+
+

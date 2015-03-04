@@ -7,11 +7,11 @@
                 <span>filters</span>
             </a>
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-4">
-            <span class="catalog-header-icons search-icon" ng-hide="catalogHeaderCtrl.searchClicked"></span>
-            <input type="search" placeholder="Search..." ng-model="catalogHeaderCtrl.productSearch"
+        <div class="col-md-4 col-sm-4 col-xs-4" >
+                <span class="catalog-header-icons search-icon" ng-hide="catalogHeaderCtrl.searchClicked"></span>
+            <input type="search" placeholder="Search..."
                    ng-focus="catalogHeaderCtrl.searchClicked = true"
-                   ng-blur="catalogHeaderCtrl.searchClicked = false"/>
+                   ng-blur="catalogHeaderCtrl.searchClicked = false" ng-model="catalogHeaderCtrl.productSearch"/>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-4">
 
