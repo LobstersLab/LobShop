@@ -174,9 +174,16 @@ a{
     color: #d6cd9b;
   }
 }
+
 .product-icons{
+  color: #fffff7;
   font-family: LobShopIcons;
   font-size: 9.6rem;
+
+  &:hover{
+    color: #d6cd9b;
+  }
+
 }
 
 
