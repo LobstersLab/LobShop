@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .controller('OrderController', ['$scope', '$state', 'ShoppingCart', 'Identity', 'StatelineFactory',
-        function OrderController ($scope, $state, ShoppingCart, Identity, StatelineFactory) {
+    .controller('OrderController', ['$scope', '$state','$modal', 'ShoppingCart', 'Identity', 'StatelineFactory',
+        function OrderController ($scope, $state, $modal, ShoppingCart, Identity, StatelineFactory) {
             var self = this;
             var currentUser = Identity.getCurrentUser();
 
@@ -37,11 +37,30 @@ angular.module('shoppingCart')
 
             self.cart = ShoppingCart;
 
+            self.showPopup = function(message){
+                self.modalInstance = $modal.open({
+                    templateUrl: 'app/modules/shoppingCart/views/shoppingCartDialog.html',
+                    controller: 'ShoppingCartDialogController',
+                    controllerAs: 'shoppingCartDialogCtrl',
+                    resolve: {
+                        message: function () {
+                            return message;
+                        }
+                    }
+                });
+            };
+
             self.stateline = new StatelineFactory({
                 states: ['personalInfo', 'deliveryInfo', 'paymentInfo', 'confirm'],
                 baseState: 'order.',
                 scope: $scope,
                 callback: function () {
+                    ShoppingCart.checkoutOrder(self.order).then(function (message) {
+                            self.showPopup(message);
+                        }, function (error) {
+                            self.showPopup(error);
+                        }
+                    );
                 }
             });
         }

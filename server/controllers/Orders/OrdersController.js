@@ -160,7 +160,7 @@ var Orders = function(data){
 
     function createOrder (req, res){
         var validatedData = validateData(req);
-
+        console.log('data',validatedData);
         //TODO save userId to order if logged in
         if(validatedData.error){
             res.json({
@@ -233,6 +233,28 @@ var Orders = function(data){
                                 error: error
                             });
                         });
+                }else if (validatedData.paymentMethod == 'cash'){
+                    var paymentDataToUpdate = {
+                        payment: {
+                            method: 'cash'
+                        },
+                        status: 'cash_order'
+                    };
+
+                    updateOrderPayment(createdOrder._id, paymentDataToUpdate)
+                        .then(function (updatedOrderWithPayment) {
+                            res.json({
+                                success: true,
+                                message: 'Order created successfully!'
+                            });
+                        }, function (error) {
+                            res.json({
+                                success: false,
+                                message: 'Updating order with payment failed!',
+                                error:error
+                            });
+                        });
+
                 }
 
             },

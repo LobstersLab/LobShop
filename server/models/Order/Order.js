@@ -87,6 +87,7 @@ var OrderSchema = new Schema({
         enum: [
             'awaiting_payment',
             'paid',
+            'cash_order',
             'delivered'
         ]
     }

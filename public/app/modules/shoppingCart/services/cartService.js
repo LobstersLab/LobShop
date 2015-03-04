@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('shoppingCart')
-    .factory('ShoppingCart', ['$rootScope', '$window', '$http', '$state', '$location', 'Identity',
-        function ($rootScope, $window, $http, $state, $location, Identity) {
+    .factory('ShoppingCart', ['$rootScope', '$window','$q', '$http', '$state', '$location', 'Identity',
+        function ($rootScope, $window, $q, $http, $state, $location, Identity) {
             var self = this;
             var SHOPPING_CART_ITEMS_STORAGE = 'ShoppingCartItems';
 
@@ -137,6 +137,7 @@ angular.module('shoppingCart')
             }
 
             function checkoutOrder (formData) {
+                var deferred = $q.defer();
                 //Gather items ids
                 var items = getItems(),
                     itemIds = [],
@@ -156,11 +157,15 @@ angular.module('shoppingCart')
 
                         if (data.redirectUrl) {
                             $window.location = data.redirectUrl;
+                        }else{
+                            deferred.resolve(data.message)
                         }
                     }).
                     error(function(data, status, headers, config) {
+                        deferred.reject(data.message);
                         //TODO: Show error message
                     });
+                return deferred.promise;
             }
 
             return {
