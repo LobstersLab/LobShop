@@ -122,9 +122,9 @@
     </div>
 </ng-form>
 
-<div class="order-buttons">
+<div class="order-buttons text-center">
     <button class="btn btn-default" ui-sref="order.deliveryInfo">Back</button>
-    <button class="btn btn-info pull-right" ui-sref="order.confirm"
+    <button class="btn btn-info" ui-sref="order.confirm"
             ng-click="orderCtrl.stateline.completeState()"
             ng-disabled="orderCtrl.order.paymentMethod === 'credit-card' ? orderForm.creditCardInfoForm.$invalid : false">Next</button>
 </div>

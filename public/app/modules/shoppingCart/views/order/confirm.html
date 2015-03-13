@@ -35,7 +35,9 @@
     <label for="agreeTerms">I agree the <a href="terms">Terms & Conditions</a></label>
     <input type="checkbox" name="agreeTerms" ng-model="orderCtrl.order.agreeTerms"/><br/>
 </div>
-
+<div class="text-center">
 <button class="btn btn-default" ui-sref="order.paymentInfo">Back</button>
-<button class="btn btn-info pull-right" ng-disabled="!orderCtrl.order.agreeTerms"
+<button class="btn btn-info" ng-disabled="!orderCtrl.order.agreeTerms"
         ng-click="orderCtrl.stateline.completeState(true)">Confirm</button>
+    </div>
+

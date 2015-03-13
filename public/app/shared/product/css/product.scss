@@ -37,6 +37,7 @@
 }
 .product{
   padding-bottom: 60px;
+  margin-bottom: 4em;
 
   .product-category{
 
@@ -172,15 +173,22 @@
 /*  Icons  */
 a{
   text-decoration: none;
-  color: #fff;
+  color: #393b3e;
   &:hover{
     text-decoration: none;
     color: #d6cd9b;
   }
 }
+
 .product-icons{
+  color: #fffff7;
   font-family: LobShopIcons;
   font-size: 9.6rem;
+
+  &:hover{
+    color: #d6cd9b;
+  }
+
 }
 
 

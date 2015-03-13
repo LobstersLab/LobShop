@@ -32,7 +32,8 @@
   margin: 0 auto; }
 
 .product {
-  padding-bottom: 60px; }
+  padding-bottom: 60px;
+  margin-bottom: 4em; }
   .product .product-category {
     margin: 3em 0 0 5em; }
   .product .col-md-9, .product .col-md-8 {
@@ -127,14 +128,17 @@
 /*  Icons  */
 a {
   text-decoration: none;
-  color: #fff; }
+  color: #393b3e; }
   a:hover {
     text-decoration: none;
     color: #d6cd9b; }
 
 .product-icons {
+  color: #fffff7;
   font-family: LobShopIcons;
   font-size: 9.6rem; }
+  .product-icons:hover {
+    color: #d6cd9b; }
 
 .ornament-top-left {
   position: absolute;
