@@ -158,6 +158,7 @@ angular.module('shoppingCart')
                         if (data.redirectUrl) {
                             $window.location = data.redirectUrl;
                         }else{
+                            self.cartItems = [];
                             deferred.resolve(data.message)
                         }
                     }).

@@ -33,6 +33,11 @@ var ProductItemSchema = new Schema({
             trim: true
         }
     }],
+    count: {
+        type: Number,
+        default: 1,
+        min: 0
+    },
     brand: { type: Schema.Types.ObjectId, ref: 'ProductBrand' },
     assets: {
         images: [{

@@ -23,4 +23,12 @@
   .terms-hold h1 {
     margin-bottom: 50px; }
 
+.icons {
+  font-family: LobShopIcons;
+  color: #f9f6e6;
+  font-size: 2.1rem; }
+
+.menu-icon:before {
+  content: "\e60b"; }
+
 /*# sourceMappingURL=core.css.map */

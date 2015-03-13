@@ -194,6 +194,9 @@ var Orders = function(data){
 
                             updateOrderPayment(createdOrder._id, paymentDataToUpdate)
                                 .then(function (updatedOrderWithPayment) {
+
+                                    updateItemsCount(validatedData.items);
+
                                     res.json({
                                         success: true,
                                         message: 'Order payed with credit card and updated successfully!'
@@ -222,6 +225,8 @@ var Orders = function(data){
                             req.session.paymentId = paymentData.payment.id;
                             req.session.orderId = createdOrder._id;
 
+                            updateItemsCount(validatedData.items);
+
                             res.json({
                                 redirectUrl: paymentData.redirectUrl
                             });
@@ -243,6 +248,9 @@ var Orders = function(data){
 
                     updateOrderPayment(createdOrder._id, paymentDataToUpdate)
                         .then(function (updatedOrderWithPayment) {
+
+                            updateItemsCount(validatedData.items);
+
                             res.json({
                                 success: true,
                                 message: 'Order created successfully!'
@@ -266,6 +274,34 @@ var Orders = function(data){
                     error:error
                 });
             });
+    }
+
+    function updateItemsCount (items) {
+        console.log('Items: ', items);
+
+        items.forEach(function (itemId) {
+            data.products.getById(itemId)
+                .then(function (item) {
+                    var currentCount = item.count;
+                    var params = {
+                        id: itemId,
+                        updatesObject: {
+                            count: currentCount - 1
+                        }
+                    };
+
+                    data.products.updateProductById(params)
+                        .then(function () {
+                            // TODO: Do something if needed
+                        }, function () {
+                            console.log(error);
+                            // TODO: Handle error
+                        })
+                }, function (error) {
+                    console.log(error);
+                    // TODO: Handle error
+                });
+        });
     }
 
     function payOrderWithCreditCard (orderFormData, orderData) {

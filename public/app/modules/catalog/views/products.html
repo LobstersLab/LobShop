@@ -24,9 +24,11 @@
                             <div class="ornament-top-right"></div>
                             <div class="ornament-bottom-left"></div>
                             <div class="ornament-bottom-right"></div>
-                            <a ng-click="catalogCtrl.buyItem(product)">
-                                <figure class="product-icons shoppig-bag"></figure>
+                            <a ng-click="catalogCtrl.buyItem(product)"
+                               ng-if="product.count > 0">
+                                <figure class="product-icons shopping-bag"></figure>
                             </a>
+                            <h3 ng-if="product.count === 0">SOLD OUT</h3>
                             <hr/>
                             <a class="" ng-click="catalogCtrl.openProductDetails(product)">
                                 <figure class="product-icons product-details-icon"></figure>

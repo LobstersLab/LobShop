@@ -1,9 +1,9 @@
 <sub-header></sub-header>
-<div class="content">
+<div class="content dashboard">
     <ul class="nav nav-tabs">
         <li ng-class="{active: dashboardCtrl.isActiveTab(1)}"><a ui-sref=".products" ng-click="dashboardCtrl.selectTab(1)">Products</a></li>
         <li ng-class="{active: dashboardCtrl.isActiveTab(2)}"><a ui-sref=".orders" ng-click="dashboardCtrl.selectTab(2)">Orders</a></li>
         <li ng-class="{active: dashboardCtrl.isActiveTab(3)}"><a ui-sref=".categories" ng-click="dashboardCtrl.selectTab(3)">Categories</a></li>
     </ul>
-    <div ui-view></div>
+    <div ui-view class="dashboard-view"></div>
 </div>

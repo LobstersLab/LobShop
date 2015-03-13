@@ -48,6 +48,16 @@ progress-bar {
   }
 }
 
+.dashboard {
+  & > ul > li > a {
+    color: #555;
+  }
+}
+
+.dashboard-view {
+  background-color: white;
+}
+
 .dashboard-container {
   padding: 20px;
 

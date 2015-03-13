@@ -102,6 +102,8 @@
     display: block; }
   .product-overlay .product-icons {
     margin: 0; }
+  .product-overlay h3 {
+    color: #FFF; }
 
 /** labels  **/
 .label-purple {
