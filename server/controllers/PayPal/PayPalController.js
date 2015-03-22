@@ -124,10 +124,7 @@ var PayPalController = function(data) {
                         // Here the payment is executed and the order is updated
                         // Send some data to the client or redirect
 
-                        res.json({
-                            success: true,
-                            message: "PayPal payment succeeded"
-                        });
+                        res.redirect('/#!/successful-payment');
                     },
                     //Error updating order with payment info
                     function (error) {

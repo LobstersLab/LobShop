@@ -30,6 +30,10 @@ angular.module('core')
                     templateUrl: 'app/modules/core/views/contacts.html',
                     controller: 'ContactsController',
                     controllerAs: 'contactsCtrl'
+                })
+                .state('successful-payment', {
+                    url: '/successful-payment',
+                    templateUrl: 'app/modules/core/views/successful-payment.html'
                 });
         }
     ]);
