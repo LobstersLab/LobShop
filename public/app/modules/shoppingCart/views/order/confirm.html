@@ -1,14 +1,14 @@
 <div class="text-center">
-    <h1>Confirm</h1>
+    <h1>Confirmation</h1>
     <div class="row">
         <div class="col-md-6">
-            <h4>Personal Info</h4>
+            <h4><strong>Personal Information</strong></h4>
             <div>{{orderCtrl.order.firstname}} {{orderCtrl.order.lastname}}</div>
             <div>{{orderCtrl.order.email}}</div>
             <div>{{orderCtrl.order.phoneNumber}}</div>
         </div>
         <div class="col-md-6">
-            <h4>Delivery Info</h4>
+            <h4><strong>Delivery Information</strong></h4>
             <div>{{orderCtrl.order.country}}, {{orderCtrl.order.city}}</div>
             <div>{{orderCtrl.order.address}}</div>
             <div>{{orderCtrl.order.postalCode}}</div>
@@ -17,8 +17,8 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h4>Payment Info</h4>
-            <span>{{orderCtrl.order.paymentMethod}}</span>
+            <h4><strong>Payment Information</strong></h4>
+            <span>With {{orderCtrl.order.paymentMethod}}</span>
             <div ng-if="orderCtrl.order.paymentMethod == 'credit-card'">
                 <div>{{orderCtrl.order.cardType}}</div>
                 <div>{{orderCtrl.order.cardNumber}}</div>
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h4>Total Price</h4>
+            <h4><strong>Total Price</strong></h4>
             <span>{{orderCtrl.cart.getTotal() | currency}}</span>
         </div>
     </div>

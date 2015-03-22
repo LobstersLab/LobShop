@@ -153,12 +153,12 @@ angular.module('shoppingCart')
 
                 $http.post('/api/orders', formData).
                     success(function(data, status, headers, config) {
-                        //TODO: Redirect to the 'Congratulations' state
+                        self.cartItems = [];
+                        $window.localStorage.setItem(SHOPPING_CART_ITEMS_STORAGE, JSON.stringify([]));
 
                         if (data.redirectUrl) {
                             $window.location = data.redirectUrl;
                         }else{
-                            self.cartItems = [];
                             deferred.resolve(data.message)
                         }
                     }).

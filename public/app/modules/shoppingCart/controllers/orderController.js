@@ -55,8 +55,10 @@ angular.module('shoppingCart')
                 baseState: 'order.',
                 scope: $scope,
                 callback: function () {
-                    ShoppingCart.checkoutOrder(self.order).then(function (message) {
-                            self.showPopup(message);
+                    ShoppingCart.checkoutOrder(self.order)
+                        .then(function (message) {
+                            //self.showPopup(message);
+                            $state.go('successful-payment');
                         }, function (error) {
                             self.showPopup(error);
                         }

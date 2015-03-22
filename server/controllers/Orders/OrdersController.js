@@ -286,7 +286,7 @@ var Orders = function(data){
                     var params = {
                         id: itemId,
                         updatesObject: {
-                            count: currentCount - 1
+                            count: currentCount > 0 ? currentCount - 1 : 0
                         }
                     };
 
