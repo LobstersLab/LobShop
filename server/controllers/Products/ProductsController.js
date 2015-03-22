@@ -36,12 +36,12 @@ module.exports = function (data) {
             //Price is mandatory
 
             var busboy = new Busboy({ headers: req.headers }),
-                productData = {
-                    assets : []
-                };
+                productData = {};
 
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-
+                if(!productData.assets){
+                    productData.assets = [];
+                }
                 var uuidFilename = uuid() + filename;
                 var saveToPath = config.storageDir + 'products/images/';
                 var saveToImageName = path.basename(uuidFilename);
@@ -86,6 +86,7 @@ module.exports = function (data) {
             });
 
             busboy.on('finish', function() {
+                console.log(productData);
                 data.products.create(productData)
                     .then(function (createdProduct) {
                         res.json({
@@ -104,11 +105,11 @@ module.exports = function (data) {
         },
         updateById: function (req, res) {
             var busboy = new Busboy({ headers: req.headers }),
-                productData = {
-                    assets : []
-                };
+                productData = {};
             busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-
+                if(!productData.assets){
+                    productData.assets = [];
+                }
                 var uuidFilename = uuid() + filename;
                 var saveToPath = config.storageDir + 'products/images/';
                 var saveToImageName = path.basename(uuidFilename);

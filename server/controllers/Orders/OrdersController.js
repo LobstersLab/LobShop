@@ -160,7 +160,6 @@ var Orders = function(data){
 
     function createOrder (req, res){
         var validatedData = validateData(req);
-        console.log('data',validatedData);
         //TODO save userId to order if logged in
         if(validatedData.error){
             res.json({
@@ -239,9 +238,11 @@ var Orders = function(data){
                             });
                         });
                 }else if (validatedData.paymentMethod == 'cash'){
+                    console.log(validatedData);
                     var paymentDataToUpdate = {
                         payment: {
-                            method: 'cash'
+                            method: 'cash',
+                            paymentInfo: validatedData
                         },
                         status: 'cash_order'
                     };

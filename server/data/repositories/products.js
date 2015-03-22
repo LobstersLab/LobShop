@@ -120,20 +120,18 @@ function updateProductById (params) {
     if(updatesObject.name){
         updatesObject.lname = updatesObject.name.toLowerCase();
     }
+    Product.findByIdAndUpdate(id, updatesObject, function (error, updatedProduct){
+        if (error) {
+            deferred.reject(error);
+            return deferred.promise;
+        }
 
-        Product.findByIdAndUpdate(id, updatesObject, function (error, updatedProduct){
-            if (error) {
-                deferred.reject(error);
-                return deferred.promise;
-            }
+        updateSummaryById(id, updatesObject)
+            .then(function (updatedSummary){
+                deferred.resolve(updatedSummary);
+            });
 
-            updateSummaryById(id, updatesObject)
-                .then(function (updatedSummary){
-                    deferred.resolve(updatedSummary);
-                });
-
-        });
-
+    });
 
     return deferred.promise;
 }
@@ -218,7 +216,9 @@ function updateSummaryById (id, updateObject){
         delete updateObject.price;
 
         // TODO: updates on only one images will override all the images in the summary. Fix this
-        updateObject.images = updateObject.assets;
+        if(updateObject.assets){
+            updateObject.images = updateObject.assets;
+        }
 
         Summary.findByIdAndUpdate(id, updateObject , function (error, updatedSummary){
             if (error) {
