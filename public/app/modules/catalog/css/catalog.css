@@ -59,6 +59,7 @@ filter {
     margin: 0 0 -4px 10px;
     vertical-align: text-bottom; }
   filter .select {
+    color: #d6cd9b;
     width: 100%;
     padding: .625em;
     background: transparent;

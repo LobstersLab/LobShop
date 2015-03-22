@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('product')
-    .controller('ProductController', ['$stateParams', '$window', '$modal', 'ProductsResource', 'CategoriesResource', 'ShoppingCart',
-        function ProductController ($stateParams, $window, $modal, ProductsResource, CategoriesResource, ShoppingCart) {
+    .controller('ProductController', ['$stateParams', '$window', '$state', '$modal', 'ProductsResource', 'CategoriesResource', 'ShoppingCart',
+        function ProductController ($stateParams, $window, $state, $modal, ProductsResource, CategoriesResource, ShoppingCart) {
             var self = this;
 
             self.cart = ShoppingCart;

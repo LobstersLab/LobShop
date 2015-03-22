@@ -9,6 +9,10 @@ angular.module('catalog')
 
             self.predicate = '';
             self.priceSlider = 0;
+            self.showPrice = true;
+            self.showYear = true;
+            self.showAge = true;
+            self.showLot = true;
 
             self.priceRange = {
                 min: 0,

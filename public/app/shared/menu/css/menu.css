@@ -79,7 +79,8 @@ menu {
 .close-cross {
   float: right;
   font-weight: 800;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #FFF; }
 
 /**  icons **/
 .profile-holder {

@@ -1,4 +1,5 @@
 <div class="filter-box no-select" ng-cloak>
+    <figure class="close-cross" ng-click="menuCtrl.filterToggle = false">&#10005</figure>
     <div class="category push-down" ng-click="filterCtrl.showPrice = !filterCtrl.showPrice">
         <span ng-class="{'collapse-arrow': filterCtrl.showPrice, 'expanded-arrow': !filterCtrl.showPrice}"></span>
         price
@@ -75,12 +76,14 @@
         <span ng-class="{'collapse-arrow': filterCtrl.showAge, 'expanded-arrow': !filterCtrl.showAge}"></span>age
     </div>
 
+    <!--ng-options="category._id as category.name for category in filterCtrl.categories"-->
+
     <div class="categoty-container" ng-show="filterCtrl.showAge">
         <select class="select" id="productCategory"
-                ng-options="category._id as category.name for category in filterCtrl.categories"
                 ng-model="filterCtrl.filterCategory"
                 ng-change="filterCtrl.filterByCategory()">
             <option value="">All</option>
+            <option ng-repeat="(key,val) in filterCtrl.categories" value="{{val._id}}">{{val.name}} ({{val.count}})</option>
         </select>
     </div>
     <div class="category push-down" ng-click="filterCtrl.showLot = !filterCtrl.showLot">

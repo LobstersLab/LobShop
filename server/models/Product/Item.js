@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Brand = require('./Brand');
+var Category = require('./Category');
 var Q = require('q');
 
 var ProductItemSchema = new Schema({
@@ -97,13 +97,25 @@ var ProductItemSchema = new Schema({
     }
 });
 
-//ProductItemSchema.methods.getPrice = function (callback) {
-//    return this.model('ProductPrice').findById(this._id,callback);
-//};
-
 ProductItemSchema.set('toJSON', {
     virtuals: true
 });
 
+ProductItemSchema.pre('save', function (next) {
+    var categoryId = this.category.split('/')[0];
+
+    Category.findById(categoryId, function (error, category) {
+        if (error) {
+            next();
+            return;
+        }
+
+        category.count++;
+
+        category.save();
+    });
+
+    next();
+});
 
 module.exports = mongoose.model('ProductItem', ProductItemSchema);
