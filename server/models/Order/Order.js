@@ -90,6 +90,14 @@ var OrderSchema = new Schema({
             'cash_order',
             'delivered'
         ]
+    },
+    updated: {
+        type: Date,
+        default: Date.now
+    },
+    created: {
+        type: Date,
+        default: Date.now
     }
 });
 

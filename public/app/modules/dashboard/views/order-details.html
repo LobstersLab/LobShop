@@ -41,10 +41,22 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
+
                 <div class="panel-heading">
                     <h3 class="panel-title">Payment</h3>
                 </div>
-                <div class="panel-body">
+
+                <div class="panel-body" ng-if="orderDetailsCtrl.order.payment.method === 'cash'">
+                    <div><strong>Payment method: </strong>{{orderDetailsCtrl.order.payment.method}}</div>
+                    <div><strong>Created on: </strong>{{orderDetailsCtrl.order.created | date}}</div>
+                    <div><strong>Updated on: </strong>{{orderDetailsCtrl.order.updated | date}}</div>
+                    <div><strong>Payer name: </strong>{{orderDetailsCtrl.order.payment.paymentInfo.userInfo.firstName + ' ' + orderDetailsCtrl.order.payment.paymentInfo.userInfo.lastName}}</div>
+                    <div><strong>Payer email: </strong>{{orderDetailsCtrl.order.payment.paymentInfo.userInfo.email}}</div>
+                    <div><strong>Currency: </strong>{{orderDetailsCtrl.order.payment.paymentInfo.transactions[0].amount.currency}}</div>
+                    <div><strong>Total: </strong>{{orderDetailsCtrl.order.payment.paymentInfo.total | currency}}</div>
+                </div>
+
+                <div class="panel-body" ng-if="orderDetailsCtrl.order.payment.method !== 'cash'">
                     <div><strong>Payment method: </strong>{{orderDetailsCtrl.order.payment.method}}</div>
                     <div><strong>Created on: </strong>{{orderDetailsCtrl.order.payment.paymentInfo['create_time'] | date}}</div>
                     <div><strong>Updated on: </strong>{{orderDetailsCtrl.order.payment.paymentInfo['update_time'] | date}}</div>

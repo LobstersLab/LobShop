@@ -19,7 +19,7 @@ angular.module('dashboard')
                         categoriesIds.push(self.order.items[i]);
                         i++;
                     }
-                    ProductsResource.getProductsById(categoriesIds)
+                    ProductsResource.getProductById(categoriesIds)
                         .then(function (product) {
                             self.orderItems.push(product);
                         }, function (error) {
