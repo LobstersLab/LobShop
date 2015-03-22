@@ -9,6 +9,7 @@ angular.module('catalog')
 
             self.cancelBuyedItemDialog = function () {
                 $modalInstance.close();
+                $state.go('home');
             };
 
             self.continueToShoppingCart = function () {

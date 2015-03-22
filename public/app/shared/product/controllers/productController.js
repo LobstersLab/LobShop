@@ -53,5 +53,22 @@ angular.module('product')
                 //    }
                 //});
             };
+
+            self.buyItem = function (product) {
+                ShoppingCart.insertItem(product);
+
+                product.inShoppingCart = true;
+
+                self.modalInstance = $modal.open({
+                    templateUrl: 'app/modules/catalog/views/buyedItemDialog.html',
+                    controller: 'BuyedItemDialogController',
+                    controllerAs: 'buyedItemDialogCtrl',
+                    resolve: {
+                        product: function () {
+                            return product;
+                        }
+                    }
+                });
+            };
         }
     ]);
