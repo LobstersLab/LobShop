@@ -15,12 +15,15 @@
                 </div>
             </div>
         </div>
-        <div ng-repeat="cartItem in shoppingCartCtrl.cart.getItems()">
+        <div ng-repeat="cartItem in shoppingCartCtrl.cart.getItems() track by cartItem.id">
             <div class="row cart-item text-center">
-                <img class="img-responsive col-xs-12 col-md-3" src="assets/images/CoinBack.jpg" alt=""/>
+                <figure class="clearfix col-xs-12 col-md-3">
+                    <img class="img-responsive pull-left catalog-image" ng-src="{{cartItem.item.images[0].src}}" alt=""/>
+                    <img class="img-responsive pull-right catalog-image" ng-src="{{cartItem.item.images[1].src}}" alt=""/>
+                </figure>
 
-                <div class="col-md-9">
-                    <div class="col-md-5">
+                <div class="col-md-9 cart-item-info">
+                    <div class="col-md-5 cart-item-title">
                         {{cartItem.item.name}}
                     </div>
                     <div class="col-md-1">
@@ -30,7 +33,7 @@
                         {{cartItem.item.price.value | currency}}
                     </div>
                     <div class="col-md-1">
-                        <a class="delete-icon" ng-click="shoppingCartCtrl.cart.removeItem(cartItem)">Delete</a>
+                        <a class="btn btn-primary" ng-click="shoppingCartCtrl.cart.removeItem(cartItem)">Delete</a>
                     </div>
                 </div>
             </div>

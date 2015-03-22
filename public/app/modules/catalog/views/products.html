@@ -70,13 +70,13 @@
                             <img class="img-responsive pull-right catalog-image" ng-src="{{product.images[1].src}}" alt=""/>
                         </figure>
                         <div>
-                            <p>
+                            <p class="product-title">
                                 <span class="card-label label-purple">Title:</span>
-                                <strong >{{ product.name }}</strong>
+                                <strong >{{ product.name | limitTo: 46 }}</strong><span ng-if="product.name.length >= 46">...</span>
                             </p>
 
                             <p class="coin-description">
-                                {{ product.description[0].value | limitTo : 30}}...
+                                {{ product.description[0].value | limitTo : 30}}<span ng-if="product.description[0].value.length >= 30">...</span>
                             </p>
                         </div>
                         <!--/.div-->

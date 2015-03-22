@@ -25,6 +25,8 @@
 .shopping-cart {
   width: 90%;
   padding: 4em 0; }
+  .shopping-cart .grid-header {
+    font-family: "Rockwell Regular"; }
   .shopping-cart .push {
     margin-top: 3em; }
   .shopping-cart hr {
@@ -40,6 +42,14 @@
 
 .cart-item {
   padding: 2em 0; }
+  .cart-item figure {
+    background-color: #FFF;
+    border: 1px solid #E0DAB4;
+    padding: 10px; }
+  .cart-item .cart-item-title {
+    font-style: italic; }
+  .cart-item .cart-item-info {
+    padding-top: 3.12em; }
 
 .order-wrap {
   margin-top: 5em; }
