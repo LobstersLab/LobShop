@@ -37,6 +37,7 @@ angular.module('shoppingCart')
 
             self.cart = ShoppingCart;
 
+
             self.showPopup = function(message){
                 self.modalInstance = $modal.open({
                     templateUrl: 'app/modules/shoppingCart/views/shoppingCartDialog.html',
