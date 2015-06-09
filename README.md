@@ -1,4 +1,4 @@
-Kir's Auction
+LobShop
 ===========
 
 Shopping cart and an auction system
